@@ -1,8 +1,8 @@
 package Player;
 
-import Field.*;
+import Field.Field;
 
-public class Eskimo extends Player {
+public class Researcher extends Player {
     @Override
     public int UseAbility(Field f){return 0;}
 
