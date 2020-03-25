@@ -1,9 +1,13 @@
 package Field;
 
-public class Field {
+import Player.*;
+
+
+abstract class Field {
     private int layerOfSnow;
     private int limit;
     private Player[] players;
+
 
     public void Accept(Player p){
 
@@ -13,9 +17,9 @@ public class Field {
 
     }
 
-    public Item RemoveItem(){
+    //public Item RemoveItem(){
 
-    }
+    //}
 
 
 

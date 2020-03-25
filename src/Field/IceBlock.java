@@ -1,5 +1,5 @@
 package Field;
 
-public class IceBlock {
+public class IceBlock extends Field {
 
 }
