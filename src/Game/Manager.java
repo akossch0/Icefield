@@ -14,7 +14,7 @@ public class Manager {
     }
 
     public static void Start(){
-;
+
     }
 
     public static void Lose(){
