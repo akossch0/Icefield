@@ -3,7 +3,7 @@ package Field;
 import Player.*;
 import Item.*;
 
-abstract class Field {
+public abstract class Field {
     private int layerOfSnow;
     private int limit;
     private Player[] players;
@@ -18,7 +18,7 @@ abstract class Field {
     }
 
     public Item RemoveItem(){
-
+        return null;
     }
 
 
