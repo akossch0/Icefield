@@ -1,0 +1,22 @@
+package Field;
+
+public class Field {
+    private int layerOfSnow;
+    private int limit;
+    private Player[] players;
+
+    public void Accept(Player p){
+
+    }
+
+    public void Remove(Player p){
+
+    }
+
+    public Item RemoveItem(){
+
+    }
+
+
+
+}
