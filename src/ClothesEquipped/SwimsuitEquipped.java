@@ -9,7 +9,7 @@ public class SwimsuitEquipped implements ClothesEquipped {
      */
     @Override
     public boolean isWaterproof() {
-        Skeleton.Called("isWaterproof");
+        Skeleton.Called(this,"isWaterproof");
         Skeleton.Return();
         return true;
     }

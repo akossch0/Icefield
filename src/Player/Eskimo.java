@@ -3,6 +3,7 @@ package Player;
 import Field.*;
 import Skeleton.Skeleton;
 
+
 public class Eskimo extends Player {
 
     /**
@@ -11,7 +12,7 @@ public class Eskimo extends Player {
      */
     @Override
     public int UseAbility(Field f){
-        Skeleton.Called("Eskimo-UseAbility");
+        Skeleton.Called(this,"Eskimo-UseAbility");
         Skeleton.Return();
 
         return 0;

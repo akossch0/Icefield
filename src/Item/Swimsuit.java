@@ -10,7 +10,7 @@ public class Swimsuit extends Item {
      */
     @Override
     public void Use(Player p){
-        Skeleton.Called("Swimsuit-Use");
+        Skeleton.Called(this,"Swimsuit-Use");
         Skeleton.Return();
     }
 }

@@ -14,7 +14,7 @@ public abstract class Item {
      * @param p a player akin az item hasznalva lesz (megegyezhet a haszan,lojaval is)
      */
     public void Use(Player p){
-        Skeleton.Called("Item-Use");
+        Skeleton.Called(this,"Item-Use");
         Skeleton.Return();
     }
 
@@ -23,7 +23,10 @@ public abstract class Item {
      * @param p az uj tulajdonosa az itemnek
      */
     public void setHolder(Player p){
-        Skeleton.Called("Item-setHolder");
+        Skeleton.Called(this,"Item-setHolder");
         Skeleton.Return();
+    }
+    public Player getHolder(){
+        return holder;
     }
 }

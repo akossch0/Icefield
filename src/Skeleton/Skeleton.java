@@ -2,6 +2,7 @@ package Skeleton;
 
 
 
+import Field.*;
 import Item.*;
 import Player.*;
 
@@ -14,12 +15,10 @@ public class Skeleton {
     static HashMap<Object,String> names;
     public static void Initialise(){
         names = new HashMap<>();
-        names.put(Rope.class,"Rope");
-        names.put(Item.class,"Item");
     }
     public static void Called(Object object,String FuncHeader){
         for (int i = 0;i<n;i++) System.out.print("\t");
-        System.out.println(names.get(object)+" "+FuncHeader);
+        System.out.println(names.get(object)+":"+FuncHeader+"()");
         n++;
     }
 
@@ -31,12 +30,24 @@ public class Skeleton {
         Player player = new Eskimo();
         Player target = new Researcher();
         Item rope = new Rope();
+        Field mezo = new IceBlock();
+
+        names.put(player,"EskimoPlayer");
+        names.put(target,"ResearcherTarget");
+        names.put(rope,"RopeItem");
+
         player.AcceptItem(rope);
+        player.Step(mezo);
+
         try {
             Runtime.getRuntime().exec("cls");
-        }catch(Exception e){ }
+        }catch(Exception e){
+            System.out.println("Nem lehetett törölni a console-t");
+        }
+
 
         player.UseItem(rope,target);
+
     }
     public static void Question(){
         String input;

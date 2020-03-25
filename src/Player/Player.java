@@ -34,7 +34,7 @@ public class Player {
      * @return Ha Researcher hivja meg akkor ter vissza fontos szammal, ha Eszkimo akkor 0 a visszateresi ertek
      */
     public int UseAbility (Field f){
-        Skeleton.Called("UseAbility");
+        Skeleton.Called(this, "UseAbility");
         Skeleton.Return();
         return 0;}
 
@@ -42,7 +42,7 @@ public class Player {
      * Noveli a player HP-jat 1 el
      */
     public void IncrHp(){
-        Skeleton.Called("IncrHp");
+        Skeleton.Called(this, "IncrHp");
         Skeleton.Return();
     }
 
@@ -50,7 +50,7 @@ public class Player {
      * CSokkenti a player HP-jat  1 el
      */
     public void DecrHp(){
-        Skeleton.Called("DecrHp");
+        Skeleton.Called(this,"DecrHp");
         Skeleton.Return();
     }
 
@@ -59,14 +59,15 @@ public class Player {
      * @param f A mezo amire a player lep
      */
     public void Step(Field f){
-        Skeleton.Called("Step");
+        Skeleton.Called(this,"Step");
+
         Skeleton.Return();}
 
     /**
      * Ezzel a metodussal a player ellapatol egy kevés havat a mezorol amin all
      */
     public void Dig(){
-        Skeleton.Called("Dig");
+        Skeleton.Called(this,"Dig");
         Skeleton.Return();
     }
 
@@ -74,7 +75,7 @@ public class Player {
      * @return Visszaadja a mezot amin a player all
      */
     public Field getField(){
-        Skeleton.Called("getField");
+        Skeleton.Called(this,"getField");
         Skeleton.Return();return null;}
 
     /**
@@ -82,7 +83,8 @@ public class Player {
      * @param target a player amin az item hasznalva lesz (pl rope)
      */
     public void UseItem(Item i, Player target){
-        Skeleton.Called("UseItem");
+        Skeleton.Called(this,"UseItem");
+        i.Use(target);
         Skeleton.Return();
     }
 
@@ -90,7 +92,7 @@ public class Player {
      * A player ezzel a metodussal felveszi a mezojen talalhato itemet
      */
     public void PickUpItem(){
-        Skeleton.Called("PickUpItem");
+        Skeleton.Called(this,"PickUpItem");
         Skeleton.Return();
     }
 
@@ -98,7 +100,7 @@ public class Player {
      * @param c a ruha amit a player felvesz magara
      */
     public void setClothes(ClothesEquipped c){
-        Skeleton.Called("setClothes");
+        Skeleton.Called(this,"setClothes");
         Skeleton.Return();
     }
 
@@ -106,7 +108,7 @@ public class Player {
      *  A menedzser kozli a playerrel, hogy az o kore kovetkezik
      */
     public void yourTurn(){
-        Skeleton.Called("yourTurn");
+        Skeleton.Called(this,"yourTurn");
         Skeleton.Return();
     }
 
@@ -115,7 +117,7 @@ public class Player {
      * @param i az item amit elvesznek
      */
     public void RemoveItem(Item i){
-        Skeleton.Called("RemoveItem");
+        Skeleton.Called(this,"RemoveItem");
         Skeleton.Return();
     }
 
@@ -123,7 +125,7 @@ public class Player {
      * @return visszater azzal, hogy a player vizbe van-e esve
      */
     public boolean isWaterproof(){
-        Skeleton.Called("isWaterproof");
+        Skeleton.Called(this,"isWaterproof");
         Skeleton.Return();
         return true;}
 
@@ -132,7 +134,12 @@ public class Player {
      * @param i az item amit elfogad
      */
     public void AcceptItem(Item i){
-        Skeleton.Called("AcceptItem");
+        Skeleton.Called(this,"AcceptItem");
+        i.setHolder(this);
+        Skeleton.Return();
+    }
+    public void setInWater(boolean inWater){
+        Skeleton.Called(this,"setInWater");
         Skeleton.Return();
     }
 

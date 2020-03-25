@@ -9,6 +9,6 @@ public class Spade extends Item {
      */
     @Override
     public void Use(Player p){
-        Skeleton.Called("Spade-Use");
+        Skeleton.Called(this,"Spade-Use");
         Skeleton.Return();}
 }

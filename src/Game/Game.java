@@ -31,7 +31,7 @@ public final class Game {
      * elinditja a jatekot
      */
     public void StartGame(){
-        Skeleton.Called("StartGame()");
+        Skeleton.Called(this,"StartGame()");
         InitMap();
         Manager.Start();
         Skeleton.Return();
@@ -41,7 +41,7 @@ public final class Game {
      * inicializalja a jatekteret, vagyis beallitja a jegtablak es targyak elhelyezkedeset
      */
     public void InitMap(){
-        Skeleton.Called("InitMap()");
+        Skeleton.Called(this,"InitMap()");
         Skeleton.Return();
     }
 
