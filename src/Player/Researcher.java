@@ -1,6 +1,7 @@
 package Player;
 
 import Field.Field;
+import Skeleton.Skeleton;
 
 public class Researcher extends Player {
     /**
@@ -8,6 +9,9 @@ public class Researcher extends Player {
      * @return visszater a mezo teherbiro kepessegevel
      */
     @Override
-    public int UseAbility(Field f){return 0;}
+    public int UseAbility(Field f){
+        Skeleton.Called("Researcher-UseAbility");
+        Skeleton.Return();
+        return 0;}
 
 }
