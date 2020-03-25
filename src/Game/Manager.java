@@ -18,7 +18,7 @@ public class Manager {
     }
 
     public static void Lose(){
-
+;
     }
 
 
