@@ -49,12 +49,29 @@ public class Skeleton {
         player.UseItem(rope,target);
 
     }
-    public static void Question(){
+    public static boolean Question(){
         String input;
 
         BufferedReader obj = new BufferedReader(new InputStreamReader((System.in)));
-        /*    Majd még ki kell egészíteni*/
+        try{input = obj.readLine();
+            switch(input.charAt(0)) {
+                case 'y':
+                case 'Y':
+                    return true;
+                case'n':
+                case'N':
+                    return false;
+                default:
+                    return false;
+            }
 
+
+
+        }catch (Exception e){
+            System.out.print("Input Failed");
+
+        }
+        return false;
     }
 
 }
