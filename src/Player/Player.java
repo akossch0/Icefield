@@ -1,4 +1,5 @@
 package Player;
+import ClothesEquipped.*;
 import Item.*;
 import Field.*;
 
@@ -21,7 +22,7 @@ public class Player {
     public Field getField(){return null;}
     public void UseItem(Item i, Player target){}
     public void PickUpItem(){}
-    public void setClothes(ColthesEquipped c){}
+    public void setClothes(ClothesEquipped c){}
     public void yourTurn(){}
     public void RemoveItem(Item i){}
     public boolean isWaterproof(){return true;}
