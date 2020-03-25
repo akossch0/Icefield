@@ -1,5 +1,7 @@
 package Player;
+
 import ClothesEquipped.*;
+import Game.*;
 import Item.*;
 import Field.*;
 
