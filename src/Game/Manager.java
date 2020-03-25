@@ -7,7 +7,15 @@ import java.util.*;
 
 public final class Manager {
     private Game game = null;
+
+    /**
+     * a jatekban szereplo jatekosok
+     */
     private List<Player> players = new ArrayList<>();
+
+    /**
+     * az idojaras melynek felelossege a vihar lebonyolitasa
+     */
     private Weather weather = null;
     private static Manager INSTANCE;
 
@@ -18,9 +26,19 @@ public final class Manager {
         return INSTANCE;
     }
 
+    /**
+     *
+     * @param i    a targy ami
+     */
     public static void addItem(Item i){}
 
+    /**
+     * elinditja a jatekosok lepeseit
+     */
     public static void Start(){}
 
-    public static void Lose(){ }
+    /**
+     * jatekos halalanal hivodik
+     */
+    public static void Lose(){}
 }
