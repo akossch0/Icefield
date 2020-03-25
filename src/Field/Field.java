@@ -1,7 +1,7 @@
 package Field;
 
 import Player.*;
-
+import Item.*;
 
 abstract class Field {
     private int layerOfSnow;
@@ -17,9 +17,9 @@ abstract class Field {
 
     }
 
-    //public Item RemoveItem(){
+    public Item RemoveItem(){
 
-    //}
+    }
 
 
 
