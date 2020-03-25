@@ -11,7 +11,7 @@ public class IceBlock extends Field {
 
     @Override
     public Item RemoveItem(){
-
+        return null;
     }
 
     public void Gloo(Coverable c){

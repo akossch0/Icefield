@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
-
     private Field field = null;
     private Manager manager = null;
     private List<Item> items = new ArrayList<Item>();
