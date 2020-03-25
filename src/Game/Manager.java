@@ -32,7 +32,7 @@ public final class Manager {
      * @param i a targy amit a jatekos atad a managernek a jatek megnyeresehez
      */
     public static void addItem(Item i){
-        Skeleton.Called("addItem");
+        Skeleton.Called(getInstance(),"addItem");
         Skeleton.Return();
     }
 
@@ -40,7 +40,7 @@ public final class Manager {
      * elinditja a jatekosok lepeseit
      */
     public static void Start(){
-        Skeleton.Called("Start()");
+        Skeleton.Called(getInstance(),"Start()");
         Skeleton.Return();
     }
 
@@ -48,7 +48,7 @@ public final class Manager {
      * jatekos halalanal hivodik
      */
     public static void Lose(){
-        Skeleton.Called("Lose()");
+        Skeleton.Called(getInstance(),"Lose()");
         Skeleton.Return();
     }
 }

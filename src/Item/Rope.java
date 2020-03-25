@@ -10,7 +10,7 @@ public class Rope extends Item {
      */
     @Override
     public void Use(Player p){
-        Skeleton.Called(this,"Rope-Use");
+        Skeleton.Called(this,"Use");
         p.Step(null);
         p.setInWater(false);
         Skeleton.Return();

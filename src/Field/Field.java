@@ -25,7 +25,7 @@ public abstract class Field {
      * @param p
      */
     public void Accept(Player p){
-        Skeleton.Called("Accept");
+        Skeleton.Called(this,"Accept");
         Skeleton.Return();
     }
 
@@ -34,7 +34,7 @@ public abstract class Field {
      * @param p
      */
     public void Remove(Player p){
-        Skeleton.Called("Remove");
+        Skeleton.Called(this,"Remove");
         Skeleton.Return();
     }
 
@@ -43,7 +43,7 @@ public abstract class Field {
      * @return
      */
     public Item RemoveItem(){
-        Skeleton.Called("RemoveItem");
+        Skeleton.Called(this,"RemoveItem");
         Skeleton.Return();
         return null;
     }
@@ -53,7 +53,7 @@ public abstract class Field {
      * @return
      */
     public List<Player> getPlayers() {
-        Skeleton.Called("getPlayers");
+        Skeleton.Called(this,"getPlayers");
         Skeleton.Return();
         return players;
     }
@@ -62,7 +62,7 @@ public abstract class Field {
      * Megnoveli a mezon levo horetegek szamat.
      */
     public void IncrLayerOfSnow(){
-        Skeleton.Called("IncrLayerOfSnow");
+        Skeleton.Called(this,"IncrLayerOfSnow");
         Skeleton.Return();
     }
 
@@ -71,7 +71,7 @@ public abstract class Field {
      * @param n
      */
     public void DecrLayerOfSnow(int n){
-        Skeleton.Called("DecrLayerOfSnow");
+        Skeleton.Called(this,"DecrLayerOfSnow");
         Skeleton.Return();
     }
 
@@ -80,7 +80,7 @@ public abstract class Field {
      * @return
      */
     public int getCapacity(){
-        Skeleton.Called("getCapacity");
+        Skeleton.Called(this,"getCapacity");
         Skeleton.Return();
         return 0;
     }
@@ -91,7 +91,7 @@ public abstract class Field {
      * @return
      */
     public boolean IsCovered(){
-        Skeleton.Called("IsCovered");
+        Skeleton.Called(this,"IsCovered");
         Skeleton.Return();
         return false;
     }

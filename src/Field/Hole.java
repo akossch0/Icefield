@@ -12,7 +12,7 @@ public class Hole extends Field {
      * @param c
      */
     public void Gloo(Coverable c){
-        Skeleton.Called("Gloo");
+        Skeleton.Called(this,"Gloo");
         Skeleton.Return();
     }
 }

@@ -11,7 +11,7 @@ public final class Weather {
     private List<Field> fields = new ArrayList<Field>();
 
     public void Blizzard() {
-        Skeleton.Called("Blizzard()");
+        Skeleton.Called(this,"Blizzard()");
         Skeleton.Return();
     }
 }

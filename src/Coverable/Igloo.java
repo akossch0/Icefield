@@ -10,7 +10,7 @@ public class Igloo implements Coverable{
      */
     @Override
     public boolean IsCovered() {
-        Skeleton.Called("IsCovered");
+        Skeleton.Called(this,"IsCovered");
         Skeleton.Return();
         return false;
     }

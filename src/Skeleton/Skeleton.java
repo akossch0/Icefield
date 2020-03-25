@@ -13,20 +13,24 @@ import java.util.HashMap;
 public class Skeleton {
     static int n = 0;
     static HashMap<Object,String> names;
+    static boolean TestStarted = false;
     public static void Initialise(){
         names = new HashMap<>();
     }
     public static void Called(Object object,String FuncHeader){
-        for (int i = 0;i<n;i++) System.out.print("\t");
-        System.out.println(names.get(object)+":"+FuncHeader+"()");
-        n++;
+        if (TestStarted) {
+            for (int i = 0; i < n; i++) System.out.print("\t");
+            System.out.println(names.get(object) + ":" + FuncHeader + "()");
+            n++;
+        }
     }
 
     public static void Return(){
-        n--;
+        if(TestStarted)
+            n--;
     }
 
-    public static void Test1(){
+    public static void TestUseRope(){
         Player player = new Eskimo();
         Player target = new Researcher();
         Item rope = new Rope();
@@ -39,12 +43,8 @@ public class Skeleton {
         player.AcceptItem(rope);
         player.Step(mezo);
 
-        try {
-            Runtime.getRuntime().exec("cls");
-        }catch(Exception e){
-            System.out.println("Nem lehetett törölni a console-t");
-        }
 
+        TestStarted = true;
 
         player.UseItem(rope,target);
 

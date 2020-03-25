@@ -49,7 +49,7 @@ public final class Game {
      * Jatek megnyerese
      */
     public void Win(){
-        Skeleton.Called("Win()");
+        Skeleton.Called(this,"Win()");
         Skeleton.Return();
     }
 
@@ -57,7 +57,7 @@ public final class Game {
      * Jatek elvesztese
      */
     public void Lose(){
-        Skeleton.Called("Lose()");
+        Skeleton.Called(this,"Lose()");
         Skeleton.Return();
     }
 }

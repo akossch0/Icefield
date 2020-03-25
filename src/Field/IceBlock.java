@@ -16,7 +16,7 @@ public class IceBlock extends Field {
      */
     @Override
     public Item RemoveItem(){
-        Skeleton.Called("RemoveItem");
+        Skeleton.Called(this,"RemoveItem");
         Skeleton.Return();
         return null;
     }
@@ -26,7 +26,7 @@ public class IceBlock extends Field {
      * @param c
      */
     public void Gloo(Coverable c){
-        Skeleton.Called("Gloo");
+        Skeleton.Called(this,"Gloo");
         Skeleton.Return();
     }
 }
