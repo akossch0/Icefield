@@ -49,13 +49,15 @@ public final class Game {
      * Jatek megnyerese
      */
     public void Win(){
-
+        Skeleton.Called("Win()");
+        Skeleton.Return();
     }
 
     /**
      * Jatek elvesztese
      */
     public void Lose(){
-
+        Skeleton.Called("Lose()");
+        Skeleton.Return();
     }
 }

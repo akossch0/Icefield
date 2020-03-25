@@ -2,6 +2,7 @@ package Game;
 
 import Item.Item;
 import Player.Player;
+import Skeleton.Skeleton;
 
 import java.util.*;
 
@@ -28,17 +29,26 @@ public final class Manager {
 
     /**
      *
-     * @param i    a targy ami
+     * @param i a targy amit a jatekos atad a managernek a jatek megnyeresehez
      */
-    public static void addItem(Item i){}
+    public static void addItem(Item i){
+        Skeleton.Called("addItem");
+        Skeleton.Return();
+    }
 
     /**
      * elinditja a jatekosok lepeseit
      */
-    public static void Start(){}
+    public static void Start(){
+        Skeleton.Called("Start()");
+        Skeleton.Return();
+    }
 
     /**
      * jatekos halalanal hivodik
      */
-    public static void Lose(){}
+    public static void Lose(){
+        Skeleton.Called("Lose()");
+        Skeleton.Return();
+    }
 }
