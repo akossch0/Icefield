@@ -3,13 +3,23 @@ package Game;
 import Field.Field;
 
 import java.util.*;
+import Skeleton.*;
+
 
 public final class Game {
+    /**
+     * A jatekteren talalhato osszes mezo
+      */
     private List<Field> fields = new ArrayList<>();
+
+    /**
+     * a statikus valtozo amin hivjuk a fuggvenyeket
+     */
     private static Game INSTANCE;
 
-    private Game(){}
-
+    /**
+     * @return visszakuldi a statikus valtozot ha nem ures, amugy pedig peldanyosit
+     */
     public static Game getInstance(){
         if(INSTANCE == null)
             INSTANCE = new Game();
@@ -17,21 +27,34 @@ public final class Game {
         return INSTANCE;
     }
 
+    /**
+     * elinditja a jatekot
+     */
     public void StartGame(){
-
+        Skeleton.Called("StartGame()");
+        InitMap();
+        Manager.Start();
+        Skeleton.Return();
     }
 
+    /**
+     * inicializalja a jatekteret, vagyis beallitja a jegtablak es targyak elhelyezkedeset
+     */
     public void InitMap(){
-
+        Skeleton.Called("InitMap()");
+        Skeleton.Return();
     }
 
-    public void Blizzard(){
-
-    }
+    /**
+     * Jatek megnyerese
+     */
     public void Win(){
 
     }
 
+    /**
+     * Jatek elvesztese
+     */
     public void Lose(){
 
     }
