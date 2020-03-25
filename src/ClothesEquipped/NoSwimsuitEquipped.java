@@ -1,6 +1,6 @@
 package ClothesEquipped;
 
-public class NoSwimsuitEquipped {
+public class NoSwimsuitEquipped implements ClothesEquipped {
     public boolean isWaterproof() {
         return false;
     }
