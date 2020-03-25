@@ -1,13 +1,16 @@
 package Field;
 
+import Coverable.Coverable;
 import Player.*;
 import Item.*;
 
-abstract class Field {
-    private int layerOfSnow;
-    private int limit;
-    private Player[] players;
+import java.util.ArrayList;
+import java.util.List;
 
+public abstract class Field {
+    private List<Player> players = new ArrayList<Player>();
+    private List<Field> fields = new ArrayList<Field>();
+    private Coverable cover;
 
     public void Accept(Player p){
 
@@ -21,6 +24,17 @@ abstract class Field {
 
     }
 
+    public Coverable getCover() {
+        return cover;
+    }
 
+    public List<Player> getPlayers() {
+        return players;
+    }
 
+    public void DecrLayerOfSnow(int n){
+
+    }
+
+    public abstract void Gloo(Coverable c);
 }
