@@ -3,7 +3,7 @@ package Field;
 import Player.*;
 import Item.*;
 
-public abstract class Field {
+abstract class Field {
     private int layerOfSnow;
     private int limit;
     private Player[] players;
