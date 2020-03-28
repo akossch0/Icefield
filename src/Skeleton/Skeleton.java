@@ -118,7 +118,7 @@ public class Skeleton {
 
 
     //Új függvény létrehozáshoz ezt másoljátok és írjátok át így nem felejtetek el valamit
-    public void Temp(){
+    public void Temp(){ // példa
         //Inicializálás
         //Ide a szükséges objektumok
         Player player = new Eskimo();
