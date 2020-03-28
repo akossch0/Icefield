@@ -119,12 +119,14 @@ public class Skeleton {
         Item rope = new Rope();
         Field field = new IceBlock();
 
+        rope.setHolder(player);
+        player.setField(field);
+
         names.put(player,"EskimoPlayer");
         names.put(target,"ResearcherTarget");
         names.put(rope,"RopeItem");
 
         player.AcceptItem(rope);
-        player.setField(field);
 
         TestStarted = true;
 
