@@ -102,10 +102,10 @@ public class Skeleton {
                 case (0): /*kilepunk a programbol*/ System.out.println("Viszlát!");
                     break;
                 case (1): System.out.println("Kötél használata:");
-                    Skeleton.TestUseRope();
+                    Skeleton.UseRope();
                     break;
                 case (2): System.out.println("Ásó használat:");
-                    Skeleton.TestUseSpade();
+                    Skeleton.UseSpade();
                     break;
                 case (3): System.out.println("Étel evése:");
                     Skeleton.EatFood();
@@ -117,7 +117,7 @@ public class Skeleton {
                     Skeleton.UseSwimsuit();
                     break;
                 case (6): System.out.println("Hóvihar mezőt sújt:");
-                    Skeleton.TestBlizzard();
+                    Skeleton.Blizzard();
                     break;
                 case (7): System.out.println("Játékos lyukra lép:");
                     Skeleton.PlayerStepsOnHole();
@@ -141,8 +141,8 @@ public class Skeleton {
 
     /*
     * Kellő Use-Casek:
-    * Hóvihar mezőt súlyt
-    *Eszkimo és Kutató  lyukra lép
+    * Hóvihar mezőt súlyt //Van prototípus
+    *Eszkimo és Kutató  lyukra lép //Még meg kell fogalmazni hogy ez a
     *Eszkimo és Kutató iceblockra lép (kérdéssel hogy átforduljon e)
     *Kutató és Eszkimo itemet hesznál:
     *       Kaja
@@ -197,7 +197,7 @@ public class Skeleton {
 
 
 
-    public static void TestUseRope(){
+    public static void UseRope(){
         Player player = new Eskimo();
         Player target = new Researcher();
         Item rope = new Rope();
@@ -240,7 +240,7 @@ public class Skeleton {
         names.clear();
     }
 
-    public static void TestUseSpade(){
+    public static void UseSpade(){
         Player player = new Eskimo();
         Item spade = new Spade();
         Field field = new IceBlock();
@@ -280,7 +280,7 @@ public class Skeleton {
     }
 
     //question függvény kell úgy, mint a PlayerStepsOnIceblock-nál
-    public static void TestBlizzard(){
+    public static void Blizzard(){
         Manager m = new Manager();
         Weather w = new Weather();
         List<Field> fields = new ArrayList<Field>();
