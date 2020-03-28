@@ -88,6 +88,7 @@ public class Skeleton {
         System.out.print(description);
 
         do{
+            numberOfUsecase = -1;
             try{
                 System.out.print("Adjon meg egy számot, amivel megegyező use-case-t szeretne látni: ");
                 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -150,7 +151,7 @@ public class Skeleton {
                     System.out.println("Rossz inputot adott meg a választáskor!");
                     break;
             }
-            numberOfUsecase = -1;
+
         }while(numberOfUsecase != 0);
     }
 
