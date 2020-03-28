@@ -20,6 +20,10 @@ public class Skeleton {
     static HashMap<Object,String> names = new HashMap<>();
     static boolean TestStarted = false;
 
+    public static void addNames(Object o, String str){
+        names.put(o,str);
+    }
+
     public static void Called(Object object,String FuncHeader){
         if (TestStarted) {
             for (int i = 0; i < n; i++) System.out.print("\t");
