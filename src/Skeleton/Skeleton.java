@@ -46,6 +46,10 @@ public class Skeleton {
 
         player.UseItem(rope,target);
 
+        TestStarted = false;
+        names.clear();
+
+
     }
 
     public static boolean Question(){
@@ -116,6 +120,9 @@ public class Skeleton {
         TestStarted = true;
 
         food.Use(player);
+
+        TestStarted = false;
+        names.clear();
     }
 
     public static void TestUseSpade(){
