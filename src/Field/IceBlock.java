@@ -14,7 +14,7 @@ public class IceBlock extends Field {
     @Override
     public void Accept(Player p) {
         getPlayers().add(p);
-        if(Skeleton.questionResult){
+        if(Skeleton.getQuestionresult()){
             for(int i = 0; i < getPlayers().size(); ++i){
                 getPlayers().get(i).setInWater(true);
             }
