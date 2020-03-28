@@ -13,6 +13,12 @@ public abstract class Field {
     private List<Field> fields = new ArrayList<Field>();
     protected Coverable cover = null;
 
+    private Item item = null;
+
+    //Ideiglenes fv, majd a konstruktorban lesz megoldva
+    public void setItem(Item item){
+        this.item = item;
+    }
 
     /**
      * Uj jatekos erkezik a mezore. Ha meg elbirja a mezo, akkor a jatekos ezentul ezen a mezon áll.
@@ -37,8 +43,9 @@ public abstract class Field {
      */
     public Item RemoveItem(){
         Skeleton.Called(this,"RemoveItem");
+        //item = null;
         Skeleton.Return();
-        return null;
+        return item;
     }
 
     /**

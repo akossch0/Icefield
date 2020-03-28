@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
-
     /**
      * A mezo amin a player tartozkodik
      */
@@ -28,7 +27,7 @@ public class Player {
      */
     private ClothesEquipped clothes = null;
 
-
+    //Tmp fuggveny majd konstruktorral lesz megoldva
     public void setField(Field field) {
         this.field = field;
     }
@@ -103,6 +102,9 @@ public class Player {
      */
     public void PickUpItem(){
         Skeleton.Called(this,"PickUpItem");
+        Item item = field.RemoveItem();
+        items.add(item);
+        item.setHolder(this);
         Skeleton.Return();
     }
 

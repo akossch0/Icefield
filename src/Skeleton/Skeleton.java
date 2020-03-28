@@ -1,7 +1,5 @@
 package Skeleton;
 
-
-
 import Coverable.*;
 import Field.*;
 import Game.Manager;
@@ -214,8 +212,30 @@ public class Skeleton {
 
     public static void EskimoOutOfHealth(){System.out.print("Nincs kész még");}
     public static void EskimoDrown(){System.out.print("Nincs kész még");}
-    public static void EskimoPickUpItem(){System.out.print("Nincs kész még");}
+    //public static void EskimoPickUpItem(){System.out.print("Nincs kész még");}
     public static void EskimoUseWinningItem(){System.out.print("Nincs kész még");}
+
+    public static void EskimoPickUpItem(){
+        Player player = new Eskimo();
+        Field field = new IceBlock();
+        Item item = new Rope();
+
+        names.put(player, "EskimoPlayer");
+        names.put(field, "IceBlockField");
+        names.put(item, "RopeItem");
+
+        field.setItem(item);
+        player.setField(field);
+
+        TestStarted = true;
+
+        if(Question("<<A mezőn nincs egy hóréteg sem és nyitott a mező?(Igen/Nem)>> ")){
+            player.PickUpItem();
+        }
+
+        TestStarted = false;
+        names.clear();
+    }
 
     public static void UseRope(){
         Player player = new Eskimo();
@@ -320,6 +340,7 @@ public class Skeleton {
         Manager m = new Manager();
         Weather w = new Weather();
         List<Field> fields = new ArrayList<Field>();
+
         for (int i = 0; i < 3; i++){
             Field f = new IceBlock();
             Player p = new Eskimo();
@@ -328,13 +349,14 @@ public class Skeleton {
             pp.setField(f);
             Coverable cov = new NoGloo();
             f.Gloo(cov);
-            names.put(pp,"Researcher" + ((Integer)i).toString());
-            names.put(p,"Eskimop" + ((Integer)i).toString());
-            names.put(f,"Iceblock" + ((Integer)i).toString());
+            names.put(pp, "Researcher" + ((Integer)i).toString());
+            names.put(p, "Eskimop" + ((Integer)i).toString());
+            names.put(f, "Iceblock" + ((Integer)i).toString());
             names.put(cov, "NoGloo");
 
             fields.add(f);
         }
+
         w.add(fields);
         names.put(m, "Manager");
         names.put(w, "Weather");
@@ -367,6 +389,7 @@ public class Skeleton {
         TestStarted = false;
         names.clear();
     }
+
     public static void PlayerStepsOnIceblock(){
         Player eskimo = new Eskimo();
         Field currentfield = new IceBlock();
@@ -391,6 +414,8 @@ public class Skeleton {
         names.put(p2,"PlayerOnIceblock2");
 
         TestStarted = true;
+
+        Question("Átforduljon a jégtábla a rálépéssel?(Y/N)");
 
         eskimo.Step(nextField);
 
@@ -420,7 +445,7 @@ public class Skeleton {
         Item sw = new Swimsuit();
 
         names.put(player, "EskimoPlayer");
-        names.put(sw,"Swimsuit");
+        names.put(sw, "Swimsuit");
 
         TestStarted = true;
 
