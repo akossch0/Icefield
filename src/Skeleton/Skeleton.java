@@ -76,7 +76,7 @@ public class Skeleton {
 
         do{
             try{
-                System.out.print("Give the number of the use-case you'd like to see: ");
+                System.out.print("Adjon meg egy számot, amivel megegyező use-case-t szeretne látni: ");
                 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
                 String s = br.readLine();
                 numberOfUsecase = Integer.parseInt(s);
@@ -86,7 +86,7 @@ public class Skeleton {
             }
 
             switch (numberOfUsecase) {
-                case (0): /*kilepunk a programbol*/ System.out.println("Bye!");
+                case (0): /*kilepunk a programbol*/ System.out.println("Viszlát!");
                     break;
                 case (1): System.out.println("Kötél használata:");
                     Skeleton.TestUseRope();
@@ -119,9 +119,10 @@ public class Skeleton {
 
                 //ha invalid az ertek
                 default:
-                    System.out.println("Wrong input given when choosing from numbers!");
+                    System.out.println("Rossz inputot adott meg a választáskor!");
                     break;
             }
+            numberOfUsecase = -1;
         }while(numberOfUsecase != 0);
     }
 
@@ -265,6 +266,7 @@ public class Skeleton {
         names.clear();
     }
 
+    //question függvény kell úgy, mint a PlayerStepsOnIceblock-nál
     public static void TestBlizzard(){
         Manager m = new Manager();
         Weather w = new Weather();
