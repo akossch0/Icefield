@@ -17,7 +17,11 @@ import java.util.List;
 
 public class Skeleton {
 
-    public static boolean questionResult;
+    private static boolean questionResult;
+
+    public static boolean getQuestionresult(){
+        return questionResult;
+    }
 
     static int n = 0;
     static HashMap<Object,String> names = new HashMap<>();
@@ -40,7 +44,7 @@ public class Skeleton {
             n--;
     }
 
-    public static boolean Question(){
+    public static boolean Question(String str){
         String input;
 
         BufferedReader obj = new BufferedReader(new InputStreamReader((System.in)));
@@ -98,13 +102,16 @@ public class Skeleton {
                     Skeleton.UseSwimsuit();
                     break;
                 case (6): System.out.println("Hóvihar mezőt sújt:");
-                    Skeleton.TestBlizard();
+                    Skeleton.TestBlizzard();
                     break;
                 case (7): System.out.println("Játékos lyukra lép:");
                     Skeleton.PlayerStepsOnHole();
                     break;
                 case (8): System.out.println("Játékos kézzel ás havat:");
                     Skeleton.PlayerShovelsSnowWithHand();
+                    break;
+                case (9): System.out.println("Játékos jégtáblára lép:");
+                    Skeleton.PlayerStepsOnIceblock();
                     break;
                 //... ahány use-case annyi eset lesz
 
@@ -232,22 +239,18 @@ public class Skeleton {
         names.clear();
     }
 
-    public static void TestBlizard(){
+    public static void TestBlizzard(){
         Manager m = new Manager();
         Weather w = new Weather();
         List<Field> fields = new ArrayList<Field>();
-
         for (int i = 0; i < 3; i++){
             Field f = new IceBlock();
             Player p = new Eskimo();
             Player pp = new Researcher();
-            p.Step(f);
-            pp.Step(f);
-            f.Accept(p);
-            f.Accept(pp);
+            p.setField(f);
+            pp.setField(f);
             Coverable cov = new NoGloo();
             f.Gloo(cov);
-
             names.put(pp,"Researcher" + ((Integer)i).toString());
             names.put(p,"Eskimop" + ((Integer)i).toString());
             names.put(f,"Iceblock" + ((Integer)i).toString());
@@ -255,7 +258,6 @@ public class Skeleton {
 
             fields.add(f);
         }
-
         w.add(fields);
         names.put(m, "Manager");
         names.put(w, "Weather");
@@ -284,6 +286,27 @@ public class Skeleton {
         TestStarted = true;
 
         eskimo.Step(hole);
+
+        TestStarted = false;
+        names.clear();
+    }
+    public static void PlayerStepsOnIceblock(){
+        Player eskimo = new Eskimo();
+        Field currentfield = new IceBlock();
+        Field nextField  = new IceBlock();
+
+        eskimo.setField(currentfield);
+
+
+        names.put(eskimo, "EskimoPlayer");
+        names.put(currentfield, "CurrentIceblock");
+        names.put(nextField, "NeighbourIceblock");
+
+        TestStarted = true;
+
+        Question("Átforduljon a jégtábla a rálépéssel?(I/N)");
+
+        eskimo.Step(nextField);
 
         TestStarted = false;
         names.clear();

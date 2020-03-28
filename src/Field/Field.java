@@ -19,11 +19,7 @@ public abstract class Field {
      * Ha nem birja el, akkor a jatekos a vizbe esik.
      * @param p
      */
-    public void Accept(Player p){
-        Skeleton.Called(this,"Accept");
-        players.add(p);
-        Skeleton.Return();
-    }
+    public abstract void Accept(Player p);
 
     /**
      *A parameterkent kapott jatekos elhagyja a mezot.
