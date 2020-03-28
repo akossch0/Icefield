@@ -315,6 +315,8 @@ public class Skeleton {
 
         p1.setField(nextField);
         p2.setField(nextField);
+        nextField.getPlayers().add(p1);
+        nextField.getPlayers().add(p2);
 
         eskimo.setField(currentfield);
 
@@ -322,8 +324,9 @@ public class Skeleton {
         names.put(eskimo, "EskimoPlayer");
         names.put(currentfield, "CurrentIceblock");
         names.put(nextField, "NeighbourIceblock");
-        names.put(p1,"P1Researcher");
-        names.put(p2,"P2Eskimo");
+
+        names.put(p1,"PlayerOnIceblock1");
+        names.put(p2,"PlayerOnIceblock2");
 
         TestStarted = true;
 

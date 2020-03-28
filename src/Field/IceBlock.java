@@ -15,7 +15,7 @@ public class IceBlock extends Field {
     public void Accept(Player p) {
         Skeleton.Called(this,"Accept");
         getPlayers().add(p);
-        if(Skeleton.Question("Átforduljon a jégtábla a rálépéssel?(Y/N)")){
+        if(Skeleton.Question("Az új játékos új mezőre kerülésével túl lépi-e a játékosok száma a mező teherbíróképességét?(Y/N)")){
             for(int i = 0; i < getPlayers().size(); ++i){
                 getPlayers().get(i).setInWater(true);
             }
