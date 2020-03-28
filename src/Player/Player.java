@@ -75,6 +75,7 @@ public class Player {
      */
     public void Dig(){
         Skeleton.Called(this,"Dig");
+        field.DecrLayerOfSnow(1);
         Skeleton.Return();
     }
 

@@ -100,8 +100,11 @@ public class Skeleton {
                 case (6): System.out.println("Hóvihar mezőt sújt:");
                     Skeleton.TestBlizard();
                     break;
-                case (7): System.out.println("Eszkimó lyukra lép:");
+                case (7): System.out.println("Játékos lyukra lép:");
                     Skeleton.PlayerStepsOnHole();
+                    break;
+                case (8): System.out.println("Játékos kézzel ás havat:");
+                    Skeleton.PlayerShovelsSnowWithHand();
                     break;
                 //... ahány use-case annyi eset lesz
 
@@ -145,6 +148,7 @@ public class Skeleton {
         TestStarted = false;
 
         //Hash ürítése
+        names.clear();
     }
 
 
@@ -232,6 +236,7 @@ public class Skeleton {
         Manager m = new Manager();
         Weather w = new Weather();
         List<Field> fields = new ArrayList<Field>();
+
         for (int i = 0; i < 3; i++){
             Field f = new IceBlock();
             Player p = new Eskimo();
@@ -242,6 +247,7 @@ public class Skeleton {
             f.Accept(pp);
             Coverable cov = new NoGloo();
             f.Gloo(cov);
+
             names.put(pp,"Researcher" + ((Integer)i).toString());
             names.put(p,"Eskimop" + ((Integer)i).toString());
             names.put(f,"Iceblock" + ((Integer)i).toString());
@@ -249,6 +255,7 @@ public class Skeleton {
 
             fields.add(f);
         }
+
         w.add(fields);
         names.put(m, "Manager");
         names.put(w, "Weather");
@@ -265,19 +272,35 @@ public class Skeleton {
 
     public static void PlayerStepsOnHole(){
         Player eskimo = new Eskimo();
-        Field currentfiled = new IceBlock();
+        Field currentfield = new IceBlock();
         Field hole  = new Hole();
 
-        eskimo.setField(currentfiled);
-
-
         names.put(eskimo, "EskimoPlayer");
-        names.put(currentfiled, "CurrentFiled");
+        names.put(currentfield, "CurrentFiled");
         names.put(hole, "Hole");
+
+        eskimo.setField(currentfield);
 
         TestStarted = true;
 
         eskimo.Step(hole);
+
+        TestStarted = false;
+        names.clear();
+    }
+
+    public static void PlayerShovelsSnowWithHand(){
+        Player eskimo = new Eskimo();
+        Field currentfield = new IceBlock();
+
+        names.put(eskimo, "EskimoPlayer");
+        names.put(currentfield, "CurrentFiled");
+
+        eskimo.setField(currentfield);
+
+        TestStarted = true;
+
+        eskimo.Dig();
 
         TestStarted = false;
         names.clear();
