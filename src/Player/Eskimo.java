@@ -12,7 +12,7 @@ public class Eskimo extends Player {
      */
     @Override
     public int UseAbility(Field f){
-        Skeleton.Called(this,"Eskimo-UseAbility");
+        Skeleton.Called(this,"UseAbility");
         Skeleton.Return();
 
         return 0;

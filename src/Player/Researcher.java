@@ -10,7 +10,7 @@ public class Researcher extends Player {
      */
     @Override
     public int UseAbility(Field f){
-        Skeleton.Called(this,"Researcher-UseAbility");
+        Skeleton.Called(this,"UseAbility");
         Skeleton.Return();
         return 0;}
 

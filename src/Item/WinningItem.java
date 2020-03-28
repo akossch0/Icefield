@@ -10,7 +10,7 @@ public class WinningItem extends Item {
      */
     @Override
     public void Use(Player p){
-        Skeleton.Called(this,"WinningItem-Use");
+        Skeleton.Called(this,"Use");
         Skeleton.Return();
     }
 }
