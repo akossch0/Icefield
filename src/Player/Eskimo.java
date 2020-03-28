@@ -1,5 +1,6 @@
 package Player;
 
+import Coverable.Igloo;
 import Field.*;
 import Skeleton.Skeleton;
 
@@ -13,6 +14,8 @@ public class Eskimo extends Player {
     @Override
     public int UseAbility(Field f){
         Skeleton.Called(this,"UseAbility");
+
+        getField().Gloo(new Igloo());
         Skeleton.Return();
 
         return 0;

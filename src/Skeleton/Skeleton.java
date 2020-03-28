@@ -128,6 +128,21 @@ public class Skeleton {
                 case (9): System.out.println("Játékos jégtáblára lép:");
                     Skeleton.PlayerStepsOnIceblock();
                     break;
+                case (10): System.out.println("Eszkimo iglut épít:");
+                    Skeleton.EskimoUseAbility();
+                    break;
+                case (11): System.out.println("Eszkimo elfogy a testhő:");
+                    Skeleton.EskimoOutOfHealth();
+                    break;
+                case (12): System.out.println("Eszkimo vízbe fullad:");
+                    Skeleton.EskimoDrown();
+                    break;
+                case (13): System.out.println("Eszkimo tárgyat vesz fel:");
+                    Skeleton.EskimoPickUpItem();
+                    break;
+                case (14): System.out.println("Eszkimo WinningItem-et használ:");
+                    Skeleton.EskimoUseWinningItem();
+                    break;
                 //... ahány use-case annyi eset lesz
 
                 //ha invalid az ertek
@@ -141,21 +156,21 @@ public class Skeleton {
 
     /*
     * Kellő Use-Casek:
-    * Hóvihar mezőt súlyt //Van prototípus
-    *Eszkimo és Kutató  lyukra lép //Még meg kell fogalmazni hogy ez a
-    *Eszkimo és Kutató iceblockra lép (kérdéssel hogy átforduljon e)
-    *Kutató és Eszkimo itemet hesznál:
-    *       Kaja
-    *       Búvárruha
-    *       Ásó
-    *       Kötél
-    *       WinningItem
-    * Kutató és Eszkimo Tárgyat vesz fel
-    * Kutató és Eszkimo kézzel ás
-    * Kutató kutat
-    * Eszkimó épít
-    * Eszkimó és Kutató elfogy a testhő
-    * Eszkimó és Kutató vízbe fullad
+    1 Hóvihar mezőt súlyt //Van prototípus
+    1 Eszkimo és Kutató  lyukra lép //Még meg kell fogalmazni hogy ez Eszkimóra és Kutatóra ugyan az
+    1 Eszkimo és Kutató iceblockra lép (kérdéssel hogy átforduljon e) //Még meg kell fogalmazni hogy ez Eszkimóra és Kutatóra ugyan az
+    * Kutató és Eszkimo itemet hesznál:
+    1       Kaja //Még meg kell fogalmazni hogy ez Eszkimóra és Kutatóra ugyan az
+    1       Búvárruha //Még meg kell fogalmazni hogy ez Eszkimóra és Kutatóra ugyan az
+    1       Ásó //Még meg kell fogalmazni hogy ez Eszkimóra és Kutatóra ugyan az
+    1       Kötél //Még meg kell fogalmazni hogy ez Eszkimóra és Kutatóra ugyan az
+    0.5       WinningItem //Csak a helye van meg IMPLEMENTÁLNI KELL
+    0.5 Kutató és Eszkimo Tárgyat vesz fel //Csak a helye van meg IMPLEMENTÁLNI KELL
+    1 Kutató és Eszkimo kézzel ás //Még meg kell fogalmazni hogy ez Eszkimóra és Kutatóra ugyan az
+    1 Kutató kutat //Van prototípus
+    1 Eszkimó épít //Van prototípus
+    0.5 Eszkimó és Kutató elfogy a testhő //Csak a helye van meg IMPLEMENTÁLNI KELL
+    0.5 Eszkimó és Kutató vízbe fullad //Csak a helye van meg IMPLEMENTÁLNI KELL
     *
     *
     * */
@@ -196,6 +211,10 @@ public class Skeleton {
     }
 
 
+    public static void EskimoOutOfHealth(){System.out.print("Nincs kész még");}
+    public static void EskimoDrown(){System.out.print("Nincs kész még");}
+    public static void EskimoPickUpItem(){System.out.print("Nincs kész még");}
+    public static void EskimoUseWinningItem(){System.out.print("Nincs kész még");}
 
     public static void UseRope(){
         Player player = new Eskimo();
@@ -274,6 +293,22 @@ public class Skeleton {
         TestStarted = true;
 
         player.UseAbility(inspected);
+
+        TestStarted = false;
+        names.clear();
+    }
+    public static void EskimoUseAbility(){
+        Player player = new Eskimo();
+        Field field = new IceBlock();
+
+        names.put(player,"Eskimo");
+        names.put(field,"IceBlock");
+
+        player.setField(field);
+
+        TestStarted = true;
+
+        player.UseAbility(field);
 
         TestStarted = false;
         names.clear();
