@@ -95,6 +95,8 @@ public class Skeleton {
                 case (6): System.out.println("Hóvihar mezőt sújt:");
                     Skeleton.TestBlizard();
                     break;
+                case (7): System.out.println("Eszkimó lyukra lép:");
+                    Skeleton.TestEskimoStepsOnHole();
                 //... ahány use-case annyi eset lesz
 
                 //ha invalid az ertek
