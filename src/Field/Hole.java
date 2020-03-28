@@ -15,4 +15,5 @@ public class Hole extends Field {
         Skeleton.Called(this,"Gloo");
         Skeleton.Return();
     }
+
 }

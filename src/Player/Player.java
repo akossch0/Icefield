@@ -60,7 +60,10 @@ public class Player {
      */
     public void Step(Field f){
         Skeleton.Called(this,"Step");
-        field = f;
+        field.Remove(this);
+
+
+        f.Accept(this);
         Skeleton.Return();}
 
     /**

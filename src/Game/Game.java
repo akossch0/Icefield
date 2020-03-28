@@ -5,7 +5,6 @@ import Field.Field;
 import java.util.*;
 import Skeleton.*;
 
-
 public final class Game {
     /**
      * A jatekteren talalhato osszes mezo
