@@ -27,6 +27,8 @@ public class IceBlock extends Field {
      */
     public void Gloo(Coverable c){
         Skeleton.Called(this,"Gloo");
+        cover = c;
         Skeleton.Return();
     }
+
 }

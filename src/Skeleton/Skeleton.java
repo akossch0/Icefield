@@ -2,13 +2,18 @@ package Skeleton;
 
 
 
+import Coverable.*;
 import Field.*;
+import Game.Manager;
+import Game.Weather;
 import Item.*;
 import Player.*;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class Skeleton {
     static int n = 0;
@@ -79,9 +84,6 @@ public class Skeleton {
                     break;
                 case (4): System.out.println("Kutató kutatása:");
                     Skeleton.ResearcherUseAbility();
-                    break;
-                case (5): System.out.println("Búvárruha használat:");
-                    Skeleton.UseSwimsuit();
                     break;
                 //... ahány use-case annyi eset lesz
 
@@ -167,6 +169,40 @@ public class Skeleton {
 
         TestStarted = false;
         names.clear();
+    }
+    public static void TestBlizard(){
+        Manager m = new Manager();
+        Weather w = new Weather();
+        List<Field> fields = new ArrayList<Field>();
+        for (int i = 0; i < 3; i++){
+            Field f = new IceBlock();
+            Player p = new Eskimo();
+            Player pp = new Researcher();
+            p.Step(f);
+            pp.Step(f);
+            f.Accept(p);
+            f.Accept(pp);
+            Coverable cov = new NoGloo();
+            f.Gloo(cov);
+            names.put(pp,"Researcher" + ((Integer)i).toString());
+            names.put(p,"Eskimop" + ((Integer)i).toString());
+            names.put(f,"Iceblock" + ((Integer)i).toString());
+            names.put(cov, "NoGloo");
+
+            fields.add(f);
+        }
+        w.add(fields);
+        names.put(m, "Manager");
+        names.put(w, "Weather");
+
+        TestStarted = true;
+
+        w.Blizzard();
+
+        TestStarted = false;
+        names.clear();
+
+
     }
 
     public static void UseSwimsuit(){

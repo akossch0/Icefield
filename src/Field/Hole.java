@@ -7,12 +7,12 @@ import Skeleton.Skeleton;
 public class Hole extends Field {
 
     /**
-     * A strategia setter-e, de nem csinal semmit,
-     * mivel alapertelmezesben a Hole objektumnak a strategiaja NoGloo.
+     *  Beallitja az fedettseg strategiat.
      * @param c
      */
     public void Gloo(Coverable c){
         Skeleton.Called(this,"Gloo");
+
         Skeleton.Return();
     }
 

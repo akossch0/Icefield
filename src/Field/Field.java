@@ -11,13 +11,8 @@ import java.util.List;
 public abstract class Field {
     private List<Player> players = new ArrayList<Player>();
     private List<Field> fields = new ArrayList<Field>();
-    private Coverable cover = null;
+    protected Coverable cover = null;
 
-    /**
-     * Absztrakt fuggveny, a strategia setter-e.
-     * @param c
-     */
-    public abstract void Gloo(Coverable c);
 
     /**
      * Uj jatekos erkezik a mezore. Ha meg elbirja a mezo, akkor a jatekos ezentul ezen a mezon áll.
@@ -26,6 +21,7 @@ public abstract class Field {
      */
     public void Accept(Player p){
         Skeleton.Called(this,"Accept");
+        players.add(p);
         Skeleton.Return();
     }
 
@@ -92,7 +88,17 @@ public abstract class Field {
      */
     public boolean IsCovered(){
         Skeleton.Called(this,"IsCovered");
+        cover.IsCovered();
         Skeleton.Return();
         return false;
+    }
+    /**
+     *  Beallitja az fedettseg strategiat.
+     * @param c
+     */
+    public void Gloo(Coverable c){
+        Skeleton.Called(this,"Gloo");
+        cover = c;
+        Skeleton.Return();
     }
 }
