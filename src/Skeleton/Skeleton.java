@@ -121,7 +121,8 @@ public class Skeleton {
     * Hóvihar mezőt súlyt
     *Eszkimo lyukra lép
     *Kutató lyukra lép
-    *
+    *Eszkimo iceblockra lép
+    *Kutató iceblockra lép
     *
     *
     *
