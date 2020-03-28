@@ -128,12 +128,20 @@ public class Skeleton {
     /*
     * Kellő Use-Casek:
     * Hóvihar mezőt súlyt
-    *Eszkimo lyukra lép
-    *Kutató lyukra lép
-    *Eszkimo iceblockra lép
-    *Kutató iceblockra lép
-    *
-    *
+    *Eszkimo és Kutató  lyukra lép
+    *Eszkimo és Kutató iceblockra lép (kérdéssel hogy átforduljon e)
+    *Kutató és Eszkimo itemet hesznál:
+    *       Kaja
+    *       Búvárruha
+    *       Ásó
+    *       Kötél
+    *       WinningItem
+    * Kutató és Eszkimo Tárgyat vesz fel
+    * Kutató és Eszkimo kézzel ás
+    * Kutató kutat
+    * Eszkimó épít
+    * Eszkimó és Kutató elfogy a testhő
+    * Eszkimó és Kutató vízbe fullad
     *
     *
     * */
