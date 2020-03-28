@@ -1,5 +1,6 @@
 package Item;
 
+import Field.Field;
 import Player.*;
 import Skeleton.Skeleton;
 
@@ -10,5 +11,7 @@ public class Spade extends Item {
     @Override
     public void Use(Player p){
         Skeleton.Called(this,"Spade-Use");
+        Field field = p.getField();
+        field.DecrLayerOfSnow(2);
         Skeleton.Return();}
 }

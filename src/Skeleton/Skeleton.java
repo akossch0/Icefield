@@ -34,21 +34,43 @@ public class Skeleton {
         Player player = new Eskimo();
         Player target = new Researcher();
         Item rope = new Rope();
-        Field mezo = new IceBlock();
+        Field field = new IceBlock();
 
         names.put(player,"EskimoPlayer");
         names.put(target,"ResearcherTarget");
         names.put(rope,"RopeItem");
 
         player.AcceptItem(rope);
-        player.Step(mezo);
+        player.Step(field);
 
 
         TestStarted = true;
 
         player.UseItem(rope,target);
 
+        TestStarted = false;
+        names.clear();
     }
+    public static void TestUseSpade(){
+        Player player = new Eskimo();
+        Item spade = new Spade();
+        Field field = new IceBlock();
+
+        names.put(player,"SpadeUserEskimo");
+        names.put(spade,"Spade");
+        names.put(field,"Field");
+
+        player.AcceptItem(spade);
+        player.Step(field);
+
+        TestStarted = true;
+
+        player.UseItem(spade, player);
+
+        TestStarted = false;
+        names.clear();
+    }
+
     public static boolean Question(){
         String input;
 
