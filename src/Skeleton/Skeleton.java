@@ -310,16 +310,22 @@ public class Skeleton {
         Field currentfield = new IceBlock();
         Field nextField  = new IceBlock();
 
+        Player p1 = new Researcher();
+        Player p2 = new Eskimo();
+
+        p1.setField(nextField);
+        p2.setField(nextField);
+
         eskimo.setField(currentfield);
 
 
         names.put(eskimo, "EskimoPlayer");
         names.put(currentfield, "CurrentIceblock");
         names.put(nextField, "NeighbourIceblock");
+        names.put(p1,"P1Researcher");
+        names.put(p2,"P2Eskimo");
 
         TestStarted = true;
-
-        Question("Átforduljon a jégtábla a rálépéssel?(Y/N)");
 
         eskimo.Step(nextField);
 
