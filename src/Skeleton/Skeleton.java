@@ -53,15 +53,15 @@ public class Skeleton {
         try{input = obj.readLine();
             switch(input.charAt(0)) {
                 case 'y':
-                    questionResult = true;
+                    return true;
                 case 'Y':
-                    questionResult = true;
+                    return true;
                 case 'n':
-                    questionResult = false;
+                    return false;
                 case 'N':
-                    questionResult = false;
+                    return false;
                 default:
-                    questionResult = false;
+                    return false;
             }
         }catch (Exception e){
             System.out.print("Input Failed");
