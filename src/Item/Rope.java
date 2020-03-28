@@ -13,8 +13,9 @@ public class Rope extends Item {
     public void Use(Player p){
         Skeleton.Called(this,"Use");
         Field target = this.getHolder().getField();
-        p.Step(target);
         p.setInWater(false);
+        p.Step(target);
+
         Skeleton.Return();
 
     }

@@ -13,7 +13,7 @@ public final class Weather {
     private List<Field> fields = new ArrayList<Field>();
 
     public void Blizzard() {
-        Skeleton.Called(this,"Blizzard()");
+        Skeleton.Called(this,"Blizzard");
         for (Field f : fields){
             boolean  b =  f.IsCovered();
             if (!b){

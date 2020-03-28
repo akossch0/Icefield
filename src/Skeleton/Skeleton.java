@@ -182,6 +182,8 @@ public class Skeleton {
         Field field = new IceBlock();
         Field hole = new Hole();
 
+
+
         names.put(player,"EskimoPlayer");
         names.put(target,"ResearcherTarget");
         names.put(rope,"RopeItem");
@@ -190,6 +192,7 @@ public class Skeleton {
 
         target.setField(hole);
         player.setField(field);
+        field.getPlayers().add(player);
         player.AcceptItem(rope);
 
         TestStarted = true;
