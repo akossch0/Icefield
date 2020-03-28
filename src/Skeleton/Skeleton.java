@@ -118,4 +118,26 @@ public class Skeleton {
         food.Use(player);
     }
 
+    public static void TestUseSpade(){
+        Player player = new Eskimo();
+        Item spade = new Spade();
+        Field field = new IceBlock();
+
+        names.put(player,"SpadeUserEskimo");
+        names.put(spade,"Spade");
+        names.put(field,"Field");
+
+        player.AcceptItem(spade);
+        player.Step(field);
+
+        TestStarted = true;
+
+        player.UseItem(spade, player);
+
+        TestStarted = false;
+        names.clear();
+    }
+
+
+
 }
