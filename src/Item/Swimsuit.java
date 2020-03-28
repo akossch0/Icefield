@@ -13,7 +13,7 @@ public class Swimsuit extends Item {
     public void Use(Player p){
         Skeleton.Called(this,"Use");
 
-        SwimsuitEquipped swimsuit = new SwimsuitEquipped();
+        SwimsuitEquipped swimsuit = new SwimsuitEquipped("SwimsuitEquipped");
         p.setClothes(swimsuit);
 
         Skeleton.Return();
