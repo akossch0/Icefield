@@ -31,7 +31,6 @@ public abstract class Field {
      */
     public void Remove(Player p){
         Skeleton.Called(this,"Remove");
-        players.remove(p);
         Skeleton.Return();
     }
 
