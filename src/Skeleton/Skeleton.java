@@ -47,21 +47,21 @@ public class Skeleton {
     public static boolean Question(String str){
         String input;
 
-        System.out.println(str);
+        System.out.print(str);
 
         BufferedReader obj = new BufferedReader(new InputStreamReader((System.in)));
         try{input = obj.readLine();
             switch(input.charAt(0)) {
-                case 'y':
-                    questionResult = true;
-                case 'Y':
-                    questionResult = true;
+                case 'i':
+                    return true;
+                case 'I':
+                    return true;
                 case 'n':
-                    questionResult = false;
+                    return false;
                 case 'N':
-                    questionResult = false;
+                    return false;
                 default:
-                    questionResult = false;
+                    return false;
             }
         }catch (Exception e){
             System.out.print("Input Failed");
@@ -318,6 +318,14 @@ public class Skeleton {
         Field currentfield = new IceBlock();
         Field nextField  = new IceBlock();
 
+        Player p1 = new Researcher();
+        Player p2 = new Eskimo();
+
+        p1.setField(nextField);
+        p2.setField(nextField);
+        nextField.getPlayers().add(p1);
+        nextField.getPlayers().add(p2);
+
         eskimo.setField(currentfield);
 
 
@@ -325,9 +333,10 @@ public class Skeleton {
         names.put(currentfield, "CurrentIceblock");
         names.put(nextField, "NeighbourIceblock");
 
-        TestStarted = true;
+        names.put(p1,"PlayerOnIceblock1");
+        names.put(p2,"PlayerOnIceblock2");
 
-        Question("Átforduljon a jégtábla a rálépéssel?(I/N)");
+        TestStarted = true;
 
         eskimo.Step(nextField);
 
