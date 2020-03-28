@@ -125,9 +125,22 @@ public class Skeleton {
         }while(numberOfUsecase != 0);
     }
 
+    /*
+    * Kellő Use-Casek:
+    * Hóvihar mezőt súlyt
+    *Eszkimo lyukra lép
+    *Kutató lyukra lép
+    *Eszkimo iceblockra lép
+    *Kutató iceblockra lép
+    *
+    *
+    *
+    *
+    * */
+
 
     //Új függvény létrehozáshoz ezt másoljátok és írjátok át így nem felejtetek el valamit
-    public void Temp(){
+    public void Temp(){ // példa
         //Inicializálás
         //Ide a szükséges objektumok
         Player player = new Eskimo();
