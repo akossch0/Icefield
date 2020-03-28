@@ -97,6 +97,7 @@ public class Skeleton {
                     break;
                 case (7): System.out.println("Eszkimó lyukra lép:");
                     Skeleton.TestEskimoStepsOnHole();
+                    break;
                 //... ahány use-case annyi eset lesz
 
                 //ha invalid az ertek
@@ -111,14 +112,14 @@ public class Skeleton {
         Player player = new Eskimo();
         Player target = new Researcher();
         Item rope = new Rope();
-        Field mezo = new IceBlock();
+        Field field = new IceBlock();
 
         names.put(player,"EskimoPlayer");
         names.put(target,"ResearcherTarget");
         names.put(rope,"RopeItem");
 
         player.AcceptItem(rope);
-        player.Step(mezo);
+        player.setField(field);
 
 
         TestStarted = true;
@@ -155,7 +156,7 @@ public class Skeleton {
         names.put(field,"Field");
 
         player.AcceptItem(spade);
-        player.Step(field);
+        player.setField(field);
 
         TestStarted = true;
 
@@ -174,7 +175,7 @@ public class Skeleton {
         names.put(field,"IceBlock");
         names.put(inspected,"InspectedIceBlock");
 
-        player.Step(field);
+        player.setField(field);
 
         TestStarted = true;
 
@@ -216,22 +217,23 @@ public class Skeleton {
         TestStarted = false;
         names.clear();
 
-
     }
 
     public static void TestEskimoStepsOnHole(){
-        Player eskimo = new Eskimo();
-        Field currentfiled = new IceBlock();
+        Player player = new Eskimo();
+        Field currentfield = new IceBlock();
         Field hole  = new Hole();
 
-        names.put(eskimo, "EskimoPlayer");
-        names.put(currentfiled, "CurrentFiled");
+        names.put(player, "EskimoPlayer");
+        names.put(currentfield, "CurrentFiled");
         names.put(hole, "Hole");
+
+        player.setField(currentfield);
 
         TestStarted = true;
 
-        eskimo.Step(hole);
-        eskimo.setInWater(true);
+        player.Step(hole);
+
         TestStarted = false;
         names.clear();
     }

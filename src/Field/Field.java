@@ -22,6 +22,7 @@ public abstract class Field {
     public void Accept(Player p){
         Skeleton.Called(this,"Accept");
         players.add(p);
+        p.setInWater(true);
         Skeleton.Return();
     }
 

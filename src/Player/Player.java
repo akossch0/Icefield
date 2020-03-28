@@ -29,6 +29,10 @@ public class Player {
     private ClothesEquipped clothes = null;
 
 
+    public void setField(Field field) {
+        this.field = field;
+    }
+
     /**
      * @param f A mező amire a kepesseget hasznalja majd a player (Oda epit Iglut vagy deriti fel)
      * @return Ha Researcher hivja meg akkor ter vissza fontos szammal, ha Eszkimo akkor 0 a visszateresi ertek
@@ -47,7 +51,7 @@ public class Player {
     }
 
     /**
-     * CSokkenti a player HP-jat  1 el
+     * Csokkenti a player HP-jat  1 el
      */
     public void DecrHp(){
         Skeleton.Called(this,"DecrHp");
