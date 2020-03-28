@@ -80,6 +80,9 @@ public class Skeleton {
                 case (4): System.out.println("Kutató kutatása:");
                     Skeleton.ResearcherUseAbility();
                     break;
+                case (5): System.out.println("Búvárruha használat:");
+                    Skeleton.UseSwimsuit();
+                    break;
                 //... ahány use-case annyi eset lesz
 
                 //ha invalid az ertek
@@ -166,6 +169,19 @@ public class Skeleton {
         names.clear();
     }
 
+    public static void UseSwimsuit(){
+        Player player = new Eskimo();
+        Item sw = new Swimsuit();
 
+        names.put(player, "EskimoPlayer");
+        names.put(sw,"Swimsuit");
+
+        TestStarted = true;
+
+        player.UseItem(sw,player);
+
+        TestStarted = false;
+        names.clear();
+    }
 
 }

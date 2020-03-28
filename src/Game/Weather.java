@@ -1,6 +1,6 @@
 package Game;
 
-import Field.Field;
+import Field.*;
 import Skeleton.Skeleton;
 
 import java.util.ArrayList;
@@ -12,6 +12,8 @@ public final class Weather {
 
     public void Blizzard() {
         Skeleton.Called(this,"Blizzard()");
+
+
         Skeleton.Return();
     }
 }
