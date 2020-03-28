@@ -92,13 +92,14 @@ public class Skeleton {
             switch (numberOfUsecase) {
                 case (0): /*kilepunk a programbol*/ System.out.println("Bye!");
                     break;
-                case (1): /*A skeleton 1-es usecase-re vonatkozo metodusa*/ System.out.println("1st use-case: ...");
+                case (1): System.out.println("Kötél használata:");
                     Skeleton.TestUseRope();
                     break;
-                case (2): System.out.println("2nd use-case: ...");
+                case (2): System.out.println("Ásó használat:");
                     Skeleton.TestUseSpade();
                     break;
-                case (3): System.out.println("3rd use-case: ...");
+                case (3): System.out.println("Étel evése:");
+                    Skeleton.EatFood();
                     break;
                 //... ahány use-case annyi eset lesz
 
