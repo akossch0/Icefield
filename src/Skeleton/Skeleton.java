@@ -47,6 +47,7 @@ public class Skeleton {
     public static boolean Question(String str){
         String input;
 
+        System.out.println(str);
         BufferedReader obj = new BufferedReader(new InputStreamReader((System.in)));
         try{input = obj.readLine();
             switch(input.charAt(0)) {
