@@ -32,6 +32,7 @@ public abstract class Field {
      */
     public void Remove(Player p){
         Skeleton.Called(this,"Remove");
+        players.remove(p);
         Skeleton.Return();
     }
 
@@ -50,8 +51,8 @@ public abstract class Field {
      * @return
      */
     public List<Player> getPlayers() {
-        Skeleton.Called(this,"getPlayers");
-        Skeleton.Return();
+        //Skeleton.Called(this,"getPlayers");
+        //Skeleton.Return();
         return players;
     }
 
