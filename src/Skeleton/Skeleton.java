@@ -113,22 +113,57 @@ public class Skeleton {
         }while(numberOfUsecase != 0);
     }
 
+
+    //Új függvény létrehozáshoz ezt másoljátok és írjátok át így nem felejtetek el valamit
+    public void Temp(){
+        //Inicializálás
+        //Ide a szükséges objektumok
+        Player player = new Eskimo();
+        Player target = new Researcher();
+        Item rope = new Rope();
+        Field field = new IceBlock();
+        Field hole = new Hole();
+
+        //Hash feltöltése
+        names.put(player,"EskimoPlayer");
+        names.put(target,"ResearcherTarget");
+        names.put(rope,"RopeItem");
+        names.put(field,"IceblockField");
+        names.put(hole,"HoleField");
+
+
+        //Objektumok beállítása
+        target.setField(hole);
+        player.setField(field);
+        player.AcceptItem(rope);
+        //Test indítása
+        TestStarted = true;
+
+        //szekvencia kezdőfüggvény függvény elindítása
+        player.UseItem(rope,target);
+        //Test leállítása
+        TestStarted = false;
+
+        //Hash ürítése
+    }
+
+
+
     public static void TestUseRope(){
         Player player = new Eskimo();
         Player target = new Researcher();
         Item rope = new Rope();
         Field field = new IceBlock();
-
         Field hole = new Hole();
-
-        target.setField(hole);
-
-        player.setField(field);
 
         names.put(player,"EskimoPlayer");
         names.put(target,"ResearcherTarget");
         names.put(rope,"RopeItem");
+        names.put(field,"IceblockField");
+        names.put(hole,"HoleField");
 
+        target.setField(hole);
+        player.setField(field);
         player.AcceptItem(rope);
 
         TestStarted = true;
