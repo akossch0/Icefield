@@ -13,6 +13,7 @@ public class IceBlock extends Field {
 
     @Override
     public void Accept(Player p) {
+        Skeleton.Called(this,"Accept");
         getPlayers().add(p);
         if(Skeleton.getQuestionresult()){
             for(int i = 0; i < getPlayers().size(); ++i){
@@ -21,6 +22,7 @@ public class IceBlock extends Field {
             Coverable nogloo = new NoGloo();
             Gloo(nogloo);
         }
+        Skeleton.Return();
     }
 
     /**

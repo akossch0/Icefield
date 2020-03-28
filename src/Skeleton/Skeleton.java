@@ -306,7 +306,7 @@ public class Skeleton {
 
         TestStarted = true;
 
-        Question("Átforduljon a jégtábla a rálépéssel?(I/N)");
+        Question("Átforduljon a jégtábla a rálépéssel?(Y/N)");
 
         eskimo.Step(nextField);
 
