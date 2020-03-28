@@ -2,6 +2,7 @@ package Main;
 
 import Skeleton.*;
 
+import java.awt.*;
 import java.io.*;
 
 class Main

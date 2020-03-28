@@ -16,13 +16,6 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Skeleton {
-
-    private static boolean questionResult;
-
-    public static boolean getQuestionresult(){
-        return questionResult;
-    }
-
     static int n = 0;
     static HashMap<Object,String> names = new HashMap<>();
     static boolean TestStarted = false;
@@ -73,6 +66,26 @@ public class Skeleton {
     public static void Run(){
 
         int numberOfUsecase = -1;
+
+        String description = "\t\t Skeleton program\n" +
+                "\tAdott use-case választásához gépelje be a hozzá tartozó sorszámot!\n" +
+                "Use-case-ek:\n" +
+                "1. ...\n" +
+                "2. ...\n" +
+                "3. ...\n" +
+                "4. ...\n" +
+                "5. ...\n" +
+                "6. ...\n" +
+                "7. ...\n" +
+                "8. ...\n" +
+                "9. ...\n" +
+                "10. ...\n" +
+                "11. ...\n" +
+                "12. ...\n" +
+                "13. ...\n" +
+                "14. ...\n" +
+                "Kilépéshez gépelje a '0' karaktert!\n";
+        System.out.print(description);
 
         do{
             try{
