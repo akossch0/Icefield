@@ -80,6 +80,9 @@ public class Skeleton {
                 case (4): System.out.println("Kutató kutatása:");
                     Skeleton.ResearcherUseAbility();
                     break;
+                case (5): System.out.println("Búvárruha használat:");
+                    Skeleton.UseSwimsuit();
+                    break;
                 //... ahány use-case annyi eset lesz
 
                 //ha invalid az ertek
