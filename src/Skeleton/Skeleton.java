@@ -47,14 +47,14 @@ public class Skeleton {
     public static boolean Question(String str){
         String input;
 
-        System.out.println(str);
+        System.out.print(str);
 
         BufferedReader obj = new BufferedReader(new InputStreamReader((System.in)));
         try{input = obj.readLine();
             switch(input.charAt(0)) {
-                case 'y':
+                case 'i':
                     return true;
-                case 'Y':
+                case 'I':
                     return true;
                 case 'n':
                     return false;
