@@ -58,20 +58,51 @@ public class Skeleton {
                 case 'y':
                 case 'Y':
                     return true;
-                case'n':
-                case'N':
+                case 'n':
+                case 'N':
                     return false;
                 default:
                     return false;
             }
-
-
-
         }catch (Exception e){
             System.out.print("Input Failed");
 
         }
         return false;
+    }
+
+    public static void Run(){
+
+        int numberOfUsecase = -1;
+
+        do{
+            try{
+                System.out.print("Give the number of the use-case you'd like to see: ");
+                BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+                String s = br.readLine();
+                numberOfUsecase = Integer.parseInt(s);
+
+            }catch(Exception e){
+                System.out.println(e.getMessage());
+            }
+
+            switch (numberOfUsecase) {
+                case (0): /*kilepunk a programbol*/ System.out.println("Bye!");
+                    break;
+                case (1): /*A skeleton 1-es usecase-re vonatkozo metodusa*/ System.out.println("1st use-case: ...");
+                    break;
+                case (2): System.out.println("2nd use-case: ...");
+                    break;
+                case (3): System.out.println("3rd use-case: ...");
+                    break;
+                //... ahány use-case annyi eset lesz
+
+                //ha invalid az ertek
+                default:
+                    System.out.println("Wrong input given when choosing from numbers!");
+                    break;
+            }
+        }while(numberOfUsecase != 0);
     }
 
 }
