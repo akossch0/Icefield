@@ -60,7 +60,7 @@ public class Player {
      */
     public void Step(Field f){
         Skeleton.Called(this,"Step");
-
+        field = f;
         Skeleton.Return();}
 
     /**
@@ -76,7 +76,9 @@ public class Player {
      */
     public Field getField(){
         Skeleton.Called(this,"getField");
-        Skeleton.Return();return null;}
+        Skeleton.Return();
+        return field;
+    }
 
     /**
      * @param i az item amit a player hasznalni fog, meghivja  az itemre a use()-t
