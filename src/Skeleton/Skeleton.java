@@ -156,6 +156,7 @@ public class Skeleton {
         TestStarted = false;
         names.clear();
     }
+
     public static void ResearcherUseAbility(){
         Player player = new Researcher();
         Field field = new IceBlock();
@@ -174,6 +175,7 @@ public class Skeleton {
         TestStarted = false;
         names.clear();
     }
+
     public static void TestBlizard(){
         Manager m = new Manager();
         Weather w = new Weather();
@@ -207,6 +209,23 @@ public class Skeleton {
         names.clear();
 
 
+    }
+
+    public static void TestEskimoStepsOnHole(){
+        Player eskimo = new Eskimo();
+        Field currentfiled = new IceBlock();
+        Field hole  = new Hole();
+
+        names.put(eskimo, "EskimoPlayer");
+        names.put(currentfiled, "CurrentFiled");
+        names.put(hole, "Hole");
+
+        TestStarted = true;
+
+        eskimo.Step(hole);
+        eskimo.setInWater(true);
+        TestStarted = false;
+        names.clear();
     }
 
     public static void UseSwimsuit(){
