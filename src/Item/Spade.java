@@ -10,7 +10,7 @@ public class Spade extends Item {
      */
     @Override
     public void Use(Player p){
-        Skeleton.Called(this,"Spade-Use");
+        Skeleton.Called(this,"Use");
         Field field = p.getField();
         field.DecrLayerOfSnow(2);
         Skeleton.Return();}

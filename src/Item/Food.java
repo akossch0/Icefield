@@ -10,7 +10,7 @@ public class Food extends Item {
      */
     @Override
     public void Use(Player p){
-        Skeleton.Called(this,"Food-Use");
+        Skeleton.Called(this,"Use");
 
         p.IncrHp();
         p.RemoveItem(this);

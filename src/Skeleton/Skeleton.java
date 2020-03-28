@@ -28,30 +28,6 @@ public class Skeleton {
             n--;
     }
 
-    public static void TestUseRope(){
-        Player player = new Eskimo();
-        Player target = new Researcher();
-        Item rope = new Rope();
-        Field mezo = new IceBlock();
-
-        names.put(player,"EskimoPlayer");
-        names.put(target,"ResearcherTarget");
-        names.put(rope,"RopeItem");
-
-        player.AcceptItem(rope);
-        player.Step(mezo);
-
-
-        TestStarted = true;
-
-        player.UseItem(rope,target);
-
-        TestStarted = false;
-        names.clear();
-
-
-    }
-
     public static boolean Question(){
         String input;
 
@@ -111,6 +87,29 @@ public class Skeleton {
         }while(numberOfUsecase != 0);
     }
 
+    public static void TestUseRope(){
+        Player player = new Eskimo();
+        Player target = new Researcher();
+        Item rope = new Rope();
+        Field mezo = new IceBlock();
+
+        names.put(player,"EskimoPlayer");
+        names.put(target,"ResearcherTarget");
+        names.put(rope,"RopeItem");
+
+        player.AcceptItem(rope);
+        player.Step(mezo);
+
+
+        TestStarted = true;
+
+        player.UseItem(rope,target);
+
+        TestStarted = false;
+        names.clear();
+    }
+
+
     public static void EatFood(){
         Player player = new Eskimo();
         Item food = new Food();
@@ -120,7 +119,7 @@ public class Skeleton {
 
         TestStarted = true;
 
-        food.Use(player);
+        player.UseItem(food, player);
 
         TestStarted = false;
         names.clear();
