@@ -1,5 +1,6 @@
 package Item;
 
+import Field.Field;
 import Player.*;
 import Skeleton.Skeleton;
 
@@ -11,8 +12,10 @@ public class Rope extends Item {
     @Override
     public void Use(Player p){
         Skeleton.Called(this,"Use");
-        p.Step(null);
+        Field field = p.getField();
+        p.Step(field);
         p.setInWater(false);
         Skeleton.Return();
+
     }
 }

@@ -66,9 +66,9 @@ public class Player {
         Skeleton.Called(this,"Step");
         field.Remove(this);
 
-
         f.Accept(this);
-        Skeleton.Return();}
+        Skeleton.Return();
+    }
 
     /**
      * Ezzel a metodussal a player ellapatol egy kevés havat a mezorol amin all

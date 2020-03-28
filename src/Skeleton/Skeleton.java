@@ -121,7 +121,6 @@ public class Skeleton {
         player.AcceptItem(rope);
         player.setField(field);
 
-
         TestStarted = true;
 
         player.UseItem(rope,target);
@@ -129,7 +128,6 @@ public class Skeleton {
         TestStarted = false;
         names.clear();
     }
-
 
     public static void EatFood(){
         Player player = new Eskimo();
