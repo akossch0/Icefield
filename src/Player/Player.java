@@ -62,6 +62,7 @@ public class Player {
         Skeleton.Called(this,"Step");
         field.Remove(this);
 
+
         f.Accept(this);
         Skeleton.Return();}
 
