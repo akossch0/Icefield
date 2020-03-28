@@ -18,7 +18,7 @@ public class Skeleton {
     public static void Called(Object object,String FuncHeader){
         if (TestStarted) {
             for (int i = 0; i < n; i++) System.out.print("\t");
-            System.out.println(names.get(object) + ":" + FuncHeader + "()");
+            System.out.println(names.get(object) + "." + FuncHeader + "()");
             n++;
         }
     }
