@@ -18,7 +18,7 @@ public class Skeleton {
     public static void Called(Object object,String FuncHeader){
         if (TestStarted) {
             for (int i = 0; i < n; i++) System.out.print("\t");
-            System.out.println(names.get(object) + "." + FuncHeader + "()");
+            System.out.println(names.get(object) + ":" + FuncHeader + "()");
             n++;
         }
     }
@@ -27,6 +27,10 @@ public class Skeleton {
         if(TestStarted)
             n--;
     }
+
+
+
+
 
     public static boolean Question(){
         String input;
@@ -68,14 +72,13 @@ public class Skeleton {
             switch (numberOfUsecase) {
                 case (0): /*kilepunk a programbol*/ System.out.println("Bye!");
                     break;
-                case (1): System.out.println("Kötél használata:");
+                case (1): /*A skeleton 1-es usecase-re vonatkozo metodusa*/ System.out.println("1st use-case: ...");
                     Skeleton.TestUseRope();
                     break;
-                case (2): System.out.println("Ásó használat:");
+                case (2): System.out.println("2nd use-case: ...");
                     Skeleton.TestUseSpade();
                     break;
-                case (3): System.out.println("Étel evése:");
-                    Skeleton.EatFood();
+                case (3): System.out.println("3rd use-case: ...");
                     break;
                 case (4): System.out.println("Kutató kutatása:");
                     Skeleton.ResearcherUseAbility();
@@ -88,6 +91,23 @@ public class Skeleton {
                     break;
             }
         }while(numberOfUsecase != 0);
+    }
+
+    public static void TestEskimoStepsOnHole(){
+        Player eskimo = new Eskimo();
+        Field currentfiled = new IceBlock();
+        Field hole  = new Hole();
+
+        names.put(eskimo, "EskimoPlayer");
+        names.put(currentfiled, "CurrentFiled");
+        names.put(hole, "Hole");
+
+        TestStarted = true;
+
+        eskimo.Step(hole);
+        eskimo.setInWater(true);
+        TestStarted = false;
+        names.clear();
     }
 
     public static void TestUseRope(){
@@ -165,7 +185,6 @@ public class Skeleton {
         TestStarted = false;
         names.clear();
     }
-
 
 
 }
