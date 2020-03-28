@@ -16,6 +16,9 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Skeleton {
+
+    public static boolean questionResult;
+
     static int n = 0;
     static HashMap<Object,String> names = new HashMap<>();
     static boolean TestStarted = false;
@@ -44,13 +47,15 @@ public class Skeleton {
         try{input = obj.readLine();
             switch(input.charAt(0)) {
                 case 'y':
+                    questionResult = true;
                 case 'Y':
-                    return true;
+                    questionResult = true;
                 case 'n':
+                    questionResult = false;
                 case 'N':
-                    return false;
+                    questionResult = false;
                 default:
-                    return false;
+                    questionResult = false;
             }
         }catch (Exception e){
             System.out.print("Input Failed");
@@ -96,7 +101,7 @@ public class Skeleton {
                     Skeleton.TestBlizard();
                     break;
                 case (7): System.out.println("Eszkimó lyukra lép:");
-                    Skeleton.TestEskimoStepsOnHole();
+                    Skeleton.PlayerStepsOnHole();
                     break;
                 //... ahány use-case annyi eset lesz
 
@@ -215,22 +220,24 @@ public class Skeleton {
         TestStarted = false;
         names.clear();
 
+
     }
 
-    public static void TestEskimoStepsOnHole(){
-        Player player = new Eskimo();
-        Field currentfield = new IceBlock();
+    public static void PlayerStepsOnHole(){
+        Player eskimo = new Eskimo();
+        Field currentfiled = new IceBlock();
         Field hole  = new Hole();
 
-        names.put(player, "EskimoPlayer");
-        names.put(currentfield, "CurrentFiled");
-        names.put(hole, "Hole");
+        eskimo.setField(currentfiled);
 
-        player.setField(currentfield);
+
+        names.put(eskimo, "EskimoPlayer");
+        names.put(currentfiled, "CurrentFiled");
+        names.put(hole, "Hole");
 
         TestStarted = true;
 
-        player.Step(hole);
+        eskimo.Step(hole);
 
         TestStarted = false;
         names.clear();

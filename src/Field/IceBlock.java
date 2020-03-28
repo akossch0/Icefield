@@ -1,7 +1,8 @@
 package Field;
 
-import Coverable.Coverable;
+import Coverable.*;
 import Item.*;
+import Player.Player;
 import Skeleton.Skeleton;
 
 import java.util.ArrayList;
@@ -9,6 +10,18 @@ import java.util.List;
 
 public class IceBlock extends Field {
     private List<Item> items = new ArrayList<Item>();
+
+    @Override
+    public void Accept(Player p) {
+        getPlayers().add(p);
+        if(Skeleton.questionResult){
+            for(int i = 0; i < getPlayers().size(); ++i){
+                getPlayers().get(i).setInWater(true);
+            }
+            Coverable nogloo = new NoGloo();
+            Gloo(nogloo);
+        }
+    }
 
     /**
      * Visszaad egy mar kiasott targyat es eltavolitja azt a mezobol.
