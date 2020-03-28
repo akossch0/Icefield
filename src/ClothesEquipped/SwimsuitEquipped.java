@@ -5,6 +5,7 @@ import Skeleton.Skeleton;
 public class SwimsuitEquipped implements ClothesEquipped {
 
     public SwimsuitEquipped(String name){
+        Skeleton.addNames(this,name);
         Skeleton.Called(this, name);
 
         Skeleton.Return();
