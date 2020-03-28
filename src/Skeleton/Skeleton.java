@@ -18,7 +18,7 @@ public class Skeleton {
     public static void Called(Object object,String FuncHeader){
         if (TestStarted) {
             for (int i = 0; i < n; i++) System.out.print("\t");
-            System.out.println(names.get(object) + ":" + FuncHeader + "()");
+            System.out.println(names.get(object) + "." + FuncHeader + "()");
             n++;
         }
     }
@@ -26,65 +26,6 @@ public class Skeleton {
     public static void Return(){
         if(TestStarted)
             n--;
-    }
-
-    public static void TestUseRope(){
-        Player player = new Eskimo();
-        Player target = new Researcher();
-        Item rope = new Rope();
-        Field field = new IceBlock();
-
-        names.put(player,"EskimoPlayer");
-        names.put(target,"ResearcherTarget");
-        names.put(rope,"RopeItem");
-
-        player.AcceptItem(rope);
-        player.Step(field);
-
-
-        TestStarted = true;
-
-        player.UseItem(rope,target);
-
-        TestStarted = false;
-        names.clear();
-    }
-
-    public static void TestEskimoStepsOnHole(){
-        Player eskimo = new Eskimo();
-        Field currentfiled = new IceBlock();
-        Field hole  = new Hole();
-
-        names.put(eskimo, "EskimoPlayer");
-        names.put(currentfiled, "CurrentFiled");
-        names.put(hole, "Hole");
-
-        TestStarted = true;
-
-        eskimo.Step(hole);
-        eskimo.setInWater(true);
-        TestStarted = false;
-        names.clear();
-    }
-
-    public static void TestUseSpade(){
-        Player player = new Eskimo();
-        Item spade = new Spade();
-        Field field = new IceBlock();
-
-        names.put(player,"SpadeUserEskimo");
-        names.put(spade,"Spade");
-        names.put(field,"Field");
-
-        player.AcceptItem(spade);
-        player.Step(field);
-
-        TestStarted = true;
-
-        player.UseItem(spade, player);
-
-        TestStarted = false;
-        names.clear();
     }
 
     public static boolean Question(){
@@ -127,13 +68,17 @@ public class Skeleton {
             switch (numberOfUsecase) {
                 case (0): /*kilepunk a programbol*/ System.out.println("Bye!");
                     break;
-                case (1): /*A skeleton 1-es usecase-re vonatkozo metodusa*/ System.out.println("1st use-case: ...");
+                case (1): System.out.println("Kötél használata:");
                     Skeleton.TestUseRope();
                     break;
-                case (2): System.out.println("2nd use-case: ...");
+                case (2): System.out.println("Ásó használat:");
                     Skeleton.TestUseSpade();
                     break;
-                case (3): System.out.println("3rd use-case: ...");
+                case (3): System.out.println("Étel evése:");
+                    Skeleton.EatFood();
+                    break;
+                case (4): System.out.println("Kutató kutatása:");
+                    Skeleton.ResearcherUseAbility();
                     break;
                 //... ahány use-case annyi eset lesz
 
@@ -144,5 +89,83 @@ public class Skeleton {
             }
         }while(numberOfUsecase != 0);
     }
+
+    public static void TestUseRope(){
+        Player player = new Eskimo();
+        Player target = new Researcher();
+        Item rope = new Rope();
+        Field mezo = new IceBlock();
+
+        names.put(player,"EskimoPlayer");
+        names.put(target,"ResearcherTarget");
+        names.put(rope,"RopeItem");
+
+        player.AcceptItem(rope);
+        player.Step(mezo);
+
+
+        TestStarted = true;
+
+        player.UseItem(rope,target);
+
+        TestStarted = false;
+        names.clear();
+    }
+
+
+    public static void EatFood(){
+        Player player = new Eskimo();
+        Item food = new Food();
+
+        names.put(player,"EskimoPlayer");
+        names.put(food, "FoodItem");
+
+        TestStarted = true;
+
+        player.UseItem(food, player);
+
+        TestStarted = false;
+        names.clear();
+    }
+
+    public static void TestUseSpade(){
+        Player player = new Eskimo();
+        Item spade = new Spade();
+        Field field = new IceBlock();
+
+        names.put(player,"SpadeUserEskimo");
+        names.put(spade,"Spade");
+        names.put(field,"Field");
+
+        player.AcceptItem(spade);
+        player.Step(field);
+
+        TestStarted = true;
+
+        player.UseItem(spade, player);
+
+        TestStarted = false;
+        names.clear();
+    }
+    public static void ResearcherUseAbility(){
+        Player player = new Researcher();
+        Field field = new IceBlock();
+        Field inspected = new IceBlock();
+
+        names.put(player,"Researcher");
+        names.put(field,"IceBlock");
+        names.put(inspected,"InspectedIceBlock");
+
+        player.Step(field);
+
+        TestStarted = true;
+
+        player.UseAbility(inspected);
+
+        TestStarted = false;
+        names.clear();
+    }
+
+
 
 }
