@@ -166,6 +166,19 @@ public class Skeleton {
         names.clear();
     }
 
+    public static void UseSwimsuit(){
+        Player player = new Eskimo();
+        Item sw = new Swimsuit();
 
+        names.put(player, "EskimoPlayer");
+        names.put(sw,"Swimsuit");
+
+        TestStarted = true;
+
+        player.UseItem(sw,player);
+
+        TestStarted = false;
+        names.clear();
+    }
 
 }
