@@ -21,6 +21,7 @@ public abstract class Item {
      */
     public void setHolder(Player p){
         Skeleton.Called(this,"setHolder");
+        holder = p;
         Skeleton.Return();
     }
     public Player getHolder(){

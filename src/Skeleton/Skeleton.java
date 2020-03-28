@@ -119,7 +119,10 @@ public class Skeleton {
         Item rope = new Rope();
         Field field = new IceBlock();
 
-        rope.setHolder(player);
+        Field hole = new Hole();
+
+        target.setField(hole);
+
         player.setField(field);
 
         names.put(player,"EskimoPlayer");

@@ -12,7 +12,7 @@ public class Rope extends Item {
     @Override
     public void Use(Player p){
         Skeleton.Called(this,"Use");
-        Field target = getHolder().getField();
+        Field target = this.getHolder().getField();
         p.Step(target);
         p.setInWater(false);
         Skeleton.Return();
