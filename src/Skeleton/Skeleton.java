@@ -12,11 +12,9 @@ import java.util.HashMap;
 
 public class Skeleton {
     static int n = 0;
-    static HashMap<Object,String> names;
+    static HashMap<Object,String> names = new HashMap<>();
     static boolean TestStarted = false;
-    public static void Initialise(){
-        names = new HashMap<>();
-    }
+
     public static void Called(Object object,String FuncHeader){
         if (TestStarted) {
             for (int i = 0; i < n; i++) System.out.print("\t");
@@ -112,8 +110,10 @@ public class Skeleton {
                 case (0): /*kilepunk a programbol*/ System.out.println("Bye!");
                     break;
                 case (1): /*A skeleton 1-es usecase-re vonatkozo metodusa*/ System.out.println("1st use-case: ...");
+                    Skeleton.TestUseRope();
                     break;
                 case (2): System.out.println("2nd use-case: ...");
+                    Skeleton.TestUseSpade();
                     break;
                 case (3): System.out.println("3rd use-case: ...");
                     break;

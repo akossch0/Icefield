@@ -11,7 +11,6 @@ class Main
         Skeleton.Run();
 
         //teszt
-        Skeleton.Initialise();
-        Skeleton.TestUseRope();
+
     }
 }
