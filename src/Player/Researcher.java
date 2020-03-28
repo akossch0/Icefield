@@ -11,6 +11,7 @@ public class Researcher extends Player {
     @Override
     public int UseAbility(Field f){
         Skeleton.Called(this,"UseAbility");
+        f.getCapacity();
         Skeleton.Return();
         return 0;}
 

@@ -77,6 +77,9 @@ public class Skeleton {
                 case (3): System.out.println("Étel evése:");
                     Skeleton.EatFood();
                     break;
+                case (4): System.out.println("Kutató kutatása:");
+                    Skeleton.ResearcherUseAbility();
+                    break;
                 //... ahány use-case annyi eset lesz
 
                 //ha invalid az ertek
@@ -140,6 +143,24 @@ public class Skeleton {
         TestStarted = true;
 
         player.UseItem(spade, player);
+
+        TestStarted = false;
+        names.clear();
+    }
+    public static void ResearcherUseAbility(){
+        Player player = new Researcher();
+        Field field = new IceBlock();
+        Field inspected = new IceBlock();
+
+        names.put(player,"Researcher");
+        names.put(field,"IceBlock");
+        names.put(inspected,"InspectedIceBlock");
+
+        player.Step(field);
+
+        TestStarted = true;
+
+        player.UseAbility(inspected);
 
         TestStarted = false;
         names.clear();
