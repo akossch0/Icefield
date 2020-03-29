@@ -1,6 +1,6 @@
 package Field;
 
-import Coverable.Coverable;
+import Coverable.*;
 import Player.*;
 import Item.*;
 import Skeleton.Skeleton;
@@ -9,16 +9,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Field {
-
+    /** A mezon allo playerek listaja **/
     private List<Player> players = new ArrayList<Player>();
-
+    /** A szomszedos mezok listaja**/
     private List<Field> fields = new ArrayList<Field>();
-
-    protected Coverable cover = null;
-
+    /** A mezo strategyje, alapertelmezetten minden mezo fedettlen **/
+    protected Coverable cover = new NoGloo();
+    /** A mezon talalhato item **/
     protected Item item = null;
 
-
+    /**
+     * Ezzel a setterrel lehet itemet adni a mezonek
+     * @param item az item amit elfogad
+     */
     public void setItem(Item item){
         this.item = item;
     }

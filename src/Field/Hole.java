@@ -6,7 +6,10 @@ import Player.Player;
 import Skeleton.Skeleton;
 
 public class Hole extends Field {
-
+    /**
+     * Ez a fuggveny hivodik amikor egy player ralep erre mezore
+     * @param p a jatekos aki a mezore lep
+     */
     @Override
     public void Accept(Player p) {
         Skeleton.Called(this,"Accept");

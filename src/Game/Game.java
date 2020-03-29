@@ -30,12 +30,18 @@ public final class Game {
      * @return visszakuldi a statikus valtozot ha nem ures, amugy pedig peldanyosit
      */
     public static Game getInstance(){
+        // Ha meg egyszer sem keszitettunk el Game objektumot akkor most lesz elkeszitve
         if(INSTANCE == null)
             INSTANCE = new Game();
 
         return INSTANCE;
     }
 
+    /**
+     * Ha privat a konstruktor senki sem tudja osszekeverni a dolgokat
+     * es mindenki helyesen a getInstance fuggvenyt fogja hasznali
+     */
+    private Game(){};
     /**
      * elinditja a jatekot
      */

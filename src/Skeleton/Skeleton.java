@@ -385,7 +385,7 @@ public class Skeleton {
      *Hovihar mezot sujt
      */
     public static void Blizzard(){
-        Weather w = new Weather();
+        Weather w = Weather.getInstance();
         List<Field> fields = new ArrayList<Field>();
         for (int i = 0; i < 3; i++){
             Field f = new IceBlock();
@@ -410,7 +410,6 @@ public class Skeleton {
 
         TestStarted = true;
         // Hovihar lesujt
-
         w.Blizzard();
 
         TestStarted = false;
