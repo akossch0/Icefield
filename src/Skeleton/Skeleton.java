@@ -147,16 +147,16 @@ public class Skeleton {
                     Skeleton.EskimoUseAbility();
                     break;
                 case (11): System.out.println("Játékosnak elfogy a testhője:");
-                    Skeleton.EskimoOutOfHealth();
+                    Skeleton.PlayerOutOfHealth();
                     break;
                 case (12): System.out.println("Játékos vízbe fullad:");
-                    Skeleton.EskimoDrown();
+                    Skeleton.PlayerDrown();
                     break;
                 case (13): System.out.println("Játékos tárgyat vesz fel:");
-                    Skeleton.EskimoPickUpItem();
+                    Skeleton.PlayerPickUpItem();
                     break;
                 case (14): System.out.println("Játékos WinningItem-et használ:");
-                    Skeleton.EskimoUseWinningItem();
+                    Skeleton.PlayerUseWinningItem();
                     break;
                 //... ahány use-case annyi eset lesz
 
@@ -228,7 +228,7 @@ public class Skeleton {
     //public static void EskimoPickUpItem(){System.out.print("Nincs kész még");}
     //public static void EskimoUseWinningItem(){System.out.print("Nincs kész még");}
 
-    public static void EskimoUseWinningItem(){
+    public static void PlayerUseWinningItem(){
         Player player = new Eskimo();
         Item i = new WinningItem();
 
@@ -242,10 +242,11 @@ public class Skeleton {
         player.UseItem(i, player);
 
         TestStarted = false;
+        System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
 
 
-    public static void EskimoDrown(){
+    public static void PlayerDrown(){
         Player player = new Eskimo();
 
         names.put(player,"EskimoPlayer");
@@ -255,10 +256,11 @@ public class Skeleton {
         player.yourTurn();
 
         TestStarted = false;
+        System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
 
 
-    public static void EskimoOutOfHealth(){
+    public static void PlayerOutOfHealth(){
         Player player = new Eskimo();
 
         names.put(player,"EskimoPlayer");
@@ -268,9 +270,10 @@ public class Skeleton {
         player.DecrHp();
 
         TestStarted = false;
+        System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
 
-    public static void EskimoPickUpItem(){
+    public static void PlayerPickUpItem(){
         Player player = new Eskimo();
         IceBlock field = new IceBlock();
         Item item = new Rope();
@@ -289,6 +292,7 @@ public class Skeleton {
         }
 
         TestStarted = false;
+        System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
 
     public static void UseRope(){
@@ -316,6 +320,7 @@ public class Skeleton {
         player.UseItem(rope,target);
 
         TestStarted = false;
+        System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
 
     public static void EatFood(){
@@ -330,6 +335,7 @@ public class Skeleton {
         player.UseItem(food, player);
 
         TestStarted = false;
+        System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
 
     public static void UseSpade(){
@@ -349,6 +355,7 @@ public class Skeleton {
         player.UseItem(spade, player);
 
         TestStarted = false;
+        System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
 
     public static void ResearcherUseAbility(){
@@ -432,6 +439,7 @@ public class Skeleton {
         eskimo.Step(hole);
 
         TestStarted = false;
+        System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
 
     public static void PlayerStepsOnIceblock(){
@@ -463,6 +471,7 @@ public class Skeleton {
 
         TestStarted = false;
         names.clear();
+        System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
 
     public static void PlayerShovelsSnowWithHand(){
@@ -479,6 +488,7 @@ public class Skeleton {
         eskimo.Dig();
 
         TestStarted = false;
+        System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
 
     public static void UseSwimsuit(){
@@ -493,6 +503,7 @@ public class Skeleton {
         player.UseItem(sw,player);
 
         TestStarted = false;
+        System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
 
 }
