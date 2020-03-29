@@ -17,7 +17,6 @@ public abstract class Field {
     protected Coverable cover = null;
     // Minden mezon vagy 1 vagy 0 item lehet
     protected Item item = null;
-
     //Ideiglenes fv, majd a konstruktorban lesz megoldva
     public void setItem(Item item){
         this.item = item;
