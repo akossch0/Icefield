@@ -43,9 +43,10 @@ public abstract class Field {
      */
     public Item RemoveItem(){
         Skeleton.Called(this,"RemoveItem");
-        //item = null;
+        Item i = item;
+        item = null;
         Skeleton.Return();
-        return item;
+        return i;
     }
 
     /**
