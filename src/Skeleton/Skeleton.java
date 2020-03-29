@@ -223,9 +223,25 @@ public class Skeleton {
 
 
     //public static void EskimoOutOfHealth(){System.out.print("Nincs kész még");}
-    public static void EskimoDrown(){System.out.print("Nincs kész még");}
+    //public static void EskimoDrown(){System.out.print("Nincs kész még");}
     //public static void EskimoPickUpItem(){System.out.print("Nincs kész még");}
     public static void EskimoUseWinningItem(){System.out.print("Nincs kész még");}
+
+    public static void EskimoDrown(){
+        //Inicializálás
+        //Ide a szükséges objektumok
+        Player player = new Eskimo();
+
+        //Hash feltöltése
+        names.put(player,"EskimoPlayer");
+
+        TestStarted = true;
+
+        player.yourTurn();
+
+        TestStarted = false;
+    }
+
 
     public static void EskimoOutOfHealth(){
         Player player = new Eskimo();

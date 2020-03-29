@@ -128,6 +128,14 @@ public class Player {
      */
     public void yourTurn(){
         Skeleton.Called(this,"yourTurn");
+
+        if(Skeleton.Question("<<A játékos benne van a vízben, és már nem az első kör óta van ez?(I/N)>>")){
+            isWaterproof();
+            if(!Skeleton.Question("<<Van búvárruha rajta?(I/N)>> ")){
+                manager.Lose();
+            }
+        }
+
         Skeleton.Return();
     }
 
@@ -145,8 +153,11 @@ public class Player {
      */
     public boolean isWaterproof(){
         Skeleton.Called(this,"isWaterproof");
+        Skeleton.addNames(clothes,"ClothesEquipped");
+        boolean isWP = clothes.isWaterproof();
         Skeleton.Return();
-        return true;}
+        return isWP;
+    }
 
     /**
      * Elfogad a player egy itemet, igy lehet neki adni pl asot
