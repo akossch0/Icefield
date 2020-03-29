@@ -1,5 +1,7 @@
 package Item;
 
+import Game.Game;
+import Game.Manager;
 import Player.*;
 import Skeleton.Skeleton;
 
@@ -11,6 +13,12 @@ public class WinningItem extends Item {
     @Override
     public void Use(Player p){
         Skeleton.Called(this,"Use");
+        p.RemoveItem(this);
+
+        Manager manager = Manager.getInstance();
+        manager.addItem(this);
+
+
         Skeleton.Return();
     }
 }

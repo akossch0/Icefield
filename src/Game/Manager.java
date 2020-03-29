@@ -17,8 +17,9 @@ public final class Manager {
     /**
      * az idojaras melynek felelossege a vihar lebonyolitasa
      */
-    private Weather weather = null;
+    private static Weather weather = Weather.getInstance();
     private static Manager INSTANCE;
+
 
     public static Manager getInstance(){
         if(INSTANCE == null)
@@ -39,6 +40,18 @@ public final class Manager {
      */
     public static void addItem(Item i){
         Skeleton.Called(getInstance(),"addItem");
+
+        if(Skeleton.Question("<<Minden játékos ezen a jégtáblán tartózkodik?(Igen/Nem)>>")){
+            if(Skeleton.Question("<<Ez az utolsó hiányzó tárgy?(Igen/Nem)>>")){
+                Game game = Game.getInstance();
+                game.Win();
+            }
+        }else{
+            Player holder = i.getHolder();
+
+            holder.AcceptItem(i);
+        }
+
         Skeleton.Return();
     }
 
@@ -56,6 +69,7 @@ public final class Manager {
     public static void Lose(){
         Skeleton.Called(getInstance(),"Lose");
         game.Lose();
+
         Skeleton.Return();
     }
 }

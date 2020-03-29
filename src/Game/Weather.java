@@ -12,8 +12,19 @@ import java.util.List;
 public final class Weather {
     private List<Field> fields = new ArrayList<Field>();
 
+    private static Weather INSTANCE;
+
+    public static Weather getInstance(){
+        if(INSTANCE == null)
+            INSTANCE = new Weather();
+
+        return INSTANCE;
+    }
+
     public void Blizzard() {
         Skeleton.Called(this,"Blizzard");
+
+        //nem az összes fieldre kell, a map egy részére
         for (Field f : fields){
             boolean  b =  f.IsCovered();
             if (!b){
@@ -21,12 +32,16 @@ public final class Weather {
                 List<Player> ps = f.getPlayers();
                 for (Player p : ps){
                     p.DecrHp();
+                    if(Game.getGameOver())
+                        break;
                 }
             }
             else{
                 Coverable ng = new NoGloo();
                 f.Gloo(ng);
             }
+            if(Game.getGameOver())
+                break;
         }
 
 

@@ -29,10 +29,20 @@ public class Skeleton {
         names.put(Game.getInstance(), "Game");
     }
 
+    /**
+     * Az objektumok es nevek parositasa a megjeleniteshez
+     * @param o az objektum, amihez a nevet tarsitjuk
+     * @param str a nev amit tarsitunk az objektumhoz
+     */
     public static void addNames(Object o, String str){
         names.put(o,str);
     }
 
+    /**
+     * ha egy fuggveny hivodik ez gondoskodik az indentalasrol
+     * @param object amin a fuggveny hivodik
+     * @param FuncHeader a fuggveny neve
+     */
     public static void Called(Object object,String FuncHeader){
         if (TestStarted) {
             for (int i = 0; i < n; i++) System.out.print("\t");
@@ -41,11 +51,19 @@ public class Skeleton {
         }
     }
 
+    /**
+     * fuggveny visszateresekor, indentalas miatt kell
+     */
     public static void Return(){
         if(TestStarted)
             n--;
     }
 
+    /**
+     * eldontendo kerdesek feltevese
+     * @param str a kerdes
+     * @return igazsagerteke a valasznak
+     */
     public static boolean Question(String str){
         String input;
 
@@ -72,22 +90,25 @@ public class Skeleton {
         return false;
     }
 
+    /**
+     * A szkeleton program
+     */
     public static void Run(){
 
         int numberOfUsecase = -1;
 
-        String description = "\t\t\t\t Skeleton program\n" +
+        String description = "\t\t\t Skeleton program\n" +
                 "\tAdott use-case választásához gépelje be a hozzá tartozó sorszámot!\n" +
                 "Use-case-ek:\n" +
-                "1. Kötél használat\t\t\t\t\t\t" +
+                "1. Kötél használat\t\t\t\t" +
                 "2. Ásó használat\n" +
-                "3. Étel evés\t\t\t\t\t\t\t" +
+                "3. Étel evés\t\t\t\t\t" +
                 "4. Kutató kutat\n" +
-                "5. Búvárruha használat\t\t\t\t\t" +
+                "5. Búvárruha használat\t\t\t\t" +
                 "6. Hóvihar mezőt sújt\n" +
-                "7. Játékos lyukra lép\t\t\t\t\t" +
+                "7. Játékos lyukra lép\t\t\t\t" +
                 "8. Játékos kézzel ás havat\n" +
-                "9. Játékos jégtáblára lép\t\t\t\t" +
+                "9. Játékos jégtáblára lép\t\t\t" +
                 "10. Eszkimo iglut épít\n" +
                 "11. Játékosnak elfogy a testhője\t\t" +
                 "12. Játékos vízbe fullad\n" +
@@ -112,6 +133,7 @@ public class Skeleton {
             // initeli a testre a managert es a gamet, mivel singleton statikus osztalyok
             // minden teszt elott meg kell tenni mivel minden teszt elott tisztitjuk a hashmapet
             initTest();
+            Game.setGameOver(false);
             switch (numberOfUsecase) {
                 case (0): /*kilepunk a programbol*/ System.out.println("Viszlát!");
                     break;
@@ -146,16 +168,16 @@ public class Skeleton {
                     Skeleton.EskimoUseAbility();
                     break;
                 case (11): System.out.println("Játékosnak elfogy a testhője:");
-                    Skeleton.EskimoOutOfHealth();
+                    Skeleton.PlayerOutOfHealth();
                     break;
                 case (12): System.out.println("Játékos vízbe fullad:");
-                    Skeleton.EskimoDrown();
+                    Skeleton.PlayerDrown();
                     break;
                 case (13): System.out.println("Játékos tárgyat vesz fel:");
-                    Skeleton.EskimoPickUpItem();
+                    Skeleton.PlayerPickUpItem();
                     break;
                 case (14): System.out.println("Játékos WinningItem-et használ:");
-                    Skeleton.EskimoUseWinningItem();
+                    Skeleton.PlayerUseWinningItem();
                     break;
                 //... ahány use-case annyi eset lesz
 
@@ -223,11 +245,43 @@ public class Skeleton {
 
 
     //public static void EskimoOutOfHealth(){System.out.print("Nincs kész még");}
-    public static void EskimoDrown(){System.out.print("Nincs kész még");}
+    //public static void EskimoDrown(){System.out.print("Nincs kész még");}
     //public static void EskimoPickUpItem(){System.out.print("Nincs kész még");}
-    public static void EskimoUseWinningItem(){System.out.print("Nincs kész még");}
+    //public static void EskimoUseWinningItem(){System.out.print("Nincs kész még");}
 
-    public static void EskimoOutOfHealth(){
+    public static void PlayerUseWinningItem(){
+        Player player = new Eskimo();
+        Item i = new WinningItem();
+
+        names.put(player, "EskimoPlayer");
+        names.put(i, "WinningItem");
+
+        player.AcceptItem(i);
+
+        TestStarted = true;
+
+        player.UseItem(i, player);
+
+        TestStarted = false;
+        System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
+    }
+
+
+    public static void PlayerDrown(){
+        Player player = new Eskimo();
+
+        names.put(player,"EskimoPlayer");
+
+        TestStarted = true;
+
+        player.yourTurn();
+
+        TestStarted = false;
+        System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
+    }
+
+
+    public static void PlayerOutOfHealth(){
         Player player = new Eskimo();
 
         names.put(player,"EskimoPlayer");
@@ -237,11 +291,12 @@ public class Skeleton {
         player.DecrHp();
 
         TestStarted = false;
+        System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
 
-    public static void EskimoPickUpItem(){
+    public static void PlayerPickUpItem(){
         Player player = new Eskimo();
-        Field field = new IceBlock();
+        IceBlock field = new IceBlock();
         Item item = new Rope();
 
         names.put(player, "EskimoPlayer");
@@ -258,6 +313,7 @@ public class Skeleton {
         }
 
         TestStarted = false;
+        System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
 
     public static void UseRope(){
@@ -285,6 +341,7 @@ public class Skeleton {
         player.UseItem(rope,target);
 
         TestStarted = false;
+        System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
 
     public static void EatFood(){
@@ -299,6 +356,7 @@ public class Skeleton {
         player.UseItem(food, player);
 
         TestStarted = false;
+        System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
 
     public static void UseSpade(){
@@ -318,6 +376,7 @@ public class Skeleton {
         player.UseItem(spade, player);
 
         TestStarted = false;
+        System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
 
     public static void ResearcherUseAbility(){
@@ -401,6 +460,7 @@ public class Skeleton {
         eskimo.Step(hole);
 
         TestStarted = false;
+        System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
 
     public static void PlayerStepsOnIceblock(){
@@ -432,6 +492,7 @@ public class Skeleton {
 
         TestStarted = false;
         names.clear();
+        System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
 
     public static void PlayerShovelsSnowWithHand(){
@@ -448,6 +509,7 @@ public class Skeleton {
         eskimo.Dig();
 
         TestStarted = false;
+        System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
 
     public static void UseSwimsuit(){
@@ -462,6 +524,7 @@ public class Skeleton {
         player.UseItem(sw,player);
 
         TestStarted = false;
+        System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
 
 }
