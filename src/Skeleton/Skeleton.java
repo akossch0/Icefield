@@ -51,8 +51,6 @@ public class Skeleton {
         if (TestStarted) {
             for (int i = 0; i < n; i++) System.out.print("\t");
             System.out.println(names.get(object) + "." + FuncHeader + "()");
-            /** n-t inkrementaljuk hiszen a fuggvenyhivasok lancolata eggyel melyebb lett így több tab is kell
-              * majd a kijelzesnel **/
             n++;
         }
     }
@@ -185,9 +183,7 @@ public class Skeleton {
                 case (14): System.out.println("Játékos WinningItem-et használ:");
                     Skeleton.PlayerUseWinningItem();
                     break;
-                //... ahány use-case annyi eset lesz
 
-                //ha invalid az ertek
                 default:
                     System.out.println("Rossz inputot adott meg!");
                     break;
@@ -196,60 +192,86 @@ public class Skeleton {
         }while(numberOfUsecase != 0);
     }
 
-    /*
-    * Kellő Use-Casek:
-    1 Hóvihar mezőt súlyt //Van prototípus
-    1 Eszkimo és Kutató  lyukra lép //Még meg kell fogalmazni hogy ez Eszkimóra és Kutatóra ugyan az
-    1 Eszkimo és Kutató iceblockra lép (kérdéssel hogy átforduljon e) //Még meg kell fogalmazni hogy ez Eszkimóra és Kutatóra ugyan az
-    * Kutató és Eszkimo itemet hesznál:
-    1       Kaja //Még meg kell fogalmazni hogy ez Eszkimóra és Kutatóra ugyan az
-    1       Búvárruha //Még meg kell fogalmazni hogy ez Eszkimóra és Kutatóra ugyan az
-    1       Ásó //Még meg kell fogalmazni hogy ez Eszkimóra és Kutatóra ugyan az
-    1       Kötél //Még meg kell fogalmazni hogy ez Eszkimóra és Kutatóra ugyan az
-    0.5       WinningItem //Csak a helye van meg IMPLEMENTÁLNI KELL
-    0.5 Kutató és Eszkimo Tárgyat vesz fel //Csak a helye van meg IMPLEMENTÁLNI KELL
-    1 Kutató és Eszkimo kézzel ás //Még meg kell fogalmazni hogy ez Eszkimóra és Kutatóra ugyan az
-    1 Kutató kutat //Van prototípus
-    1 Eszkimó épít //Van prototípus
-    0.5 Eszkimó és Kutató elfogy a testhő //Csak a helye van meg IMPLEMENTÁLNI KELL
-    0.5 Eszkimó és Kutató vízbe fullad //Csak a helye van meg IMPLEMENTÁLNI KELL
-    *
-    *
-    * */
-
-
-    //Új függvény létrehozáshoz ezt másoljátok és írjátok át így nem felejtetek el valamit
-    public void Temp(){ // példa
-        //Inicializálás
-        //Ide a szükséges objektumok
+    /**
+     * Játékos WinningItem-et használ
+     */
+    public static void PlayerUseWinningItem(){
         Player player = new Eskimo();
-        Player target = new Researcher();
-        Item rope = new Rope();
-        Field field = new IceBlock();
-        Field hole = new Hole();
+        Item i = new WinningItem();
 
-        //Hash feltöltése
-        names.put(player,"EskimoPlayer");
-        names.put(target,"ResearcherTarget");
-        names.put(rope,"RopeItem");
-        names.put(field,"IceblockField");
-        names.put(hole,"HoleField");
+        names.put(player, "EskimoPlayer");
+        names.put(i, "WinningItem");
 
+        player.AcceptItem(i);
 
-        //Objektumok beállítása
-        target.setField(hole);
-        player.setField(field);
-        player.AcceptItem(rope);
-        //Test indítása
         TestStarted = true;
 
-        //szekvencia kezdőfüggvény függvény elindítása
-        player.UseItem(rope,target);
-        //Test leállítása
+        player.UseItem(i, player);
+
         TestStarted = false;
+        System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
 
-    // switchben 1 case, bemutatja a kotel haszanalat
+    /**
+     * Játékos vízbe fullad
+     */
+    public static void PlayerDrown(){
+        Player player = new Eskimo();
+
+        names.put(player,"EskimoPlayer");
+
+        TestStarted = true;
+
+        player.yourTurn();
+
+        TestStarted = false;
+        System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
+    }
+
+    /**
+     *Osszes eletpont elvesztese
+     */
+    public static void PlayerOutOfHealth(){
+        Player player = new Eskimo();
+
+        names.put(player,"EskimoPlayer");
+
+        TestStarted = true;
+
+        player.DecrHp();
+
+        TestStarted = false;
+        System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
+    }
+
+    /**
+     *Targy felvetele
+     */
+    public static void PlayerPickUpItem(){
+        Player player = new Eskimo();
+        IceBlock field = new IceBlock();
+        Item item = new Rope();
+
+        names.put(player, "EskimoPlayer");
+        names.put(field, "IceBlockField");
+        names.put(item, "RopeItem");
+
+        field.setItem(item);
+        player.setField(field);
+
+        TestStarted = true;
+
+        if(Question("<<A mezőn nincs egy hóréteg sem és nyitott a mező?(Igen/Nem)>> ")){
+            player.PickUpItem();
+        }
+
+        TestStarted = false;
+        System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
+    }
+
+    /**
+     *Kotellel kimentes
+     */
     public static void UseRope(){
         Player player = new Eskimo();
         Player target = new Researcher();
@@ -277,7 +299,28 @@ public class Skeleton {
         TestStarted = false;
         System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
-    // switchben 2 case, bemutatja az aso hasznalatat
+
+    /**
+     *Etel eves
+     */
+    public static void EatFood(){
+        Player player = new Eskimo();
+        Item food = new Food();
+
+        names.put(player,"EskimoPlayer");
+        names.put(food, "FoodItem");
+
+        TestStarted = true;
+
+        player.UseItem(food, player);
+
+        TestStarted = false;
+        System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
+    }
+
+    /**
+     *Lapat hasznalata
+     */
     public static void UseSpade(){
         Player player = new Eskimo();
         Item spade = new Spade();
@@ -297,22 +340,10 @@ public class Skeleton {
         TestStarted = false;
         System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
-    // switchben 3 case, bemutatja az etel eveset
-    public static void EatFood(){
-        Player player = new Eskimo();
-        Item food = new Food();
 
-        names.put(player,"EskimoPlayer");
-        names.put(food, "FoodItem");
-
-        TestStarted = true;
-
-        player.UseItem(food, player);
-
-        TestStarted = false;
-        System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
-    }
-    // switchben 4 case, bemutatja a kutato kepessegenek a hasznalatat
+    /**
+     *Kutato kutat
+     */
     public static void ResearcherUseAbility(){
         Player player = new Researcher();
         Field field = new IceBlock();
@@ -330,22 +361,29 @@ public class Skeleton {
 
         TestStarted = false;
     }
-    // switchben 5 case, bemutatja a buvarruha felvetelet
-    public static void UseSwimsuit(){
-        Player player = new Eskimo();
-        Item sw = new Swimsuit();
 
-        names.put(player, "EskimoPlayer");
-        names.put(sw, "Swimsuit");
+    /**
+     *Eszkimo iglut epit
+     */
+    public static void EskimoUseAbility(){
+        Player player = new Eskimo();
+        Field field = new IceBlock();
+
+        names.put(player,"Eskimo");
+        names.put(field,"IceBlock");
+
+        player.setField(field);
 
         TestStarted = true;
 
-        player.UseItem(sw,player);
+        player.UseAbility(field);
 
         TestStarted = false;
-        System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
-    // switchben 6 case, bemutatja a hovihart
+
+    /**
+     *Hovihar mezot sujt
+     */
     public static void Blizzard(){
         Weather w = new Weather();
         List<Field> fields = new ArrayList<Field>();
@@ -377,7 +415,10 @@ public class Skeleton {
 
         TestStarted = false;
     }
-    // switchben 7 case, bemutatja mi tortenik ha egy player lyukba lep
+
+    /**
+     *Lyukba lep a jatekos
+     */
     public static void PlayerStepsOnHole(){
         Player eskimo = new Eskimo();
         Field currentfield = new IceBlock();
@@ -396,24 +437,10 @@ public class Skeleton {
         TestStarted = false;
         System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
-    // switchben 8 case, bemutatja hogyan lapatol kezzel player
-    public static void PlayerShovelsSnowWithHand(){
-        Player eskimo = new Eskimo();
-        Field currentfield = new IceBlock();
 
-        names.put(eskimo, "EskimoPlayer");
-        names.put(currentfield, "CurrentFiled");
-
-        eskimo.setField(currentfield);
-
-        TestStarted = true;
-
-        eskimo.Dig();
-
-        TestStarted = false;
-        System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
-    }
-    // switchben 9 case, bemutatja mi tortenik ha player iceblockra lep
+    /**
+     *Jegtablara lep a jatekos
+     */
     public static void PlayerStepsOnIceblock(){
         Player eskimo = new Eskimo();
         Field currentfield = new IceBlock();
@@ -445,85 +472,43 @@ public class Skeleton {
         names.clear();
         System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
-    // switchben 10 case, bemutatja az eszkimo kepessegenek a hasznalatat
-    public static void EskimoUseAbility(){
-        Player player = new Eskimo();
-        Field field = new IceBlock();
 
-        names.put(player,"Eskimo");
-        names.put(field,"IceBlock");
+    /**
+     *Kezzel as havat a jatekos
+     */
+    public static void PlayerShovelsSnowWithHand(){
+        Player eskimo = new Eskimo();
+        Field currentfield = new IceBlock();
 
-        player.setField(field);
+        names.put(eskimo, "EskimoPlayer");
+        names.put(currentfield, "CurrentFiled");
 
-        TestStarted = true;
-
-        player.UseAbility(field);
-
-        TestStarted = false;
-    }
-    // switchben 11 case, bemutatja mi tortenik ha a player elete elfogy
-    public static void PlayerOutOfHealth(){
-        Player player = new Eskimo();
-
-        names.put(player,"EskimoPlayer");
+        eskimo.setField(currentfield);
 
         TestStarted = true;
 
-        player.DecrHp();
+        eskimo.Dig();
 
         TestStarted = false;
         System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
-    // switchben 12 case, bemutatja mi tortenik ha a player megfullad
-    public static void PlayerDrown(){
+
+    /**
+     * Buvarruha hasznalata
+     */
+    public static void UseSwimsuit(){
         Player player = new Eskimo();
-
-        names.put(player,"EskimoPlayer");
-
-        TestStarted = true;
-
-        player.yourTurn();
-
-        TestStarted = false;
-        System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
-    }
-    // switchben 13 case, bemutatja hogyan vesz fel player itemet
-    public static void PlayerPickUpItem(){
-        Player player = new Eskimo();
-        IceBlock field = new IceBlock();
-        Item item = new Rope();
+        Item sw = new Swimsuit();
 
         names.put(player, "EskimoPlayer");
-        names.put(field, "IceBlockField");
-        names.put(item, "RopeItem");
-
-        field.setItem(item);
-        player.setField(field);
+        names.put(sw, "Swimsuit");
 
         TestStarted = true;
 
-        if(Question("<<A mezőn nincs egy hóréteg sem és nyitott a mező?(Igen/Nem)>> ")){
-            player.PickUpItem();
-        }
+        player.UseItem(sw,player);
 
         TestStarted = false;
         System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
-    // switchben 14 case, bemutatja a 3 gyozelmet biztosito item osszeszereleset
-    public static void PlayerUseWinningItem(){
-        Player player = new Eskimo();
-        Item i = new WinningItem();
 
-        names.put(player, "EskimoPlayer");
-        names.put(i, "WinningItem");
-
-        player.AcceptItem(i);
-
-        TestStarted = true;
-
-        player.UseItem(i, player);
-
-        TestStarted = false;
-        System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
-    }
 }
