@@ -97,18 +97,18 @@ public class Skeleton {
 
         int numberOfUsecase = -1;
 
-        String description = "\t\t\t\t Skeleton program\n" +
+        String description = "\t\t\t Skeleton program\n" +
                 "\tAdott use-case választásához gépelje be a hozzá tartozó sorszámot!\n" +
                 "Use-case-ek:\n" +
-                "1. Kötél használat\t\t\t\t\t\t" +
+                "1. Kötél használat\t\t\t\t" +
                 "2. Ásó használat\n" +
-                "3. Étel evés\t\t\t\t\t\t\t" +
+                "3. Étel evés\t\t\t\t\t" +
                 "4. Kutató kutat\n" +
-                "5. Búvárruha használat\t\t\t\t\t" +
+                "5. Búvárruha használat\t\t\t\t" +
                 "6. Hóvihar mezőt sújt\n" +
-                "7. Játékos lyukra lép\t\t\t\t\t" +
+                "7. Játékos lyukra lép\t\t\t\t" +
                 "8. Játékos kézzel ás havat\n" +
-                "9. Játékos jégtáblára lép\t\t\t\t" +
+                "9. Játékos jégtáblára lép\t\t\t" +
                 "10. Eszkimo iglut épít\n" +
                 "11. Játékosnak elfogy a testhője\t\t" +
                 "12. Játékos vízbe fullad\n" +
