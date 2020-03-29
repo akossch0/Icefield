@@ -18,10 +18,18 @@ public final class Game {
      */
     private static Game INSTANCE;
 
+    /**
+     * Vege a jateknak ha ez a fuggveny megvivodik trueval
+     * @param b
+     */
     public static void setGameOver(boolean b){
         isGameover = b;
     }
 
+    /**
+     * isGameover gettere
+     * @return isGameover
+     */
     public static boolean getGameOver(){
         return isGameover;
     }
