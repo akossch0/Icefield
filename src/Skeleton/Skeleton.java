@@ -230,8 +230,6 @@ public class Skeleton {
     public static void EskimoUseWinningItem(){
         Player player = new Eskimo();
         Item i = new WinningItem();
-        Manager manager = Manager.getInstance();
-        Game game = Game.getInstance();
 
         names.put(player, "EskimoPlayer");
         names.put(i, "WinningItem");
