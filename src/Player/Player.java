@@ -54,6 +54,10 @@ public class Player {
      */
     public void DecrHp(){
         Skeleton.Called(this,"DecrHp");
+
+        if(Skeleton.Question("<<Elfogyott az összes élete a játékosnak?(Igen/Nem)>> ")){
+            Manager.Lose();
+        }
         Skeleton.Return();
     }
 

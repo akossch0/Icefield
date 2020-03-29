@@ -7,7 +7,7 @@ import Skeleton.Skeleton;
 import java.util.*;
 
 public final class Manager {
-    private Game game = null;
+    private static Game game = Game.getInstance();
 
     /**
      * a jatekban szereplo jatekosok
@@ -40,7 +40,7 @@ public final class Manager {
      * elinditja a jatekosok lepeseit
      */
     public static void Start(){
-        Skeleton.Called(getInstance(),"Start()");
+        Skeleton.Called(getInstance(),"Start");
         Skeleton.Return();
     }
 
@@ -48,7 +48,8 @@ public final class Manager {
      * jatekos halalanal hivodik
      */
     public static void Lose(){
-        Skeleton.Called(getInstance(),"Lose()");
+        Skeleton.Called(getInstance(),"Lose");
+        game.Lose();
         Skeleton.Return();
     }
 }

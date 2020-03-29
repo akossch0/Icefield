@@ -30,7 +30,7 @@ public final class Game {
      * elinditja a jatekot
      */
     public void StartGame(){
-        Skeleton.Called(this,"StartGame()");
+        Skeleton.Called(this,"StartGame");
         InitMap();
         Manager.Start();
         Skeleton.Return();
@@ -40,7 +40,7 @@ public final class Game {
      * inicializalja a jatekteret, vagyis beallitja a jegtablak es targyak elhelyezkedeset
      */
     public void InitMap(){
-        Skeleton.Called(this,"InitMap()");
+        Skeleton.Called(this,"InitMap");
         Skeleton.Return();
     }
 
@@ -48,7 +48,7 @@ public final class Game {
      * Jatek megnyerese
      */
     public void Win(){
-        Skeleton.Called(this,"Win()");
+        Skeleton.Called(this,"Win");
         Skeleton.Return();
     }
 
@@ -56,7 +56,7 @@ public final class Game {
      * Jatek elvesztese
      */
     public void Lose(){
-        Skeleton.Called(this,"Lose()");
+        Skeleton.Called(this,"Lose");
         Skeleton.Return();
     }
 }

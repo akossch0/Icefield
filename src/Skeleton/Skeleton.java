@@ -2,6 +2,7 @@ package Skeleton;
 
 import Coverable.*;
 import Field.*;
+import Game.Game;
 import Game.Manager;
 import Game.Weather;
 import Item.*;
@@ -65,24 +66,24 @@ public class Skeleton {
 
         int numberOfUsecase = -1;
 
-        String description = "\t\t Skeleton program\n" +
+        String description = "\t\t\t\t Skeleton program\n" +
                 "\tAdott use-case választásához gépelje be a hozzá tartozó sorszámot!\n" +
                 "Use-case-ek:\n" +
-                "1. ...\n" +
-                "2. ...\n" +
-                "3. ...\n" +
-                "4. ...\n" +
-                "5. ...\n" +
-                "6. ...\n" +
-                "7. ...\n" +
-                "8. ...\n" +
-                "9. ...\n" +
-                "10. ...\n" +
-                "11. ...\n" +
-                "12. ...\n" +
-                "13. ...\n" +
-                "14. ...\n" +
-                "Kilépéshez gépelje a '0' karaktert!\n";
+                "1. Kötél használat\t\t\t\t\t\t" +
+                "2. Ásó használat\n" +
+                "3. Étel evés\t\t\t\t\t\t\t" +
+                "4. Kutató kutat\n" +
+                "5. Búvárruha használat\t\t\t\t\t" +
+                "6. Hóvihar mezőt sújt\n" +
+                "7. Játékos lyukra lép\t\t\t\t\t" +
+                "8. Játékos kézzel ás havat\n" +
+                "9. Játékos jégtáblára lép\t\t\t\t" +
+                "10. Eszkimo iglut épít\n" +
+                "11. Játékosnak elfogy a testhője\t\t" +
+                "12. Játékos vízbe fullad\n" +
+                "13. Játékos tárgyat vesz fel\t\t\t" +
+                "14. Játékos WinningItem-et használ\n" +
+                "\tKilépéshez gépelje be a '0' karaktert!\n";
         System.out.print(description);
 
         do{
@@ -100,19 +101,19 @@ public class Skeleton {
             switch (numberOfUsecase) {
                 case (0): /*kilepunk a programbol*/ System.out.println("Viszlát!");
                     break;
-                case (1): System.out.println("Kötél használata:");
+                case (1): System.out.println("Kötél használat:");
                     Skeleton.UseRope();
                     break;
                 case (2): System.out.println("Ásó használat:");
                     Skeleton.UseSpade();
                     break;
-                case (3): System.out.println("Étel evése:");
+                case (3): System.out.println("Étel evés:");
                     Skeleton.EatFood();
                     break;
-                case (4): System.out.println("Kutató kutatása:");
+                case (4): System.out.println("Kutató kutat:");
                     Skeleton.ResearcherUseAbility();
                     break;
-                case (5): System.out.println("Búvárruha használata:");
+                case (5): System.out.println("Búvárruha használat:");
                     Skeleton.UseSwimsuit();
                     break;
                 case (6): System.out.println("Hóvihar mezőt sújt:");
@@ -130,23 +131,23 @@ public class Skeleton {
                 case (10): System.out.println("Eszkimo iglut épít:");
                     Skeleton.EskimoUseAbility();
                     break;
-                case (11): System.out.println("Eszkimo elfogy a testhő:");
+                case (11): System.out.println("Játékosnak elfogy a testhője:");
                     Skeleton.EskimoOutOfHealth();
                     break;
-                case (12): System.out.println("Eszkimo vízbe fullad:");
+                case (12): System.out.println("Játékos vízbe fullad:");
                     Skeleton.EskimoDrown();
                     break;
-                case (13): System.out.println("Eszkimo tárgyat vesz fel:");
+                case (13): System.out.println("Játékos tárgyat vesz fel:");
                     Skeleton.EskimoPickUpItem();
                     break;
-                case (14): System.out.println("Eszkimo WinningItem-et használ:");
+                case (14): System.out.println("Játékos WinningItem-et használ:");
                     Skeleton.EskimoUseWinningItem();
                     break;
                 //... ahány use-case annyi eset lesz
 
                 //ha invalid az ertek
                 default:
-                    System.out.println("Rossz inputot adott meg a választáskor!");
+                    System.out.println("Rossz inputot adott meg!");
                     break;
             }
 
@@ -210,10 +211,27 @@ public class Skeleton {
     }
 
 
-    public static void EskimoOutOfHealth(){System.out.print("Nincs kész még");}
+    //public static void EskimoOutOfHealth(){System.out.print("Nincs kész még");}
     public static void EskimoDrown(){System.out.print("Nincs kész még");}
     //public static void EskimoPickUpItem(){System.out.print("Nincs kész még");}
     public static void EskimoUseWinningItem(){System.out.print("Nincs kész még");}
+
+    public static void EskimoOutOfHealth(){
+        Player player = new Eskimo();
+        Manager m = Manager.getInstance();
+
+        names.put(player,"EskimoPlayer");
+        names.put(m,"Manager");
+        names.put(Game.getInstance(), "Game");
+
+        TestStarted = true;
+
+        player.DecrHp();
+
+        TestStarted = false;
+
+        names.clear();
+    }
 
     public static void EskimoPickUpItem(){
         Player player = new Eskimo();
