@@ -22,7 +22,6 @@ public class Skeleton {
     /** Ebben taroljuk a testben reszt vevo objektumokat, minden test elott kitisztitjuk **/
     static HashMap<Object,String> names = new HashMap<>();
 
-
     /**
      * Minden test elejen erdemes meghivni
      * Biztositja hogy mindig jol legyenek regisztralva a manager meg a game
