@@ -225,7 +225,26 @@ public class Skeleton {
     //public static void EskimoOutOfHealth(){System.out.print("Nincs kész még");}
     //public static void EskimoDrown(){System.out.print("Nincs kész még");}
     //public static void EskimoPickUpItem(){System.out.print("Nincs kész még");}
-    public static void EskimoUseWinningItem(){System.out.print("Nincs kész még");}
+    //public static void EskimoUseWinningItem(){System.out.print("Nincs kész még");}
+
+    public static void EskimoUseWinningItem(){
+        Player player = new Eskimo();
+        Item i = new WinningItem();
+        Manager manager = Manager.getInstance();
+        Game game = Game.getInstance();
+
+        names.put(player, "EskimoPlayer");
+        names.put(i, "WinningItem");
+
+        player.AcceptItem(i);
+
+        TestStarted = true;
+
+        player.UseItem(i, player);
+
+        TestStarted = false;
+    }
+
 
     public static void EskimoDrown(){
         //Inicializálás
@@ -257,7 +276,7 @@ public class Skeleton {
 
     public static void EskimoPickUpItem(){
         Player player = new Eskimo();
-        Field field = new IceBlock();
+        IceBlock field = new IceBlock();
         Item item = new Rope();
 
         names.put(player, "EskimoPlayer");
