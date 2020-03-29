@@ -129,7 +129,7 @@ public class Player {
     public void yourTurn(){
         Skeleton.Called(this,"yourTurn");
 
-        if(Skeleton.Question("<<A játékos benne van a vízben, és már nem az első kör óta van ez?(I/N)>>")){
+        if(Skeleton.Question("<<A játékos benne van a vízben, és már nem az első kör óta van ez?(Igen/Nem)>>")){
             isWaterproof();
             if(!Skeleton.Question("<<Van búvárruha rajta?(Igen/Nem)>> ")){
                 manager.Lose();
