@@ -21,6 +21,9 @@ public final class Weather {
         return INSTANCE;
     }
 
+    /**
+     * hovihar fuggveny
+     */
     public void Blizzard() {
         Skeleton.Called(this,"Blizzard");
 
@@ -48,7 +51,11 @@ public final class Weather {
 
         Skeleton.Return();
     }
-    // Szükséges faszság
+
+    /**
+     *
+     * @param fs hozzáadott lista
+     */
     public void add(List<Field> fs){
         fields = fs;
     }

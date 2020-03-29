@@ -118,7 +118,6 @@ public class Skeleton {
         System.out.print(description);
 
         do{
-            // kitisztitjuk minden teszt elott a hashmapot, hogy ne legyen teleszemetelve memoria
             names.clear();
             numberOfUsecase = -1;
             try{
@@ -130,8 +129,6 @@ public class Skeleton {
             }catch(Exception e){
                 System.out.println(e.getMessage());
             }
-            // initeli a testre a managert es a gamet, mivel singleton statikus osztalyok
-            // minden teszt elott meg kell tenni mivel minden teszt elott tisztitjuk a hashmapet
             initTest();
             Game.setGameOver(false);
             switch (numberOfUsecase) {
@@ -179,9 +176,7 @@ public class Skeleton {
                 case (14): System.out.println("Játékos WinningItem-et használ:");
                     Skeleton.PlayerUseWinningItem();
                     break;
-                //... ahány use-case annyi eset lesz
 
-                //ha invalid az ertek
                 default:
                     System.out.println("Rossz inputot adott meg!");
                     break;
@@ -190,65 +185,9 @@ public class Skeleton {
         }while(numberOfUsecase != 0);
     }
 
-    /*
-    * Kellő Use-Casek:
-    1 Hóvihar mezőt súlyt //Van prototípus
-    1 Eszkimo és Kutató  lyukra lép //Még meg kell fogalmazni hogy ez Eszkimóra és Kutatóra ugyan az
-    1 Eszkimo és Kutató iceblockra lép (kérdéssel hogy átforduljon e) //Még meg kell fogalmazni hogy ez Eszkimóra és Kutatóra ugyan az
-    * Kutató és Eszkimo itemet hesznál:
-    1       Kaja //Még meg kell fogalmazni hogy ez Eszkimóra és Kutatóra ugyan az
-    1       Búvárruha //Még meg kell fogalmazni hogy ez Eszkimóra és Kutatóra ugyan az
-    1       Ásó //Még meg kell fogalmazni hogy ez Eszkimóra és Kutatóra ugyan az
-    1       Kötél //Még meg kell fogalmazni hogy ez Eszkimóra és Kutatóra ugyan az
-    0.5       WinningItem //Csak a helye van meg IMPLEMENTÁLNI KELL
-    0.5 Kutató és Eszkimo Tárgyat vesz fel //Csak a helye van meg IMPLEMENTÁLNI KELL
-    1 Kutató és Eszkimo kézzel ás //Még meg kell fogalmazni hogy ez Eszkimóra és Kutatóra ugyan az
-    1 Kutató kutat //Van prototípus
-    1 Eszkimó épít //Van prototípus
-    0.5 Eszkimó és Kutató elfogy a testhő //Csak a helye van meg IMPLEMENTÁLNI KELL
-    0.5 Eszkimó és Kutató vízbe fullad //Csak a helye van meg IMPLEMENTÁLNI KELL
-    *
-    *
-    * */
-
-
-    //Új függvény létrehozáshoz ezt másoljátok és írjátok át így nem felejtetek el valamit
-    public void Temp(){ // példa
-        //Inicializálás
-        //Ide a szükséges objektumok
-        Player player = new Eskimo();
-        Player target = new Researcher();
-        Item rope = new Rope();
-        Field field = new IceBlock();
-        Field hole = new Hole();
-
-        //Hash feltöltése
-        names.put(player,"EskimoPlayer");
-        names.put(target,"ResearcherTarget");
-        names.put(rope,"RopeItem");
-        names.put(field,"IceblockField");
-        names.put(hole,"HoleField");
-
-
-        //Objektumok beállítása
-        target.setField(hole);
-        player.setField(field);
-        player.AcceptItem(rope);
-        //Test indítása
-        TestStarted = true;
-
-        //szekvencia kezdőfüggvény függvény elindítása
-        player.UseItem(rope,target);
-        //Test leállítása
-        TestStarted = false;
-    }
-
-
-    //public static void EskimoOutOfHealth(){System.out.print("Nincs kész még");}
-    //public static void EskimoDrown(){System.out.print("Nincs kész még");}
-    //public static void EskimoPickUpItem(){System.out.print("Nincs kész még");}
-    //public static void EskimoUseWinningItem(){System.out.print("Nincs kész még");}
-
+    /**
+     * Játékos WinningItem-et használ
+     */
     public static void PlayerUseWinningItem(){
         Player player = new Eskimo();
         Item i = new WinningItem();
@@ -266,7 +205,9 @@ public class Skeleton {
         System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
 
-
+    /**
+     * Játékos vízbe fullad
+     */
     public static void PlayerDrown(){
         Player player = new Eskimo();
 
@@ -280,7 +221,9 @@ public class Skeleton {
         System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
 
-
+    /**
+     *Osszes eletpont elvesztese
+     */
     public static void PlayerOutOfHealth(){
         Player player = new Eskimo();
 
@@ -294,6 +237,9 @@ public class Skeleton {
         System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
 
+    /**
+     *Targy felvetele
+     */
     public static void PlayerPickUpItem(){
         Player player = new Eskimo();
         IceBlock field = new IceBlock();
@@ -316,6 +262,9 @@ public class Skeleton {
         System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
 
+    /**
+     *Kotellel kimentes
+     */
     public static void UseRope(){
         Player player = new Eskimo();
         Player target = new Researcher();
@@ -344,6 +293,9 @@ public class Skeleton {
         System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
 
+    /**
+     *Etel eves
+     */
     public static void EatFood(){
         Player player = new Eskimo();
         Item food = new Food();
@@ -359,6 +311,9 @@ public class Skeleton {
         System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
 
+    /**
+     *Lapat hasznalata
+     */
     public static void UseSpade(){
         Player player = new Eskimo();
         Item spade = new Spade();
@@ -379,6 +334,9 @@ public class Skeleton {
         System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
 
+    /**
+     *Kutato kutat
+     */
     public static void ResearcherUseAbility(){
         Player player = new Researcher();
         Field field = new IceBlock();
@@ -396,6 +354,10 @@ public class Skeleton {
 
         TestStarted = false;
     }
+
+    /**
+     *Eszkimo iglut epit
+     */
     public static void EskimoUseAbility(){
         Player player = new Eskimo();
         Field field = new IceBlock();
@@ -412,6 +374,9 @@ public class Skeleton {
         TestStarted = false;
     }
 
+    /**
+     *Hovihar mezot sujt
+     */
     public static void Blizzard(){
         Weather w = new Weather();
         List<Field> fields = new ArrayList<Field>();
@@ -444,6 +409,9 @@ public class Skeleton {
         TestStarted = false;
     }
 
+    /**
+     *Lyukba lep a jatekos
+     */
     public static void PlayerStepsOnHole(){
         Player eskimo = new Eskimo();
         Field currentfield = new IceBlock();
@@ -463,6 +431,9 @@ public class Skeleton {
         System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
 
+    /**
+     *Jegtablara lep a jatekos
+     */
     public static void PlayerStepsOnIceblock(){
         Player eskimo = new Eskimo();
         Field currentfield = new IceBlock();
@@ -495,6 +466,9 @@ public class Skeleton {
         System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
 
+    /**
+     *Kezzel as havat a jatekos
+     */
     public static void PlayerShovelsSnowWithHand(){
         Player eskimo = new Eskimo();
         Field currentfield = new IceBlock();
@@ -512,6 +486,9 @@ public class Skeleton {
         System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
 
+    /**
+     * Buvarruha hasznalata
+     */
     public static void UseSwimsuit(){
         Player player = new Eskimo();
         Item sw = new Swimsuit();
