@@ -8,12 +8,23 @@ import Skeleton.Skeleton;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * Egy singleton osztaly ami a hoviharokert felel
+ */
 public final class Weather {
+    /**
+     * Az osszes mezo a palyan
+     */
     private List<Field> fields = new ArrayList<Field>();
-
+    /**
+     * A weather egyetlen peldanya
+     */
     private static Weather INSTANCE;
 
+    /**
+     * Ha szuksegunk van a weather osztaly peldanyara ezt a fuggvenyt kell meghivni
+     * @return
+     */
     public static Weather getInstance(){
         if(INSTANCE == null)
             INSTANCE = new Weather();
@@ -21,6 +32,14 @@ public final class Weather {
         return INSTANCE;
     }
 
+    /**
+     * Ha private a konstruktor senki sem tudja majd hibasan hasznalni az osztalyt
+     * kotelezoen a getInstance metodust fogjak hasznalni
+     */
+    private Weather(){}
+    /**
+     * hovihar fuggveny
+     */
     public void Blizzard() {
         Skeleton.Called(this,"Blizzard");
 
@@ -43,12 +62,13 @@ public final class Weather {
             if(Game.getGameOver())
                 break;
         }
-
-
-
         Skeleton.Return();
     }
-    // Szükséges faszság
+
+    /**
+     *
+     * @param fs hozzáadott lista
+     */
     public void add(List<Field> fs){
         fields = fs;
     }

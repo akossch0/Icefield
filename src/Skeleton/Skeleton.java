@@ -15,9 +15,13 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Skeleton {
+    /**  Mutatja hogy mennyi indentalas kell kijelzesnel ami fontos mert ez jelzi a függvenyhivasok egymasbol valo torteneset **/
     static int n = 0;
-    static HashMap<Object,String> names = new HashMap<>();
+    /** Nem akarjuk kiirni az initet szoval minden test elott ki es be kell kapcsolni **/
     static boolean TestStarted = false;
+    /** Ebben taroljuk a testben reszt vevo objektumokat, minden test elott kitisztitjuk **/
+    static HashMap<Object,String> names = new HashMap<>();
+
 
     /**
      * Minden test elejen erdemes meghivni
@@ -29,10 +33,20 @@ public class Skeleton {
         names.put(Game.getInstance(), "Game");
     }
 
+    /**
+     * Az objektumok es nevek parositasa a megjeleniteshez
+     * @param o az objektum, amihez a nevet tarsitjuk
+     * @param str a nev amit tarsitunk az objektumhoz
+     */
     public static void addNames(Object o, String str){
         names.put(o,str);
     }
 
+    /**
+     * ha egy fuggveny hivodik ez gondoskodik az indentalasrol
+     * @param object amin a fuggveny hivodik
+     * @param FuncHeader a fuggveny neve
+     */
     public static void Called(Object object,String FuncHeader){
         if (TestStarted) {
             for (int i = 0; i < n; i++) System.out.print("\t");
@@ -41,11 +55,19 @@ public class Skeleton {
         }
     }
 
+    /**
+     * fuggveny visszateresekor, indentalas miatt kell
+     */
     public static void Return(){
         if(TestStarted)
             n--;
     }
 
+    /**
+     * eldontendo kerdesek feltevese
+     * @param str a kerdes
+     * @return igazsagerteke a valasznak
+     */
     public static boolean Question(String str){
         String input;
 
@@ -72,22 +94,25 @@ public class Skeleton {
         return false;
     }
 
+    /**
+     * A szkeleton program
+     */
     public static void Run(){
 
         int numberOfUsecase = -1;
 
-        String description = "\t\t\t\t Skeleton program\n" +
+        String description = "\t\t\t Skeleton program\n" +
                 "\tAdott use-case választásához gépelje be a hozzá tartozó sorszámot!\n" +
                 "Use-case-ek:\n" +
-                "1. Kötél használat\t\t\t\t\t\t" +
+                "1. Kötél használat\t\t\t\t" +
                 "2. Ásó használat\n" +
-                "3. Étel evés\t\t\t\t\t\t\t" +
+                "3. Étel evés\t\t\t\t\t" +
                 "4. Kutató kutat\n" +
-                "5. Búvárruha használat\t\t\t\t\t" +
+                "5. Búvárruha használat\t\t\t\t" +
                 "6. Hóvihar mezőt sújt\n" +
-                "7. Játékos lyukra lép\t\t\t\t\t" +
+                "7. Játékos lyukra lép\t\t\t\t" +
                 "8. Játékos kézzel ás havat\n" +
-                "9. Játékos jégtáblára lép\t\t\t\t" +
+                "9. Játékos jégtáblára lép\t\t\t" +
                 "10. Eszkimo iglut épít\n" +
                 "11. Játékosnak elfogy a testhője\t\t" +
                 "12. Játékos vízbe fullad\n" +
@@ -158,9 +183,7 @@ public class Skeleton {
                 case (14): System.out.println("Játékos WinningItem-et használ:");
                     Skeleton.PlayerUseWinningItem();
                     break;
-                //... ahány use-case annyi eset lesz
 
-                //ha invalid az ertek
                 default:
                     System.out.println("Rossz inputot adott meg!");
                     break;
@@ -169,65 +192,9 @@ public class Skeleton {
         }while(numberOfUsecase != 0);
     }
 
-    /*
-    * Kellő Use-Casek:
-    1 Hóvihar mezőt súlyt //Van prototípus
-    1 Eszkimo és Kutató  lyukra lép //Még meg kell fogalmazni hogy ez Eszkimóra és Kutatóra ugyan az
-    1 Eszkimo és Kutató iceblockra lép (kérdéssel hogy átforduljon e) //Még meg kell fogalmazni hogy ez Eszkimóra és Kutatóra ugyan az
-    * Kutató és Eszkimo itemet hesznál:
-    1       Kaja //Még meg kell fogalmazni hogy ez Eszkimóra és Kutatóra ugyan az
-    1       Búvárruha //Még meg kell fogalmazni hogy ez Eszkimóra és Kutatóra ugyan az
-    1       Ásó //Még meg kell fogalmazni hogy ez Eszkimóra és Kutatóra ugyan az
-    1       Kötél //Még meg kell fogalmazni hogy ez Eszkimóra és Kutatóra ugyan az
-    0.5       WinningItem //Csak a helye van meg IMPLEMENTÁLNI KELL
-    0.5 Kutató és Eszkimo Tárgyat vesz fel //Csak a helye van meg IMPLEMENTÁLNI KELL
-    1 Kutató és Eszkimo kézzel ás //Még meg kell fogalmazni hogy ez Eszkimóra és Kutatóra ugyan az
-    1 Kutató kutat //Van prototípus
-    1 Eszkimó épít //Van prototípus
-    0.5 Eszkimó és Kutató elfogy a testhő //Csak a helye van meg IMPLEMENTÁLNI KELL
-    0.5 Eszkimó és Kutató vízbe fullad //Csak a helye van meg IMPLEMENTÁLNI KELL
-    *
-    *
-    * */
-
-
-    //Új függvény létrehozáshoz ezt másoljátok és írjátok át így nem felejtetek el valamit
-    public void Temp(){ // példa
-        //Inicializálás
-        //Ide a szükséges objektumok
-        Player player = new Eskimo();
-        Player target = new Researcher();
-        Item rope = new Rope();
-        Field field = new IceBlock();
-        Field hole = new Hole();
-
-        //Hash feltöltése
-        names.put(player,"EskimoPlayer");
-        names.put(target,"ResearcherTarget");
-        names.put(rope,"RopeItem");
-        names.put(field,"IceblockField");
-        names.put(hole,"HoleField");
-
-
-        //Objektumok beállítása
-        target.setField(hole);
-        player.setField(field);
-        player.AcceptItem(rope);
-        //Test indítása
-        TestStarted = true;
-
-        //szekvencia kezdőfüggvény függvény elindítása
-        player.UseItem(rope,target);
-        //Test leállítása
-        TestStarted = false;
-    }
-
-
-    //public static void EskimoOutOfHealth(){System.out.print("Nincs kész még");}
-    //public static void EskimoDrown(){System.out.print("Nincs kész még");}
-    //public static void EskimoPickUpItem(){System.out.print("Nincs kész még");}
-    //public static void EskimoUseWinningItem(){System.out.print("Nincs kész még");}
-
+    /**
+     * Játékos WinningItem-et használ
+     */
     public static void PlayerUseWinningItem(){
         Player player = new Eskimo();
         Item i = new WinningItem();
@@ -245,7 +212,9 @@ public class Skeleton {
         System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
 
-
+    /**
+     * Játékos vízbe fullad
+     */
     public static void PlayerDrown(){
         Player player = new Eskimo();
 
@@ -259,7 +228,9 @@ public class Skeleton {
         System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
 
-
+    /**
+     *Osszes eletpont elvesztese
+     */
     public static void PlayerOutOfHealth(){
         Player player = new Eskimo();
 
@@ -273,6 +244,9 @@ public class Skeleton {
         System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
 
+    /**
+     *Targy felvetele
+     */
     public static void PlayerPickUpItem(){
         Player player = new Eskimo();
         IceBlock field = new IceBlock();
@@ -295,6 +269,9 @@ public class Skeleton {
         System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
 
+    /**
+     *Kotellel kimentes
+     */
     public static void UseRope(){
         Player player = new Eskimo();
         Player target = new Researcher();
@@ -323,6 +300,9 @@ public class Skeleton {
         System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
 
+    /**
+     *Etel eves
+     */
     public static void EatFood(){
         Player player = new Eskimo();
         Item food = new Food();
@@ -338,6 +318,9 @@ public class Skeleton {
         System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
 
+    /**
+     *Lapat hasznalata
+     */
     public static void UseSpade(){
         Player player = new Eskimo();
         Item spade = new Spade();
@@ -358,6 +341,9 @@ public class Skeleton {
         System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
 
+    /**
+     *Kutato kutat
+     */
     public static void ResearcherUseAbility(){
         Player player = new Researcher();
         Field field = new IceBlock();
@@ -375,6 +361,10 @@ public class Skeleton {
 
         TestStarted = false;
     }
+
+    /**
+     *Eszkimo iglut epit
+     */
     public static void EskimoUseAbility(){
         Player player = new Eskimo();
         Field field = new IceBlock();
@@ -391,8 +381,11 @@ public class Skeleton {
         TestStarted = false;
     }
 
+    /**
+     *Hovihar mezot sujt
+     */
     public static void Blizzard(){
-        Weather w = new Weather();
+        Weather w = Weather.getInstance();
         List<Field> fields = new ArrayList<Field>();
         for (int i = 0; i < 3; i++){
             Field f = new IceBlock();
@@ -417,12 +410,14 @@ public class Skeleton {
 
         TestStarted = true;
         // Hovihar lesujt
-
         w.Blizzard();
 
         TestStarted = false;
     }
 
+    /**
+     *Lyukba lep a jatekos
+     */
     public static void PlayerStepsOnHole(){
         Player eskimo = new Eskimo();
         Field currentfield = new IceBlock();
@@ -442,6 +437,9 @@ public class Skeleton {
         System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
 
+    /**
+     *Jegtablara lep a jatekos
+     */
     public static void PlayerStepsOnIceblock(){
         Player eskimo = new Eskimo();
         Field currentfield = new IceBlock();
@@ -474,6 +472,9 @@ public class Skeleton {
         System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
 
+    /**
+     *Kezzel as havat a jatekos
+     */
     public static void PlayerShovelsSnowWithHand(){
         Player eskimo = new Eskimo();
         Field currentfield = new IceBlock();
@@ -491,6 +492,9 @@ public class Skeleton {
         System.out.println("\nA működést Eszkimóra mutattuk be, de ugyan ez fog történni Sarkkutató esetén is.\n");
     }
 
+    /**
+     * Buvarruha hasznalata
+     */
     public static void UseSwimsuit(){
         Player player = new Eskimo();
         Item sw = new Swimsuit();

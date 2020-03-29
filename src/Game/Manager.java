@@ -7,6 +7,8 @@ import Skeleton.Skeleton;
 import java.util.*;
 
 public final class Manager {
+
+    /** A jatek Game osztalya, szukseges nehany dolog menedzselese miatt (pl halal)**/
     private static Game game = Game.getInstance();
 
     /**
@@ -18,9 +20,15 @@ public final class Manager {
      * az idojaras melynek felelossege a vihar lebonyolitasa
      */
     private static Weather weather = Weather.getInstance();
+    /**
+     * Az egyetlen manager peldany
+     */
     private static Manager INSTANCE;
 
-
+    /**
+     * Az egyetlen manager peldannyal visszater, ha meg nem letezik meg is konstrualja
+     * @return Az egyetlen manager peldany
+     */
     public static Manager getInstance(){
         if(INSTANCE == null)
             INSTANCE = new Manager();
@@ -48,10 +56,8 @@ public final class Manager {
             }
         }else{
             Player holder = i.getHolder();
-
             holder.AcceptItem(i);
         }
-
         Skeleton.Return();
     }
 
@@ -69,7 +75,6 @@ public final class Manager {
     public static void Lose(){
         Skeleton.Called(getInstance(),"Lose");
         game.Lose();
-
         Skeleton.Return();
     }
 }

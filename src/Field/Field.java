@@ -1,6 +1,6 @@
 package Field;
 
-import Coverable.Coverable;
+import Coverable.*;
 import Player.*;
 import Item.*;
 import Skeleton.Skeleton;
@@ -9,16 +9,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Field {
-    // A mezon tartozkodo jatekosok
+    /** A mezon allo playerek listaja **/
     private List<Player> players = new ArrayList<Player>();
-    // Szomszedos mezok
+    /** A szomszedos mezok listaja**/
     private List<Field> fields = new ArrayList<Field>();
-    // Mezon van-e iglu
-    protected Coverable cover = null;
-    // Minden mezon vagy 1 vagy 0 item lehet
+    /** A mezo strategyje, alapertelmezetten minden mezo fedettlen **/
+    protected Coverable cover = new NoGloo();
+    /** A mezon talalhato item **/
     protected Item item = null;
 
-    //Ideiglenes fv, majd a konstruktorban lesz megoldva
+    /**
+     * Ezzel a setterrel lehet itemet adni a mezonek
+     * @param item az item amit elfogad
+     */
     public void setItem(Item item){
         this.item = item;
     }
@@ -26,13 +29,13 @@ public abstract class Field {
     /**
      * Uj jatekos erkezik a mezore. Ha meg elbirja a mezo, akkor a jatekos ezentul ezen a mezon áll.
      * Ha nem birja el, akkor a jatekos a vizbe esik.
-     * @param p
+     * @param p a jatekos aki a mezore lep
      */
     public abstract void Accept(Player p);
 
     /**
      *A parameterkent kapott jatekos elhagyja a mezot.
-     * @param p
+     * @param p a jatekos aki tavozik a mezorol
      */
     public void Remove(Player p){
         Skeleton.Called(this,"Remove");
@@ -42,7 +45,7 @@ public abstract class Field {
 
     /**
      * Visszaad egy mar kiasott targyat és eltavolitja azt a mezobol.
-     * @return
+     * @return a visszaadott item
      */
     public Item RemoveItem(){
         Skeleton.Called(this,"RemoveItem");
@@ -54,7 +57,7 @@ public abstract class Field {
 
     /**
      * Visszaadja a mezon tartozkodo jatekosokat.
-     * @return
+     * @return a visszaadott jatekosok
      */
     public List<Player> getPlayers() {
         //Skeleton.Called(this,"getPlayers");
@@ -81,7 +84,7 @@ public abstract class Field {
 
     /**
      * Visszaadja, hogy a mezo hany jatekost bir el.
-     * @return
+     * @return kapacitas
      */
     public int getCapacity(){
         Skeleton.Called(this,"getCapacity");
@@ -92,7 +95,7 @@ public abstract class Field {
     /**
      * Meghivja a strategiajanak az IsCovered() fuggvenyet,
      * vagyis megmondja, hogy fedett-e a mezo vagy sem.
-     * @return
+     * @return fedett-e
      */
     public boolean IsCovered(){
         Skeleton.Called(this,"IsCovered");
@@ -102,7 +105,7 @@ public abstract class Field {
     }
     /**
      *  Beallitja az fedettseg strategiat.
-     * @param c
+     * @param c a strategy amit beallit
      */
     public void Gloo(Coverable c){
         Skeleton.Called(this,"Gloo");

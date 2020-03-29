@@ -131,7 +131,7 @@ public class Player {
 
         if(Skeleton.Question("<<A játékos benne van a vízben, és már nem az első kör óta van ez?(I/N)>>")){
             isWaterproof();
-            if(!Skeleton.Question("<<Van búvárruha rajta?(I/N)>> ")){
+            if(!Skeleton.Question("<<Van búvárruha rajta?(Igen/Nem)>> ")){
                 manager.Lose();
             }
         }

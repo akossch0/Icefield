@@ -9,8 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class IceBlock extends Field {
-    // private List<Item> items = new ArrayList<Item>();
-
+    /**
+     * Ez a fuggveny hivodik amikor egy player erre a mezore lep
+     * @param p a jatekos aki a mezore lep
+     */
     @Override
     public void Accept(Player p) {
         Skeleton.Called(this,"Accept");
