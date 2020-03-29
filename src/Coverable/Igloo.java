@@ -3,6 +3,10 @@ package Coverable;
 import Skeleton.Skeleton;
 
 public class Igloo implements Coverable{
+    /**
+     * Konstruktora Igloo-nak
+     * @param
+     */
     public Igloo(){
         Skeleton.addNames(this,"IglooCoverable");
         Skeleton.Called(this,"Igloo");
@@ -10,7 +14,7 @@ public class Igloo implements Coverable{
     }
     /**
      * Igazzal ter vissza, vagyis jelzi, hogy fedett a mező.
-     * @return
+     * @return boolean
      */
     @Override
     public boolean IsCovered() {
