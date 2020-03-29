@@ -1,6 +1,6 @@
 package ClothesEquipped;
 import Skeleton.Skeleton;
-public class NoSwimsuitEquipped implements ClothesEquipped {
+public class NoClothesEquipped implements ClothesEquipped {
     /**
      * @return hamissal ter vissza; jelentes: a jatekos nem visel buvarruhat
      */

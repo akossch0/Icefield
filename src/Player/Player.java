@@ -25,7 +25,7 @@ public class Player {
     /**
      * A player strategy je vízbeesésre
      */
-    private ClothesEquipped clothes = new NoSwimsuitEquipped();
+    private ClothesEquipped clothes = new NoClothesEquipped();
 
     //Tmp fuggveny majd konstruktorral lesz megoldva
     public void setField(Field field) {
