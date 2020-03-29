@@ -17,8 +17,9 @@ public final class Manager {
     /**
      * az idojaras melynek felelossege a vihar lebonyolitasa
      */
-    private Weather weather = null;
+    private static Weather weather = Weather.getInstance();
     private static Manager INSTANCE;
+
 
     public static Manager getInstance(){
         if(INSTANCE == null)
@@ -68,6 +69,7 @@ public final class Manager {
     public static void Lose(){
         Skeleton.Called(getInstance(),"Lose");
         game.Lose();
+
         Skeleton.Return();
     }
 }

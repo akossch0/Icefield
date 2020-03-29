@@ -112,6 +112,7 @@ public class Skeleton {
             // initeli a testre a managert es a gamet, mivel singleton statikus osztalyok
             // minden teszt elott meg kell tenni mivel minden teszt elott tisztitjuk a hashmapet
             initTest();
+            Game.setGameOver(false);
             switch (numberOfUsecase) {
                 case (0): /*kilepunk a programbol*/ System.out.println("Viszlát!");
                     break;
@@ -245,11 +246,8 @@ public class Skeleton {
 
 
     public static void EskimoDrown(){
-        //Inicializálás
-        //Ide a szükséges objektumok
         Player player = new Eskimo();
 
-        //Hash feltöltése
         names.put(player,"EskimoPlayer");
 
         TestStarted = true;

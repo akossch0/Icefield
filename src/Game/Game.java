@@ -6,6 +6,8 @@ import java.util.*;
 import Skeleton.*;
 
 public final class Game {
+
+    private static boolean isGameover = false;
     /**
      * A jatekteren talalhato osszes mezo
       */
@@ -15,6 +17,14 @@ public final class Game {
      * a statikus valtozo amin hivjuk a fuggvenyeket
      */
     private static Game INSTANCE;
+
+    public static void setGameOver(boolean b){
+        isGameover = b;
+    }
+
+    public static boolean getGameOver(){
+        return isGameover;
+    }
 
     /**
      * @return visszakuldi a statikus valtozot ha nem ures, amugy pedig peldanyosit
@@ -57,6 +67,7 @@ public final class Game {
      */
     public void Lose(){
         Skeleton.Called(this,"Lose");
+        setGameOver(true);
         Skeleton.Return();
     }
 }
