@@ -19,6 +19,16 @@ public class Skeleton {
     static HashMap<Object,String> names = new HashMap<>();
     static boolean TestStarted = false;
 
+    /**
+     * Minden test elejen erdemes meghivni
+     * Biztositja hogy mindig jol legyenek regisztralva a manager meg a game
+     */
+    private static void initTest(){
+        names.put(Manager.getInstance(), "Manager");
+
+        names.put(Game.getInstance(), "Game");
+    }
+
     public static void addNames(Object o, String str){
         names.put(o,str);
     }
@@ -87,6 +97,8 @@ public class Skeleton {
         System.out.print(description);
 
         do{
+            // kitisztitjuk minden teszt elott a hashmapot, hogy ne legyen teleszemetelve memoria
+            names.clear();
             numberOfUsecase = -1;
             try{
                 System.out.print("Adjon meg egy számot, amivel megegyező use-case-t szeretne látni: ");
@@ -97,7 +109,9 @@ public class Skeleton {
             }catch(Exception e){
                 System.out.println(e.getMessage());
             }
-
+            // initeli a testre a managert es a gamet, mivel singleton statikus osztalyok
+            // minden teszt elott meg kell tenni mivel minden teszt elott tisztitjuk a hashmapet
+            initTest();
             switch (numberOfUsecase) {
                 case (0): /*kilepunk a programbol*/ System.out.println("Viszlát!");
                     break;
@@ -205,9 +219,6 @@ public class Skeleton {
         player.UseItem(rope,target);
         //Test leállítása
         TestStarted = false;
-
-        //Hash ürítése
-        names.clear();
     }
 
 
@@ -218,19 +229,14 @@ public class Skeleton {
 
     public static void EskimoOutOfHealth(){
         Player player = new Eskimo();
-        Manager m = Manager.getInstance();
 
         names.put(player,"EskimoPlayer");
-        names.put(m,"Manager");
-        names.put(Game.getInstance(), "Game");
 
         TestStarted = true;
 
         player.DecrHp();
 
         TestStarted = false;
-
-        names.clear();
     }
 
     public static void EskimoPickUpItem(){
@@ -252,7 +258,6 @@ public class Skeleton {
         }
 
         TestStarted = false;
-        names.clear();
     }
 
     public static void UseRope(){
@@ -280,7 +285,6 @@ public class Skeleton {
         player.UseItem(rope,target);
 
         TestStarted = false;
-        names.clear();
     }
 
     public static void EatFood(){
@@ -295,7 +299,6 @@ public class Skeleton {
         player.UseItem(food, player);
 
         TestStarted = false;
-        names.clear();
     }
 
     public static void UseSpade(){
@@ -315,7 +318,6 @@ public class Skeleton {
         player.UseItem(spade, player);
 
         TestStarted = false;
-        names.clear();
     }
 
     public static void ResearcherUseAbility(){
@@ -334,7 +336,6 @@ public class Skeleton {
         player.UseAbility(inspected);
 
         TestStarted = false;
-        names.clear();
     }
     public static void EskimoUseAbility(){
         Player player = new Eskimo();
@@ -350,21 +351,19 @@ public class Skeleton {
         player.UseAbility(field);
 
         TestStarted = false;
-        names.clear();
     }
 
-    //question függvény kell úgy, mint a PlayerStepsOnIceblock-nál
     public static void Blizzard(){
-        Manager m = new Manager();
         Weather w = new Weather();
         List<Field> fields = new ArrayList<Field>();
-
         for (int i = 0; i < 3; i++){
             Field f = new IceBlock();
             Player p = new Eskimo();
             Player pp = new Researcher();
             p.setField(f);
             pp.setField(f);
+            f.getPlayers().add(p);
+            f.getPlayers().add(pp);
             Coverable cov = new NoGloo();
             f.Gloo(cov);
             names.put(pp, "Researcher" + ((Integer)i).toString());
@@ -376,17 +375,14 @@ public class Skeleton {
         }
 
         w.add(fields);
-        names.put(m, "Manager");
         names.put(w, "Weather");
 
         TestStarted = true;
+        // Hovihar lesujt
 
         w.Blizzard();
 
         TestStarted = false;
-        names.clear();
-
-
     }
 
     public static void PlayerStepsOnHole(){
@@ -405,7 +401,6 @@ public class Skeleton {
         eskimo.Step(hole);
 
         TestStarted = false;
-        names.clear();
     }
 
     public static void PlayerStepsOnIceblock(){
@@ -453,7 +448,6 @@ public class Skeleton {
         eskimo.Dig();
 
         TestStarted = false;
-        names.clear();
     }
 
     public static void UseSwimsuit(){
@@ -468,7 +462,6 @@ public class Skeleton {
         player.UseItem(sw,player);
 
         TestStarted = false;
-        names.clear();
     }
 
 }

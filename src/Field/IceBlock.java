@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class IceBlock extends Field {
-    private List<Item> items = new ArrayList<Item>();
+    // private List<Item> items = new ArrayList<Item>();
 
     @Override
     public void Accept(Player p) {
@@ -33,6 +33,11 @@ public class IceBlock extends Field {
     public Item RemoveItem(){
         Skeleton.Called(this,"RemoveItem");
         Skeleton.Return();
+        if(item != null){
+            Item i = item;
+            item = null;
+            return i;
+        }
         return null;
     }
 

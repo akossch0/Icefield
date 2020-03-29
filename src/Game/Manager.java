@@ -28,6 +28,12 @@ public final class Manager {
     }
 
     /**
+     * Letiltjuk ennnek a hasznalatat nehogy valaki a skeletonban ezzel hozzon letre managert
+     * mivel a helyes hasznalat a getInstance fuggveny meghivasa
+     */
+    private Manager(){}
+
+    /**
      *
      * @param i a targy amit a jatekos atad a managernek a jatek megnyeresehez
      */

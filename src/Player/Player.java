@@ -17,15 +17,15 @@ public class Player {
     /**
      * A jatek menedzsere
      */
-    private Manager manager = null;
+    private Manager manager = Manager.getInstance();
     /**
      * A player alltal birtokolt itemek listaja
      */
     private List<Item> items = new ArrayList<Item>();
     /**
-     * ??????????????????????????????????????
+     * A player strategy je vízbeesésre
      */
-    private ClothesEquipped clothes = null;
+    private ClothesEquipped clothes = new NoSwimsuitEquipped();
 
     //Tmp fuggveny majd konstruktorral lesz megoldva
     public void setField(Field field) {
@@ -67,7 +67,8 @@ public class Player {
      */
     public void Step(Field f){
         Skeleton.Called(this,"Step");
-        field.Remove(this);
+        if (this == null)
+            field.Remove(this);
 
         f.Accept(this);
         Skeleton.Return();
@@ -107,8 +108,10 @@ public class Player {
     public void PickUpItem(){
         Skeleton.Called(this,"PickUpItem");
         Item item = field.RemoveItem();
-        items.add(item);
-        item.setHolder(this);
+        if (item != null){
+            items.add(item);
+            item.setHolder(this);
+        }
         Skeleton.Return();
     }
 

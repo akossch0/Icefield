@@ -9,11 +9,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Field {
+    // A mezon tartozkodo jatekosok
     private List<Player> players = new ArrayList<Player>();
+    // Szomszedos mezok
     private List<Field> fields = new ArrayList<Field>();
+    // Mezon van-e iglu
     protected Coverable cover = null;
-
-    private Item item = null;
+    // Minden mezon vagy 1 vagy 0 item lehet
+    protected Item item = null;
 
     //Ideiglenes fv, majd a konstruktorban lesz megoldva
     public void setItem(Item item){
