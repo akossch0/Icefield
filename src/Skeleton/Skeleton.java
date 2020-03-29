@@ -73,24 +73,28 @@ public class Skeleton {
         System.out.print(str);
 
         BufferedReader obj = new BufferedReader(new InputStreamReader((System.in)));
-        try{input = obj.readLine();
-            switch(input.charAt(0)) {
-                case 'i':
-                    return true;
-                case 'I':
-                    return true;
-                case 'n':
-                    return false;
-                case 'N':
-                    return false;
-                default:
-                    return false;
-            }
-        }catch (Exception e){
-            System.out.print("Input Failed");
+        while(true) {
+            try {
+                input = obj.readLine();
+                switch (input.charAt(0)) {
+                    case 'i':
+                        return true;
+                    case 'I':
+                        return true;
+                    case 'n':
+                        return false;
+                    case 'N':
+                        return false;
+                    default:
+                        System.out.println("Rossz karakter.");
+                }
+            } catch (Exception e) {
+                System.out.print("Input Failed");
 
+            }
+            System.out.print(str);
         }
-        return false;
+        //return false;
     }
 
     /**
