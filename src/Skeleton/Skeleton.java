@@ -29,10 +29,20 @@ public class Skeleton {
         names.put(Game.getInstance(), "Game");
     }
 
+    /**
+     * Az objektumok es nevek parositasa a megjeleniteshez
+     * @param o az objektum, amihez a nevet tarsitjuk
+     * @param str a nev amit tarsitunk az objektumhoz
+     */
     public static void addNames(Object o, String str){
         names.put(o,str);
     }
 
+    /**
+     * ha egy fuggveny hivodik ez gondoskodik az indentalasrol
+     * @param object amin a fuggveny hivodik
+     * @param FuncHeader a fuggveny neve
+     */
     public static void Called(Object object,String FuncHeader){
         if (TestStarted) {
             for (int i = 0; i < n; i++) System.out.print("\t");
@@ -41,11 +51,19 @@ public class Skeleton {
         }
     }
 
+    /**
+     * fuggveny visszateresekor, indentalas miatt kell
+     */
     public static void Return(){
         if(TestStarted)
             n--;
     }
 
+    /**
+     * eldontendo kerdesek feltevese
+     * @param str a kerdes
+     * @return igazsagerteke a valasznak
+     */
     public static boolean Question(String str){
         String input;
 
@@ -72,6 +90,9 @@ public class Skeleton {
         return false;
     }
 
+    /**
+     * A szkeleton program
+     */
     public static void Run(){
 
         int numberOfUsecase = -1;
