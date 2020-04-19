@@ -4,6 +4,7 @@ import Coverable.*;
 import Field.Field;
 import Player.Player;
 import Skeleton.Skeleton;
+import sun.jvm.hotspot.utilities.CStringUtilities;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.List;
 /**
  * Egy singleton osztaly ami a hoviharokert felel
  */
-public final class Weather {
+public final class Weather implements Actor{
     /**
      * Az osszes mezo a palyan
      */
@@ -40,29 +41,27 @@ public final class Weather {
     /**
      * hovihar fuggveny
      */
-    public void Blizzard() {
-        Skeleton.Called(this,"Blizzard");
+    public void Blizzard(List<Field> f) {
 
-        //nem az összes fieldre kell, a map egy részére
-        for (Field f : fields){
-            boolean  b =  f.IsCovered();
+        for (Field struck : fields){
+            boolean  b =  struck.IsCovered();
             if (!b){
-                f.IncrLayerOfSnow();
-                List<Player> ps = f.getPlayers();
-                for (Player p : ps){
-                    p.DecrHp();
+                struck.IncrLayerOfSnow();
+                List<Entity> ps = struck.getEntites();
+                for (Entity e : ps){
+                    e.Meet(this);
                     if(Game.getGameOver())
                         break;
                 }
             }
             else{
                 Coverable ng = new NoGloo();
-                f.Gloo(ng);
+                struck.Gloo(ng);
             }
             if(Game.getGameOver())
                 break;
         }
-        Skeleton.Return();
+
     }
 
     /**
@@ -71,5 +70,34 @@ public final class Weather {
      */
     public void add(List<Field> fs){
         fields = fs;
+    }
+
+    @Override
+    public void Meet(Actor a) {
+        return;
+    }
+
+    @Override
+    public void yourTurn() {
+        List<Field> struck = new ArrayList<Field>();
+        /*
+        *
+        * Ide kell még random generálás
+        * WIP
+        *
+        * */
+        Blizzard(struck);
+
+    }
+
+    @Override
+    public void InteractWith(PolarBear p) {
+        return;
+    }
+
+    @Override
+    public void InteractWith(Player p) {
+        if(!p.getField().IsCovered())
+            p.DecrHp();
     }
 }

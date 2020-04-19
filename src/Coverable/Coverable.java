@@ -7,4 +7,5 @@ public interface Coverable {
      * @return
      */
     boolean IsCovered();
+    boolean IsBearProof();
 }

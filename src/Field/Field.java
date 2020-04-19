@@ -1,6 +1,7 @@
 package Field;
 
 import Coverable.*;
+import Game.Entity;
 import Player.*;
 import Item.*;
 import Skeleton.Skeleton;
@@ -10,11 +11,14 @@ import java.util.List;
 
 public abstract class Field {
     /** A mezon allo playerek listaja **/
-    private List<Player> players = new ArrayList<Player>();
+    private List<Entity> entites = new ArrayList<Entity>();
     /** A szomszedos mezok listaja**/
-    private List<Field> fields = new ArrayList<Field>();
+    private List<Field> neighbours = new ArrayList<Field>();
     /** A mezo strategyje, alapertelmezetten minden mezo fedettlen **/
     protected Coverable cover = new NoGloo();
+
+    public List<Field> getNeighbours(){return neighbours;}
+
     /** A mezon talalhato item **/
     protected Item item = null;
 
@@ -29,17 +33,17 @@ public abstract class Field {
     /**
      * Uj jatekos erkezik a mezore. Ha meg elbirja a mezo, akkor a jatekos ezentul ezen a mezon áll.
      * Ha nem birja el, akkor a jatekos a vizbe esik.
-     * @param p a jatekos aki a mezore lep
+     * @param e az entity aki a mezore lep
      */
-    public abstract void Accept(Player p);
+    public abstract void Accept(Entity e);
 
     /**
      *A parameterkent kapott jatekos elhagyja a mezot.
-     * @param p a jatekos aki tavozik a mezorol
+     * @param e az entity aki tavozik a mezorol
      */
-    public void Remove(Player p){
+    public void Remove(Entity e){
         Skeleton.Called(this,"Remove");
-        players.remove(p);
+        entites.remove(e);
         Skeleton.Return();
     }
 
@@ -56,13 +60,13 @@ public abstract class Field {
     }
 
     /**
-     * Visszaadja a mezon tartozkodo jatekosokat.
+     * Visszaadja a mezon tartozkodo entity-ket.
      * @return a visszaadott jatekosok
      */
-    public List<Player> getPlayers() {
+    public List<Entity> getEntites() {
         //Skeleton.Called(this,"getPlayers");
         //Skeleton.Return();
-        return players;
+        return entites;
     }
 
     /**
@@ -98,10 +102,12 @@ public abstract class Field {
      * @return fedett-e
      */
     public boolean IsCovered(){
-        Skeleton.Called(this,"IsCovered");
-        cover.IsCovered();
-        Skeleton.Return();
-        return false;
+
+        return cover.IsCovered();
+
+    }
+    public boolean IsBearProof(){
+        return cover.IsBearProof();
     }
     /**
      *  Beallitja az fedettseg strategiat.

@@ -11,15 +11,11 @@ public final class Manager {
     /** A jatek Game osztalya, szukseges nehany dolog menedzselese miatt (pl halal)**/
     private static Game game = Game.getInstance();
 
-    /**
-     * a jatekban szereplo jatekosok
-     */
-    private List<Player> players = new ArrayList<>();
+    private List<Actor> actors = new ArrayList<Actor>();
 
-    /**
-     * az idojaras melynek felelossege a vihar lebonyolitasa
-     */
-    private static Weather weather = Weather.getInstance();
+
+
+
     /**
      * Az egyetlen manager peldany
      */
@@ -40,7 +36,16 @@ public final class Manager {
      * Letiltjuk ennnek a hasznalatat nehogy valaki a skeletonban ezzel hozzon letre managert
      * mivel a helyes hasznalat a getInstance fuggveny meghivasa
      */
-    private Manager(){}
+    private Manager(){
+        /*
+        * Játékosok kellenek ide
+        *
+        * */
+
+        actors.add(Weather.getInstance());
+        actors.add(PolarBear.getInstance());
+
+    }
 
     /**
      *

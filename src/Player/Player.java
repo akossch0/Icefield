@@ -9,11 +9,11 @@ import Skeleton.Skeleton;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Player {
+public class Player extends  Entity{
     /**
      * A mezo amin a player tartozkodik
      */
-    private Field field = null;
+
     /**
      * A jatek menedzsere
      */
@@ -27,10 +27,7 @@ public class Player {
      */
     private ClothesEquipped clothes = new NoClothesEquipped();
 
-    //Tmp fuggveny majd konstruktorral lesz megoldva
-    public void setField(Field field) {
-        this.field = field;
-    }
+
 
     /**
      * @param f A mező amire a kepesseget hasznalja majd a player (Oda epit Iglut vagy deriti fel)
@@ -61,18 +58,7 @@ public class Player {
         Skeleton.Return();
     }
 
-    /**
-     * A player a parameterben megadott mezore lep
-     * @param f A mezo amire a player lep
-     */
-    public void Step(Field f){
-        Skeleton.Called(this,"Step");
-        if (this == null)
-            field.Remove(this);
 
-        f.Accept(this);
-        Skeleton.Return();
-    }
 
     /**
      * Ezzel a metodussal a player ellapatol egy kevés havat a mezorol amin all
@@ -123,6 +109,11 @@ public class Player {
         Skeleton.Return();
     }
 
+    @Override
+    public void Meet(Actor a) {
+        a.InteractWith(this);
+    }
+
     /**
      *  A menedzser kozli a playerrel, hogy az o kore kovetkezik
      */
@@ -137,6 +128,16 @@ public class Player {
         }
 
         Skeleton.Return();
+    }
+
+    @Override
+    public void InteractWith(PolarBear p) {
+        Manager.Lose();
+    }
+
+    @Override
+    public void InteractWith(Player p) {
+        return;
     }
 
     /**
