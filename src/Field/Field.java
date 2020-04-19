@@ -11,7 +11,7 @@ import java.util.List;
 
 public abstract class Field {
     /** A mezon allo playerek listaja **/
-    private List<Entity> entites = new ArrayList<Entity>();
+    private List<Entity> entities = new ArrayList<Entity>();
     /** A szomszedos mezok listaja**/
     private List<Field> neighbours = new ArrayList<Field>();
     /** A mezo strategyje, alapertelmezetten minden mezo fedettlen **/
@@ -43,7 +43,7 @@ public abstract class Field {
      */
     public void Remove(Entity e){
         Skeleton.Called(this,"Remove");
-        entites.remove(e);
+        entities.remove(e);
         Skeleton.Return();
     }
 
@@ -66,7 +66,7 @@ public abstract class Field {
     public List<Entity> getEntites() {
         //Skeleton.Called(this,"getPlayers");
         //Skeleton.Return();
-        return entites;
+        return entities;
     }
 
     /**
