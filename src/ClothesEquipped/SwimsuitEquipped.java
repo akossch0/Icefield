@@ -9,11 +9,6 @@ public class SwimsuitEquipped implements ClothesEquipped {
      * @param 
      */
     public SwimsuitEquipped(){
-
-        Skeleton.addNames(this, "SwimsuitEquipped");
-        Skeleton.Called(this, "SwimsuitEquipped");
-
-        Skeleton.Return();
     }
 
     /**Hm
@@ -21,8 +16,6 @@ public class SwimsuitEquipped implements ClothesEquipped {
      */
     @Override
     public boolean isWaterproof() {
-        Skeleton.Called(this,"isWaterproof");
-        Skeleton.Return();
         return true;
     }
 }

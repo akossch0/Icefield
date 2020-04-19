@@ -9,53 +9,51 @@ import Skeleton.Skeleton;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Player extends  Entity{
-    /**
-     * A mezo amin a player tartozkodik
-     */
+public abstract class Player extends  Entity{
+    private int actualHealth ;// A játékos aktuális élete.
+    private int actualWorkUnit ;// A játékos a körben még hány munkát tud elvégezni. Minden körben 4 egységnyi munkát tud elvégezni az összes játékos.
+    private int maxHealth ;// A játékos maximális élete. Eszkimóknak (Eskimo) 5, Sarkkutatóknak (Researcher) 4.
+    private Field field ;// Az a mező (Field), amelyen a játékos áll.
+    private List<Item> items = new ArrayList<Item>();// A játékosnál lévő tárgyak.
+    private boolean inWater = false;// Megmondja hogy a játékos vízbe vanprivate e.
+    private ClothesEquipped clothes = new NoClothesEquipped();// A ruha viselése stratégiát tároló attribútum.
+    public Player(int _actualHealth,int _actualWorkUnit,int _maxHealth,Field _field){
+        actualHealth = _actualHealth;
+        actualWorkUnit = _actualWorkUnit;
+        maxHealth = _maxHealth;
+        field = _field;
+    };
+
 
     /**
      * A jatek menedzsere
      */
     private Manager manager = Manager.getInstance();
-    /**
-     * A player alltal birtokolt itemek listaja
-     */
-    private List<Item> items = new ArrayList<Item>();
-    /**
-     * A player strategy je vízbeesésre
-     */
-    private ClothesEquipped clothes = new NoClothesEquipped();
-
 
 
     /**
      * @param f A mező amire a kepesseget hasznalja majd a player (Oda epit Iglut vagy deriti fel)
      * @return Ha Researcher hivja meg akkor ter vissza fontos szammal, ha Eszkimo akkor 0 a visszateresi ertek
      */
-    public int UseAbility (Field f){
-        Skeleton.Called(this, "UseAbility");
-        Skeleton.Return();
-        return 0;}
+    public abstract int UseAbility (Field f);
 
     /**
      * Noveli a player HP-jat 1 el
      */
     public void IncrHp(){
-        Skeleton.Called(this, "IncrHp");
-        Skeleton.Return();
+        if(actualHealth+1<=maxHealth) actualHealth++;
     }
 
     /**
      * Csokkenti a player HP-jat  1 el
      */
     public void DecrHp(){
-        Skeleton.Called(this,"DecrHp");
+        actualHealth--;
 
-        if(Skeleton.Question("<<Elfogyott az összes élete a játékosnak?(Igen/Nem)>> ")){
+        if(actualHealth==0){
             Manager.Lose();
         }
-        Skeleton.Return();
+
     }
 
 
@@ -64,17 +62,13 @@ public class Player extends  Entity{
      * Ezzel a metodussal a player ellapatol egy kevés havat a mezorol amin all
      */
     public void Dig(){
-        Skeleton.Called(this,"Dig");
         field.DecrLayerOfSnow(1);
-        Skeleton.Return();
     }
 
     /**
      * @return Visszaadja a mezot amin a player all
      */
     public Field getField(){
-        Skeleton.Called(this,"getField");
-        Skeleton.Return();
         return field;
     }
 
@@ -83,30 +77,25 @@ public class Player extends  Entity{
      * @param target a player amin az item hasznalva lesz (pl rope)
      */
     public void UseItem(Item i, Player target){
-        Skeleton.Called(this,"UseItem");
         i.Use(target);
-        Skeleton.Return();
     }
 
     /**
      * A player ezzel a metodussal felveszi a mezojen talalhato itemet
      */
     public void PickUpItem(){
-        Skeleton.Called(this,"PickUpItem");
         Item item = field.RemoveItem();
         if (item != null){
             items.add(item);
             item.setHolder(this);
         }
-        Skeleton.Return();
     }
 
     /**
      * @param c a ruha amit a player felvesz magara
      */
     public void setClothes(ClothesEquipped c){
-        Skeleton.Called(this,"setClothes");
-        Skeleton.Return();
+        clothes = c;
     }
 
     @Override
@@ -119,6 +108,9 @@ public class Player extends  Entity{
      */
     public void yourTurn(){
         Skeleton.Called(this,"yourTurn");
+/*
+
+        Ide már más kell
 
         if(Skeleton.Question("<<A játékos benne van a vízben, és már nem az első kör óta van ez?(Igen/Nem)>>")){
             isWaterproof();
@@ -126,7 +118,7 @@ public class Player extends  Entity{
                 manager.Lose();
             }
         }
-
+*/
         Skeleton.Return();
     }
 
@@ -145,19 +137,15 @@ public class Player extends  Entity{
      * @param i az item amit elvesznek
      */
     public void RemoveItem(Item i){
-        Skeleton.Called(this,"RemoveItem");
-        Skeleton.Return();
+        items.remove(i);
     }
 
     /**
      * @return visszater azzal, hogy a player vizbe van-e esve
      */
     public boolean isWaterproof(){
-        Skeleton.Called(this,"isWaterproof");
-        Skeleton.addNames(clothes,"ClothesEquipped");
-        boolean isWP = clothes.isWaterproof();
-        Skeleton.Return();
-        return isWP;
+
+        return clothes.isWaterproof();
     }
 
     /**
@@ -165,13 +153,12 @@ public class Player extends  Entity{
      * @param i az item amit elfogad
      */
     public void AcceptItem(Item i){
-        Skeleton.Called(this,"AcceptItem");
+        items.add(i);
         i.setHolder(this);
-        Skeleton.Return();
+
     }
-    public void setInWater(boolean inWater){
-        Skeleton.Called(this,"setInWater");
-        Skeleton.Return();
+    public void setInWater(boolean _inWater){
+        inWater = _inWater;
     }
 
 }

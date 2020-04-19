@@ -11,11 +11,7 @@ public class Swimsuit extends Item {
      */
     @Override
     public void Use(Player p){
-        Skeleton.Called(this,"Use");
-
         SwimsuitEquipped swimsuit = new SwimsuitEquipped();
         p.setClothes(swimsuit);
-
-        Skeleton.Return();
     }
 }

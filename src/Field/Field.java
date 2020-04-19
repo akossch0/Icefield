@@ -42,9 +42,7 @@ public abstract class Field {
      * @param e az entity aki tavozik a mezorol
      */
     public void Remove(Entity e){
-        Skeleton.Called(this,"Remove");
         entities.remove(e);
-        Skeleton.Return();
     }
 
     /**
@@ -113,7 +111,7 @@ public abstract class Field {
      *  Beallitja az fedettseg strategiat.
      * @param c a strategy amit beallit
      */
-    public void Gloo(Coverable c){
+    public void Cover(Coverable c){
         Skeleton.Called(this,"Gloo");
         cover = c;
         Skeleton.Return();

@@ -12,7 +12,5 @@ class Main
 
         Skeleton.Run();
 
-        //test
-
     }
 }

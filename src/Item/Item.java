@@ -20,9 +20,7 @@ public abstract class Item {
      * @param p az uj tulajdonosa az itemnek
      */
     public void setHolder(Player p){
-        Skeleton.Called(this,"setHolder");
         holder = p;
-        Skeleton.Return();
     }
 
     public Player getHolder(){

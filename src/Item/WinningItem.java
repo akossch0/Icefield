@@ -12,13 +12,9 @@ public class WinningItem extends Item {
      */
     @Override
     public void Use(Player p){
-        Skeleton.Called(this,"Use");
         p.RemoveItem(this);
-
         Manager manager = Manager.getInstance();
         manager.addItem(this);
 
-
-        Skeleton.Return();
     }
 }
