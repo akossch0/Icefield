@@ -15,9 +15,13 @@ public class IceBlock extends Field {
     @Override
     public void Accept(Entity e) {
         getEntites().add(e);
-        if(Skeleton.Question("<<Az új játékos új mezőre kerülésével túl lépi-e a játékosok száma a mező teherbíróképességét?(Igen/Nem)>> ")){
-            for(int i = 0; i < getEntites().size(); ++i){
-                getEntites().get(i).setInWater(true);
+
+        for (Entity i: entities) {
+            i.Meet(e);
+        }
+        if(getEntites().size()>getCapacity()){
+            for (Entity i: getEntites()) {
+                i.setInWater(true);
             }
             Coverable nogloo = new NoGloo();
             Cover(nogloo);
@@ -30,14 +34,9 @@ public class IceBlock extends Field {
      */
     @Override
     public Item RemoveItem(){
-        Skeleton.Called(this,"RemoveItem");
-        Skeleton.Return();
-        if(item != null){
-            Item i = item;
-            item = null;
-            return i;
-        }
-        return null;
+        Item i = item;
+        item = null;
+        return i;
     }
 
     /**
@@ -45,9 +44,7 @@ public class IceBlock extends Field {
      * @param c
      */
     public void Cover(Coverable c){
-        Skeleton.Called(this,"Gloo");
         cover = c;
-        Skeleton.Return();
     }
 
 }

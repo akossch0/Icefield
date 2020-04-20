@@ -11,14 +11,18 @@ import java.util.List;
 
 public abstract class Field {
     /** A mezon allo playerek listaja **/
-    private List<Entity> entities = new ArrayList<Entity>();
+    protected List<Entity> entities = new ArrayList<>();
     /** A szomszedos mezok listaja**/
     private List<Field> neighbours = new ArrayList<Field>();
     /** A mezo strategyje, alapertelmezetten minden mezo fedettlen **/
     protected Coverable cover = new NoGloo();
+    private  int layerOfSnow = 0;
+    private  int capacity = 0;
 
     public List<Field> getNeighbours(){return neighbours;}
 
+    public void AddNeighbour(Field e){neighbours.add(e);}
+    public void RemoveNeighbour(Field e){neighbours.remove(e);}
     /** A mezon talalhato item **/
     protected Item item = null;
 
@@ -50,10 +54,8 @@ public abstract class Field {
      * @return a visszaadott item
      */
     public Item RemoveItem(){
-        Skeleton.Called(this,"RemoveItem");
         Item i = item;
         item = null;
-        Skeleton.Return();
         return i;
     }
 
@@ -62,8 +64,6 @@ public abstract class Field {
      * @return a visszaadott jatekosok
      */
     public List<Entity> getEntites() {
-        //Skeleton.Called(this,"getPlayers");
-        //Skeleton.Return();
         return entities;
     }
 
@@ -71,8 +71,7 @@ public abstract class Field {
      * Megnoveli a mezon levo horetegek szamat.
      */
     public void IncrLayerOfSnow(){
-        Skeleton.Called(this,"IncrLayerOfSnow");
-        Skeleton.Return();
+        layerOfSnow++;
     }
 
     /**
@@ -80,8 +79,8 @@ public abstract class Field {
      * @param n
      */
     public void DecrLayerOfSnow(int n){
-        Skeleton.Called(this,"DecrLayerOfSnow");
-        Skeleton.Return();
+        if(n>=layerOfSnow) layerOfSnow = 0;
+        else layerOfSnow -=n;
     }
 
     /**
@@ -89,9 +88,7 @@ public abstract class Field {
      * @return kapacitas
      */
     public int getCapacity(){
-        Skeleton.Called(this,"getCapacity");
-        Skeleton.Return();
-        return 0;
+       return capacity;
     }
 
     /**
@@ -115,5 +112,17 @@ public abstract class Field {
         Skeleton.Called(this,"Gloo");
         cover = c;
         Skeleton.Return();
+    }
+
+    public int getLayerOfSnow() {
+        return layerOfSnow;
+    }
+
+    public void setLayerOfSnow(int LayerOfSnow) {
+        layerOfSnow = LayerOfSnow;
+    }
+
+    public void setCapacity(int Capacity) {
+        capacity = Capacity;
     }
 }

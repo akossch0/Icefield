@@ -14,10 +14,6 @@ public abstract class Entity implements Actor{
     public void Step(Field f){
         field.Remove(this);
         f.Accept(this);
-        List<Entity> entities = f.getEntites();
-        for (Entity i: entities) {
-            i.Meet(this);
-        }
     }
     public void setField(Field field) {
         this.field = field;

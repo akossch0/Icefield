@@ -6,25 +6,27 @@ import Game.Entity;
 import Player.Player;
 import Skeleton.Skeleton;
 
+import java.util.List;
+
 public class Hole extends Field {
 
 
 
     @Override
     public void Accept(Entity e) {
-        getEntites().add(e);
+        entities.add(e);
         e.setInWater(true);
+
+        for (Entity i: entities) {
+            i.Meet(e);
+        }
     }
 
     /**
      *  Beallitja az fedettseg strategiat.
      * @param c
      */
-    public void Cover(Coverable c){
-        Skeleton.Called(this,"Gloo");
-
-        Skeleton.Return();
-    }
+    public void Cover(Coverable c){ }
 
 
 }
