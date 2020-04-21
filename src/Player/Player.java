@@ -29,7 +29,7 @@ public abstract class Player extends  Entity{
      * A jatek menedzsere
      */
     private Manager manager = Manager.getInstance();
-
+    public void IncreaseWorkUnit(){actualWorkUnit++;}
 
     /**
      * @param f A mező amire a kepesseget hasznalja majd a player (Oda epit Iglut vagy deriti fel)
@@ -160,5 +160,6 @@ public abstract class Player extends  Entity{
     public void setInWater(boolean _inWater){
         inWater = _inWater;
     }
+    public boolean IsInWater(){return inWater;}
 
 }

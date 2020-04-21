@@ -1,5 +1,6 @@
 package Game;
 
+import Field.Field;
 import Item.Item;
 import Player.Player;
 import Skeleton.Skeleton;
@@ -11,9 +12,12 @@ public final class Manager {
     /** A jatek Game osztalya, szukseges nehany dolog menedzselese miatt (pl halal)**/
     private static Game game = Game.getInstance();
 
-    private List<Actor> actors = new ArrayList<Actor>();
+    private static List<Actor> actors = new ArrayList<Actor>();
 
-
+    private static HashMap<Player,Integer> timeInWater = new HashMap<Player, Integer>();
+    private static HashMap<Field,Integer> timeTent = new HashMap<Field,Integer>();
+    private static List<Item> parts = new ArrayList<Item>();
+    private static List<Player> players = new ArrayList<Player>();
 
 
     /**
@@ -46,24 +50,40 @@ public final class Manager {
         actors.add(PolarBear.getInstance());
 
     }
+    static void Update(Player p){
+        if(p.IsInWater()){
+            timeInWater.put(p,0);
+        }
+        else{
+            timeInWater.remove(p);
+        }
 
+    }
     /**
      *
      * @param i a targy amit a jatekos atad a managernek a jatek megnyeresehez
      */
     public static void addItem(Item i){
-        Skeleton.Called(getInstance(),"addItem");
+        parts.add(i);
+        boolean egyhelyen = true;
+        for (Player player: players) {
+            if(!player.getField().equals(players.get(0).getField())) egyhelyen = false;
+        }
 
-        if(Skeleton.Question("<<Minden játékos ezen a jégtáblán tartózkodik?(Igen/Nem)>>")){
-            if(Skeleton.Question("<<Ez az utolsó hiányzó tárgy?(Igen/Nem)>>")){
+        if(egyhelyen){
+            if(parts.size()==3){
                 Game game = Game.getInstance();
                 game.Win();
+            }else{
+                Player holder = i.getHolder();
+                holder.IncreaseWorkUnit();
             }
         }else{
+            parts.remove(i);
             Player holder = i.getHolder();
             holder.AcceptItem(i);
+            holder.IncreaseWorkUnit();
         }
-        Skeleton.Return();
     }
 
     /**
@@ -72,14 +92,27 @@ public final class Manager {
     public static void Start(){
         Skeleton.Called(getInstance(),"Start");
         Skeleton.Return();
+
+        /*
+        * forciklusba majd egy uj forciklus h minden értéket növeljünk
+        *
+        *
+        for (Player i: timeInWater.keySet()) {
+            timeInWater.put(i,timeInWater.get(i)+1);
+        }
+        for (Field i: timeTent.keySet()) {
+            timeTent.put(i,timeTent.get(i)+1);
+        }
+        * */
+
+
+
     }
 
     /**
      * jatekos halalanal hivodik
      */
     public static void Lose(){
-        Skeleton.Called(getInstance(),"Lose");
         game.Lose();
-        Skeleton.Return();
     }
 }
