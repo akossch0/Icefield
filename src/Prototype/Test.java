@@ -316,12 +316,15 @@ public class Test {
             }
         }else if(command.length == 2){
             if(command[1].equals("GAMESTATE")){
-                if(!Game.getInstance().isGameWon() && !Game.getInstance().isGameLost()){
+                Game.getInstance();
+                if(!Game.isGameWon() && !Game.isGameLost()){
                     out = "GAME IN PROGRESS";
-                }else if(Game.getInstance().isGameLost()){
-                    out = "GAME WON";
-                }else if(Game.getInstance().isGameWon()){
-                    out = "GAME LOST";
+                }else {
+                    if(Game.isGameLost()){
+                        out = "GAME LOST";
+                    }else {
+                        out = "GAME WON";
+                    }
                 }
             }else{
                 out = map.get(command[1]).toString();
