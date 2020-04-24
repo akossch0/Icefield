@@ -9,8 +9,8 @@ import Field.*;
  */
 public class Eskimo extends Player {
 
-    public Eskimo(int _actualHealth, int _actualWorkUnit, int _maxHealth, Field _field) {
-        super(_actualHealth, _actualWorkUnit, _maxHealth, _field);
+    public Eskimo(Field _field) {
+        super(5, 4, 5, _field);
     }
 
     /**
