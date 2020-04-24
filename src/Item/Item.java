@@ -31,7 +31,7 @@ public abstract class Item {
         return holder;
     }
 
-    public String toString(){
+    /*public String toString(){
         String result;
         if(this.getClass().toString().equals("Spade")){
             result = "item\n" +
@@ -45,5 +45,5 @@ public abstract class Item {
                     "TYPE:" + this.getClass().toString() + "\n" +
                     "holder:" + this;
         }
-    }
+    }*/
 }

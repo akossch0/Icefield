@@ -19,131 +19,110 @@ import java.util.*;
 
 public class Test {
     private String content;
-    private String outputContent;
+    private String expectedOutput;
     private String name;
     private HashMap<String, Object> actors;
     public Test(String n, String con, String outCon){
         name = n;
         content = con;
-        outputContent = outCon;
+        expectedOutput = outCon;
         actors = new HashMap<String,Object>();
     }
 
-    public String getOutputContent() {
-        return outputContent;
-    }
-
-    public void setOutputContent(String outputContent) {
-        this.outputContent = outputContent;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getName () {
-        return name;
+    public void interpretLine(String line, Player currentPlayer) throws Exception {
+        // Minden whitespacet ki akarunk venni hogy lehessen tabolni a tesztekben
+        String[] command = line.split("\\s+");
+        if (command.length == 0)
+            throw new Exception("Valami igencsak rossz:((");
+        String first = command[0];
+        switch (first) {
+            case "field":
+                newField(command[1], command[2], command[3], command[4], command[5]);
+                break;
+            case "neighbours":
+                addNeighbours(command[1], command[2]);
+                break;
+            case "player":
+                newPlayer(command[1], command[2], command[3]);
+                break;
+            case "placeitem":
+                placeItem(command[1], command[2]);
+                break;
+            case "item":
+                if (command.length == 4)
+                    newItem(command[1], command[2], command[3]);
+                else
+                    newItem(command[1], command[2], "-1");
+                break;
+            case "build":
+                build(command[1], command[2]);
+                break;
+            case "wear":
+                wear( command[1], command[2]);
+                break; // Eddig nagyjából fasza
+            case "STEP":
+                step( currentPlayer, command[1]);
+                break;
+            case "USE_ITEM":
+                use_item(currentPlayer, command[1], command[2]);
+                break;
+            case "USE_ABILITY":
+                use_ability(currentPlayer, command[1]);
+                break;
+            case "DIG":
+                dig(currentPlayer);
+                break;
+            case "PICKUP":
+                pickup(currentPlayer);
+                break;
+            case "BLIZZARD":
+                if (command.length > 1) {
+                    List<String> fieldList = new ArrayList();
+                    for (int i = 1; i < command.length; i++) {
+                        fieldList.add(command[i]);
+                    }
+                    blizzard(fieldList);
+                }
+                else
+                    blizzard(null);
+                break;
+            case "POLARSTEP":
+                if (command.length > 1) {
+                    polarstep(command[1]);
+                }
+                else
+                    polarstep(null);
+                break;
+            case "BEGIN":
+                currentPlayer = (Player)actors.get(command[1]);
+                break;
+            case "END":
+                currentPlayer = null;
+                break;
+            case "LOAD":
+                //??
+                if(command.length == 1){
+                    Game.getInstance().InitMap();
+                }else if(command.length == 2){
+                    load(command[1]);
+                }else{
+                    System.out.println("Wrong arguments given!");
+                }
+                break;
+            case "SAVE":
+                //??
+                String outputOfSave = save(command);
+                break;
+        }
     }
 
     public void ExecuteTest() throws Exception {
 
-
         Player currentPlayer = null;
         // haha cocaine lines
-        String[] lines = content.split("\n");
-        for (String s : lines) {
-            // Minden whitespacet ki akarunk venni hogy lehessen tabolni a tesztekben
-            String[] command = s.split("\\s+");
-            if (command.length == 0)
-                throw new Exception("Valami igencsak rossz:((");
-            String first = command[0];
-            switch (first) {
-                case "field":
-                    newField(command[1], command[2], command[3], command[4], command[5]);
-                    break;
-                case "neighbours":
-                    addNeighbours(command[1], command[2]);
-                    break;
-                case "player":
-                    newPlayer(command[1], command[2], command[3]);
-                    break;
-                case "placeitem":
-                    placeItem(command[1], command[2]);
-                    break;
-                case "item":
-                    if (command.length == 4)
-                        newItem(command[1], command[2], command[3]);
-                    else
-                        newItem(command[1], command[2], "-1");
-                    break;
-                case "build":
-                    build(command[1], command[2]);
-                    break;
-                case "wear":
-                    wear( command[1], command[2]);
-                    break; // Eddig nagyjából fasza
-                case "STEP":
-                    step( currentPlayer, command[1]);
-                    break;
-                case "USE_ITEM":
-                    use_item(currentPlayer, command[1], command[2]);
-                    break;
-                case "USE_ABILITY":
-                    use_ability(currentPlayer, command[1]);
-                    break;
-                case "DIG":
-                    dig(currentPlayer);
-                    break;
-                case "PICKUP":
-                    pickup(currentPlayer);
-                    break;
-                case "BLIZZARD":
-                    if (command.length > 1) {
-                        List<String> fieldList = new ArrayList();
-                        for (int i = 1; i < command.length; i++) {
-                            fieldList.add(command[i]);
-                        }
-                        blizzard(fieldList);
-                    }
-                    else
-                        blizzard(null);
-                    break;
-                case "POLARSTEP":
-                    if (command.length > 1) {
-                        polarstep(command[1]);
-                    }
-                    else
-                        polarstep(null);
-                    break;
-                case "BEGIN":
-                    currentPlayer = (Player)actors.get(command[1]);
-                    break;
-                case "END":
-                    currentPlayer = null;
-                    break;
-                case "LOAD":
-                    //??
-                    if(command.length == 1){
-                        Game.getInstance().InitMap();
-                    }else if(command.length == 2){
-                        load(command[1]);
-                    }else{
-                        System.out.println("Wrong arguments given!");
-                    }
-                    break;
-                case "SAVE":
-                    //??
-                    String outputOfSave = save(command);
-                    break;
-            }
+        String[] lines = this.content.split("\n");
+        for (String line : lines) {
+            interpretLine(line, currentPlayer);
         }
     }
 
@@ -301,7 +280,7 @@ public class Test {
                 }
                 //mi legyen az output?
                 content = res;
-                outputContent = "";
+                expectedOutput = "";
                 ExecuteTest();
             }catch(Exception e){
                 e.printStackTrace();
@@ -335,5 +314,4 @@ public class Test {
         }
         return out;
     }
-
 }

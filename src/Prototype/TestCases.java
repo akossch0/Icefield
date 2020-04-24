@@ -11,8 +11,8 @@ public class TestCases {
     public void LoadTests(){
         for(Integer i = 1; i < 33; i++) {
             try {
-                File input = new File("src\\inputs and outputs\\test" + i.toString() + "_input");
-                File output = new File("src\\inputs and outputs\\test" + i.toString() + "_output");
+                File input = new File("src\\inputs and outputs\\test" + Integer.toString(i) + "_input");
+                File output = new File("src\\inputs and outputs\\test" + Integer.toString(i) + "_output");
                 if(input.exists() && output.exists()){
                     BufferedReader br1 = new BufferedReader(new FileReader(input));
                     BufferedReader br2 = new BufferedReader(new FileReader(output));
@@ -75,100 +75,100 @@ public class TestCases {
                         System.out.println("Bye!");
                         break;
                     case (1):
-                        tests.get(1).ExecuteTest(tests.get(1).getContent(), tests.get(1).getOutputContent());
+                        tests.get(1).ExecuteTest();
                         break;
                     case (2):
-                        tests.get(2).ExecuteTest(tests.get(2).getContent(), tests.get(2).getOutputContent());
+                        tests.get(2).ExecuteTest();
                         break;
                     case (3):
-                        tests.get(3).ExecuteTest(tests.get(3).getContent(), tests.get(3).getOutputContent());
+                        tests.get(3).ExecuteTest();
                         break;
                     case (4):
-                        tests.get(4).ExecuteTest(tests.get(4).getContent(), tests.get(4).getOutputContent());
+                        tests.get(4).ExecuteTest();
                         break;
                     case (5):
-                        tests.get(5).ExecuteTest(tests.get(5).getContent(), tests.get(5).getOutputContent());
-                        break;
+                        tests.get(5).ExecuteTest();
+                    break;
                     case (6):
-                        tests.get(6).ExecuteTest(tests.get(6).getContent(), tests.get(6).getOutputContent());
+                        tests.get(6).ExecuteTest();
                         break;
                     case (7):
-                        tests.get(7).ExecuteTest(tests.get(7).getContent(), tests.get(7).getOutputContent());
+                        tests.get(7).ExecuteTest();
                         break;
                     case (8):
-                        tests.get(8).ExecuteTest(tests.get(8).getContent(), tests.get(8).getOutputContent());
+                        tests.get(8).ExecuteTest();
                         break;
                     case (9):
-                        tests.get(9).ExecuteTest(tests.get(9).getContent(), tests.get(9).getOutputContent());
+                        tests.get(9).ExecuteTest();
                         break;
                     case (10):
-                        tests.get(10).ExecuteTest(tests.get(10).getContent(), tests.get(10).getOutputContent());
+                        tests.get(10).ExecuteTest();
                         break;
                     case (11):
-                        tests.get(11).ExecuteTest(tests.get(11).getContent(), tests.get(11).getOutputContent());
+                        tests.get(11).ExecuteTest();
                         break;
                     case (12):
-                        tests.get(12).ExecuteTest(tests.get(12).getContent(), tests.get(12).getOutputContent());
+                        tests.get(12).ExecuteTest();
                         break;
                     case (13):
-                        tests.get(13).ExecuteTest(tests.get(13).getContent(), tests.get(13).getOutputContent());
+                        tests.get(13).ExecuteTest();
                         break;
                     case (14):
-                        tests.get(14).ExecuteTest(tests.get(14).getContent(), tests.get(14).getOutputContent());
+                        tests.get(14).ExecuteTest();
                         break;
                     case (15):
-                        tests.get(15).ExecuteTest(tests.get(15).getContent(), tests.get(15).getOutputContent());
+                        tests.get(15).ExecuteTest();
                         break;
                     case (16):
-                        tests.get(16).ExecuteTest(tests.get(16).getContent(), tests.get(16).getOutputContent());
+                        tests.get(16).ExecuteTest();
                         break;
                     case (17):
-                        tests.get(17).ExecuteTest(tests.get(17).getContent(), tests.get(17).getOutputContent());
+                        tests.get(17).ExecuteTest();
                         break;
                     case (18):
-                        tests.get(18).ExecuteTest(tests.get(18).getContent(), tests.get(18).getOutputContent());
+                        tests.get(18).ExecuteTest();
                         break;
                     case (19):
-                        tests.get(19).ExecuteTest(tests.get(19).getContent(), tests.get(19).getOutputContent());
+                        tests.get(19).ExecuteTest();
                         break;
                     case (20):
-                        tests.get(20).ExecuteTest(tests.get(20).getContent(), tests.get(20).getOutputContent());
+                        tests.get(20).ExecuteTest();
                         break;
                     case (21):
-                        tests.get(21).ExecuteTest(tests.get(21).getContent(), tests.get(21).getOutputContent());
+                        tests.get(21).ExecuteTest();
                         break;
                     case (22):
-                        tests.get(22).ExecuteTest(tests.get(22).getContent(), tests.get(22).getOutputContent());
+                        tests.get(22).ExecuteTest();
                         break;
                     case (23):
-                        tests.get(23).ExecuteTest(tests.get(23).getContent(), tests.get(23).getOutputContent());
+                        tests.get(23).ExecuteTest();
                         break;
                     case (24):
-                        tests.get(24).ExecuteTest(tests.get(24).getContent(), tests.get(24).getOutputContent());
+                        tests.get(24).ExecuteTest();
                         break;
                     case (25):
-                        tests.get(25).ExecuteTest(tests.get(25).getContent(), tests.get(25).getOutputContent());
+                        tests.get(25).ExecuteTest();
                         break;
                     case (26):
-                        tests.get(26).ExecuteTest(tests.get(26).getContent(), tests.get(26).getOutputContent());
+                        tests.get(26).ExecuteTest();
                         break;
                     case (27):
-                        tests.get(27).ExecuteTest(tests.get(27).getContent(), tests.get(27).getOutputContent());
+                        tests.get(27).ExecuteTest();
                         break;
                     case (28):
-                        tests.get(28).ExecuteTest(tests.get(28).getContent(), tests.get(28).getOutputContent());
+                        tests.get(28).ExecuteTest();
                         break;
                     case (29):
-                        tests.get(29).ExecuteTest(tests.get(29).getContent(), tests.get(29).getOutputContent());
+                        tests.get(29).ExecuteTest();
                         break;
                     case (30):
-                        tests.get(30).ExecuteTest(tests.get(30).getContent(), tests.get(30).getOutputContent());
+                        tests.get(30).ExecuteTest();
                         break;
                     case (31):
-                        tests.get(31).ExecuteTest(tests.get(31).getContent(), tests.get(31).getOutputContent());
+                        tests.get(31).ExecuteTest();
                         break;
                     case (32):
-                        tests.get(32).ExecuteTest(tests.get(32).getContent(), tests.get(32).getOutputContent());
+                        tests.get(32).ExecuteTest();
                         break;
                     default:
                         System.out.println("Wrong input given!");
