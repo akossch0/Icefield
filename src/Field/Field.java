@@ -97,11 +97,7 @@ public abstract class Field {
      * vagyis megmondja, hogy fedett-e a mezo vagy sem.
      * @return fedett-e
      */
-    public boolean IsCovered(){
-
-        return cover.IsCovered();
-
-    }
+    public boolean IsCovered(){ return cover.IsCovered(); }
     public boolean IsBearProof(){
         return cover.IsBearProof();
     }
@@ -109,11 +105,7 @@ public abstract class Field {
      *  Beallitja az fedettseg strategiat.
      * @param c a strategy amit beallit
      */
-    public void Cover(Coverable c){
-        Skeleton.Called(this,"Gloo");
-        cover = c;
-        Skeleton.Return();
-    }
+    public abstract void Cover(Coverable c);
 
     public int getLayerOfSnow() {
         return layerOfSnow;
