@@ -55,8 +55,8 @@ public final class Weather implements Actor{
                 }
             }
             else{
-                Coverable ng = new NoGloo();
-                struck.Cover(ng);
+                Coverable nc = new NoCover();
+                struck.Cover(nc);
             }
             if(Game.getGameOver())
                 break;
