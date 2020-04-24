@@ -12,22 +12,57 @@ public class TestCases {
     public void LoadTests(){
         for(Integer i = 1; i < 33; i++) {
             try {
-                File myObj = new File("src\\inputs and outputs\\test" + i.toString() + "_input");
+                File input = new File("src\\inputs and outputs\\test" + i.toString() + "_input");
+                File output = new File("src\\inputs and outputs\\test" + i.toString() + "_output");
+                if(input.exists() && output.exists()){
+                    BufferedReader br1 = new BufferedReader(new FileReader(input));
+                    BufferedReader br2 = new BufferedReader(new FileReader(output));
+                    String resContent = "";
+                    String resContentOutput = "";
+                    String line;
+                    String nameOfTestCase = "";
+                    int n = 0;
+                    while ((line = br1.readLine()) != null) {
+                        if(n == 0){
+                            nameOfTestCase = line;
+                        }else {
+                            resContent = resContent + line;
+                        }
+                        n++;
+                    }
+                    while ((line = br2.readLine()) != null) {
+                        nameOfTestCase = line;
+                        resContentOutput = resContentOutput + line;
+                    }
+                    tests.put(i, new Test(nameOfTestCase,resContent,resContentOutput));
+                    br1.close();
+                    br2.close();
+                }else {
+                    System.out.println("Either the input or the output file doesn't exist.");
+                }
+            } catch (FileNotFoundException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+            } catch (IOException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+            }
+        }
+        System.out.println(tests);
+    }
+
+    public void LoadInputs(){
+        for(Integer i = 1; i < 33; i++) {
+            try {
+                File myObj = new File("src\\inputs and outputs\\test" + i.toString() + "_output");
                 if(myObj.exists()){
                     BufferedReader br = new BufferedReader(new FileReader(myObj));
                     String res = "";
                     String line;
-                    String nameOfTestCase = "";
-                    int n = 0;
                     while ((line = br.readLine()) != null) {
-                        if(n == 0){
-                            nameOfTestCase = line;
-                        }else {
-                            res = res + line;
-                        }
-                        n++;
+                        res = res + line;
                     }
-                    tests.put(i, new Test(nameOfTestCase,res));
+
                 }
             } catch (FileNotFoundException e) {
                 System.out.println("An error occurred.");

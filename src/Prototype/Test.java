@@ -17,9 +17,10 @@ public class Test {
     private String outputContent;
     private String name;
 
-    public Test(String n, String con){
+    public Test(String n, String con, String outCon){
         name = n;
-        content = content;
+        content = con;
+        outputContent = outCon;
     }
 
     public String getOutputContent() {
