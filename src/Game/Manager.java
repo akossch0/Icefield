@@ -104,6 +104,7 @@ public final class Manager {
      */
     public static void Start(){
 
+
         while(!game.isGameWon() && !game.isGameLost()){
             /*
             for all player in hashmap do
