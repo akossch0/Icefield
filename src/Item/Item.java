@@ -30,4 +30,20 @@ public abstract class Item {
     public Player getHolder(){
         return holder;
     }
+
+    public String toString(){
+        String result;
+        if(this.getClass().toString().equals("Spade")){
+            result = "item\n" +
+                    "ID:" + "\n" +
+                    "TYPE:" + this.getClass().toString() + "\n" +
+                    "holder:" + this +
+                    "durability:" + this;
+        }else {
+            result = "item\n" +
+                    "ID:" + "\n" +
+                    "TYPE:" + this.getClass().toString() + "\n" +
+                    "holder:" + this;
+        }
+    }
 }
