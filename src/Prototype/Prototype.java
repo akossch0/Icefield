@@ -10,6 +10,7 @@ public class Prototype {
 
     public void Run() {
         String answer;
+
         while(true){
             try {
                 System.out.println("<question> Do you want to test or to play?(test/play)");
