@@ -9,6 +9,10 @@ import Skeleton.Skeleton;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Absztrakt alaposztaly, a konkret peldanyai az Eszkimo (Eskimo) vagy a Sarkkutato (Researcher).
+ */
+
 public abstract class Player extends  Entity{
     private int actualHealth ;// A játékos aktuális élete.
     private int actualWorkUnit ;// A játékos a körben még hány munkát tud elvégezni. Minden körben 4 egységnyi munkát tud elvégezni az összes játékos.
