@@ -1,0 +1,15 @@
+field 		iceblock_1 	iceblock 1 0 i
+field 		iceblock_2	iceblock 1 0 i
+player 		player_1 	eskimo  iceblock_1
+player 		player_2 	eskimo  iceblock_2
+item 		item_1		WinningItem
+item 		item_2		WinningItem
+item 		item_3		WinningItem
+placeitem 	item_1		player_1
+placeitem 	item_2		player_1
+placeitem 	item_3 		player_1
+BEGIN 	player_1
+USE_ITEM 	item_1		player_1
+END
+SAVE		GAMESTATE
+SAVE		player_1

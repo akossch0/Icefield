@@ -1,0 +1,8 @@
+field:
+	ID: iceblock_1
+	type:iceblock
+	layersOfSnow: 0
+neigbours:
+limit:10
+	open: i
+	cover: IglooCover
