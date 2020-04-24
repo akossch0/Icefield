@@ -53,12 +53,12 @@ public class Test {
         return name;
     }
 
-    public void ExecuteTest(String input, String output) throws Exception {
+    public void ExecuteTest() throws Exception {
 
 
         Player currentPlayer = null;
         // haha cocaine lines
-        String[] lines = input.split("\n");
+        String[] lines = content.split("\n");
         for (String s : lines) {
             // Minden whitespacet ki akarunk venni hogy lehessen tabolni a tesztekben
             String[] command = s.split("\\s+");
@@ -134,14 +134,14 @@ public class Test {
                     if(command.length == 1){
                         Game.getInstance().InitMap();
                     }else if(command.length == 2){
-                        load(actors,command[1]);
+                        load(command[1]);
                     }else{
                         System.out.println("Wrong arguments given!");
                     }
                     break;
                 case "SAVE":
                     //??
-                    String outputOfSave = save(actors,command);
+                    String outputOfSave = save(command);
                     break;
             }
         }
@@ -300,7 +300,9 @@ public class Test {
                     res = res + line;
                 }
                 //mi legyen az output?
-                ExecuteTest(res,"");
+                content = res;
+                outputContent = "";
+                ExecuteTest();
             }catch(Exception e){
                 e.printStackTrace();
             }

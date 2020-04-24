@@ -200,8 +200,9 @@ public class TestCases {
             for(String s : strings){
                 commandsString.append(s);
             }
+            Test test = new Test("game",commandsString.toString(),"");
 
-            Test.ExecuteTest(commandsString.toString(), "");
+            test.ExecuteTest();
 
         } catch(Exception e) {
             System.out.println(e.getMessage());
