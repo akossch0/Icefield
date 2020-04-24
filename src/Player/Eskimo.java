@@ -4,7 +4,10 @@ import Coverable.Igloo;
 import Field.*;
 import Skeleton.Skeleton;
 
-
+/**
+ * Egy jatekos altal iranyitott karaktert reprezental, aki iglu epitesere kepes, annak
+ * erdekeben, hogy a jatekosok at tudjak veszelni a hovihart.
+ */
 public class Eskimo extends Player {
 
     public Eskimo(int _actualHealth, int _actualWorkUnit, int _maxHealth, Field _field) {
