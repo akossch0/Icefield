@@ -1,8 +1,7 @@
 package Player;
 
-import Coverable.Igloo;
+import Coverable.IglooCover;
 import Field.*;
-import Skeleton.Skeleton;
 
 /**
  * Egy jatekos altal iranyitott karaktert reprezental, aki iglu epitesere kepes, annak
@@ -20,7 +19,7 @@ public class Eskimo extends Player {
      */
     @Override
     public int UseAbility(Field f){
-        getField().Gloo(new Igloo());
+        getField().Cover(new IglooCover());
         return -1;
     }
 

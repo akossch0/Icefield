@@ -11,12 +11,8 @@ public class Rope extends Item {
      */
     @Override
     public void Use(Player p){
-
         Field target = this.getHolder().getField();
         p.setInWater(false);
         p.Step(target);
-
-
-
     }
 }
