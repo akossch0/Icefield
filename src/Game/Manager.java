@@ -47,14 +47,10 @@ public final class Manager {
      * mivel a helyes hasznalat a getInstance fuggveny meghivasa
      */
     private Manager(){
-        /*
-        * Játékosok kellenek ide
-        *
-        * */
-
-        actors.add(Weather.getInstance());
-        actors.add(PolarBear.getInstance());
-
+    }
+    static void AddPlayer(Player p){
+        players.add(p);
+        actors.add(p);
     }
     static void Update(Player p){
         if(p.IsInWater()){
@@ -105,7 +101,8 @@ public final class Manager {
      * elinditja a jatekosok lepeseit
      */
     public static void Start(){
-
+        actors.add(PolarBear.getInstance());
+        actors.add(Weather.getInstance());
 
         while(!game.isGameWon() && !game.isGameLost()){
             for(Actor a : actors){
@@ -115,7 +112,7 @@ public final class Manager {
                 }
 
                 //Player e a jelenlegi actor, ha igen akkor ha sok ideig volt vízben és nem vízáló akkor vége a játéknak
-                int index = players.indexOf(a);
+                int index = (actors.indexOf(a)>=players.size()?-1:actors.indexOf(a));
                 if(index!=-1){
                     currentPlayer = players.get(index);
                     if(timeInWater.get(currentPlayer)>actors.size()&&!currentPlayer.isWaterproof()) game.Lose();
