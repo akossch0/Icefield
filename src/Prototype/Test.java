@@ -6,6 +6,8 @@ import Coverable.IglooCover;
 import Coverable.NoCover;
 import Coverable.TentCover;
 import Field.*;
+import Game.PolarBear;
+import Game.Weather;
 import Item.*;
 import Player.*;
 
@@ -88,7 +90,7 @@ public class Test {
                     step(actors, currentPlayer, command[1]);
                     break;
                 case "USE_ITEM":
-                    use_item(actors,currentPlayer, command[1]);
+                    use_item(actors,currentPlayer, command[1], command[2]);
                     break;
                 case "USE_ABILITY":
                     use_ability(actors,currentPlayer, command[1]);
@@ -101,7 +103,7 @@ public class Test {
                     break;
                 case "BLIZZARD":
                     if (command.length > 1) {
-                        ArrayList<Object> fieldList = new ArrayList();
+                        List<String> fieldList = new ArrayList();
                         for (int i = 1; i < command.length; i++) {
                             fieldList.add(command[i]);
                         }
@@ -223,4 +225,48 @@ public class Test {
             ((Player)map.get(playerId)).setClothes(new NoClothesEquipped());
         }
     }
+    private static void step(HashMap map, Player currentPlayer,String targetId){
+        Field targetField = (Field)map.get(targetId);
+        currentPlayer.Step(targetField);
+    }
+    private static void use_item(HashMap map, Player currentPlayer, String itemId, String targetId){
+        Item item = (Item)map.get(itemId);
+        Player target = (Player)map.get(targetId);
+        item.Use(target);
+    }
+    private static void dig(HashMap map, Player currentPlayer){
+        currentPlayer.Dig();
+    }
+    private static void pickup(HashMap map, Player currentPlayer){
+        currentPlayer.PickUpItem();
+    }
+
+    private static void use_ability(HashMap map, Player currentPlayer, String targetId){
+        currentPlayer.UseAbility((Field)map.get(targetId));
+    }
+    // Ez it kicsit nagyon rossz
+    private static void blizzard(HashMap map, List<String> fieldIds) throws Exception {
+        if (fieldIds == null){
+            
+            throw new Exception("Lécci ilyet ne csinálj:((");
+        }
+        else{
+            List<Field> list = new ArrayList<>();
+
+            for (String s: fieldIds){
+                list.add((Field)map.get(s));
+            }
+            Weather.getInstance().Blizzard(list);
+        }
+    }
+    private static void polarstep(HashMap map, String direction){
+        if (direction == null){
+            // ??
+            PolarBear.getInstance().yourTurn();
+        }
+        else {
+            PolarBear.getInstance().setField((Field)map.get(direction));
+        }
+    }
+
 }

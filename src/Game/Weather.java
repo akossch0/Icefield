@@ -39,6 +39,7 @@ public final class Weather implements Actor{
     /**
      * hovihar fuggveny
      */
+    // Ezzel valamit kell kezdeni mert lehet nem jó a Prptotype.Test ~256. sora
     public void Blizzard(List<Field> f) {
 
         for (Field struck : fields){
