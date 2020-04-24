@@ -2,7 +2,7 @@ package Field;
 
 import Coverable.*;
 import Game.Entity;
-import Player.*;
+
 import Item.*;
 import Skeleton.Skeleton;
 
@@ -32,9 +32,11 @@ public abstract class Field {
     public int Y;
 
 
+
     public List<Field> getNeighbours(){return neighbours;}
 
     public void AddNeighbour(Field e){neighbours.add(e);}
+
     public void RemoveNeighbour(Field e){neighbours.remove(e);}
 
 
@@ -81,16 +83,11 @@ public abstract class Field {
         layerOfSnow++;
     }
 
-
-
     /**
      * Csokkenti a mezon levo horetegek szamat.
      * @param n
      */
-    public void DecrLayerOfSnow(int n){
-        if(n>=layerOfSnow) layerOfSnow = 0;
-        else layerOfSnow -= n;
-    }
+    public abstract void DecrLayerOfSnow(int n);
 
     /**
      * Visszaadja, hogy a mezo hany jatekost bir el.
@@ -100,20 +97,27 @@ public abstract class Field {
        return capacity;
     }
 
+    public void setCapacity(int Capacity) {
+        capacity = Capacity;
+    }
+
+    /**
+     *  Beallitja az fedettseg strategiat.
+     * @param c a strategy amit beallit
+     */
+    public abstract void Cover(Coverable c);
+
     /**
      * Meghivja a strategiajanak az IsCovered() fuggvenyet,
      * vagyis megmondja, hogy fedett-e a mezo vagy sem.
      * @return fedett-e
      */
     public boolean IsCovered(){ return cover.IsCovered(); }
+
     public boolean IsBearProof(){
         return cover.IsBearProof();
     }
-    /**
-     *  Beallitja az fedettseg strategiat.
-     * @param c a strategy amit beallit
-     */
-    public abstract void Cover(Coverable c);
+
 
     public int getLayerOfSnow() {
         return layerOfSnow;
@@ -123,7 +127,5 @@ public abstract class Field {
         layerOfSnow = LayerOfSnow;
     }
 
-    public void setCapacity(int Capacity) {
-        capacity = Capacity;
-    }
+
 }

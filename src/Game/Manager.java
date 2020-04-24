@@ -103,8 +103,27 @@ public final class Manager {
      * elinditja a jatekosok lepeseit
      */
     public static void Start(){
-        Skeleton.Called(getInstance(),"Start");
-        Skeleton.Return();
+
+
+        while(!game.isGameWon() && !game.isGameLost()){
+            /*
+            for all player in hashmap do
+			    waterproof ← player.IsWaterproof()
+			    if the int connected to the player is bigger than size of actors and waterproof
+			    is false then
+				    function call Lose()
+			    end if
+             */
+            for(Actor a : actors){
+                a.yourTurn();
+            }
+            /*
+            for all player in hashmap do
+			    if the int connected to the player is bigger than -1 then
+				    increase the int with 1
+			    end if
+             */
+        }
 
         /*
         * forciklusba majd egy uj forciklus h minden értéket növeljünk
@@ -117,9 +136,6 @@ public final class Manager {
             timeTent.put(i,timeTent.get(i)+1);
         }
         * */
-
-
-
     }
 
     /**

@@ -3,6 +3,7 @@ package Field;
 
 import Coverable.Coverable;
 import Game.Entity;
+import Item.Item;
 import Player.Player;
 import Skeleton.Skeleton;
 
@@ -15,6 +16,14 @@ import java.util.List;
 public class Hole extends Field {
 
     @Override
+    public void setItem(Item item) { }
+
+    @Override
+    public Item RemoveItem() {
+        return null;
+    }
+
+    @Override
     public void Accept(Entity e) {
         entities.add(e);
         e.setInWater(true);
@@ -22,6 +31,12 @@ public class Hole extends Field {
         for (Entity i: entities) {
             i.Meet(e);
         }
+    }
+
+    @Override
+    public void DecrLayerOfSnow(int n) {
+        if(n<=getLayerOfSnow()) setLayerOfSnow(getLayerOfSnow()-n);
+        else{setLayerOfSnow(0);}
     }
 
     /**
