@@ -126,6 +126,12 @@ public class TestCases {
                 case (30):
 
                     break;
+                case (31):
+
+                    break;
+                case (32):
+
+                    break;
                 default:
                     System.out.println("Wrong input given!");
                     break;
