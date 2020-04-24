@@ -6,11 +6,14 @@ import Coverable.IglooCover;
 import Coverable.NoCover;
 import Coverable.TentCover;
 import Field.*;
-import Game.PolarBear;
-import Game.Weather;
+
+import Game.*;
 import Item.*;
 import Player.*;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.lang.reflect.Array;
 import java.util.*;
 
@@ -127,9 +130,17 @@ public class Test {
                     break;
                 case "LOAD":
                     //??
+                    if(command.length == 1){
+                        Game.getInstance().InitMap();
+                    }else if(command.length == 2){
+                        load(actors,command[1]);
+                    }else{
+                        System.out.println("Wrong arguments given!");
+                    }
                     break;
                 case "SAVE":
                     //??
+                    String outputOfSave = save(actors,command);
                     break;
             }
         }
@@ -267,6 +278,49 @@ public class Test {
         else {
             PolarBear.getInstance().setField((Field)map.get(direction));
         }
+    }
+
+    private static void load(HashMap map, String path){
+        File in = new File(path);
+        if(in.exists()){
+            try {
+                BufferedReader br = new BufferedReader(new FileReader(in));
+
+                String line;
+                String res = "";
+                while ((line = br.readLine()) != null) {
+                    res = res + line;
+                }
+                //mi legyen az output?
+                ExecuteTest(res,"");
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }else{
+            System.out.println("The path given does not represent a file.");
+        }
+    }
+
+    private static String save(HashMap<String, Object> map, String[] command){
+        String out = "";
+        if(command.length == 1){
+            for(String str : map.keySet()){
+                out = out + map.get(str).toString() + "\n\n";
+            }
+        }else if(command.length == 2){
+            if(command[1].equals("GAMESTATE")){
+                if(!Game.getInstance().isGameWon() && !Game.getInstance().isGameLost()){
+                    out = "GAME IN PROGRESS";
+                }else if(Game.getInstance().isGameLost()){
+                    out = "GAME WON";
+                }else if(Game.getInstance().isGameWon()){
+                    out = "GAME LOST";
+                }
+            }else{
+                out = map.get(command[1]).toString();
+            }
+        }
+        return out;
     }
 
 }
