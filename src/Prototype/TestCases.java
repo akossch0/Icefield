@@ -196,12 +196,12 @@ public class TestCases {
                 strings.add(s);
                 before = s;
             };
-            String commandsString = "";
+            StringBuilder commandsString = new StringBuilder();
             for(String s : strings){
-                commandsString += s;
+                commandsString.append(s);
             }
 
-            Test.ExecuteTest(commandsString, "");
+            Test.ExecuteTest(commandsString.toString(), "");
 
         } catch(Exception e) {
             System.out.println(e.getMessage());
