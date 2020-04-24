@@ -1,5 +1,10 @@
 package Prototype;
 
+import ClothesEquipped.NoClothesEquipped;
+import ClothesEquipped.SwimsuitEquipped;
+import Coverable.IglooCover;
+import Coverable.NoCover;
+import Coverable.TentCover;
 import Field.*;
 import Item.*;
 import Player.*;
@@ -157,6 +162,25 @@ public class Test {
             case "rope":
                 map.put(itemId, new Rope());
                 break;
+        }
+    }
+    private static void build(HashMap map, String fieldId, String type){
+        if (type.equals("tentcover")){
+            ((Field)map.get(fieldId)).Cover(new TentCover());
+        }
+        else if (type.equals("igloocover")){
+            ((Field)map.get(fieldId)).Cover(new IglooCover());
+        }
+        else if (type.equals("nocover")){
+            ((Field)map.get(fieldId)).Cover(new NoCover());
+        }
+    }
+    private static void wear(HashMap map, String playerId, String type){
+        if (type.equals("swimsuitequipped")){
+            ((Player)map.get(playerId)).setClothes(new SwimsuitEquipped());
+        }
+        else if (type.equals("noclothesequipped")){
+            ((Player)map.get(playerId)).setClothes(new NoClothesEquipped());
         }
     }
     private String name;
