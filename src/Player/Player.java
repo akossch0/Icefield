@@ -158,6 +158,7 @@ public abstract class Player extends  Entity{
     }
     public void setInWater(boolean _inWater){
         inWater = _inWater;
+        Manager.Update(this);
     }
     public boolean IsInWater(){return inWater;}
 
