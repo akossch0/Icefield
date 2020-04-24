@@ -1,3 +1,4 @@
+Egy játékos megpróbálja a győztes itemeket összeszerelni úgy hogy nincsenek mindegyiknek a birtokában
 field 		iceblock_1 	iceblock 3 0 i
 player 		player_1 	eskimo  iceblock_1
 item 		item_1		WinningItem
