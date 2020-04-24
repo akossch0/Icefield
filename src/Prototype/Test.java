@@ -145,6 +145,7 @@ public class Test {
             }
         }
     }
+
     private static void newField(HashMap map, String id, String type, String limit, String snow, String open){
         if (type.equals("iceblock")){
             IceBlock iceblock = new IceBlock();
@@ -236,25 +237,30 @@ public class Test {
             ((Player)map.get(playerId)).setClothes(new NoClothesEquipped());
         }
     }
+
     private static void step(HashMap map, Player currentPlayer,String targetId){
         Field targetField = (Field)map.get(targetId);
         currentPlayer.Step(targetField);
     }
+
     private static void use_item(HashMap map, Player currentPlayer, String itemId, String targetId){
         Item item = (Item)map.get(itemId);
         Player target = (Player)map.get(targetId);
         item.Use(target);
     }
+
     private static void dig(HashMap map, Player currentPlayer){
         currentPlayer.Dig();
     }
+
     private static void pickup(HashMap map, Player currentPlayer){
         currentPlayer.PickUpItem();
     }
 
-    private static void use_ability(HashMap map, Player currentPlayer, String targetId){
-        currentPlayer.UseAbility((Field)map.get(targetId));
+    private static void use_ability(HashMap map, Player currentPlayer, String targetId) {
+        currentPlayer.UseAbility((Field) map.get(targetId));
     }
+
     // Ez it kicsit nagyon rossz
     private static void blizzard(HashMap map, List<String> fieldIds) throws Exception {
         if (fieldIds == null){
@@ -270,6 +276,7 @@ public class Test {
             Weather.getInstance().Blizzard(list);
         }
     }
+
     private static void polarstep(HashMap map, String direction){
         if (direction == null){
             // ??

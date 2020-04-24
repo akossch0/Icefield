@@ -1,6 +1,5 @@
 package Prototype;
 
-//import Skeleton.Skeleton;
 
 import java.io.BufferedReader;
 import java.io.*;
@@ -182,7 +181,26 @@ public class TestCases {
         }while(numberOfTestCase != 0);
     }
 
-    public void Game(){
+    public void Game() {
+        boolean twoEnters = false;
+        ArrayList<String> s = new ArrayList<>();
+        System.out.println("Write commands here:");
+        while(!twoEnters){
+            try{
+                BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+                String string = br.readLine();
+                if(s.size() > 1 && s.get(s.size() - 1).equals("") && string.equals("")){
+                    twoEnters = true;
+                }
+
+                s.add(string);
+
+            }catch(Exception e){
+                System.out.println(e.getMessage());
+            }
+        };
+
+
 
     }
 }
