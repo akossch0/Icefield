@@ -7,5 +7,10 @@ public interface Coverable {
      * @return
      */
     boolean IsCovered();
+
+    /**
+     * Megmondja egy epitmenyrol hogy a medve elol megved-e
+     * @return
+     */
     boolean IsBearProof();
 }

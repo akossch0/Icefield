@@ -2,12 +2,12 @@ package Coverable;
 
 import Skeleton.Skeleton;
 
-public class NoGloo implements Coverable {
+public class NoCover implements Coverable {
     /**
      * Konstruktora Nogloo-nak
      * @param
      */
-    public NoGloo(){
+    public NoCover(){
         Skeleton.addNames(this,"IglooCoverable");
         Skeleton.Called(this,"Igloo");
         Skeleton.Return();
@@ -20,6 +20,11 @@ public class NoGloo implements Coverable {
     public boolean IsCovered() {
         Skeleton.Called(this,"IsCovered");
         Skeleton.Return();
+        return false;
+    }
+
+    @Override
+    public boolean IsBearProof() {
         return false;
     }
 }

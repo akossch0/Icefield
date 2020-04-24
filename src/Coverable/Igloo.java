@@ -22,4 +22,13 @@ public class Igloo implements Coverable{
         Skeleton.Return();
         return false;
     }
+
+    /**
+     * Igazzal ter vissza, mivel az igloo-ba nem tud a medve bejutni
+     * @return
+     */
+    @Override
+    public boolean IsBearProof() {
+        return true;
+    }
 }

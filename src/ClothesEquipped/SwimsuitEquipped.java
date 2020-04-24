@@ -11,7 +11,8 @@ public class SwimsuitEquipped implements ClothesEquipped {
     public SwimsuitEquipped(){
     }
 
-    /**Hm
+    /**
+     * Buvarruha viselet
      * @return igazzal ter vissza; jelentes: a jatekos visel buvarruhat
      */
     @Override
