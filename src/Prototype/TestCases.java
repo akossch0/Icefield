@@ -3,14 +3,42 @@ package Prototype;
 //import Skeleton.Skeleton;
 
 import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.*;
 
 public class TestCases {
     private HashMap<Integer,Test> tests = new HashMap<Integer, Test>();
 
-    public void LoadTests(String path){
+    public void LoadTests(){
+        for(Integer i = 1; i < 33; i++) {
+            try {
+                File myObj = new File("src\\inputs and outputs\\test" + i.toString() + "_input");
+                if(myObj.exists()){
+                    BufferedReader br = new BufferedReader(new FileReader(myObj));
+                    String res = "";
+                    String line;
+                    String nameOfTestCase = "";
+                    int n = 0;
+                    while ((line = br.readLine()) != null) {
+                        if(n == 0){
+                            nameOfTestCase = line;
+                        }else {
+                            res = res + line;
+                        }
+                        n++;
+                    }
+                    tests.put(i, new Test(nameOfTestCase,res));
+                }
 
+            } catch (FileNotFoundException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+            } catch (IOException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+            }
+        }
+        System.out.println(tests);
     }
 
     public void ListOutTests(){

@@ -6,6 +6,30 @@ import java.lang.reflect.Array;
 import java.util.*;
 
 public class Test {
+    private String content;
+    private String name;
+
+    public Test(String n, String con){
+        name = n;
+        content = content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName () {
+        return name;
+    }
+
     public static void ExecuteTest(String input, String output) throws Exception {
 
         HashMap<String, Object> actors = new HashMap<>();
@@ -91,9 +115,5 @@ public class Test {
             }
         }
     }
-    private String name;
 
-    public String getName () {
-        return name;
-    }
 }
