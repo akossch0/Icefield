@@ -27,6 +27,8 @@ public abstract class Player extends  Entity{
         field = _field;
     };
 
+    private boolean endTurn = false;
+    public void setEndTurn(boolean _endturn){endTurn = _endturn;}
 
     /**
      * A jatek menedzsere
@@ -110,15 +112,11 @@ public abstract class Player extends  Entity{
     public void yourTurn(){
 /*
 
-        Ide már más kell
-
-        if(Skeleton.Question("<<A játékos benne van a vízben, és már nem az első kör óta van ez?(Igen/Nem)>>")){
-            isWaterproof();
-            if(!Skeleton.Question("<<Van búvárruha rajta?(Igen/Nem)>> ")){
-                manager.Lose();
-            }
-        }
+       Ide valami függvényhívás ami átadja magát amire hívjuk majd a függvényt
 */
+        while(!endTurn&&actualWorkUnit!=0){
+
+        }
     }
 
     @Override

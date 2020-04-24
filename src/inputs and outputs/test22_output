@@ -1,0 +1,10 @@
+GAME IN PROGRESS
+player:
+	ID: player_1
+	TYPE: eskimo
+	actualHealth: 5
+	items: item_1, item_2, item_3
+	inWater: false
+	actualWorkUnit: 4
+	field: iceblock_1
+	clothes: NoClothesEquipped

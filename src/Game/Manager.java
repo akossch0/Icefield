@@ -17,12 +17,12 @@ public final class Manager {
     /** A jatek Game osztalya, szukseges nehany dolog menedzselese miatt (pl halal)**/
     private static Game game = Game.getInstance();
 
-    private static List<Actor> actors = new ArrayList<Actor>();
+    private static ArrayList<Actor> actors = new ArrayList<Actor>();
 
     private static HashMap<Player,Integer> timeInWater = new HashMap<Player, Integer>();
     private static HashMap<Field,Integer> timeTent = new HashMap<Field,Integer>();
-    private static List<Item> parts = new ArrayList<Item>();
-    private static List<Player> players = new ArrayList<Player>();
+    private static ArrayList<Item> parts = new ArrayList<Item>();
+    private static ArrayList<Player> players = new ArrayList<Player>();
 
 
     private static Player currentPlayer;
