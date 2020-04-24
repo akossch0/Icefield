@@ -184,18 +184,18 @@ public class TestCases {
     public void Game() {
         try{
             boolean twoEnters = false;
+            String before = null;
             ArrayList<String> strings = new ArrayList<>();
             System.out.println("Write commands here:");
             while(!twoEnters){
                 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
                 String s = br.readLine();
-                if(strings.size() > 1 && strings.get(strings.size() - 1).equals("") && s.equals("")){
+                if(s.equals("") && before.equals("")){
                     twoEnters = true;
                 }
-
                 strings.add(s);
-            }
-
+                before = s;
+            };
             String commandsString = "";
             for(String s : strings){
                 commandsString += s;
