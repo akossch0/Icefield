@@ -1,3 +1,4 @@
+Egy vízben lévő játékost vihar sújt
 field 		hole_1		hole	   0  0 n
 player 		player_1 	eskimo  hole_1
 BEGIN  	player_1

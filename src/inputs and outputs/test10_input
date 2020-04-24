@@ -1,3 +1,4 @@
+Játékos vízben van egy kör óta, búvárruha nélkül
 field 		hole_1		hole		0		0		n
 field		iceblock_1	iceblock	1		0		n
 player		player_1	eskimo		iceblock_1

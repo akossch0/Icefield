@@ -1,3 +1,4 @@
+Játékos lyukra lép
 field 		iceblock_1 	iceblock 10 10 n
 field 		hole_1 		hole 0 0 n
 player 		player_1 	eskimo iceblock_1
