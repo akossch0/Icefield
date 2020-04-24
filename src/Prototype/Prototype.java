@@ -41,7 +41,8 @@ public class Prototype {
             case "play":
                 description = "You chose the playing mode!\n" +
                         "We have already generated a map for you.\n" +
-                        "There are 3 characters in the game, two Eskimos and a Researcher.";
+                        "There are 3 characters in the game, two Eskimos and a Researcher.\n" +
+                        "You can choose commands to execute from the input language.";
 
                 System.out.println(description);
                 test.Game();
