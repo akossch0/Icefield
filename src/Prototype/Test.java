@@ -263,10 +263,9 @@ public class Test {
     }
 
     // Ez it kicsit nagyon rossz
-    private void blizzard( List<String> fieldIds) throws Exception {
+    private void blizzard( List<String> fieldIds){
         if (fieldIds == null){
-            
-            throw new Exception("Lécci ilyet ne csinálj:((");
+           Weather.getInstance().yourTurn();
         }
         else{
             List<Field> list = new ArrayList<>();
