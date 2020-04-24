@@ -1,5 +1,6 @@
 package Coverable;
 
+import Coverable.Coverable;
 import Skeleton.Skeleton;
 
 public class NoCover implements Coverable {
@@ -14,17 +15,15 @@ public class NoCover implements Coverable {
     }
     /**
      * Hamisat ad vissza, vagyis jelzi hogy nem fedett a mezo.
-     * @return boolean
+     * @return false
      */
     @Override
-    public boolean IsCovered() {
-        Skeleton.Called(this,"IsCovered");
-        Skeleton.Return();
-        return false;
-    }
+    public boolean IsCovered() {return false; }
 
+    /**
+     * Hamisat ad vissza, vagyis jelzi, hogy a medve ellen nem ved
+     * @return false
+     */
     @Override
-    public boolean IsBearProof() {
-        return false;
-    }
+    public boolean IsBearProof() {return false; }
 }
