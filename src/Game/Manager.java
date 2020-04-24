@@ -110,7 +110,6 @@ public final class Manager {
                 for (Field i:timeTent.keySet()) {
                     if(timeTent.get(i)>actors.size())i.Cover(new NoCover());
                 }
-
                 //Player e a jelenlegi actor, ha igen akkor ha sok ideig volt vízben és nem vízáló akkor vége a játéknak
                 int index = (actors.indexOf(a)>=players.size()?-1:actors.indexOf(a));
                 if(index!=-1){
