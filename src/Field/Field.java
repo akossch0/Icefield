@@ -39,7 +39,7 @@ public abstract class Field {
 
     public void RemoveNeighbour(Field e){neighbours.remove(e);}
 
-
+    public abstract boolean IsOpen();
 
     /**
      * Ezzel a setterrel lehet itemet adni a mezonek

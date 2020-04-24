@@ -1,5 +1,6 @@
 package Game;
 
+import Coverable.NoCover;
 import Field.Field;
 import Item.Item;
 import Player.Player;
@@ -79,8 +80,9 @@ public final class Manager {
     public static void addItem(Item i){
         parts.add(i);
         boolean egyhelyen = true;
-        for (Player player: players) {
-            if(!player.getField().equals(players.get(0).getField())) egyhelyen = false;
+
+        for (int l = 0;players.size()>l&&egyhelyen;l++){
+            if(!players.get(l).getField().equals(players.get(0).getField())){ egyhelyen = false;}
         }
 
         if(egyhelyen){
@@ -106,36 +108,30 @@ public final class Manager {
 
 
         while(!game.isGameWon() && !game.isGameLost()){
-            /*
-            for all player in hashmap do
-			    waterproof ← player.IsWaterproof()
-			    if the int connected to the player is bigger than size of actors and waterproof
-			    is false then
-				    function call Lose()
-			    end if
-             */
             for(Actor a : actors){
-                a.yourTurn();
-            }
-            /*
-            for all player in hashmap do
-			    if the int connected to the player is bigger than -1 then
-				    increase the int with 1
-			    end if
-             */
-        }
+                //Állt egy körig a tent
+                for (Field i:timeTent.keySet()) {
+                    if(timeTent.get(i)>actors.size())i.Cover(new NoCover());
+                }
 
-        /*
-        * forciklusba majd egy uj forciklus h minden értéket növeljünk
-        *
-        *
-        for (Player i: timeInWater.keySet()) {
-            timeInWater.put(i,timeInWater.get(i)+1);
+                //Player e a jelenlegi actor, ha igen akkor ha sok ideig volt vízben és nem vízáló akkor vége a játéknak
+                int index = players.indexOf(a);
+                if(index!=-1){
+                    currentPlayer = players.get(index);
+                    if(timeInWater.get(currentPlayer)>actors.size()&&!currentPlayer.isWaterproof()) game.Lose();
+                }
+                //Actor köre jön
+                a.yourTurn();
+
+                //minden vízben lévő ember számlálóját növeli
+                timeInWater.replaceAll((key,oldValue)->oldValue+1);
+
+                //minden tent számlálóját növeli
+                timeTent.replaceAll((key,oldValue)->oldValue+1);
+
+            }
+
         }
-        for (Field i: timeTent.keySet()) {
-            timeTent.put(i,timeTent.get(i)+1);
-        }
-        * */
     }
 
     /**
