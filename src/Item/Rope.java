@@ -2,7 +2,6 @@ package Item;
 
 import Field.Field;
 import Player.*;
-import Skeleton.Skeleton;
 
 /**
  * A kotelet reprezentalja a jatekban. Hasznalataval a jatekos kihuz magahoz egy szomszedos vizbe esett jatekost.

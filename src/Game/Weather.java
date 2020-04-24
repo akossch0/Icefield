@@ -3,7 +3,6 @@ package Game;
 import Coverable.*;
 import Field.Field;
 import Player.Player;
-import Skeleton.Skeleton;
 import sun.jvm.hotspot.utilities.CStringUtilities;
 
 import java.util.ArrayList;

@@ -5,7 +5,6 @@ import Field.Field;
 import java.util.*;
 
 import Item.*;
-import Skeleton.*;
 import java.lang.Math;
 import Field.*;
 /**
@@ -58,10 +57,8 @@ public final class Game {
      * elinditja a jatekot
      */
     public void StartGame(){
-        Skeleton.Called(this,"StartGame");
         InitMap();
         Manager.Start();
-        Skeleton.Return();
     }
 
     /**

@@ -4,7 +4,7 @@ import Coverable.NoCover;
 import Field.Field;
 import Item.Item;
 import Player.Player;
-import Skeleton.Skeleton;
+//import Skeleton.Skeleton;
 
 import java.util.*;
 

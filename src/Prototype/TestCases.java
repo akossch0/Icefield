@@ -1,6 +1,6 @@
 package Prototype;
 
-import Skeleton.Skeleton;
+//import Skeleton.Skeleton;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

@@ -4,7 +4,6 @@ import Coverable.*;
 import Game.Entity;
 
 import Item.*;
-import Skeleton.Skeleton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -97,6 +96,10 @@ public abstract class Field {
        return capacity;
     }
 
+    /**
+     * Beallitja a capacity-t a megadott ertekre
+     *
+     */
     public void setCapacity(int Capacity) {
         capacity = Capacity;
     }

@@ -1,7 +1,6 @@
 package Item;
 
 import Player.*;
-import Skeleton.Skeleton;
 
 /**
  * Az etelt reprezentalja a jatekban.
