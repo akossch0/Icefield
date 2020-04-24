@@ -1,0 +1,9 @@
+player:
+	ID: player_1
+	TYPE: eskimo
+	actualHealth: 5
+	items:
+	inWater: true
+	actualWorkUnit: 3
+	field: hole_1
+	clothes: NoClothesEquipped
