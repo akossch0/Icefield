@@ -10,6 +10,10 @@ public class Spade extends Item {
     /**
      * @param p a player akin az item hasznalva lesz (megegyezhet a haszan,lojaval is)
      */
+    private int durability = Integer.MAX_VALUE;
+    public void setDurability(int d){
+        durability = d;
+    }
     @Override
     public void Use(Player p) {
         Field field = p.getField();

@@ -37,7 +37,7 @@ public class Test {
                     if (command.length == 4)
                         newItem(actors, command[1], command[2], command[3]);
                     else
-                        newItem(actors, command[1], command[2]);
+                        newItem(actors, command[1], command[2], "-1");
                     break;
                 case "build":
                     build(actors, command[1], command[2]);
@@ -112,14 +112,14 @@ public class Test {
         f1.AddNeighbour(f2);
         f2.AddNeighbour(f1);
     }
-    private static void newPlayer(HashMap map, String id, String type, String field_id){
+    private static void newPlayer(HashMap map, String Id, String type, String fieldId){
         if (type.equals("eskimo")){
-            Eskimo eskimo = new Eskimo((Field)map.get(field_id));
-            map.put(id, eskimo);
+            Eskimo eskimo = new Eskimo((Field)map.get(fieldId));
+            map.put(Id, eskimo);
         }
         else{
-            Researcher researcher = new Researcher((Field)map.get(field_id));
-            map.put(id, researcher);
+            Researcher researcher = new Researcher((Field)map.get(fieldId));
+            map.put(Id, researcher);
         }
     }
     private static void placeItem(HashMap map, String itemId, String targetId){
@@ -131,6 +131,32 @@ public class Test {
         else if (target instanceof Field){
             Field field = (Field)target;
             field.setItem((Item)map.get(itemId));
+        }
+    }
+    private static void newItem(HashMap map, String itemId, String type, String durability){
+        switch (type){
+            case "spade":
+                Spade spade = new Spade();
+                if (durability.equals("3")){
+                    spade.setDurability(3);
+                }
+                map.put(itemId, spade);
+                break;
+            case "food":
+                map.put(itemId, new Food());
+                break;
+            case "winningitem":
+                map.put(itemId, new WinningItem());
+                break;
+            case "tent":
+                map.put(itemId, new Tent());
+                break;
+            case "swimsuit":
+                map.put(itemId, new Swimsuit());
+                break;
+            case "rope":
+                map.put(itemId, new Rope());
+                break;
         }
     }
     private String name;
