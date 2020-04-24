@@ -31,7 +31,6 @@ public class TestCases {
                         n++;
                     }
                     while ((line = br2.readLine()) != null) {
-                        nameOfTestCase = line;
                         resContentOutput = resContentOutput + line;
                     }
                     tests.put(i, new Test(nameOfTestCase,resContent,resContentOutput));
