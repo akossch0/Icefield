@@ -1,0 +1,11 @@
+field 		iceblock_1 	iceblock 1 0 i
+field 		hole_1		hole	   0  0 n
+player 		player_1 	eskimo  iceblock_1
+player 		player_2 	eskimo  hole_1
+item 		item_1		rope
+placeitem 	item_1		player_1
+BEGIN 	player_1
+USE_ITEM 	item_1		player_2
+END
+SAVE 		player_1
+SAVE 		player_2

@@ -1,0 +1,7 @@
+field iceblock_1 iceblock 1 0 n
+build iceblock_1 tentcover
+player eskimo_1 eskimo iceblock_1
+BEGIN eskimo_1
+USE_ABILITY iceblock_1
+END
+SAVE  iceblock_1

@@ -8,6 +8,10 @@ public class Prototype {
     private String gameMode;
     private TestCases test;
 
+    public TestCases getTest() {
+        return test;
+    }
+
     public void Run() {
         String answer;
 

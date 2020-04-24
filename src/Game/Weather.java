@@ -3,7 +3,7 @@ package Game;
 import Coverable.*;
 import Field.Field;
 import Player.Player;
-import sun.jvm.hotspot.utilities.CStringUtilities;
+//import sun.jvm.hotspot.utilities.CStringUtilities;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +49,7 @@ public final class Weather implements Actor{
                 List<Entity> ps = struck.getEntites();
                 for (Entity e : ps){
                     e.Meet(this);
-                    if(Game.getGameOver())
+                    if(Game.isGameLost())
                         break;
                 }
             }
@@ -57,7 +57,7 @@ public final class Weather implements Actor{
                 Coverable nc = new NoCover();
                 struck.Cover(nc);
             }
-            if(Game.getGameOver())
+            if(Game.isGameLost())
                 break;
         }
 

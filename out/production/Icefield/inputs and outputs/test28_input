@@ -1,0 +1,9 @@
+field 		iceblock_1 	iceblock 10 0 i
+player 		player_1 	eskimo iceblock_1
+item 		tent_1 		tent
+placeitem 	tent_1 		player_1
+BEGIN 	player_1
+USE_ABILITY iceblock_1
+USE_ITEM	tent_1
+END
+SAVE 		iceblock_1

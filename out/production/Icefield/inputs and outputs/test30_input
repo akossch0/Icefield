@@ -1,0 +1,78 @@
+field 		iceblock_1 	iceblock 2 0 i
+field 		iceblock_2 	iceblock 3 0 i
+field 		iceblock_3 	iceblock 3 0 i
+field 		iceblock_4 	iceblock 3 0 i
+field 		iceblock_5 	iceblock 3 0 i
+field	 	iceblock_6 	iceblock 2 0 i
+field 		iceblock_7 	iceblock 2 0 i
+field 		iceblock_8 	iceblock 3 0 i
+field 		hole_1 		hole 0 0 i
+field 		hole_2 		hole 0 0 i
+field 		hole_3 		hole 0 0 i
+field 		hole_4 		hole 0 0 i
+field 		hole_5 		hole 0 0 i
+neighbours 	iceblock_1 	iceblock_2
+neighbours 	iceblock_1 	hole_2
+neighbours 	iceblock_1 	iceblock_3
+neighbours 	iceblock_2 	hole_2
+neighbours 	iceblock_2 	iceblock_5
+neighbours 	iceblock_2 	hole_1
+neighbours 	iceblock_3 	hole_2
+neighbours 	iceblock_3 	iceblock_4
+neighbours 	iceblock_3 	hole_5
+neighbours 	iceblock_4 	hole_2
+neighbours 	iceblock_4 	iceblock_5
+neighbours 	iceblock_4 	hole_4
+neighbours 	iceblock_4 	iceblock_7
+neighbours 	iceblock_4 	hole_5
+neighbours 	iceblock_5 	hole_1
+neighbours 	iceblock_5 	hole_2
+neighbours 	iceblock_5 	hole_4
+neighbours 	iceblock_5 	iceblock_6
+neighbours 	iceblock_6 	hole_1
+neighbours 	iceblock_6 	hole_3
+neighbours 	iceblock_6 	hole_4
+neighbours 	iceblock_6 	iceblock_8
+neighbours 	iceblock_7 	hole_4
+neighbours 	iceblock_7 	hole_5
+neighbours 	iceblock_7 	iceblock_8
+neighbours 	iceblock_8 	hole_3
+neighbours 	iceblock_8 	hole_4
+player 		eskimo_1	eskimo 	iceblock_6
+player 		researcher_1 	researcher 	iceblock_7
+player 		researcher_2 	researcher 	iceblock_8
+polarbear 	iceblock_2
+item 		spade 		spade
+placeitem 	spade 		iceblock_4
+item	 	witem_1 	winningitem
+placeitem 	witem_1 	iceblock_3
+item 		witem_2 	winningitem
+placeitem 	witem_2 	iceblock_5
+item 		witem_3 	winningitem
+placeitem 	witem_3 	iceblock_1
+
+
+BEGIN eskimo_1
+STEP iceblock_5
+STEP iceblock_4
+STEP iceblock_3
+STEP iceblock_1
+END
+
+BEGIN researcher_1
+STEP iceblock_4
+STEP iceblock_5
+STEP iceblock_6
+STEP iceblock_8
+END
+
+BEGIN researcher_2
+STEP iceblock_6
+STEP iceblock_5
+STEP iceblock_4
+STEP iceblock_3
+END
+
+POLARSTEP iceblock_1
+
+SAVE GAMESTATE

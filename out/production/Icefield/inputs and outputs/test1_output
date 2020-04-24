@@ -1,0 +1,27 @@
+field:
+	ID: iceblock_1
+	type: iceblock
+	layersOfSnow: 0
+neigbours: iceblock_2
+	limit: 1
+	open: false
+	cover: NoCover
+	item:
+field:
+	ID: iceblock_2
+	type: iceblock
+	layersOfSnow: 0
+neigbours: iceblock_1
+	limit: 1
+	open: false
+	cover: NoCover
+	item:
+player:
+	ID: eskimo_1
+	TYPE: eskimo
+	actualHealth: 5
+	items:
+	inWater: false
+	actualWorkUnit: 3
+	field: iceblock_2
+	clothes: NoClothesEquipped

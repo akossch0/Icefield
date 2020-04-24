@@ -1,0 +1,7 @@
+field 		iceblock_1 	iceblock 10 10 n
+field 		hole_1 		hole 0 0 n
+player 		player_1 	eskimo iceblock_1
+BEGIN 	player_1
+STEP 		player_1	hole_1
+END
+SAVE player_1
