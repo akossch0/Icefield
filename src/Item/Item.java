@@ -3,6 +3,11 @@ package Item;
 import Player.*;
 import Skeleton.Skeleton;
 
+/**
+ * Absztrakt alaposztaly, a konkret peldanyai az Aso (Spade), Etel (Food),
+ * Buvarruha (Swimsuit), Kotel (Rope), Nyero targy(WinningItem).
+ * A targyakat reprezentalja a jatekban.
+ */
 public abstract class Item {
     /**
      * A birtokosa az itemnek

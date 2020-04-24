@@ -7,6 +7,10 @@ import Skeleton.Skeleton;
 
 import java.util.*;
 
+/**
+ * Player és a Game kozotti kapcsolatot megteremto osztaly, a jatek megnyerhetosegeert felelos.
+ * Szol a Game-nek, ha a jateknak vege valamilyen okbol.
+ */
 public final class Manager {
 
     /** A jatek Game osztalya, szukseges nehany dolog menedzselese miatt (pl halal)**/

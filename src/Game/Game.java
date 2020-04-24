@@ -5,6 +5,10 @@ import Field.Field;
 import java.util.*;
 import Skeleton.*;
 
+/**
+ * Inicializalja a jegtablakat. Inicializalja a jatekot, majd szamontartja, hogy eppen melyik jatekos lep.
+ * Hoviharokat general a jatekosok lepesei kozott.
+ */
 public final class Game {
 
     private static boolean gameWon = false;
@@ -51,8 +55,10 @@ public final class Game {
      * elinditja a jatekot
      */
     public void StartGame(){
+        Skeleton.Called(this,"StartGame");
         InitMap();
         Manager.Start();
+        Skeleton.Return();
     }
 
     /**

@@ -9,6 +9,12 @@ import Skeleton.Skeleton;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Absztrakt alaposztaly. Ebbol oroklodik az IceBlock és a Hole.
+ * Egy mezot reprezentál. Minden mezot boríthat ho (tobb retegben is),
+ * egyes mezok csak bizonyos szamu jatekost birnak el,
+ * ezt a limitet tullepve a mezorol a jatekosok a vizbe kerulnek.
+ */
 public abstract class Field {
     /** A mezon allo playerek listaja **/
     protected List<Entity> entities = new ArrayList<>();
@@ -81,7 +87,7 @@ public abstract class Field {
      */
     public void DecrLayerOfSnow(int n){
         if(n>=layerOfSnow) layerOfSnow = 0;
-        else layerOfSnow -=n;
+        else layerOfSnow -= n;
     }
 
     /**
@@ -97,11 +103,7 @@ public abstract class Field {
      * vagyis megmondja, hogy fedett-e a mezo vagy sem.
      * @return fedett-e
      */
-    public boolean IsCovered(){
-
-        return cover.IsCovered();
-
-    }
+    public boolean IsCovered(){ return cover.IsCovered(); }
     public boolean IsBearProof(){
         return cover.IsBearProof();
     }
@@ -109,11 +111,7 @@ public abstract class Field {
      *  Beallitja az fedettseg strategiat.
      * @param c a strategy amit beallit
      */
-    public void Cover(Coverable c){
-        Skeleton.Called(this,"Gloo");
-        cover = c;
-        Skeleton.Return();
-    }
+    public abstract void Cover(Coverable c);
 
     public int getLayerOfSnow() {
         return layerOfSnow;
