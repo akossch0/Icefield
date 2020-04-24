@@ -1,18 +1,9 @@
 package Coverable;
 
-import Coverable.Coverable;
-import Skeleton.Skeleton;
-
+/**
+ * A Field-nek egy strategy-je. Ha ez a tipus a Field strategy-je, akkor nem fedett a Field.
+ */
 public class NoCover implements Coverable {
-    /**
-     * Konstruktora Nogloo-nak
-     * @param
-     */
-    public NoCover(){
-        Skeleton.addNames(this,"IglooCoverable");
-        Skeleton.Called(this,"Igloo");
-        Skeleton.Return();
-    }
     /**
      * Hamisat ad vissza, vagyis jelzi hogy nem fedett a mezo.
      * @return false
