@@ -16,7 +16,7 @@ import java.util.List;
 public class IceBlock extends Field {
     /** A mezon talalhato item **/
     protected Item item = null;
-
+    private boolean isOpen = false;
     @Override
     public void setItem(Item _item) {
         item = _item;
@@ -36,6 +36,13 @@ public class IceBlock extends Field {
             Coverable nogloo = new NoCover();
             Cover(nogloo);
         }
+    }
+
+    @Override
+    public void DecrLayerOfSnow(int n) {
+        if(getLayerOfSnow()==0){isOpen = true;}
+        else if(n<=getLayerOfSnow()) setLayerOfSnow(getLayerOfSnow()-n);
+        else{setLayerOfSnow(0);}
     }
 
     /**
