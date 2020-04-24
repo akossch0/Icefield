@@ -1,0 +1,4 @@
+field 		iceblock_1 	iceblock 	1 		0 	n
+player		player_1	eskimo		iceblock_1
+BLIZZARD	iceblock_1
+SAVE		player_1

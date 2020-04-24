@@ -1,0 +1,9 @@
+field 		iceblock_1 	iceblock 	1 		0 	i
+player		player_1	eskimo		iceblock_1
+item		item_1		spade
+placeitem	item_1		iceblock_1
+BEGIN 	player_1
+PICKUP
+END
+SAVE		player_1
+SAVE		iceblock_1
