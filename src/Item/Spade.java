@@ -4,6 +4,9 @@ import Field.Field;
 import Player.*;
 import Skeleton.Skeleton;
 
+/**
+ * Asot reprezentalja a jatekban, hasznalataval 2 egysegnyi havat tud eltakarítani egy munkaegység felhasználasaval a jatekos, aki hasznalja.
+ */
 public class Spade extends Item {
     /**
      * @param p a player akin az item hasznalva lesz (megegyezhet a haszan,lojaval is)

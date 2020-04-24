@@ -5,6 +5,10 @@ import Field.Field;
 import java.util.*;
 import Skeleton.*;
 
+/**
+ * Inicializalja a jegtablakat. Inicializalja a jatekot, majd szamontartja, hogy eppen melyik jatekos lep.
+ * Hoviharokat general a jatekosok lepesei kozott.
+ */
 public final class Game {
 
     private static boolean isGameover = false;
@@ -54,34 +58,30 @@ public final class Game {
      * elinditja a jatekot
      */
     public void StartGame(){
-        Skeleton.Called(this,"StartGame");
         InitMap();
         Manager.Start();
-        Skeleton.Return();
     }
 
     /**
      * inicializalja a jatekteret, vagyis beallitja a jegtablak es targyak elhelyezkedeset
      */
     public void InitMap(){
-        Skeleton.Called(this,"InitMap");
-        Skeleton.Return();
+        for(Field f : fields){
+            if()
+        }
     }
 
     /**
      * Jatek megnyerese
      */
     public void Win(){
-        Skeleton.Called(this,"Win");
-        Skeleton.Return();
+
     }
 
     /**
      * Jatek elvesztese
      */
     public void Lose(){
-        Skeleton.Called(this,"Lose");
         setGameOver(true);
-        Skeleton.Return();
     }
 }

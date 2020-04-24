@@ -6,6 +6,10 @@ import Player.Player;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Felelossege a jatekban levo jegesmedvet felugyelni
+ * ami veletlenszeruen jarja  a palyat és megtamadja a jatekosokat ha vele egy mezon vannak.
+ */
 public final class PolarBear extends Entity{
     private static PolarBear INSTANCE;
 

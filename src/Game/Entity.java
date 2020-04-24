@@ -5,6 +5,9 @@ import Skeleton.Skeleton;
 
 import java.util.List;
 
+/**
+ * Abstract osztaly. Jatekon belul fizikai lettel rendelkezo elolenyek ose.
+ */
 public abstract class Entity implements Actor{
     protected Field field = null;
     /**
