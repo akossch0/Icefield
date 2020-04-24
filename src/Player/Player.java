@@ -53,11 +53,9 @@ public abstract class Player extends  Entity{
      */
     public void DecrHp(){
         actualHealth--;
-
         if(actualHealth==0){
             Manager.Lose();
         }
-
     }
 
 

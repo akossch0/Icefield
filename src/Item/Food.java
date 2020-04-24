@@ -10,11 +10,7 @@ public class Food extends Item {
      */
     @Override
     public void Use(Player p){
-
-
         p.IncrHp();
         p.RemoveItem(this);
-
-
     }
 }

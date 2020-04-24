@@ -15,6 +15,5 @@ public class WinningItem extends Item {
         p.RemoveItem(this);
         Manager manager = Manager.getInstance();
         manager.addItem(this);
-
     }
 }
