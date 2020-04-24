@@ -20,6 +20,7 @@ public final class Manager {
     private static List<Player> players = new ArrayList<Player>();
 
 
+    private static Player currentPlayer;
     /**
      * Az egyetlen manager peldany
      */
@@ -58,6 +59,14 @@ public final class Manager {
             timeInWater.remove(p);
         }
 
+    }
+    static void Update(boolean TentEpult){
+        if(TentEpult){
+            timeTent.put(currentPlayer.getField(),0);
+        }
+        else{
+            timeTent.put(currentPlayer.getField(),0);
+        }
     }
     /**
      *

@@ -10,7 +10,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class IceBlock extends Field {
+    /** A mezon talalhato item **/
+    protected Item item = null;
 
+    @Override
+    public void setItem(Item _item) {
+        item = _item;
+    }
 
     @Override
     public void Accept(Entity e) {
@@ -23,7 +29,7 @@ public class IceBlock extends Field {
             for (Entity i: getEntites()) {
                 i.setInWater(true);
             }
-            Coverable nogloo = new NoGloo();
+            Coverable nogloo = new NoCover();
             Cover(nogloo);
         }
     }
