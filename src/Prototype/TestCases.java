@@ -50,30 +50,6 @@ public class TestCases {
         System.out.println(tests);
     }
 
-    public void LoadInputs(){
-        for(Integer i = 1; i < 33; i++) {
-            try {
-                File myObj = new File("src\\inputs and outputs\\test" + i.toString() + "_output");
-                if(myObj.exists()){
-                    BufferedReader br = new BufferedReader(new FileReader(myObj));
-                    String res = "";
-                    String line;
-                    while ((line = br.readLine()) != null) {
-                        res = res + line;
-                    }
-
-                }
-            } catch (FileNotFoundException e) {
-                System.out.println("An error occurred.");
-                e.printStackTrace();
-            } catch (IOException e) {
-                System.out.println("An error occurred.");
-                e.printStackTrace();
-            }
-        }
-        System.out.println(tests);
-    }
-
     public void ListOutTests(){
         for(Integer i : tests.keySet()){
             System.out.println(i.toString() + ": " + tests.get(i).getName());
