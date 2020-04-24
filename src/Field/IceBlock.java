@@ -27,7 +27,9 @@ public class IceBlock extends Field {
         if (item != null)
             item = _item;
     }
-
+    public void setIsOpen(boolean b){
+        isOpen = b;
+    }
     @Override
     public void Accept(Entity e) {
         getEntites().add(e);

@@ -1,6 +1,8 @@
 package Prototype;
 
-import Player.Player;
+import Field.*;
+import Item.*;
+import Player.*;
 
 import java.lang.reflect.Array;
 import java.util.*;
@@ -29,7 +31,7 @@ public class Test {
                     newPlayer(actors, command[1], command[2], command[3]);
                     break;
                 case "placeitem":
-                    placeItem(actors, command[1]);
+                    placeItem(actors, command[1], command[2]);
                     break;
                 case "item":
                     if (command.length == 4)
@@ -89,6 +91,46 @@ public class Test {
                     //??
                     break;
             }
+        }
+    }
+    private static void newField(HashMap map, String id, String type, String limit, String snow, String open){
+        if (type.equals("iceblock")){
+            IceBlock iceblock = new IceBlock();
+            iceblock.setCapacity(Integer.parseInt(limit));
+            iceblock.setLayerOfSnow(Integer.parseInt(snow));
+            iceblock.setIsOpen(Boolean.parseBoolean(open));
+            map.put(id, iceblock);
+        }
+        else{
+            Hole hole = new Hole();
+            map.put(id, hole);
+        }
+    }
+    private static void addNeighbours(HashMap map, String field1, String field2){
+        Field f1 = (Field)map.get(field1);
+        Field f2 = (Field)map.get(field2);
+        f1.AddNeighbour(f2);
+        f2.AddNeighbour(f1);
+    }
+    private static void newPlayer(HashMap map, String id, String type, String field_id){
+        if (type.equals("eskimo")){
+            Eskimo eskimo = new Eskimo((Field)map.get(field_id));
+            map.put(id, eskimo);
+        }
+        else{
+            Researcher researcher = new Researcher((Field)map.get(field_id));
+            map.put(id, researcher);
+        }
+    }
+    private static void placeItem(HashMap map, String itemId, String targetId){
+        Object target = map.get(targetId);
+        if (target instanceof Player){
+            Player player = (Player)target;
+            player.AcceptItem((Item)map.get(itemId));
+        }
+        else if (target instanceof Field){
+            Field field = (Field)target;
+            field.setItem((Item)map.get(itemId));
         }
     }
     private String name;
