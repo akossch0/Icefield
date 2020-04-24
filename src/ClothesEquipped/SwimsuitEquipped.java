@@ -1,16 +1,10 @@
 package ClothesEquipped;
 
-import Skeleton.Skeleton;
-
+/**
+ * A buvarruhat reprezentalja a jatekban. Hasznalataval a jatekos vizallo lesz,
+ * igy ha vizbe esik onnan ki tud egyedul maszni, lepni.
+ */
 public class SwimsuitEquipped implements ClothesEquipped {
-
-    /**
-     * Konstruktora SwimsuitEquipped-nek
-     * @param 
-     */
-    public SwimsuitEquipped(){
-    }
-
     /**
      * Buvarruha viselet
      * @return igazzal ter vissza; jelentes: a jatekos visel buvarruhat
