@@ -8,9 +8,10 @@ import Field.*;
  * erdekeben, hogy a jatekosok at tudjak veszelni a hovihart.
  */
 public class Eskimo extends Player {
-
-    public Eskimo(int _actualHealth, int _actualWorkUnit, int _maxHealth, Field _field) {
-        super(_actualHealth, _actualWorkUnit, _maxHealth, _field);
+    final static int maxHealt = 5;
+    final static int maxWorkUnit = 4;
+    public Eskimo(Field _field) {
+        super(maxHealt, maxWorkUnit, maxHealt, _field);
     }
 
     /**
