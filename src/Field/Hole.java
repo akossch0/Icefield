@@ -16,6 +16,11 @@ import java.util.List;
 public class Hole extends Field {
 
     @Override
+    public boolean IsOpen() {
+        return false;
+    }
+
+    @Override
     public void setItem(Item item) { }
 
     @Override

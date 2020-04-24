@@ -17,6 +17,12 @@ public class IceBlock extends Field {
     /** A mezon talalhato item **/
     protected Item item = null;
     private boolean isOpen = false;
+
+    @Override
+    public boolean IsOpen() {
+        return isOpen;
+    }
+
     @Override
     public void setItem(Item _item) {
         if (item != null)
