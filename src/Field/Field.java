@@ -28,6 +28,8 @@ public abstract class Field {
     private  int layerOfSnow = 0;
 
     private  int capacity = 0;
+    public int X;
+    public int Y;
 
 
     public List<Field> getNeighbours(){return neighbours;}

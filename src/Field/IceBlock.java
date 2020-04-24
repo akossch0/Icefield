@@ -19,7 +19,8 @@ public class IceBlock extends Field {
 
     @Override
     public void setItem(Item _item) {
-        item = _item;
+        if (item != null)
+            item = _item;
     }
 
     @Override
