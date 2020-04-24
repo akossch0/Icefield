@@ -12,27 +12,36 @@ import java.util.List;
 public abstract class Field {
     /** A mezon allo playerek listaja **/
     protected List<Entity> entities = new ArrayList<>();
+
     /** A szomszedos mezok listaja**/
     private List<Field> neighbours = new ArrayList<Field>();
+
     /** A mezo strategyje, alapertelmezetten minden mezo fedettlen **/
-    protected Coverable cover = new NoGloo();
+    protected Coverable cover = new NoCover();
+
     private  int layerOfSnow = 0;
+
     private  int capacity = 0;
+
 
     public List<Field> getNeighbours(){return neighbours;}
 
     public void AddNeighbour(Field e){neighbours.add(e);}
     public void RemoveNeighbour(Field e){neighbours.remove(e);}
-    /** A mezon talalhato item **/
-    protected Item item = null;
+
+
 
     /**
      * Ezzel a setterrel lehet itemet adni a mezonek
      * @param item az item amit elfogad
      */
-    public void setItem(Item item){
-        this.item = item;
-    }
+    public abstract void setItem(Item item);
+
+    /**
+     * Visszaad egy mar kiasott targyat és eltavolitja azt a mezobol.
+     * @return a visszaadott item
+     */
+    public abstract Item RemoveItem();
 
     /**
      * Uj jatekos erkezik a mezore. Ha meg elbirja a mezo, akkor a jatekos ezentul ezen a mezon áll.
@@ -50,16 +59,6 @@ public abstract class Field {
     }
 
     /**
-     * Visszaad egy mar kiasott targyat és eltavolitja azt a mezobol.
-     * @return a visszaadott item
-     */
-    public Item RemoveItem(){
-        Item i = item;
-        item = null;
-        return i;
-    }
-
-    /**
      * Visszaadja a mezon tartozkodo entity-ket.
      * @return a visszaadott jatekosok
      */
@@ -73,6 +72,8 @@ public abstract class Field {
     public void IncrLayerOfSnow(){
         layerOfSnow++;
     }
+
+
 
     /**
      * Csokkenti a mezon levo horetegek szamat.
