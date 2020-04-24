@@ -144,12 +144,14 @@ public class Test {
             map.put(id, hole);
         }
     }
+
     private static void addNeighbours(HashMap map, String field1, String field2){
         Field f1 = (Field)map.get(field1);
         Field f2 = (Field)map.get(field2);
         f1.AddNeighbour(f2);
         f2.AddNeighbour(f1);
     }
+
     private static void newPlayer(HashMap map, String Id, String type, String fieldId){
         if (type.equals("eskimo")){
             Eskimo eskimo = new Eskimo((Field)map.get(fieldId));
@@ -160,6 +162,7 @@ public class Test {
             map.put(Id, researcher);
         }
     }
+
     private static void placeItem(HashMap map, String itemId, String targetId){
         Object target = map.get(targetId);
         if (target instanceof Player){
@@ -171,6 +174,7 @@ public class Test {
             field.setItem((Item)map.get(itemId));
         }
     }
+
     private static void newItem(HashMap map, String itemId, String type, String durability){
         switch (type){
             case "spade":
@@ -197,6 +201,7 @@ public class Test {
                 break;
         }
     }
+
     private static void build(HashMap map, String fieldId, String type){
         if (type.equals("tentcover")){
             ((Field)map.get(fieldId)).Cover(new TentCover());
@@ -208,6 +213,7 @@ public class Test {
             ((Field)map.get(fieldId)).Cover(new NoCover());
         }
     }
+
     private static void wear(HashMap map, String playerId, String type){
         if (type.equals("swimsuitequipped")){
             ((Player)map.get(playerId)).setClothes(new SwimsuitEquipped());
