@@ -1,9 +1,17 @@
 package Coverable;
 
+import Game.Manager;
+
 /**
  * A Field-nek egy strategy-je. Ha ez a tipus a Field strategy-je, akkor fedett a Field.
  */
 public class IglooCover implements Coverable{
+    /**
+     * Konstruktor
+     */
+    public IglooCover(){
+        Manager.Update(false);
+    }
     /**
      * Igazzal ter vissza, vagyis jelzi, hogy fedett a mező.
      * @return boolean
