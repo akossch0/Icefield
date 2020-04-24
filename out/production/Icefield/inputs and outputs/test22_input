@@ -1,3 +1,4 @@
+Egy játékos megpróbálja a győztes itemeket összeszerelni úgy, hogy nincsenek mind egy mezőn
 field 		iceblock_1 	iceblock 1 0 i
 field 		iceblock_2	iceblock 1 0 i
 player 		player_1 	eskimo  iceblock_1

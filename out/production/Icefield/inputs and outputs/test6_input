@@ -1,3 +1,4 @@
+Játékos jégtáblára lép, ahol jegesmedve van és van iglu
 field 		iceblock_1 	iceblock 	1 		0 	n
 field 		iceblock_2 	iceblock 	1 		0 	n
 neighbours 	iceblock_1 	iceblock_2
