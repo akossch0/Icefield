@@ -15,7 +15,7 @@ public class TestCases {
 
     public void ListOutTests(){
         for(Integer i : tests.keySet()){
-            System.out.println(i.toString() + ": " + tests.get(i));
+            System.out.println(i.toString() + ": " + tests.get(i).getName());
         }
     }
 
