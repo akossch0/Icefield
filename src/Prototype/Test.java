@@ -29,6 +29,10 @@ public class Test {
         actors = new HashMap<String,Object>();
     }
 
+    public String getName(){
+        return name;
+    }
+
     public void interpretLine(String line, Player currentPlayer) throws Exception {
         // Minden whitespacet ki akarunk venni hogy lehessen tabolni a tesztekben
         String[] command = line.split("\\s+");
