@@ -14,11 +14,20 @@ import java.util.*;
 
 public class Test {
     private String content;
+    private String outputContent;
     private String name;
 
     public Test(String n, String con){
         name = n;
         content = content;
+    }
+
+    public String getOutputContent() {
+        return outputContent;
+    }
+
+    public void setOutputContent(String outputContent) {
+        this.outputContent = outputContent;
     }
 
     public void setContent(String content) {
