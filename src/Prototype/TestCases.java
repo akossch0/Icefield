@@ -16,8 +16,8 @@ public class TestCases {
                 if(input.exists() && output.exists()){
                     BufferedReader br1 = new BufferedReader(new FileReader(input));
                     BufferedReader br2 = new BufferedReader(new FileReader(output));
-                    String resContent = "";
-                    String resContentOutput = "";
+                    StringBuilder resContent = new StringBuilder();
+                    StringBuilder resContentOutput = new StringBuilder();
                     String line;
                     String nameOfTestCase = "";
                     int n = 0;
@@ -25,22 +25,19 @@ public class TestCases {
                         if(n == 0){
                             nameOfTestCase = line;
                         }else {
-                            resContent = resContent + line;
+                            resContent.append(line);
                         }
                         n++;
                     }
                     while ((line = br2.readLine()) != null) {
-                        resContentOutput = resContentOutput + line;
+                        resContentOutput.append(line);
                     }
-                    tests.put(i, new Test(nameOfTestCase,resContent,resContentOutput));
+                    tests.put(i, new Test(nameOfTestCase, resContent.toString(), resContentOutput.toString()));
                     br1.close();
                     br2.close();
                 }else {
                     System.out.println("Either the input or the output file doesn't exist.");
                 }
-            } catch (FileNotFoundException e) {
-                System.out.println("An error occurred.");
-                e.printStackTrace();
             } catch (IOException e) {
                 System.out.println("An error occurred.");
                 e.printStackTrace();
