@@ -4,7 +4,7 @@ import Coverable.NoCover;
 import Field.Field;
 import Item.Item;
 import Player.Player;
-import Skeleton.Skeleton;
+
 
 import java.util.*;
 
@@ -52,7 +52,7 @@ public final class Manager {
         players.add(p);
         actors.add(p);
     }
-    static void Update(Player p){
+    public static void Update(Player p){
         if(p.IsInWater()){
             timeInWater.put(p,0);
         }
@@ -61,12 +61,12 @@ public final class Manager {
         }
 
     }
-    static void Update(boolean TentEpult){
+    public static void Update(boolean TentEpult){
         if(TentEpult){
             timeTent.put(currentPlayer.getField(),0);
         }
         else{
-            timeTent.put(currentPlayer.getField(),0);
+            timeTent.remove(currentPlayer.getField());
         }
     }
     /**
@@ -126,6 +126,7 @@ public final class Manager {
                 timeTent.replaceAll((key,oldValue)->oldValue+1);
 
             }
+
 
         }
     }

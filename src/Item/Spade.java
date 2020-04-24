@@ -2,7 +2,6 @@ package Item;
 
 import Field.Field;
 import Player.*;
-import Skeleton.Skeleton;
 
 /**
  * Asot reprezentalja a jatekban, hasznalataval 2 egysegnyi havat tud eltakarítani egy munkaegység felhasználasaval a jatekos, aki hasznalja.

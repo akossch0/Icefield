@@ -3,7 +3,6 @@ package Item;
 import Game.Game;
 import Game.Manager;
 import Player.*;
-import Skeleton.Skeleton;
 
 /**
  * A jelzoraketa alkatreszeit reprezentalja a jatekban.

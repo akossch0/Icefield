@@ -2,7 +2,6 @@ package Item;
 
 import ClothesEquipped.SwimsuitEquipped;
 import Player.*;
-import Skeleton.Skeleton;
 
 /**
  * A buvarruhat reprezentalja a jatekban. Hasznalataval a jatekos vizallo lesz, igy ha vizbe esik onnan ki tud egyedul maszni, lepni.

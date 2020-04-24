@@ -1,7 +1,6 @@
 package Item;
 
 import Player.*;
-import Skeleton.Skeleton;
 
 /**
  * Absztrakt alaposztaly, a konkret peldanyai az Aso (Spade), Etel (Food),

@@ -4,7 +4,6 @@ import ClothesEquipped.*;
 import Game.*;
 import Item.*;
 import Field.*;
-import Skeleton.Skeleton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -109,7 +108,6 @@ public abstract class Player extends  Entity{
      *  A menedzser kozli a playerrel, hogy az o kore kovetkezik
      */
     public void yourTurn(){
-        Skeleton.Called(this,"yourTurn");
 /*
 
         Ide már más kell
@@ -121,7 +119,6 @@ public abstract class Player extends  Entity{
             }
         }
 */
-        Skeleton.Return();
     }
 
     @Override
@@ -161,6 +158,7 @@ public abstract class Player extends  Entity{
     }
     public void setInWater(boolean _inWater){
         inWater = _inWater;
+        Manager.Update(this);
     }
     public boolean IsInWater(){return inWater;}
 

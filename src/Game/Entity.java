@@ -1,7 +1,6 @@
 package Game;
 
 import Field.Field;
-import Skeleton.Skeleton;
 
 import java.util.List;
 

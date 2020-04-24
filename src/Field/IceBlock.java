@@ -4,7 +4,6 @@ import Coverable.*;
 import Game.Entity;
 import Item.*;
 import Player.Player;
-import Skeleton.Skeleton;
 
 import java.util.ArrayList;
 import java.util.List;
