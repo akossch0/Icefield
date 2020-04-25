@@ -23,13 +23,20 @@ public class Test {
     private String name;
     private HashMap<String, Object> actors;
     private List<String> keys = new ArrayList<>();
+    private HashMap<String, String> objects = new HashMap<>();
     private Player currentPlayer;
     private String outputOfSave = "";
-    public Test(String n, String con, String outCon){
+    private boolean testing;
+    public Test(String n, String con, String outCon, boolean t){
         name = n;
         content = con;
         expectedOutput = outCon;
         actors = new HashMap<String,Object>();
+        testing = t;
+    }
+
+    public String getOutputOfSave() {
+        return outputOfSave;
     }
 
     public HashMap<String, Object> getActors() {
@@ -131,6 +138,8 @@ public class Test {
             case "SAVE":
                 //??
                 save(command);
+                if(!testing)
+                    printOutput();
                 //System.out.println(outputOfSave);
                 break;
         }
@@ -342,6 +351,7 @@ public class Test {
     private void save(String[] command){
         if(command.length == 1){
             for(String str : keys){
+                objects.put(str, ((OutputToString)actors.get(str)).toString(actors));
                 outputOfSave = outputOfSave + ((OutputToString)actors.get(str)).toString(actors) + "\n";
             }
         }else if(command.length == 2){
@@ -352,17 +362,20 @@ public class Test {
                         outputOfSave = outputOfSave + "GAME IN PROGRESS";
                     else
                         outputOfSave = outputOfSave + "\nGAME IN PROGRESS";
+                    objects.put("progress","GAME IN PROGRESS");
                 }else {
                     if(Game.isGameLost()){
                         if(outputOfSave.equals(""))
                             outputOfSave = outputOfSave + "GAME LOST";
                         else
                             outputOfSave = outputOfSave + "\nGAME LOST";
+                        objects.put("lost","GAME LOST");
                     }else {
                         if(outputOfSave.equals(""))
                             outputOfSave = outputOfSave + "GAME WON";
                         else
                             outputOfSave = outputOfSave + "\nGAME WON";
+                        objects.put("won","GAME WON");
                     }
                 }
             }else{
@@ -370,7 +383,14 @@ public class Test {
                     outputOfSave = outputOfSave + ((OutputToString)actors.get(command[1])).toString(actors);
                 else
                     outputOfSave = outputOfSave + "\n" + ((OutputToString)actors.get(command[1])).toString(actors);
+                objects.put(command[1],((OutputToString)actors.get(command[1])).toString(actors));
             }
+        }
+    }
+
+    public void printOutput(){
+        for(String o : objects.keySet()){
+            System.out.println(objects.get(o));
         }
     }
 
