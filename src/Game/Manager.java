@@ -63,10 +63,10 @@ public final class Manager {
     }
     public static void Update(boolean TentEpult){/*
         if(TentEpult){
-            timeTent.put(currentPlayer.getField(),0);
+            //timeTent.put(currentPlayer.getField(),0);
         }
         else{
-            timeTent.remove(currentPlayer.getField());
+            //timeTent.remove(currentPlayer.getField());
         }
         */
     }
@@ -136,7 +136,5 @@ public final class Manager {
     /**
      * jatekos halalanal hivodik
      */
-    public static void Lose(){
-        game.Lose();
-    }
+    public static void Lose(){ game.Lose();}
 }
