@@ -1,0 +1,27 @@
+player:
+	ID: eskimo_1
+	TYPE: eskimo
+	actualHealth: 5
+	items:
+	inWater: true
+	actualWorkUnit: 1
+	field: iceblock_7
+	clothes: NoClothesEquipped
+player:
+	ID: researcher_1
+	TYPE: researcher
+	actualHealth: 4
+	items:
+	inWater: true
+	actualWorkUnit: 4
+	field: iceblock_7
+	clothes: NoClothesEquipped
+player:
+	ID: researcher_2
+	TYPE: researcher
+	actualHealth: 4
+	items:
+	inWater: true
+	actualWorkUnit: 3
+	field: iceblock_7
+	clothes: NoClothesEquipped

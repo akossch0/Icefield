@@ -1,0 +1,9 @@
+Jegesmedve jégtáblára lép, ahol sátor van
+field 		iceblock_1 	iceblock 	1 		0 	n
+field 		iceblock_2 	iceblock 	1 		0 	n
+neighbours 	iceblock_1 	iceblock_2
+player 		eskimo_1 	eskimo 	iceblock_2
+build 		iceblock_2 	tentcover
+polarbear 	iceblock_1
+POLARSTEP 	iceblock_2
+SAVE		GAMESTATE

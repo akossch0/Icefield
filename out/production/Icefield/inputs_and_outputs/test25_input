@@ -1,0 +1,8 @@
+Kutató használja a képességét
+field 		iceblock_1 	iceblock 5 0 i
+field 		iceblock_2 	iceblock 10 0 i
+player 		player_1 	researcher iceblock_1
+BEGIN 	player_1
+USE_ABILITY iceblock_2
+END
+SAVE iceblock_2

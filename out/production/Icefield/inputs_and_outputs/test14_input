@@ -1,0 +1,14 @@
+Játékos megpróbálja összeszerelni a nyerő tárgyakat, úgy, hogy az összes nyerő tárgy nála van és minden játékos vele azonos jégtáblán áll
+field 		iceblock_1 	iceblock 2 0 i
+player 		player_1 	eskimo  iceblock_1
+player 		player_2 	eskimo  iceblock_1
+item 		item_1		winningitem
+item 		item_2		winningitem
+item 		item_3		winningitem
+placeitem 	item_1		player_1
+placeitem 	item_2		player_1
+placeitem 	item_3 		player_1
+BEGIN 	player_1
+USE_ITEM 	item_1		player_1
+END
+SAVE		GAMESTATE

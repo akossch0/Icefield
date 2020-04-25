@@ -1,0 +1,10 @@
+Jégtábla átfordul, mert túl sokan állnak rajta
+field 		iceblock_1	 iceblock 1 0 n
+field 		iceblock_2 	iceblock 1 0 n
+neighbours 	iceblock_1 	iceblock_2
+player 		eskimo_1 	eskimo iceblock_1
+player 		eskimo_2 	eskimo iceblock_2
+BEGIN 	eskimo_2
+STEP 		iceblock_1
+END
+SAVE
