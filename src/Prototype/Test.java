@@ -354,7 +354,7 @@ public class Test {
                     }
                 }
             }else{
-                outputOfSave = outputOfSave + ((OutputToString)actors.get(command[1])).toString(actors);
+                outputOfSave = outputOfSave + ((OutputToString)actors.get(command[1])).toString(actors) + "\n";
             }
         }
     }
