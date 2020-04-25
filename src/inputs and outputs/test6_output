@@ -2,7 +2,7 @@ field:
 	ID: iceblock_1
 	type: iceblock
 	layersOfSnow: 0
-    neigbours: iceblock_2
+    neighbours: iceblock_2
 	limit: 1
 	open: false
 	cover: NoCover
@@ -12,7 +12,7 @@ field:
 	ID: iceblock_2
 	type: iceblock
 	layersOfSnow: 0
-    neigbours: iceblock_1
+    neighbours: iceblock_1
 	limit: 1
 	open: false
 	cover: IglooCover

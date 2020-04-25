@@ -370,8 +370,8 @@ public class Test {
     }
 
     public static boolean compareOutputs(String expected, String actual){
-        String[] exp = expected.split("\\s");
-        String[] act = actual.split("\\s");
+        String[] exp = expected.split("\n");
+        String[] act = actual.split("\n");
         System.out.println("EXPECTED:\n" + expected);
         System.out.println("ACTUAL:\n" + actual);
         for(int i = 0; i < act.length; i++){
