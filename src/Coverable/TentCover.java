@@ -10,7 +10,8 @@ public class TentCover implements Coverable {
      * Konstruktor
      */
     public TentCover(){
-        Manager.Update(true);
+      //  Manager.Update(true);
+        Manager.TentBuilt();
     }
 
     /**

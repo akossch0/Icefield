@@ -10,7 +10,7 @@ public class NoCover implements Coverable {
      * Konstruktor
      */
     public NoCover(){
-        Manager.Update(false);
+        //Manager.Update(false);
     }
     /**
      * Hamisat ad vissza, vagyis jelzi hogy nem fedett a mezo.

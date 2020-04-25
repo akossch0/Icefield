@@ -130,13 +130,8 @@ public abstract class Player extends Entity implements OutputToString{
      *  A menedzser kozli a playerrel, hogy az o kore kovetkezik
      */
     public void yourTurn(){
-/*
-
-       Ide valami függvényhívás ami átadja magát amire hívjuk majd a függvényt
-*/
-        while(!endTurn&&actualWorkUnit!=0){
-
-        }
+        //while(!endTurn&&actualWorkUnit!=0){ }
+        //Ez a rész majd tényleges játékmenetkor lesz lényeges, tesztelésnél, amikor a prototipust használjuk még nincs rá szülség
     }
 
     @Override

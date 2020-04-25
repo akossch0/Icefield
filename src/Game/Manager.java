@@ -98,15 +98,23 @@ public final class Manager {
     /**
      * hashmapbe berakas ha tent epult az adott mezon, illetve kiveves ha nem az epult
      * @param TentEpult
-     */
-    public static void Update(boolean TentEpult){/*
+     *//*
+    public static void Update(boolean TentEpult){
+        if(currentPlayer==null)return;
         if(TentEpult){
             timeTent.put(currentPlayer.getField(),0);
         }
         else{
             timeTent.remove(currentPlayer.getField());
         }
-        */
+
+    }*/
+    /**
+     * hashmapbe berakas ha tent epult az adott mezon
+     * @param
+     */
+    public static void TentBuilt(){
+        timeTent.put(currentPlayer.getField(),0);
     }
     /**
      *
@@ -142,11 +150,15 @@ public final class Manager {
         }
     }**/
 
-    public static void playerInWaterAndNotFirstTurn() {
+    public static void TurnPassed() {
         //minden vízben lévő ember számlálóját növeli
         timeInWater.replaceAll((key,oldValue)->oldValue+1);
         for(Player i:timeInWater.keySet()) {
             if (timeInWater.get(i) >= actors.size()) game.Lose();
+        }
+        timeTent.replaceAll((key,oldValue)->oldValue+1);
+        for (Field i: timeTent.keySet()) {
+            if(timeTent.get(i)>=actors.size()) game.Lose();
         }
     }
 
@@ -165,7 +177,7 @@ public final class Manager {
                 }
                 //Player e a jelenlegi actor, ha igen akkor ha sok ideig volt vízben és nem vízálló akkor vége a játéknak
                 //minden vízben lévő ember számlálóját növeli
-                playerInWaterAndNotFirstTurn();
+                TurnPassed();
 
                 int index = (actors.indexOf(a)>=players.size()?-1:actors.indexOf(a));
                 if(index!=-1){

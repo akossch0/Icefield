@@ -10,7 +10,7 @@ public class IglooCover implements Coverable{
      * Konstruktor
      */
     public IglooCover(){
-        Manager.Update(false);
+        //Manager.Update(false);
     }
     /**
      * Igazzal ter vissza, vagyis jelzi, hogy fedett a mező.

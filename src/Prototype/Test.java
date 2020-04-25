@@ -10,7 +10,7 @@ import Player.*;
 import java.io.*;
 import java.util.*;
 
-import static Game.Manager.playerInWaterAndNotFirstTurn;
+import static Game.Manager.TurnPassed;
 
 public class Test {
     private String content;
@@ -113,7 +113,7 @@ public class Test {
                     polarstep(null);
                 break;
             case "BEGIN":
-                playerInWaterAndNotFirstTurn();
+                TurnPassed();
                 currentPlayer = (Player)actors.get(command[1]);
                 if(currentPlayer.getActualWorkUnit() != 4)
                     currentPlayer.setActualWorkUnit(4);
@@ -160,7 +160,11 @@ public class Test {
         System.out.println(content);
         String[] lines = this.content.split("\n");
         for (String line : lines) {
-            interpretLine(line);
+            try{
+            interpretLine(line);}
+            catch (Exception e){
+                System.out.println("Rossz volt a parancs.");
+            }
         }
         compareOutputs(expectedOutput,outputOfSave);
     }
