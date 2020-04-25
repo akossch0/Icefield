@@ -26,6 +26,7 @@ public abstract class Player extends Entity implements OutputToString{
         actualWorkUnit = _actualWorkUnit;
         maxHealth = _maxHealth;
         setField(_field);
+        Manager.AddPlayer(this);
     };
 
     private boolean endTurn = false;
@@ -164,6 +165,11 @@ public abstract class Player extends Entity implements OutputToString{
     }
     public boolean IsInWater(){return inWater;}
 
+    /**
+     * kimeneti nyelv a playerre
+     * @param objects a hashmap ami tarolja az objektum-id-ket es a hozza tartozo objektumokat
+     * @return
+     */
     public String toString(HashMap<String,Object> objects){
         String result = "player\n" +
                 "\tID: " + Test.getKeyByValue(objects,this) + "\n" +

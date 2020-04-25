@@ -30,12 +30,19 @@ public final class PolarBear extends Entity implements OutputToString{
         return;
     }
 
+    /**
+     * Polarbear talalkozik  aktorral
+     * @param a aktor
+     */
     @Override
     public void Meet(Actor a) {
 
         a.InteractWith(this);
     }
 
+    /**
+     * manager megmondja a macinak hogy o a soros
+     */
     @Override
     public void yourTurn() {
         List<Field> neighbours = field.getNeighbours();
@@ -44,6 +51,10 @@ public final class PolarBear extends Entity implements OutputToString{
         Step(target);
     }
 
+    /**
+     * maci - player interakcio
+     * @param p a player akivel az aktor interakcioba lep
+     */
     @Override
     public void InteractWith(Player p) {
 
@@ -51,11 +62,20 @@ public final class PolarBear extends Entity implements OutputToString{
             Manager.Lose();
     }
 
+    /**
+     * maci maci interakcio, nem tortenik semmi
+     * @param p a jegesmedve akivel interaktol az aktor
+     */
     @Override
     public void InteractWith(PolarBear p) {
         return;
     }
 
+    /**
+     * kimeneti nyelv: maci
+     * @param objects a hashmap ami tarolja az objektum-id-kat es a hozza tartozo objektumokat
+     * @return
+     */
     public String toString(HashMap<String,Object> objects){
         String result = "polarbear\n" +
                 "\tfield: " + Test.getKeyByValue(objects,this.getField()) + "\n";

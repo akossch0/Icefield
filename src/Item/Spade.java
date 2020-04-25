@@ -23,6 +23,11 @@ public class Spade extends Item {
         field.DecrLayerOfSnow(2);
     }
 
+    /**
+     * spade-nek a kimeneti nyelvre valo forditasa
+     * @param objects hashmap ami tarolja a letrehozott objektumokat az id-jukkel parositva
+     * @return
+     */
     public String toString(HashMap<String,Object> objects){
         String result = "item\n" +
                 "\tID: " + Test.getKeyByValue(objects,this) + "\n" +
