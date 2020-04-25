@@ -52,6 +52,11 @@ public final class Manager {
         players.add(p);
         actors.add(p);
     }
+
+    /**
+     * jelenlegi allapot frissitese a hashmapben, ha vizbe kerult a jatekos, illetve ha kikerult onnan
+      * @param p a jatekos, akinek az allapota valtozott
+     */
     public static void Update(Player p){
         if(p.IsInWater()){
             timeInWater.put(p,0);
@@ -61,6 +66,11 @@ public final class Manager {
         }
 
     }
+
+    /**
+     * hashmapbe berakas ha tent epult az adott mezon, illetve kiveves ha nem az epult
+     * @param TentEpult
+     */
     public static void Update(boolean TentEpult){/*
         if(TentEpult){
             timeTent.put(currentPlayer.getField(),0);

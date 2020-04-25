@@ -71,11 +71,18 @@ public final class Weather implements Actor{
         fields = fs;
     }
 
+    /**
+     * weather talalkozik aktorral
+     * @param a
+     */
     @Override
     public void Meet(Actor a) {
         return;
     }
 
+    /**
+     * weather a soros
+     */
     @Override
     public void yourTurn() {
         List<Field> struck = new ArrayList<Field>();
@@ -89,11 +96,19 @@ public final class Weather implements Actor{
 
     }
 
+    /**
+     * weather maci interakcio
+     * @param p a jegesmedve akivel interaktol az weather
+     */
     @Override
     public void InteractWith(PolarBear p) {
         return;
     }
 
+    /**
+     * weather player interakcio
+      * @param p a player akivel az aktor interakcioba lep
+     */
     @Override
     public void InteractWith(Player p) {
         if(!p.getField().IsCovered())

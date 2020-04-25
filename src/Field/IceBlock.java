@@ -20,18 +20,36 @@ public class IceBlock extends Field {
     protected Item item = null;
     private boolean isOpen = false;
 
+    /**
+     * visszaadja az isOpen adattagot
+     * @return
+     */
     @Override
     public boolean IsOpen() {
         return isOpen;
     }
 
+    /**
+     * beallitja a jegtablanak az itemjet
+     * @param _item a beallitott item
+     */
     @Override
     public void setItem(Item _item) {
             item = _item;
     }
+
+    /**
+     * isOpen settere
+     * @param b a logikai ertek
+     */
     public void setIsOpen(boolean b){
         isOpen = b;
     }
+
+    /**
+     * jegtablara lep az entity
+     * @param e az entity aki a jegtablara lep
+     */
     @Override
     public void Accept(Entity e) {
         getEntites().add(e);
@@ -49,6 +67,10 @@ public class IceBlock extends Field {
         }
     }
 
+    /**
+     *
+     * @param n a reteggel valo csokkentes szama
+     */
     @Override
     public void DecrLayerOfSnow(int n) {
         if(getLayerOfSnow()==0){isOpen = true;}
@@ -75,6 +97,12 @@ public class IceBlock extends Field {
         cover = c;
     }
 
+    /**
+     * az iceblock kimeneti nyelvve valo alakitasa
+     * @param objects a hashmap ami tarolja az objektumokat es a hozza tartozo
+     *                id-ket
+     * @return
+     */
     public String toString(HashMap<String,Object> objects){
         String result = "field\n" +
                 "\tID: " + Test.getKeyByValue(objects,this) + "\n" +
@@ -87,5 +115,4 @@ public class IceBlock extends Field {
                 "\titem: " + Test.getKeyByValue(objects,this.item) + "\n";
         return result;
     }
-
 }

@@ -34,13 +34,28 @@ public abstract class Field implements OutputToString {
     public int Y;
 
 
-
+    /**
+     * neighbours adattag gettere
+     * @return
+     */
     public List<Field> getNeighbours(){return neighbours;}
 
+    /**
+     * hozzaad a szomszedokhoz egy fieldet
+     * @param e a hozzaadott szomszed
+     */
     public void AddNeighbour(Field e){neighbours.add(e);}
 
+    /**
+     * kitorli a parameterkent kapott fieldet a szomszedok kozul
+     * @param e a kitorlendo field
+     */
     public void RemoveNeighbour(Field e){neighbours.remove(e);}
 
+    /**
+     * abstract, iceblockban van megvalositva
+     * @return
+     */
     public abstract boolean IsOpen();
 
     /**

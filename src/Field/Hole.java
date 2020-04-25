@@ -17,19 +17,35 @@ import java.util.List;
  */
 public class Hole extends Field {
 
+    /**
+     * hole implementacio miatt false
+     * @return
+     */
     @Override
     public boolean IsOpen() {
         return false;
     }
 
+    /**
+     * hole implementacio miatt ures
+     * @param item az item amit elfogad
+     */
     @Override
     public void setItem(Item item) { }
 
+    /**
+     * hole-ban nicns item igy null a visszateres
+     * @return
+     */
     @Override
     public Item RemoveItem() {
         return null;
     }
 
+    /**
+     * lyukba eses
+     * @param e az entity aki a lyukba lep
+     */
     @Override
     public void Accept(Entity e) {
         entities.add(e);
@@ -40,6 +56,10 @@ public class Hole extends Field {
         }
     }
 
+    /**
+     *
+     * @param n a reteggel valo csokkentes mennyisege
+     */
     @Override
     public void DecrLayerOfSnow(int n) {
         if(n<=getLayerOfSnow()) setLayerOfSnow(getLayerOfSnow()-n);
@@ -48,10 +68,15 @@ public class Hole extends Field {
 
     /**
      *  Beallitja az fedettseg strategiat.
-     * @param c
+     * @param c a strategy
      */
     public void Cover(Coverable c){ }
 
+    /**
+     * hole kimeneti nyelvve valo atirasa
+     * @param objects a tarolt objektumok az azonositashoz kell
+     * @return
+     */
     public String toString(HashMap<String,Object> objects){
         String result = "field\n" +
                 "\tID: " + Test.getKeyByValue(objects,this) + "\n" +
