@@ -46,8 +46,11 @@ public class Test {
             throw new Exception("Valami igencsak rossz:((");
         String first = command[0];
         switch (first) {
-            case "field" :
-                newField(command[1], command[3], command[4], command[5]);
+            case "field":
+                if(command[2] == "icefield")
+                    newField(command[1], command[3], command[4], command[5]);
+                else
+                    newField(command[1]);
                 break;
             case "neighbours":
                 addNeighbours(command[1], command[2]);
@@ -156,12 +159,12 @@ public class Test {
                 keys.add(id);
 
     }
-    /*private void newField(String id){
+    private void newField(String id){
             Hole hole = new Hole();
             actors.put(id, hole);
             if(!keys.contains(id))
                 keys.add(id);
-    }*/
+    }
 
     private void addNeighbours(String field1, String field2){
         Field f1 = (Field)actors.get(field1);
