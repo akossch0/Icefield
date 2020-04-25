@@ -61,7 +61,7 @@ public abstract class Field implements OutputToString {
      * @param item az item amit elfogad
      */
     public abstract void setItem(Item item);
-
+    public abstract Item getItem();
     /**
      * Visszaad egy mar kiasott targyat és eltavolitja azt a mezobol.
      * @return a visszaadott item

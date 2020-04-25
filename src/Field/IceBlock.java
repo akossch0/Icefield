@@ -37,6 +37,8 @@ public class IceBlock extends Field {
     public void setItem(Item _item) {
             item = _item;
     }
+    @Override
+    public Item getItem(){return item;}
 
     /**
      * isOpen settere

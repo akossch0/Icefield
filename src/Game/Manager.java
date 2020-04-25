@@ -108,13 +108,13 @@ public final class Manager {
         }
         */
     }
-    public static void giveItem(Item i){
-        parts.add(i);
-    }
     /**
      *
      * @param i a targy amit a jatekos atad a managernek a jatek megnyeresehez
      */
+    // Elméletileg sehol sem használva!
+    //
+    /**
     public static void addItem(Item i){
         parts.add(i);
         boolean egyhelyen = true;
@@ -140,7 +140,7 @@ public final class Manager {
             }
             i.getHolder().IncreaseWorkUnit();
         }
-    }
+    }**/
 
     public static void playerInWaterAndNotFirstTurn() {
         //minden vízben lévő ember számlálóját növeli

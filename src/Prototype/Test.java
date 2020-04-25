@@ -131,7 +131,10 @@ public class Test {
             case "LOAD":
                 //??
                 if(command.length == 1){
-                    Game.getInstance().InitMap();
+                    List<Object> newObjects = Game.getInstance().InitMap();
+                    for(Object o: newObjects){
+
+                    }
                 }else if(command.length == 2){
                     load(command[1]);
                 }else{

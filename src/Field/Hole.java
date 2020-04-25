@@ -32,7 +32,8 @@ public class Hole extends Field {
      */
     @Override
     public void setItem(Item item) { }
-
+    @Override
+    public Item getItem(){return null;}
     /**
      * hole-ban nicns item igy null a visszateres
      * @return

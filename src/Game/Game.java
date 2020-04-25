@@ -68,7 +68,8 @@ public final class Game {
     /**
      * inicializalja a jatekteret, vagyis beallitja a jegtablak es targyak elhelyezkedeset
      */
-    public void InitMap(){
+    public List<Object> InitMap(){
+        List<Object> newObjects = new ArrayList<>();
         Random random = new Random(1);
         double P_IceField = 0.80;
         int Snow_Thickness = 4;
@@ -157,6 +158,13 @@ public final class Game {
             int randomField = random.nextInt(fields.size());
             fields.get(randomField).setItem(i);
         }
+        for (Field f:fields)
+        {
+            newObjects.add(f);
+            if (f.getItem() != null)
+                newObjects.add(f.getItem());
+        }
+        return newObjects;
     }
 
     /**
