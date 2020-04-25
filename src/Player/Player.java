@@ -171,7 +171,7 @@ public abstract class Player extends Entity implements OutputToString{
      * @return
      */
     public String toString(HashMap<String,Object> objects){
-        String result = "player\n" +
+        String result = "player:\n" +
                 "\tID: " + Test.getKeyByValue(objects,this) + "\n" +
                 "\tTYPE: " + this.getClass() + "\n" +
                 "\tactualHealth: " + this.actualHealth + "\n" +
