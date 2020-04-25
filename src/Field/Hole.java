@@ -80,7 +80,7 @@ public class Hole extends Field {
     public String toString(HashMap<String,Object> objects){
         String result = "field:\n" +
                 "\tID: " + Test.getKeyByValue(objects,this) + "\n" +
-                "\ttype: " + this.getClass() + "\n" +
+                "\ttype: " + "hole" + "\n" +
                 "\tlayersOfSnow: " + this.getLayerOfSnow() + "\n" +
                 "\tneighbours: " + concatNeighbours(getNeighbours(),objects) + "\n" +
                 "\tlimit: " + this.getCapacity() + "\n";
