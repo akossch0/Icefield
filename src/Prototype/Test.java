@@ -122,7 +122,6 @@ public class Test {
                 currentPlayer = null;
                 break;
             case "LOAD":
-                //??
                 if(command.length == 1){
                     List<Object> newObjects = Game.getInstance().InitMap();
                     for(Object o: newObjects){
@@ -130,18 +129,16 @@ public class Test {
                         keys.add(o.toString()+"_"+ String.valueOf(ID));
                         ID = ID+1;
                     }
-                }else if(command.length == 2){
+                }/*else if(command.length == 2){
                     load(command[1]);
                 }else{
                     System.out.println("Wrong arguments given!");
-                }
+                }*/
                 break;
             case "SAVE":
-                //??
                 save(command);
                 if(!testing)
                     printOutput();
-                //System.out.println(outputOfSave);
                 break;
         }
     }
@@ -246,8 +243,6 @@ public class Test {
             case "rope":
                 actors.put(itemId, new Rope());
                 break;
-
-
         }
     }
 
@@ -385,7 +380,7 @@ public class Test {
     }
 
     public static String getKeyByValue(HashMap<String, Object> map, Object value) {
-        for (HashMap.Entry<String, Object> entry : map.entrySet()) 
+        for (HashMap.Entry<String, Object> entry : map.entrySet())
             if (Objects.equals(value, entry.getValue()))
                 return entry.getKey();
         return null;
