@@ -24,6 +24,7 @@ public class Test {
     private HashMap<String, Object> actors;
     private List<String> keys = new ArrayList<>();
     private Player currentPlayer;
+    private String outputOfSave;
     public Test(String n, String con, String outCon){
         name = n;
         content = con;
@@ -127,9 +128,8 @@ public class Test {
                 break;
             case "SAVE":
                 //??
-                String outputOfSave = save(command);
+                outputOfSave = save(command);
                 //System.out.println(outputOfSave);
-                compareOutputs(expectedOutput,outputOfSave);
                 break;
         }
     }
@@ -149,6 +149,7 @@ public class Test {
             System.out.println(line);
             interpretLine(line);
         }
+        compareOutputs(expectedOutput,outputOfSave);
     }
 
     private void newField(String id, String limit, String snow, String open) {
