@@ -4,6 +4,7 @@ import Game.Game;
 import Game.Manager;
 import Player.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,15 +18,12 @@ public class WinningItem extends Item {
      */
     @Override
     public void Use(Player p){
+        p.decreaseWorkUnits();
         Manager manager = Manager.getInstance();
-        p.RemoveItem(this);
-        List<Item> items  = p.getItems();
-        for (Item i : items){
-            if(i instanceof WinningItem){
-                p.RemoveItem(i);
-                manager.giveItem(i);
-            }
-        }
-        manager.addItem(this);
+
+        manager.WinningItemUsed();
+    }
+    public WinningItem(){
+        Manager.getInstance().register(this);
     }
 }

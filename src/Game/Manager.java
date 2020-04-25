@@ -4,6 +4,7 @@ import Coverable.NoCover;
 import Field.Field;
 import Item.Item;
 import Player.Player;
+import Item.WinningItem;
 
 
 import java.util.*;
@@ -23,7 +24,7 @@ public final class Manager {
     private static HashMap<Field,Integer> timeTent = new HashMap<Field,Integer>();
     private static ArrayList<Item> parts = new ArrayList<Item>();
     private static ArrayList<Player> players = new ArrayList<Player>();
-
+    private static ArrayList<WinningItem> winningItems = new ArrayList<>();
 
     private static Player currentPlayer;
     /**
@@ -51,6 +52,24 @@ public final class Manager {
     public static void AddPlayer(Player p){
         players.add(p);
         actors.add(p);
+    }
+    public static void register(WinningItem item){
+        winningItems.add(item);
+    }
+    public static void WinningItemUsed(){
+        boolean samePlace = true;
+
+        for (int l = 0;players.size()>l&&samePlace;l++){
+            if(!players.get(l).getField().equals(players.get(0).getField())){ samePlace = false;}
+        }
+        boolean everythingOwned = true;
+        for (WinningItem i : winningItems){
+            if (i.getHolder().equals(null))
+                everythingOwned = false;
+        }
+        if(samePlace && everythingOwned){
+            game.Win();
+        }
     }
 
     /**
