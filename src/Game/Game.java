@@ -128,7 +128,7 @@ public final class Game {
             items.add(new Swimsuit());
         // Spade
         for (int i = 0; i < Number_Of_Fields /5; i++ )
-            items.add(new Spade());
+            items.add(new Spade(3));
         // Rope
         for (int i = 0; i < Number_Of_Fields /8; i++ )
             items.add(new Rope());
