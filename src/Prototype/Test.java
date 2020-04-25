@@ -160,7 +160,7 @@ public class Test {
             IceBlock iceblock = new IceBlock();
             iceblock.setCapacity(Integer.parseInt(limit));
             iceblock.setLayerOfSnow(Integer.parseInt(snow));
-            iceblock.setIsOpen(open.equals("i")?true:false);
+            iceblock.setIsOpen(open.equals("i"));
             actors.put(id, iceblock);
             if (!keys.contains(id))
                 keys.add(id);

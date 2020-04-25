@@ -100,6 +100,7 @@ public abstract class Player extends Entity implements OutputToString{
         if (item != null){
             items.add(item);
             item.setHolder(this);
+            this.decreaseWorkUnits();
         }
     }
 
