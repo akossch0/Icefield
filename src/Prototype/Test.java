@@ -46,7 +46,7 @@ public class Test {
             throw new Exception("Valami igencsak rossz:((");
         String first = command[0];
         switch (first) {
-            case "field":
+            case "field" :
                 newField(command[1], command[3], command[4], command[5]);
                 break;
             case "neighbours":
