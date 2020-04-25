@@ -131,6 +131,7 @@ public class Test {
 
     public void createPolarBear(String field){
         PolarBear.getInstance().setField((Field)actors.get(field));
+        actors.put("PolarBear",PolarBear.getInstance());
     }
     public void ExecuteTest() throws Exception {
         System.out.println(content);
@@ -275,7 +276,7 @@ public class Test {
         }
     }
 
-    private void polarstep(String direction){
+    private void polarstep(String direction) {
         if (direction == null){
             // ??
             PolarBear.getInstance().yourTurn();
@@ -283,6 +284,10 @@ public class Test {
         else {
 
             PolarBear.getInstance().Step((Field)actors.get(direction));
+            try{
+                interpretLine("SAVE");
+            }catch(Exception e){}
+
         }
     }
 
