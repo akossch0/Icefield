@@ -1,0 +1,9 @@
+Játékos ételt fogyaszt úgy, hogy maximum a testhője
+field		iceblock_1	iceblock	1	0	n
+player		player_1	eskimo		iceblock_1
+item		item_1		food
+placeitem	item_1		player_1
+BEGIN 	player_1
+USE_ITEM	item_1		player_1
+END
+SAVE		player_1

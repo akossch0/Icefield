@@ -1,0 +1,9 @@
+field:
+	ID: iceblock_6
+	type: iceblock
+	layersOfSnow: 0
+    neighbours: hole_1 hole_3 hole_4 iceblock_5 iceblock_8
+	limit: 2
+	open: true
+	cover: IglooCover
+	item:

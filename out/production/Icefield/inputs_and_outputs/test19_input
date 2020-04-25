@@ -1,0 +1,6 @@
+Igluban lévő játékost vihar sújt
+field 		iceblock_1 	iceblock 10 0 i
+player 		player_1 	eskimo iceblock_1
+build		iceblock_1	igloocover
+BLIZZARD 	iceblock_1
+SAVE 		player_1

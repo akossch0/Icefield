@@ -1,0 +1,9 @@
+field:
+	ID: iceblock_1
+	type:iceblock
+	layersOfSnow: 0
+    neighbours:
+    limit:10
+	open: true
+	cover: TentCover
+	item:
