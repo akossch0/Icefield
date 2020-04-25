@@ -268,6 +268,7 @@ public class Test {
     private void use_item(String itemId, String targetId){
         Item item = (Item)actors.get(itemId);
         Player target = (Player)actors.get(targetId);
+        currentPlayer.decreaseWorkUnits();
         item.Use(target);
     }
 

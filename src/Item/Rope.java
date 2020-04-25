@@ -15,6 +15,6 @@ public class Rope extends Item {
     public void Use(Player p){
         Field target = this.getHolder().getField();
         p.setInWater(false);
-        p.Step(target);
+        p.setField(target);
     }
 }

@@ -6,9 +6,7 @@ import Item.*;
 import Field.*;
 import Prototype.Test;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 /**
  * Absztrakt alaposztaly, a konkret peldanyai az Eszkimo (Eskimo) vagy a Sarkkutato (Researcher).
@@ -199,11 +197,20 @@ public abstract class Player extends Entity implements OutputToString{
      * @param objects a hashmap amiben tarolva vannak az id-k objectekkel parositva
      * @return az eloallitott string
      */
+
     private String concatItems(List<Item> items, HashMap<String,Object> objects){
         StringBuilder result = new StringBuilder();
-        for(Item i : items){
-            result.append(Test.getKeyByValue(objects, i)).append(" ");
+        List<String> strs = new ArrayList<>();
+        for (Item i: items ){
+            strs.add(Test.getKeyByValue(objects, i));
+        }
+        Collections.sort(strs);
+        for(String s : strs){
+            result.append(s).append(" ");
         }
         return result.toString();
+    }
+    public void decreaseWorkUnits(){
+        actualWorkUnit = actualWorkUnit - 1;
     }
 }

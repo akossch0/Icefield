@@ -1,13 +1,4 @@
 player:
-	ID: player_2
-	TYPE: eskimo
-	actualHealth: 5
-	items:
-	inWater: true
-	actualWorkUnit: 4
-	field: iceblock_1
-	clothes: NoClothesEquipped
-player:
 	ID: player_1
 	TYPE: eskimo
 	actualHealth: 5
@@ -16,3 +7,13 @@ player:
 	actualWorkUnit: 3
 	field: iceblock_1
 	clothes: NoClothesEquipped
+player:
+	ID: player_2
+	TYPE: eskimo
+	actualHealth: 5
+	items:
+	inWater: true
+	actualWorkUnit: 4
+	field: iceblock_1
+	clothes: NoClothesEquipped
+
