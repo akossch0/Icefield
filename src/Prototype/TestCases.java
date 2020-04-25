@@ -59,7 +59,7 @@ public class TestCases {
         int numberOfTestCase = -1;
         do{
             try{
-                System.out.print("Give the number of a test-case you want to see. To quit press 0!");
+                System.out.print("Give the number of a test-case you want to see. To quit press 0! \n");
                 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
                 String s = br.readLine();
                 numberOfTestCase = Integer.parseInt(s);
