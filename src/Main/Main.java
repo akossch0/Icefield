@@ -14,5 +14,7 @@ class Main
         t.LoadTests();
         t.ListOutTests();
         Prototype proto = new Prototype();
+        proto.Run();
     }
+
 }
