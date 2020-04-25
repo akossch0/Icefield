@@ -17,4 +17,8 @@ public class Food extends Item {
         p.IncrHp();
         p.RemoveItem(this);
     }
+    @Override
+    public String toString(){
+        return "food";
+    }
 }

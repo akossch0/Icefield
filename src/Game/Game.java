@@ -82,32 +82,46 @@ public final class Game {
         while(fields.size() != Number_Of_Fields){
             int randomX = random.nextInt(Width);
             int randomY = random.nextInt(Height);
+            if (fields.size() == 0){
+                Hole H = new Hole();
+                H.X = randomX;
+                H.Y = randomY;
+                fields.add( H);
+            }
+            boolean good = true;
             for (Field f : fields){
-                int X_Dist = randomX- f.X;
-                int Y_Dist = randomY- f.Y;
+                int X_Dist = randomX - f.X;
+                int Y_Dist = randomY - f.Y;
 
                 int dist = (int)Math.sqrt(X_Dist*X_Dist+Y_Dist*Y_Dist);
-                if (dist > Min_Dist){
-                    double prob = random.nextDouble();
-                    if (prob > P_IceField){
-                        fields.add( new Hole());
-                    }
-                    else{
-                        IceBlock iceblock = new IceBlock();
-                        int thickness = random.nextInt(Snow_Thickness);
-                        int capacity = random.nextInt(Max_Capacity+1);
-                        if (capacity>=Max_Capacity ){
-                           iceblock.setCapacity(Integer.MAX_VALUE);
-                        }
-                        else{
-                            iceblock.setCapacity(capacity+1);
-                        }
-                        iceblock.setLayerOfSnow(thickness);
-                        fields.add(iceblock);
-                    }
+                if (dist < Min_Dist){
+                    good = false;
+                    break;
                 }
             }
-
+            if (good) {
+                double prob = random.nextDouble();
+                if (prob > P_IceField){
+                    Hole H = new Hole();
+                    H.X = randomX;
+                    H.Y = randomY;
+                    fields.add( H);
+                }
+                else {
+                    IceBlock iceblock = new IceBlock();
+                    int thickness = random.nextInt(Snow_Thickness);
+                    int capacity = random.nextInt(Max_Capacity + 1);
+                    if (capacity >= Max_Capacity) {
+                        iceblock.setCapacity(Integer.MAX_VALUE);
+                    } else {
+                        iceblock.setCapacity(capacity + 1);
+                    }
+                    iceblock.setLayerOfSnow(thickness);
+                    iceblock.X = randomX;
+                    iceblock.Y = randomY;
+                    fields.add(iceblock);
+                }
+            }
         }
         for (Field i: fields){
             for(Field j: fields){
