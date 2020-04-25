@@ -34,7 +34,7 @@ public class TestCases {
                         resContentOutput.append(line);
                         resContentOutput.append("\n");
                     }
-                    tests.put(i, new Test(nameOfTestCase, resContent.toString(), resContentOutput.toString()));
+                    tests.put(i, new Test(nameOfTestCase, resContent.toString(), resContentOutput.toString(),true));
                     br1.close();
                     br2.close();
                 }else {
@@ -203,15 +203,15 @@ public class TestCases {
             Test test = new Test("game",commandsString.toString(),"");
 
             test.ExecuteTest();*/
-            Test test = new Test("game","","");
+            Test test = new Test("game","","",false);
             System.out.println("Write commands here:");
             System.out.println("Write 'exit' to close the program.");
             String s;
             do{
                 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
                 s = br.readLine();
-
                 test.interpretLine(s);
+                String commands[] = s.split("\\s");
             }while(!s.equals("exit"));
             System.out.println("Bye!");
         } catch(Exception e) {
