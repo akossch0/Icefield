@@ -32,6 +32,7 @@ public class TestCases {
                     }
                     while ((line = br2.readLine()) != null) {
                         resContentOutput.append(line);
+                        resContentOutput.append("\n");
                     }
                     tests.put(i, new Test(nameOfTestCase, resContent.toString(), resContentOutput.toString()));
                     br1.close();

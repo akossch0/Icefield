@@ -131,6 +131,7 @@ public abstract class Player extends Entity implements OutputToString{
 
     @Override
     public void InteractWith(Player p) {
+
         return;
     }
 
@@ -157,7 +158,6 @@ public abstract class Player extends Entity implements OutputToString{
     public void AcceptItem(Item i){
         items.add(i);
         i.setHolder(this);
-
     }
     public void setInWater(boolean _inWater){
         inWater = _inWater;

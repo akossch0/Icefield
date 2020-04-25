@@ -1,5 +1,5 @@
 Játékos vízben van egy kör óta, búvárruhában
-field		iceblock_1	iceblock	1	3	n
+field		iceblock_1	iceblock	1 3 n
 player		player_1	eskimo		iceblock_1
 item		item_1		swimsuit
 placeitem	item_1		player_1

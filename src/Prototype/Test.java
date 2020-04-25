@@ -47,9 +47,10 @@ public class Test {
         String first = command[0];
         switch (first) {
             case "field":
-                if(command[2] == "iceblock")
+                if(command[2] == "icefield")
                     newField(command[1], command[3], command[4], command[5]);
-                else newField(command[1]);
+                else
+                    newField(command[1]);
                 break;
             case "neighbours":
                 addNeighbours(command[1], command[2]);
