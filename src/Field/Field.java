@@ -163,7 +163,8 @@ public abstract class Field implements OutputToString {
         for(String s : strs){
             result.append(s).append(" ");
         }
-        result.deleteCharAt(result.lastIndexOf(" "));
+        if(result.lastIndexOf(" ") >= 0)
+            result.deleteCharAt(result.lastIndexOf(" "));
         return result.toString();
     }
 

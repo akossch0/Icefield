@@ -24,7 +24,7 @@ public class Test {
     private HashMap<String, Object> actors;
     private List<String> keys = new ArrayList<>();
     private Player currentPlayer;
-    private String outputOfSave;
+    private String outputOfSave = "";
     public Test(String n, String con, String outCon){
         name = n;
         content = con;
@@ -128,7 +128,7 @@ public class Test {
                 break;
             case "SAVE":
                 //??
-                outputOfSave = save(command);
+                save(command);
                 //System.out.println(outputOfSave);
                 break;
         }
@@ -336,29 +336,27 @@ public class Test {
         }
     }
 
-    private String save(String[] command){
-        String out = "";
+    private void save(String[] command){
         if(command.length == 1){
             for(String str : keys){
-                out = out + ((OutputToString)actors.get(str)).toString(actors) + "\n";
+                outputOfSave = outputOfSave + ((OutputToString)actors.get(str)).toString(actors) + "\n";
             }
         }else if(command.length == 2){
             if(command[1].equals("GAMESTATE")){
                 Game.getInstance();
                 if(!Game.isGameWon() && !Game.isGameLost()){
-                    out = "GAME IN PROGRESS";
+                    outputOfSave = "GAME IN PROGRESS";
                 }else {
                     if(Game.isGameLost()){
-                        out = "GAME LOST";
+                        outputOfSave = "GAME LOST";
                     }else {
-                        out = "GAME WON";
+                        outputOfSave = "GAME WON";
                     }
                 }
             }else{
-                out = ((OutputToString)actors.get(command[1])).toString(actors);
+                outputOfSave = outputOfSave + ((OutputToString)actors.get(command[1])).toString(actors);
             }
         }
-        return out;
     }
 
     public static String getKeyByValue(HashMap<String, Object> map, Object value) {
