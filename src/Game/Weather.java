@@ -43,7 +43,7 @@ public final class Weather implements Actor{
     public void Blizzard(List<Field> f) {
 
         for (Field struck : fields){
-            boolean  b =  struck.IsCovered();
+            boolean  b = struck.IsCovered();
             if (!b){
                 struck.IncrLayerOfSnow();
                 List<Entity> ps = struck.getEntites();

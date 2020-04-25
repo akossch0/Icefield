@@ -104,6 +104,7 @@ public class IceBlock extends Field {
      * @return
      */
     public String toString(HashMap<String,Object> objects){
+        String itemString = Test.getKeyByValue(objects,this.item) == null ? "" : Test.getKeyByValue(objects,this.item);
         String result = "field:\n" +
                 "\tID: " + Test.getKeyByValue(objects,this) + "\n" +
                 "\ttype: " + "iceblock" + "\n" +
@@ -112,7 +113,7 @@ public class IceBlock extends Field {
                 "\tlimit: " + this.getCapacity() + "\n" +
                 "\topen: " + this.isOpen + "\n" +
                 "\tcover: " + this.cover.getClass() + "\n" +
-                "\titem: " + Test.getKeyByValue(objects,this.item) + "\n";
+                "\titem: " + itemString + "\n";
         return result;
     }
 }

@@ -11,8 +11,8 @@ public class TestCases {
     public void LoadTests(){
         for(Integer i = 1; i < 33; i++) {
             try {
-                File input = new File("src\\inputs and outputs\\test" + Integer.toString(i) + "_input");
-                File output = new File("src\\inputs and outputs\\test" + Integer.toString(i) + "_output");
+                File input = new File("src/inputs and outputs/test" + Integer.toString(i) + "_input");
+                File output = new File("src/inputs and outputs/test" + Integer.toString(i) + "_output");
                 if(input.exists() && output.exists()){
                     BufferedReader br1 = new BufferedReader(new FileReader(input));
                     BufferedReader br2 = new BufferedReader(new FileReader(output));
