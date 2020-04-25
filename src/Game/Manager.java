@@ -56,7 +56,7 @@ public final class Manager {
     public static void register(WinningItem item){
         winningItems.add(item);
     }
-    public static void WinningItemUsed(){
+    public static boolean WinningItemUsed(){
         boolean samePlace = true;
 
         for (int l = 0;players.size()>l&&samePlace;l++){
@@ -67,9 +67,11 @@ public final class Manager {
             if (i.getHolder().equals(null))
                 everythingOwned = false;
         }
-        if(samePlace && everythingOwned){
+        if(samePlace && everythingOwned && winningItems.size() == 3){
             game.Win();
+            return true;
         }
+        return false;
     }
 
     /**

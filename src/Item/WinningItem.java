@@ -18,10 +18,11 @@ public class WinningItem extends Item {
      */
     @Override
     public void Use(Player p){
-        p.decreaseWorkUnits();
-        Manager manager = Manager.getInstance();
 
-        manager.WinningItemUsed();
+        Manager manager = Manager.getInstance();
+         if (manager.WinningItemUsed())
+            p.decreaseWorkUnits();
+
     }
     public WinningItem(){
         Manager.getInstance().register(this);
