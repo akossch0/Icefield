@@ -14,7 +14,6 @@ import Player.*;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.lang.reflect.Array;
 import java.util.*;
 
 import static Game.Manager.playerInWaterAndNotFirstTurn;
@@ -169,11 +168,8 @@ public class Test {
         currentPlayer = null;
         outputOfSave = "";
         System.out.println(content);
-        Player currentPlayer = null;
-        // haha cocaine lines
         String[] lines = this.content.split("\n");
         for (String line : lines) {
-            //System.out.println(line);
             interpretLine(line);
         }
         compareOutputs(expectedOutput,outputOfSave);
@@ -264,14 +260,16 @@ public class Test {
     }
 
     private void build(String fieldId, String type){
-        if (type.equals("tentcover")){
-            ((Field)actors.get(fieldId)).Cover(new TentCover());
-        }
-        else if (type.equals("igloocover")){
-            ((Field)actors.get(fieldId)).Cover(new IglooCover());
-        }
-        else if (type.equals("nocover")){
-            ((Field)actors.get(fieldId)).Cover(new NoCover());
+        switch (type) {
+            case "tentcover":
+                ((Field) actors.get(fieldId)).Cover(new TentCover());
+                break;
+            case "igloocover":
+                ((Field) actors.get(fieldId)).Cover(new IglooCover());
+                break;
+            case "nocover":
+                ((Field) actors.get(fieldId)).Cover(new NoCover());
+                break;
         }
     }
 
@@ -341,12 +339,12 @@ public class Test {
                 BufferedReader br = new BufferedReader(new FileReader(in));
 
                 String line;
-                String res = "";
+                StringBuilder res = new StringBuilder();
                 while ((line = br.readLine()) != null) {
-                    res = res + line;
+                    res.append(line);
                 }
                 //mi legyen az output?
-                content = res;
+                content = res.toString();
                 expectedOutput = "";
                 ExecuteTest();
             }catch(Exception e){
