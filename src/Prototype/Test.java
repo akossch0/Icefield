@@ -47,7 +47,7 @@ public class Test {
         String first = command[0];
         switch (first) {
             case "field":
-                if(command[2] == "icefield")
+                if(command[2] == "iceblock")
                     newField(command[1], command[3], command[4], command[5]);
                 else
                     newField(command[1]);
