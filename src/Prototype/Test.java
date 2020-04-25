@@ -128,7 +128,8 @@ public class Test {
             case "SAVE":
                 //??
                 String outputOfSave = save(command);
-                System.out.println(outputOfSave);
+                //System.out.println(outputOfSave);
+                compareOutputs(expectedOutput,outputOfSave);
                 break;
         }
     }

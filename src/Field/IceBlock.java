@@ -104,9 +104,9 @@ public class IceBlock extends Field {
      * @return
      */
     public String toString(HashMap<String,Object> objects){
-        String result = "field\n" +
+        String result = "field:\n" +
                 "\tID: " + Test.getKeyByValue(objects,this) + "\n" +
-                "\tTYPE: " + this.getClass() + "\n" +
+                "\ttype: " + this.getClass() + "\n" +
                 "\tlayersOfSnow: " + this.getLayerOfSnow() + "\n" +
                 "\tneighbours: " + concatNeighbours(getNeighbours(),objects) + "\n" +
                 "\tlimit: " + this.getCapacity() + "\n" +

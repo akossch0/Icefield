@@ -77,7 +77,7 @@ public final class PolarBear extends Entity implements OutputToString{
      * @return
      */
     public String toString(HashMap<String,Object> objects){
-        String result = "polarbear\n" +
+        String result = "polarbear:\n" +
                 "\tfield: " + Test.getKeyByValue(objects,this.getField()) + "\n";
         return result;
     }
