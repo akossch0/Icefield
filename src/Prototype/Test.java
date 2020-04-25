@@ -145,6 +145,7 @@ public class Test {
         // haha cocaine lines
         String[] lines = this.content.split("\n");
         for (String line : lines) {
+            System.out.println(line);
             interpretLine(line);
         }
     }
@@ -257,6 +258,7 @@ public class Test {
     }
 
     private void step(String targetId){
+        System.out.println(targetId);
         Field targetField = (Field)actors.get(targetId);
         currentPlayer.Step(targetField);
     }
