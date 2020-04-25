@@ -160,6 +160,7 @@ public abstract class Field implements OutputToString {
         for(Field nb : nbs){
             result.append(Test.getKeyByValue(objects, nb)).append(" ");
         }
+        result.deleteCharAt(result.lastIndexOf(" "));
         return result.toString();
     }
 

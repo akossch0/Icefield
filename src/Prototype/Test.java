@@ -375,6 +375,8 @@ public class Test {
         System.out.println("EXPECTED:\n" + expected);
         System.out.println("ACTUAL:\n" + actual);
         for(int i = 0; i < act.length; i++){
+            act[i] = act[i].replaceAll("\\s","");
+            exp[i] = exp[i].replaceAll("\\s","");
             if(!act[i].equals(exp[i])){
                 System.out.println("ERROR:\nactual:\n" + act[i] + "\nexpected:\n" + exp[i]);
                 return false;
