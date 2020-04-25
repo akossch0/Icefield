@@ -20,7 +20,9 @@ public abstract class Entity implements Actor{
         f.Accept(this);
     }
     public void setField(Field field) {
+
         this.field = field;
+        field.Accept(this);
     }
     public Field getField(){return field;}
     public abstract void setInWater(boolean b);

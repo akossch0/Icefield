@@ -36,8 +36,9 @@ public class IceBlock extends Field implements OutputToString {
     @Override
     public void Accept(Entity e) {
         getEntites().add(e);
-        e.setField(this);
+
         for (Entity i: entities) {
+
             i.Meet(e);
         }
         if(getEntites().size()>getCapacity()){

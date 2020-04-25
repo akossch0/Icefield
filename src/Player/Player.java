@@ -104,7 +104,9 @@ public abstract class Player extends Entity implements OutputToString{
 
     @Override
     public void Meet(Actor a) {
+
         a.InteractWith(this);
+
     }
 
     /**
@@ -122,6 +124,7 @@ public abstract class Player extends Entity implements OutputToString{
 
     @Override
     public void InteractWith(PolarBear p) {
+
         Manager.Lose();
     }
 

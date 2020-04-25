@@ -32,6 +32,7 @@ public final class PolarBear extends Entity implements OutputToString{
 
     @Override
     public void Meet(Actor a) {
+
         a.InteractWith(this);
     }
 
@@ -45,6 +46,7 @@ public final class PolarBear extends Entity implements OutputToString{
 
     @Override
     public void InteractWith(Player p) {
+
         if(!p.getField().IsBearProof())
             Manager.Lose();
     }
