@@ -318,7 +318,7 @@ public class Test {
         String out = "";
         if(command.length == 1){
             for(String str : actors.keySet()){
-                out = out + ((OutputToString)actors.get(str)).toString(actors) + "\n\n";
+                out = out + ((OutputToString)actors.get(str)).toString(actors) + "\n";
             }
         }else if(command.length == 2){
             if(command[1].equals("GAMESTATE")){
