@@ -13,6 +13,7 @@ public class Swimsuit extends Item {
      */
     @Override
     public void Use(Player p){
+        this.getHolder().decreaseWorkUnits();
         SwimsuitEquipped swimsuit = new SwimsuitEquipped();
         p.setClothes(swimsuit);
     }
