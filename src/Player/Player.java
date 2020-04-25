@@ -14,7 +14,7 @@ import java.util.List;
  * Absztrakt alaposztaly, a konkret peldanyai az Eszkimo (Eskimo) vagy a Sarkkutato (Researcher).
  */
 
-public abstract class Player extends  Entity{
+public abstract class Player extends Entity implements OutputToString{
     private int actualHealth ;// A játékos aktuális élete.
     private int actualWorkUnit ;// A játékos a körben még hány munkát tud elvégezni. Minden körben 4 egységnyi munkát tud elvégezni az összes játékos.
     private int maxHealth ;// A játékos maximális élete. Eszkimóknak (Eskimo) 5, Sarkkutatóknak (Researcher) 4.
@@ -166,8 +166,8 @@ public abstract class Player extends  Entity{
                 "\tID: " + Test.getKeyByValue(objects,this) + "\n" +
                 "\tTYPE: " + this.getClass() + "\n" +
                 "\tactualHealth: " + this.actualHealth + "\n" +
-                "\titems: " + this.items + "\n" +
-                "\tinWater: " + concatItems(items,objects) + "\n" +
+                "\titems: " + concatItems(items,objects) + "\n" +
+                "\tinWater: " +  this.inWater + "\n" +
                 "\tactualWorkUnit: " + this.actualWorkUnit + "\n" +
                 "\tfield: " + Test.getKeyByValue(objects,this.field) + "\n" +
                 "\tclothes: " + this.clothes.getClass() + "\n";

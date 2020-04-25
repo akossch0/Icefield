@@ -181,7 +181,7 @@ public class TestCases {
 
     public void Game() {
         try{
-            boolean twoEnters = false;
+            /*boolean twoEnters = false;
             String before = null;
             ArrayList<String> strings = new ArrayList<>();
             System.out.println("Write commands here:");
@@ -200,8 +200,15 @@ public class TestCases {
             }
             Test test = new Test("game",commandsString.toString(),"");
 
-            test.ExecuteTest();
+            test.ExecuteTest();*/
+            Test test = new Test("game","","");
+            System.out.println("Write commands here:");
+            while(true){
+                BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+                String s = br.readLine();
 
+                test.ExecuteTest();
+            }
         } catch(Exception e) {
             System.out.println(e.getMessage());
         }
