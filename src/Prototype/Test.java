@@ -1,19 +1,13 @@
 package Prototype;
 
-import ClothesEquipped.NoClothesEquipped;
-import ClothesEquipped.SwimsuitEquipped;
-import Coverable.IglooCover;
-import Coverable.NoCover;
-import Coverable.TentCover;
+import ClothesEquipped.*;
+import Coverable.*;
 import Field.*;
-
 import Game.*;
 import Item.*;
 import Player.*;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.io.*;
 import java.util.*;
 
 import static Game.Manager.playerInWaterAndNotFirstTurn;
@@ -36,7 +30,7 @@ public class Test {
         actors = new HashMap<String,Object>();
         testing = t;
     }
-
+/*
     public String getOutputOfSave() {
         return outputOfSave;
     }
@@ -44,13 +38,12 @@ public class Test {
     public HashMap<String, Object> getActors() {
         return actors;
     }
-
+*/
     public String getName(){
         return name;
     }
 
     public void interpretLine(String line) throws Exception {
-        // Minden whitespacet ki akarunk venni hogy lehessen tabolni a tesztekben
         String[] command = line.split("\\s+");
         if (command.length == 0)
             throw new Exception("Valami igencsak rossz:((");
@@ -236,7 +229,6 @@ public class Test {
         switch (type){
             case "spade":
                 Spade spade = new Spade(3);
-
                 actors.put(itemId, spade);
                 break;
             case "food":
@@ -283,7 +275,6 @@ public class Test {
     }
 
     private void step(String targetId){
-        //System.out.println(targetId);
         Field targetField = (Field)actors.get(targetId);
         currentPlayer.Step(targetField);
     }
@@ -306,11 +297,9 @@ public class Test {
         currentPlayer.UseAbility((Field)actors.get(targetId));
     }
 
-    // Ez it kicsit nagyon rossz
     private void blizzard( List<String> fieldIds){
-        if (fieldIds == null){
+        if (fieldIds == null)
            Weather.getInstance().yourTurn();
-        }
         else{
             List<Field> list = new ArrayList<>();
 
@@ -322,14 +311,10 @@ public class Test {
     }
 
     private void polarstep(String direction) {
-        if (direction == null){
-            // ??
+        if (direction == null)
             PolarBear.getInstance().yourTurn();
-        }
-        else {
-
+        else
             PolarBear.getInstance().Step((Field)actors.get(direction));
-        }
     }
 
     private  void load(String path){
@@ -343,7 +328,6 @@ public class Test {
                 while ((line = br.readLine()) != null) {
                     res.append(line);
                 }
-                //mi legyen az output?
                 content = res.toString();
                 expectedOutput = "";
                 ExecuteTest();
@@ -396,17 +380,14 @@ public class Test {
     }
 
     public void printOutput(){
-        for(String o : objects.keySet()){
+        for(String o : objects.keySet())
             System.out.println(objects.get(o));
-        }
     }
 
     public static String getKeyByValue(HashMap<String, Object> map, Object value) {
-        for (HashMap.Entry<String, Object> entry : map.entrySet()) {
-            if (Objects.equals(value, entry.getValue())) {
+        for (HashMap.Entry<String, Object> entry : map.entrySet()) 
+            if (Objects.equals(value, entry.getValue()))
                 return entry.getKey();
-            }
-        }
         return null;
     }
 
