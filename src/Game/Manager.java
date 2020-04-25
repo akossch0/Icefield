@@ -153,7 +153,7 @@ public final class Manager {
         }
         timeTent.replaceAll((key,oldValue)->oldValue+1);
         for (Field i: timeTent.keySet()) {
-            if(timeTent.get(i)>=actors.size()) game.Lose();
+            if(timeTent.get(i)>=actors.size()) i.Cover(new NoCover());
         }
     }
 
