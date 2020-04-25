@@ -101,7 +101,6 @@ public final class Manager {
      * @param f hol tortent
      */
     public static void Update(boolean TentEpult,Field f){
-        if(currentPlayer==null)return;
         if(TentEpult){
             timeTent.put(f,0);
         }
