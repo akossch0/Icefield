@@ -354,7 +354,10 @@ public class Test {
                     }
                 }
             }else{
-                outputOfSave = outputOfSave + ((OutputToString)actors.get(command[1])).toString(actors) + "\n";
+                if(outputOfSave.equals(""))
+                    outputOfSave = outputOfSave + ((OutputToString)actors.get(command[1])).toString(actors);
+                else
+                    outputOfSave = outputOfSave + "\n" + ((OutputToString)actors.get(command[1])).toString(actors);
             }
         }
     }
