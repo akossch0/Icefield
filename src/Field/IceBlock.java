@@ -15,7 +15,7 @@ import java.util.List;
  * A mezo egy tipusa. A jegtablat reprezentalja a jatekban.
  * Az eszkimok tudnak ra iglut epiteni és lehetnek targyak belefagyva, melyeket a jatekosok ki tudnak belole asni.
  */
-public class IceBlock extends Field implements OutputToString {
+public class IceBlock extends Field {
     /** A mezon talalhato item **/
     protected Item item = null;
     private boolean isOpen = false;

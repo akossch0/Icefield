@@ -22,6 +22,7 @@ public class Test {
     private String expectedOutput;
     private String name;
     private HashMap<String, Object> actors;
+    private List<String> keys = new ArrayList<>();
     private Player currentPlayer;
     public Test(String n, String con, String outCon){
         name = n;
@@ -131,7 +132,9 @@ public class Test {
 
     public void createPolarBear(String field){
         PolarBear.getInstance().setField((Field)actors.get(field));
-        actors.put("PolarBear",PolarBear.getInstance());
+        actors.putIfAbsent("PolarBear",PolarBear.getInstance());
+        if(!keys.contains("PolarBear"))
+            keys.add("PolarBear");
     }
     public void ExecuteTest() throws Exception {
         System.out.println(content);
@@ -150,10 +153,14 @@ public class Test {
             iceblock.setLayerOfSnow(Integer.parseInt(snow));
             iceblock.setIsOpen(Boolean.parseBoolean(open));
             actors.put(id, iceblock);
+            if(!keys.contains(id))
+                keys.add(id);
         }
         else{
             Hole hole = new Hole();
             actors.put(id, hole);
+            if(!keys.contains(id))
+                keys.add(id);
         }
     }
 
@@ -169,10 +176,14 @@ public class Test {
         if (type.equals("eskimo")){
             Eskimo eskimo = new Eskimo((Field)actors.get(fieldId));
             actors.put(Id, eskimo);
+            if(!keys.contains(Id))
+                keys.add(Id);
         }
         else{
             Researcher researcher = new Researcher((Field)actors.get(fieldId));
             actors.put(Id, researcher);
+            if(!keys.contains(Id))
+                keys.add(Id);
         }
     }
 
@@ -189,6 +200,8 @@ public class Test {
     }
 
     private void newItem(String itemId, String type, String durability){
+        if(!keys.contains(itemId))
+            keys.add(itemId);
         switch (type){
             case "spade":
                 Spade spade = new Spade();
@@ -212,6 +225,7 @@ public class Test {
             case "rope":
                 actors.put(itemId, new Rope());
                 break;
+
 
         }
     }
@@ -240,7 +254,6 @@ public class Test {
     private void step(String targetId){
         Field targetField = (Field)actors.get(targetId);
         currentPlayer.Step(targetField);
-
     }
 
     private void use_item(String itemId, String targetId){
@@ -317,7 +330,7 @@ public class Test {
     private String save(String[] command){
         String out = "";
         if(command.length == 1){
-            for(String str : actors.keySet()){
+            for(String str : keys){
                 out = out + ((OutputToString)actors.get(str)).toString(actors) + "\n";
             }
         }else if(command.length == 2){
@@ -346,5 +359,11 @@ public class Test {
             }
         }
         return null;
+    }
+
+    public static boolean compareOutputs(String expected, String actual){
+        System.out.println(expected);
+        System.out.println(actual);
+        return expected.equals(actual);
     }
 }

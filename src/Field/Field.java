@@ -3,6 +3,7 @@ package Field;
 import Coverable.*;
 import Game.Entity;
 
+import Game.OutputToString;
 import Item.*;
 import Prototype.Test;
 
@@ -16,7 +17,7 @@ import java.util.List;
  * egyes mezok csak bizonyos szamu jatekost birnak el,
  * ezt a limitet tullepve a mezorol a jatekosok a vizbe kerulnek.
  */
-public abstract class Field {
+public abstract class Field implements OutputToString {
     /** A mezon allo playerek listaja **/
     protected List<Entity> entities = new ArrayList<>();
 

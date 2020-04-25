@@ -15,7 +15,7 @@ import java.util.List;
  * A mezo egy tipusa. A jegtablak kozott levo lyukat reprezentalja a jatekban.
  * Nem lehet ra iglut epiteni. Teherbírása 0. Nem lehetnek rajta targyak.
  */
-public class Hole extends Field implements OutputToString {
+public class Hole extends Field {
 
     @Override
     public boolean IsOpen() {
