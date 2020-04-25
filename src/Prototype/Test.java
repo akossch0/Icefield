@@ -141,6 +141,10 @@ public class Test {
             keys.add("PolarBear");
     }
     public void ExecuteTest() throws Exception {
+        actors = new HashMap<>();
+        keys = new ArrayList<>();
+        currentPlayer = null;
+        outputOfSave = "";
         System.out.println(content);
         Player currentPlayer = null;
         // haha cocaine lines
@@ -305,10 +309,6 @@ public class Test {
         else {
 
             PolarBear.getInstance().Step((Field)actors.get(direction));
-            try{
-                interpretLine("SAVE");
-            }catch(Exception e){}
-
         }
     }
 
