@@ -2,6 +2,7 @@ package Field;
 
 import Coverable.*;
 import Game.Entity;
+import Game.Manager;
 import Game.OutputToString;
 import Item.*;
 import Player.Player;
@@ -104,6 +105,7 @@ public class IceBlock extends Field {
      */
     public void Cover(Coverable c){
         cover = c;
+        Manager.Update(c instanceof TentCover,this);
     }
 
     /**

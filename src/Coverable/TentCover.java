@@ -11,7 +11,7 @@ public class TentCover implements Coverable {
      */
     public TentCover(){
       //  Manager.Update(true);
-        Manager.TentBuilt();
+
     }
 
     /**

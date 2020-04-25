@@ -97,25 +97,20 @@ public final class Manager {
 
     /**
      * hashmapbe berakas ha tent epult az adott mezon, illetve kiveves ha nem az epult
-     * @param TentEpult
-     *//*
-    public static void Update(boolean TentEpult){
+     * @param TentEpult tent epult e,
+     * @param f hol tortent
+     */
+    public static void Update(boolean TentEpult,Field f){
         if(currentPlayer==null)return;
         if(TentEpult){
-            timeTent.put(currentPlayer.getField(),0);
+            timeTent.put(f,0);
         }
         else{
-            timeTent.remove(currentPlayer.getField());
+            timeTent.remove(f);
         }
 
-    }*/
-    /**
-     * hashmapbe berakas ha tent epult az adott mezon
-     * @param
-     */
-    public static void TentBuilt(){
-        timeTent.put(currentPlayer.getField(),0);
     }
+
     /**
      *
      * @param i a targy amit a jatekos atad a managernek a jatek megnyeresehez
