@@ -17,4 +17,8 @@ public class Tent extends Item {
         this.getHolder().decreaseWorkUnits();
         p.getField().Cover(new TentCover());
     }
+    @Override
+    public String toString(){
+        return "tent";
+    }
 }

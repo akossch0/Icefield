@@ -18,4 +18,8 @@ public class Rope extends Item {
         p.setInWater(false);
         p.setField(target);
     }
+    @Override
+    public String toString(){
+        return "rope";
+    }
 }

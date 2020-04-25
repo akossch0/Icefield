@@ -49,4 +49,8 @@ public class Spade extends Item {
                 "\tdurability: " + this.durability + "\n";
         return result;
     }
+    @Override
+    public String toString(){
+        return "spade";
+    }
 }

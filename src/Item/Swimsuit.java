@@ -17,4 +17,8 @@ public class Swimsuit extends Item {
         SwimsuitEquipped swimsuit = new SwimsuitEquipped();
         p.setClothes(swimsuit);
     }
+    @Override
+    public String toString(){
+        return "swimsuit";
+    }
 }

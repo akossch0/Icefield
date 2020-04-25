@@ -27,4 +27,8 @@ public class WinningItem extends Item {
     public WinningItem(){
         Manager.getInstance().register(this);
     }
+    @Override
+    public String toString(){
+        return "winningitem";
+    }
 }
