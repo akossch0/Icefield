@@ -200,6 +200,7 @@ public class Test {
     }
 
     private void newItem(String itemId, String type, String durability){
+        type = type.toLowerCase();
         if(!keys.contains(itemId))
             keys.add(itemId);
         switch (type){
