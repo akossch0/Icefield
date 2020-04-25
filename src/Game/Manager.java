@@ -80,6 +80,9 @@ public final class Manager {
         }
         */
     }
+    public static void giveItem(Item i){
+        parts.add(i);
+    }
     /**
      *
      * @param i a targy amit a jatekos atad a managernek a jatek megnyeresehez
@@ -101,10 +104,13 @@ public final class Manager {
                 holder.IncreaseWorkUnit();
             }
         }else{
-            parts.remove(i);
-            Player holder = i.getHolder();
-            holder.AcceptItem(i);
-            holder.IncreaseWorkUnit();
+            for (Item temp : parts){
+                Player holder = temp.getHolder();
+                holder.AcceptItem(temp);
+
+                parts.remove(temp);
+            }
+            i.getHolder().IncreaseWorkUnit();
         }
     }
 

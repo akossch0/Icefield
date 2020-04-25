@@ -25,7 +25,7 @@ public class Spade extends Item {
     public void Use(Player p) {
         Field field = p.getField();
         field.DecrLayerOfSnow(2);
-        if(durability < 0){
+        if(durability > 0){
             if(durability - 1 == 0){
                 this.getHolder().RemoveItem(this);
             }else{

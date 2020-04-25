@@ -17,7 +17,7 @@ public class IglooCover implements Coverable{
      * @return boolean
      */
     @Override
-    public boolean IsCovered() { return false;}
+    public boolean IsCovered() { return true;}
 
     /**
      * Igazzal ter vissza, mivel az igloo-ba nem tud a medve bejutni

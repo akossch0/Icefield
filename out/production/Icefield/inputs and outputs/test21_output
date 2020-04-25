@@ -3,7 +3,7 @@ player:
 	ID: player_1
 	TYPE: eskimo
 	actualHealth: 5
-	items: item_1, item_2
+	items: item_1 item_2
 	inWater: false
 	actualWorkUnit: 4
 	field: iceblock_1

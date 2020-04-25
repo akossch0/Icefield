@@ -35,7 +35,9 @@ public abstract class Player extends Entity implements OutputToString{
      */
     private Manager manager = Manager.getInstance();
     public void IncreaseWorkUnit(){actualWorkUnit++;}
-
+    public List<Item> getItems(){
+        return items;
+    }
     /**
      * @param f A mező amire a kepesseget hasznalja majd a player (Oda epit Iglut vagy deriti fel)
      * @return Ha Researcher hivja meg akkor ter vissza fontos szammal, ha Eszkimo akkor 0 a visszateresi ertek
