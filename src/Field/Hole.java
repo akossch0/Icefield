@@ -83,7 +83,7 @@ public class Hole extends Field {
                 "\ttype: " + "hole" + "\n" +
                 "\tlayersOfSnow: " + this.getLayerOfSnow() + "\n" +
                 "\tneighbours: " + concatNeighbours(getNeighbours(),objects) + "\n" +
-                "\tlimit: " + this.getCapacity() + "\n";
+                "\tlimit: " + this.getCapacity();
         return result;
     }
 }

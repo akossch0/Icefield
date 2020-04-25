@@ -113,7 +113,7 @@ public class IceBlock extends Field {
                 "\tlimit: " + this.getCapacity() + "\n" +
                 "\topen: " + this.isOpen + "\n" +
                 "\tcover: " + this.cover.toString() + "\n" +
-                "\titem: " + itemString + "\n";
+                "\titem: " + itemString;
         return result;
     }
 }

@@ -179,7 +179,7 @@ public abstract class Player extends Entity implements OutputToString{
                 "\tinWater: " +  this.inWater + "\n" +
                 "\tactualWorkUnit: " + this.actualWorkUnit + "\n" +
                 "\tfield: " + Test.getKeyByValue(objects,this.field) + "\n" +
-                "\tclothes: " + this.clothes.getType() + "\n";
+                "\tclothes: " + this.clothes.getType();
         return result;
     }
 
