@@ -345,16 +345,28 @@ public class Test {
             if(command[1].equals("GAMESTATE")){
                 Game.getInstance();
                 if(!Game.isGameWon() && !Game.isGameLost()){
-                    outputOfSave = "GAME IN PROGRESS";
+                    if(outputOfSave.equals(""))
+                        outputOfSave = outputOfSave + "GAME IN PROGRESS";
+                    else
+                        outputOfSave = outputOfSave + "\nGAME IN PROGRESS";
                 }else {
                     if(Game.isGameLost()){
-                        outputOfSave = "GAME LOST";
+                        if(outputOfSave.equals(""))
+                            outputOfSave = outputOfSave + "GAME LOST";
+                        else
+                            outputOfSave = outputOfSave + "\nGAME LOST";
                     }else {
-                        outputOfSave = "GAME WON";
+                        if(outputOfSave.equals(""))
+                            outputOfSave = outputOfSave + "GAME WON";
+                        else
+                            outputOfSave = outputOfSave + "\nGAME WON";
                     }
                 }
             }else{
-                outputOfSave = outputOfSave + ((OutputToString)actors.get(command[1])).toString(actors) + "\n";
+                if(outputOfSave.equals(""))
+                    outputOfSave = outputOfSave + ((OutputToString)actors.get(command[1])).toString(actors);
+                else
+                    outputOfSave = outputOfSave + "\n" + ((OutputToString)actors.get(command[1])).toString(actors);
             }
         }
     }
