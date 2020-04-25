@@ -22,6 +22,7 @@ public class Test {
     private String expectedOutput;
     private String name;
     private HashMap<String, Object> actors;
+    private Player currentPlayer;
     public Test(String n, String con, String outCon){
         name = n;
         content = con;
@@ -37,7 +38,7 @@ public class Test {
         return name;
     }
 
-    public void interpretLine(String line, Player currentPlayer) throws Exception {
+    public void interpretLine(String line) throws Exception {
         // Minden whitespacet ki akarunk venni hogy lehessen tabolni a tesztekben
         String[] command = line.split("\\s+");
         if (command.length == 0)
@@ -69,19 +70,19 @@ public class Test {
                 wear( command[1], command[2]);
                 break; // Eddig nagyjából fasza
             case "STEP":
-                step( currentPlayer, command[1]);
+                step(command[1]);
                 break;
             case "USE_ITEM":
-                use_item(currentPlayer, command[1], command[2]);
+                use_item(command[1], command[2]);
                 break;
             case "USE_ABILITY":
-                use_ability(currentPlayer, command[1]);
+                use_ability(command[1]);
                 break;
             case "DIG":
-                dig(currentPlayer);
+                dig();
                 break;
             case "PICKUP":
-                pickup(currentPlayer);
+                pickup();
                 break;
             case "BLIZZARD":
                 if (command.length > 1) {
@@ -120,17 +121,18 @@ public class Test {
             case "SAVE":
                 //??
                 String outputOfSave = save(command);
+                System.out.println(outputOfSave);
                 break;
         }
     }
 
     public void ExecuteTest() throws Exception {
-
+        System.out.println(content);
         Player currentPlayer = null;
         // haha cocaine lines
         String[] lines = this.content.split("\n");
         for (String line : lines) {
-            interpretLine(line, currentPlayer);
+            interpretLine(line);
         }
     }
 
@@ -226,27 +228,30 @@ public class Test {
         }
     }
 
-    private void step(Player currentPlayer,String targetId){
+    private void step(String targetId){
         Field targetField = (Field)actors.get(targetId);
+        System.out.println(targetField.toString());
+        System.out.println(currentPlayer);
         currentPlayer.Step(targetField);
+
     }
 
-    private void use_item( Player currentPlayer, String itemId, String targetId){
+    private void use_item(String itemId, String targetId){
         Item item = (Item)actors.get(itemId);
         Player target = (Player)actors.get(targetId);
         item.Use(target);
     }
 
-    private void dig( Player currentPlayer){
+    private void dig(){
         currentPlayer.Dig();
     }
 
-    private void pickup( Player currentPlayer){
+    private void pickup(){
         currentPlayer.PickUpItem();
     }
 
-    private void use_ability(Player currentPlayer, String targetId) {
-        currentPlayer.UseAbility((Field) actors.get(targetId));
+    private void use_ability(String targetId) {
+        currentPlayer.UseAbility((Field)actors.get(targetId));
     }
 
     // Ez it kicsit nagyon rossz
@@ -320,6 +325,7 @@ public class Test {
                 out = ((OutputToString)actors.get(command[1])).toString(actors);
             }
         }
+
         return out;
     }
 

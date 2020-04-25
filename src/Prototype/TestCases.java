@@ -26,6 +26,7 @@ public class TestCases {
                             nameOfTestCase = line;
                         }else {
                             resContent.append(line);
+                            resContent.append("\n");
                         }
                         n++;
                     }

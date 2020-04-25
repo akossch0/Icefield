@@ -61,13 +61,14 @@ public final class Manager {
         }
 
     }
-    public static void Update(boolean TentEpult){
+    public static void Update(boolean TentEpult){/*
         if(TentEpult){
             timeTent.put(currentPlayer.getField(),0);
         }
         else{
             timeTent.remove(currentPlayer.getField());
         }
+        */
     }
     /**
      *
