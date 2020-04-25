@@ -44,10 +44,7 @@ public class Prototype {
                 test.Test();
                 break;
             case "play":
-                description = "You chose the playing mode!\n" +
-                        "\n" +
-                        "\n" +
-                        "";
+                description = "You chose the playing mode!\n";
 
                 System.out.println(description);
                 test.Game();

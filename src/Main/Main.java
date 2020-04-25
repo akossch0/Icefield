@@ -10,9 +10,6 @@ class Main
 {
 
     public static void main(String[] args) {
-        TestCases t = new TestCases();
-        t.LoadTests();
-        t.ListOutTests();
         Prototype proto = new Prototype();
         proto.Run();
     }

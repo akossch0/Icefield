@@ -331,7 +331,6 @@ public class Test {
                 out = ((OutputToString)actors.get(command[1])).toString(actors);
             }
         }
-
         return out;
     }
 

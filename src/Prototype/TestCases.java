@@ -203,12 +203,15 @@ public class TestCases {
             test.ExecuteTest();*/
             Test test = new Test("game","","");
             System.out.println("Write commands here:");
-            while(true){
+            System.out.println("Write 'exit' to close the program.");
+            String s;
+            do{
                 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-                String s = br.readLine();
+                s = br.readLine();
 
-                test.ExecuteTest();
-            }
+                test.interpretLine(s);
+            }while(!s.equals("exit"));
+            System.out.println("Bye!");
         } catch(Exception e) {
             System.out.println(e.getMessage());
         }
