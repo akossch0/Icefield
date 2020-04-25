@@ -18,7 +18,6 @@ public abstract class Player extends  Entity{
     private int actualHealth ;// A játékos aktuális élete.
     private int actualWorkUnit ;// A játékos a körben még hány munkát tud elvégezni. Minden körben 4 egységnyi munkát tud elvégezni az összes játékos.
     private int maxHealth ;// A játékos maximális élete. Eszkimóknak (Eskimo) 5, Sarkkutatóknak (Researcher) 4.
-    private Field field ;// Az a mező (Field), amelyen a játékos áll.
     private List<Item> items = new ArrayList<Item>();// A játékosnál lévő tárgyak.
     private boolean inWater = false;// Megmondja hogy a játékos vízbe vanprivate e.
     private ClothesEquipped clothes = new NoClothesEquipped();// A ruha viselése stratégiát tároló attribútum.
@@ -26,7 +25,7 @@ public abstract class Player extends  Entity{
         actualHealth = _actualHealth;
         actualWorkUnit = _actualWorkUnit;
         maxHealth = _maxHealth;
-        field = _field;
+        setField(_field);
     };
 
     private boolean endTurn = false;

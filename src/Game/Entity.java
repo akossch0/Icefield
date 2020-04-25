@@ -15,6 +15,7 @@ public abstract class Entity implements Actor{
      */
     public void Step(Field f){
         field.Remove(this);
+        field = f;
         f.Accept(this);
     }
     public void setField(Field field) {

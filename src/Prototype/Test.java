@@ -158,6 +158,7 @@ public class Test {
     }
 
     private void newPlayer( String Id, String type, String fieldId){
+
         if (type.equals("eskimo")){
             Eskimo eskimo = new Eskimo((Field)actors.get(fieldId));
             actors.put(Id, eskimo);
@@ -230,8 +231,6 @@ public class Test {
 
     private void step(String targetId){
         Field targetField = (Field)actors.get(targetId);
-        System.out.println(targetField.toString());
-        System.out.println(currentPlayer);
         currentPlayer.Step(targetField);
 
     }
