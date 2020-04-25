@@ -366,8 +366,16 @@ public class Test {
     }
 
     public static boolean compareOutputs(String expected, String actual){
-        System.out.println(expected);
-        System.out.println(actual);
-        return expected.equals(actual);
+        String[] exp = expected.split("\\s");
+        String[] act = actual.split("\\s");
+        System.out.println("EXPECTED:\n" + expected);
+        System.out.println("ACTUAL:\n" + actual);
+        for(int i = 0; i < act.length; i++){
+            if(!act[i].equals(exp[i])){
+                System.out.println("ERROR:\nactual:\n" + act[i] + "\nexpected:\n" + exp[i]);
+                return false;
+            }
+        }
+        return true;
     }
 }
