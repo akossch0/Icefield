@@ -29,6 +29,10 @@ public class Test {
         actors = new HashMap<String,Object>();
     }
 
+    public HashMap<String, Object> getActors() {
+        return actors;
+    }
+
     public String getName(){
         return name;
     }
@@ -294,11 +298,11 @@ public class Test {
         }
     }
 
-    private String save( String[] command){
+    private String save(String[] command){
         String out = "";
         if(command.length == 1){
             for(String str : actors.keySet()){
-                out = out + actors.get(str).toString() + "\n\n";
+                out = out + ((OutputToString)actors.get(str)).toString(actors) + "\n\n";
             }
         }else if(command.length == 2){
             if(command[1].equals("GAMESTATE")){
@@ -313,7 +317,7 @@ public class Test {
                     }
                 }
             }else{
-                out = actors.get(command[1]).toString();
+                out = ((OutputToString)actors.get(command[1])).toString(actors);
             }
         }
         return out;

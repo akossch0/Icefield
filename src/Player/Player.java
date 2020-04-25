@@ -4,8 +4,10 @@ import ClothesEquipped.*;
 import Game.*;
 import Item.*;
 import Field.*;
+import Prototype.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -160,4 +162,31 @@ public abstract class Player extends  Entity{
     }
     public boolean IsInWater(){return inWater;}
 
+    public String toString(HashMap<String,Object> objects){
+        String result = "player\n" +
+                "\tID: " + Test.getKeyByValue(objects,this) + "\n" +
+                "\tTYPE: " + this.getClass() + "\n" +
+                "\tactualHealth: " + this.actualHealth + "\n" +
+                "\titems: " + this.items + "\n" +
+                "\tinWater: " + concatItems(items,objects) + "\n" +
+                "\tactualWorkUnit: " + this.actualWorkUnit + "\n" +
+                "\tfield: " + Test.getKeyByValue(objects,this.field) + "\n" +
+                "\tclothes: " + this.clothes.getClass() + "\n";
+        return result;
+    }
+
+    /**
+     * A kimeneti nyelv miatt szukseges fuggveny, egy jatekos inventory-jabol csinal egy string-et
+     * ami az item-ek id-jet felsorolja egymas utan space-el elvalasztva
+     * @param items egy jatekos inventory-ja
+     * @param objects a hashmap amiben tarolva vannak az id-k objectekkel parositva
+     * @return az eloallitott string
+     */
+    private String concatItems(List<Item> items, HashMap<String,Object> objects){
+        StringBuilder result = new StringBuilder();
+        for(Item i : items){
+            result.append(Test.getKeyByValue(objects, i)).append(" ");
+        }
+        return result.toString();
+    }
 }

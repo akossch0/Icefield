@@ -4,8 +4,10 @@ import Coverable.*;
 import Game.Entity;
 
 import Item.*;
+import Prototype.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -130,5 +132,19 @@ public abstract class Field {
         layerOfSnow = LayerOfSnow;
     }
 
+    /**
+     * A kimeneti nyelv miatt szukseges fuggveny, egy field szomszedos fieldjeibol csinal egy string-et
+     * ami az field-ek id-jet felsorolja egymas utan space-el elvalasztva
+     * @param nbs szomszedos field-ek
+     * @param objects hashmap ami tarolja az id-ket
+     * @return az osszefuzott string
+     */
+    protected String concatNeighbours(List<Field> nbs, HashMap<String,Object> objects){
+        StringBuilder result = new StringBuilder();
+        for(Field nb : nbs){
+            result.append(Test.getKeyByValue(objects, nb)).append(" ");
+        }
+        return result.toString();
+    }
 
 }

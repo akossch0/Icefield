@@ -13,5 +13,6 @@ class Main
         TestCases t = new TestCases();
         t.LoadTests();
         t.ListOutTests();
+        Prototype proto = new Prototype();
     }
 }

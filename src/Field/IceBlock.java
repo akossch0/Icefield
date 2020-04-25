@@ -2,17 +2,20 @@ package Field;
 
 import Coverable.*;
 import Game.Entity;
+import Game.OutputToString;
 import Item.*;
 import Player.Player;
+import Prototype.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
  * A mezo egy tipusa. A jegtablat reprezentalja a jatekban.
  * Az eszkimok tudnak ra iglut epiteni és lehetnek targyak belefagyva, melyeket a jatekosok ki tudnak belole asni.
  */
-public class IceBlock extends Field {
+public class IceBlock extends Field implements OutputToString {
     /** A mezon talalhato item **/
     protected Item item = null;
     private boolean isOpen = false;
@@ -70,6 +73,19 @@ public class IceBlock extends Field {
      */
     public void Cover(Coverable c){
         cover = c;
+    }
+
+    public String toString(HashMap<String,Object> objects){
+        String result = "field\n" +
+                "\tID: " + Test.getKeyByValue(objects,this) + "\n" +
+                "\tTYPE: " + this.getClass() + "\n" +
+                "\tlayersOfSnow: " + this.getLayerOfSnow() + "\n" +
+                "\tneighbours: " + concatNeighbours(getNeighbours(),objects) + "\n" +
+                "\tlimit: " + this.getCapacity() + "\n" +
+                "\topen: " + this.isOpen + "\n" +
+                "\tcover: " + this.cover.getClass() + "\n" +
+                "\titem: " + Test.getKeyByValue(objects,this.item) + "\n";
+        return result;
     }
 
 }

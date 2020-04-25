@@ -2,7 +2,9 @@ package Game;
 
 import Field.Field;
 import Player.Player;
+import Prototype.Test;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
@@ -10,7 +12,7 @@ import java.util.Random;
  * Felelossege a jatekban levo jegesmedvet felugyelni
  * ami veletlenszeruen jarja  a palyat és megtamadja a jatekosokat ha vele egy mezon vannak.
  */
-public final class PolarBear extends Entity{
+public final class PolarBear extends Entity implements OutputToString{
     private static PolarBear INSTANCE;
 
     /**
@@ -50,5 +52,11 @@ public final class PolarBear extends Entity{
     @Override
     public void InteractWith(PolarBear p) {
         return;
+    }
+
+    public String toString(HashMap<String,Object> objects){
+        String result = "polarbear\n" +
+                "\tID: " + Test.getKeyByValue(objects,this) + "\n";
+        return result;
     }
 }

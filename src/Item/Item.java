@@ -1,13 +1,17 @@
 package Item;
 
+import Game.OutputToString;
 import Player.*;
+import Prototype.Test;
+
+import java.util.HashMap;
 
 /**
  * Absztrakt alaposztaly, a konkret peldanyai az Aso (Spade), Etel (Food),
  * Buvarruha (Swimsuit), Kotel (Rope), Nyero targy(WinningItem).
  * A targyakat reprezentalja a jatekban.
  */
-public abstract class Item {
+public abstract class Item implements OutputToString {
     /**
      * A birtokosa az itemnek
      */
@@ -31,19 +35,11 @@ public abstract class Item {
         return holder;
     }
 
-    /*public String toString(){
-        String result;
-        if(this.getClass().toString().equals("Spade")){
-            result = "item\n" +
-                    "ID:" + "\n" +
-                    "TYPE:" + this.getClass().toString() + "\n" +
-                    "holder:" + this +
-                    "durability:" + this;
-        }else {
-            result = "item\n" +
-                    "ID:" + "\n" +
-                    "TYPE:" + this.getClass().toString() + "\n" +
-                    "holder:" + this;
-        }
-    }*/
+    public String toString(HashMap<String,Object> objects){
+        String result = "item\n" +
+                    "\tID: " + Test.getKeyByValue(objects,this) + "\n" +
+                    "\tTYPE: " + this.getClass() + "\n" +
+                    "\tholder: " + Test.getKeyByValue(objects,this.getHolder()) + "\n";
+        return result;
+    }
 }
