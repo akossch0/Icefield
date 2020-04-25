@@ -17,6 +17,8 @@ import java.io.FileReader;
 import java.lang.reflect.Array;
 import java.util.*;
 
+import static Game.Manager.playerInWaterAndNotFirstTurn;
+
 public class Test {
     private String content;
     private String expectedOutput;
@@ -111,6 +113,7 @@ public class Test {
                     polarstep(null);
                 break;
             case "BEGIN":
+                playerInWaterAndNotFirstTurn();
                 currentPlayer = (Player)actors.get(command[1]);
                 if(currentPlayer.getActualWorkUnit() != 4)
                     currentPlayer.setActualWorkUnit(4);
@@ -267,7 +270,7 @@ public class Test {
     }
 
     private void step(String targetId){
-        System.out.println(targetId);
+        //System.out.println(targetId);
         Field targetField = (Field)actors.get(targetId);
         currentPlayer.Step(targetField);
     }

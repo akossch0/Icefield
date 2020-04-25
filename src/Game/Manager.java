@@ -86,13 +86,13 @@ public final class Manager {
       * @param p a jatekos, akinek az allapota valtozott
      */
     public static void Update(Player p){
-        if(p.IsInWater()){
-            timeInWater.put(p,0);
+        if(!p.isWaterproof()) {
+            if (p.IsInWater()) {
+                timeInWater.put(p, 0);
+            } else {
+                timeInWater.remove(p);
+            }
         }
-        else{
-            timeInWater.remove(p);
-        }
-
     }
 
     /**
@@ -142,6 +142,14 @@ public final class Manager {
         }
     }
 
+    public static void playerInWaterAndNotFirstTurn() {
+        //minden vízben lévő ember számlálóját növeli
+        timeInWater.replaceAll((key,oldValue)->oldValue+1);
+        for(Player i:timeInWater.keySet()) {
+            if (timeInWater.get(i) >= actors.size()) game.Lose();
+        }
+    }
+
     /**
      * elinditja a jatekosok lepeseit
      */
@@ -155,18 +163,17 @@ public final class Manager {
                 for (Field i:timeTent.keySet()) {
                     if(timeTent.get(i)>actors.size())i.Cover(new NoCover());
                 }
-                //Player e a jelenlegi actor, ha igen akkor ha sok ideig volt vízben és nem vízáló akkor vége a játéknak
+                //Player e a jelenlegi actor, ha igen akkor ha sok ideig volt vízben és nem vízálló akkor vége a játéknak
+                //minden vízben lévő ember számlálóját növeli
+                playerInWaterAndNotFirstTurn();
+
                 int index = (actors.indexOf(a)>=players.size()?-1:actors.indexOf(a));
                 if(index!=-1){
                     currentPlayer = players.get(index);
-
-                    if(timeInWater.get(currentPlayer)>actors.size()&&!currentPlayer.isWaterproof()) game.Lose();
                 }
                 //Actor köre jön
                 a.yourTurn();
 
-                //minden vízben lévő ember számlálóját növeli
-                timeInWater.replaceAll((key,oldValue)->oldValue+1);
 
                 //minden tent számlálóját növeli
                 timeTent.replaceAll((key,oldValue)->oldValue+1);
