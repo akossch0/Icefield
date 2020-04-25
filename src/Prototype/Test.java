@@ -133,7 +133,8 @@ public class Test {
                 if(command.length == 1){
                     List<Object> newObjects = Game.getInstance().InitMap();
                     for(Object o: newObjects){
-
+                        actors.put(o.toString(),o);
+                        keys.add(o.toString());
                     }
                 }else if(command.length == 2){
                     load(command[1]);
