@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 
 public class Prototype {
     private String gameMode;
-    private TestCases test;
+    private TestCases test = new TestCases();
 
     public TestCases getTest() {
         return test;
