@@ -319,8 +319,8 @@ public class Test {
         return out;
     }
 
-    public static <T, E> T getKeyByValue(HashMap<T, E> map, E value) {
-        for (Map.Entry<T, E> entry : map.entrySet()) {
+    public static String getKeyByValue(HashMap<String, Object> map, Object value) {
+        for (HashMap.Entry<String, Object> entry : map.entrySet()) {
             if (Objects.equals(value, entry.getValue())) {
                 return entry.getKey();
             }
