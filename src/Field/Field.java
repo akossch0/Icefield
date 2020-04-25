@@ -7,9 +7,7 @@ import Game.OutputToString;
 import Item.*;
 import Prototype.Test;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 /**
  * Absztrakt alaposztaly. Ebbol oroklodik az IceBlock és a Hole.
@@ -157,8 +155,13 @@ public abstract class Field implements OutputToString {
      */
     protected String concatNeighbours(List<Field> nbs, HashMap<String,Object> objects){
         StringBuilder result = new StringBuilder();
-        for(Field nb : nbs){
-            result.append(Test.getKeyByValue(objects, nb)).append(" ");
+        List<String> strs = new ArrayList<>();
+        for (Field nb: nbs ){
+            strs.add(Test.getKeyByValue(objects, nb));
+        }
+        Collections.sort(strs);
+        for(String s : strs){
+            result.append(s).append(" ");
         }
         result.deleteCharAt(result.lastIndexOf(" "));
         return result.toString();
