@@ -114,6 +114,7 @@ public final class Manager {
                 int index = (actors.indexOf(a)>=players.size()?-1:actors.indexOf(a));
                 if(index!=-1){
                     currentPlayer = players.get(index);
+
                     if(timeInWater.get(currentPlayer)>actors.size()&&!currentPlayer.isWaterproof()) game.Lose();
                 }
                 //Actor köre jön

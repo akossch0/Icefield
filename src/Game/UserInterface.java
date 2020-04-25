@@ -17,7 +17,20 @@ public class UserInterface {
         try {
             while(!ok){
             name = reader.readLine();
+            String temp[] = name.split(" ");
+            switch (temp[0]){
+                case "step":
+                    break;
+                case "use_ability":
+                    break;
+                case "use_item":
+                    break;
+                case "dig":
+                    break;
+                case "pick_up":
+                    break;
 
+            }
 
 
 
