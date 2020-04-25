@@ -25,4 +25,8 @@ public class IglooCover implements Coverable{
      */
     @Override
     public boolean IsBearProof() { return true; }
+    @Override
+    public String toString(){
+        return "IglooCover";
+    }
 }

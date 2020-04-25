@@ -25,4 +25,8 @@ public class NoCover implements Coverable {
      */
     @Override
     public boolean IsBearProof() {return false; }
+    @Override
+    public String toString(){
+        return "NoCover";
+    }
 }

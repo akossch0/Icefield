@@ -155,7 +155,7 @@ public class Test {
             IceBlock iceblock = new IceBlock();
             iceblock.setCapacity(Integer.parseInt(limit));
             iceblock.setLayerOfSnow(Integer.parseInt(snow));
-            iceblock.setIsOpen(Boolean.parseBoolean(open));
+            iceblock.setIsOpen(open.equals("i")?true:false);
             actors.put(id, iceblock);
             if (!keys.contains(id))
                 keys.add(id);

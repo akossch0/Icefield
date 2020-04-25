@@ -112,7 +112,7 @@ public class IceBlock extends Field {
                 "\tneighbours: " + concatNeighbours(getNeighbours(),objects) + "\n" +
                 "\tlimit: " + this.getCapacity() + "\n" +
                 "\topen: " + this.isOpen + "\n" +
-                "\tcover: " + this.cover.getClass() + "\n" +
+                "\tcover: " + this.cover.toString() + "\n" +
                 "\titem: " + itemString + "\n";
         return result;
     }
