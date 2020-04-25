@@ -30,6 +30,14 @@ public abstract class Player extends Entity implements OutputToString{
     private boolean endTurn = false;
     public void setEndTurn(boolean _endturn){endTurn = _endturn;}
 
+    public int getActualWorkUnit() {
+        return actualWorkUnit;
+    }
+
+    public void setActualWorkUnit(int actualWorkUnit) {
+        this.actualWorkUnit = actualWorkUnit;
+    }
+
     /**
      * A jatek menedzsere
      */

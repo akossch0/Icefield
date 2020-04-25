@@ -112,6 +112,8 @@ public class Test {
                 break;
             case "BEGIN":
                 currentPlayer = (Player)actors.get(command[1]);
+                if(currentPlayer.getActualWorkUnit() != 4)
+                    currentPlayer.setActualWorkUnit(4);
                 break;
             case "END":
                 currentPlayer = null;
@@ -153,7 +155,7 @@ public class Test {
         // haha cocaine lines
         String[] lines = this.content.split("\n");
         for (String line : lines) {
-            System.out.println(line);
+            //System.out.println(line);
             interpretLine(line);
         }
         compareOutputs(expectedOutput,outputOfSave);
