@@ -5,6 +5,6 @@ item 		tent_1 		tent
 placeitem 	tent_1 		player_1
 BEGIN 	player_1
 USE_ABILITY iceblock_1
-USE_ITEM	tent_1
+USE_ITEM	tent_1      player_1
 END
 SAVE 		iceblock_1
