@@ -31,7 +31,14 @@ public final class Manager {
      * Az egyetlen manager peldany
      */
     private static Manager INSTANCE;
-
+    public static void Reset(){
+        timeInWater = new HashMap<Player, Integer>();
+        timeTent = new HashMap<Field,Integer>();
+        parts = new ArrayList<Item>();
+        players = new ArrayList<Player>();
+        winningItems = new ArrayList<>();
+        actors = new ArrayList<Actor>();
+    }
     /**
      * Az egyetlen manager peldannyal visszater, ha meg nem letezik meg is konstrualja
      * @return Az egyetlen manager peldany

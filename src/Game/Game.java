@@ -18,13 +18,17 @@ public final class Game {
     /**
      * A jatekteren talalhato osszes mezo
       */
+
     private List<Field> fields = new ArrayList<>();
 
     /**
      * a statikus valtozo amin hivjuk a fuggvenyeket
      */
     private static Game INSTANCE;
-
+    public static void Reset(){
+        gameWon = false;
+        gameLost = false;
+    }
     /**
      * @return visszakuldi a statikus valtozot ha nem ures, amugy pedig peldanyosit
      */

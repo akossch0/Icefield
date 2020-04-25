@@ -141,6 +141,9 @@ public class Test {
             keys.add("PolarBear");
     }
     public void ExecuteTest() throws Exception {
+        Manager.getInstance().Reset();
+        Game.getInstance().Reset();
+        Weather.getInstance().Reset();
         actors = new HashMap<>();
         keys = new ArrayList<>();
         currentPlayer = null;

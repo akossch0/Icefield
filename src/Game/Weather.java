@@ -14,7 +14,7 @@ public final class Weather implements Actor{
     /**
      * Az osszes mezo a palyan
      */
-    private List<Field> fields = new ArrayList<Field>();
+    private static List<Field> fields = new ArrayList<Field>();
     /**
      * A weather egyetlen peldanya
      */
@@ -30,7 +30,9 @@ public final class Weather implements Actor{
 
         return INSTANCE;
     }
-
+    public static void Reset(){
+        fields = new ArrayList<>();
+    }
     /**
      * Ha private a konstruktor senki sem tudja majd hibasan hasznalni az osztalyt
      * kotelezoen a getInstance metodust fogjak hasznalni
