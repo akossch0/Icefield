@@ -54,6 +54,9 @@ public class Test {
             case "player":
                 newPlayer(command[1], command[2], command[3]);
                 break;
+            case "polarbear":
+                createPolarBear(command[1]);
+                break;
             case "placeitem":
                 placeItem(command[1], command[2]);
                 break;
@@ -126,6 +129,9 @@ public class Test {
         }
     }
 
+    public void createPolarBear(String field){
+        PolarBear.getInstance().setField((Field)actors.get(field));
+    }
     public void ExecuteTest() throws Exception {
         System.out.println(content);
         Player currentPlayer = null;
@@ -205,6 +211,7 @@ public class Test {
             case "rope":
                 actors.put(itemId, new Rope());
                 break;
+
         }
     }
 

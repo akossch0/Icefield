@@ -14,6 +14,7 @@ public abstract class Entity implements Actor{
      * @param f A mezo amire az entity lep
      */
     public void Step(Field f){
+
         field.Remove(this);
         field = f;
         f.Accept(this);
