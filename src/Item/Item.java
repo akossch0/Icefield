@@ -38,7 +38,7 @@ public abstract class Item implements OutputToString {
     public String toString(HashMap<String,Object> objects){
         String result = "item:\n" +
                     "\tID: " + Test.getKeyByValue(objects,this) + "\n" +
-                    "\ttype: " + this.getClass() + "\n" +
+                    "\ttype: " + this.getClass().toString() + "\n" +
                     "\tholder: " + Test.getKeyByValue(objects,this.getHolder()) + "\n";
         return result;
     }
