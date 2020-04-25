@@ -44,7 +44,7 @@ public class Spade extends Item {
     public String toString(HashMap<String,Object> objects){
         String result = "item:\n" +
                 "\tID: " + Test.getKeyByValue(objects,this) + "\n" +
-                "\ttype: " + this.getClass().toString() + "\n" +
+                "\ttype: " + this.toString() + "\n" +
                 "\tholder: " + Test.getKeyByValue(objects,this.getHolder()) + "\n" +
                 "\tdurability: " + this.durability + "\n";
         return result;
