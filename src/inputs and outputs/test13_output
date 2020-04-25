@@ -11,7 +11,7 @@ field:
 	ID: iceblock_1
 	type: iceblock
 	layersOfSnow: 0
-neigbours:
+    neigbours:
 	limit: 1
 	open: false
 	cover: NoCover

@@ -20,4 +20,7 @@ public class Researcher extends Player {
     public int UseAbility(Field f) {
         return f.getCapacity();
     }
+
+    @Override
+    public String getType() {return "researcher";}
 }

@@ -173,15 +173,17 @@ public abstract class Player extends Entity implements OutputToString{
     public String toString(HashMap<String,Object> objects){
         String result = "player:\n" +
                 "\tID: " + Test.getKeyByValue(objects,this) + "\n" +
-                "\tTYPE: " + this.getClass() + "\n" +
+                "\tTYPE: " + this.getType() + "\n" +
                 "\tactualHealth: " + this.actualHealth + "\n" +
                 "\titems: " + concatItems(items,objects) + "\n" +
                 "\tinWater: " +  this.inWater + "\n" +
                 "\tactualWorkUnit: " + this.actualWorkUnit + "\n" +
                 "\tfield: " + Test.getKeyByValue(objects,this.field) + "\n" +
-                "\tclothes: " + this.clothes.getClass() + "\n";
+                "\tclothes: " + this.clothes.getType() + "\n";
         return result;
     }
+
+    public abstract String getType();
 
     /**
      * A kimeneti nyelv miatt szukseges fuggveny, egy jatekos inventory-jabol csinal egy string-et

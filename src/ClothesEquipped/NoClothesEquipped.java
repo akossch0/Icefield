@@ -10,4 +10,7 @@ public class NoClothesEquipped implements ClothesEquipped {
      */
     @Override
     public boolean isWaterproof() {return false;}
+
+    @Override
+    public String getType() {return "NoClothesEquipped";}
 }
