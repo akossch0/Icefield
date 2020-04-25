@@ -48,7 +48,7 @@ public final class Manager {
      */
     private Manager(){
     }
-    static void AddPlayer(Player p){
+    public static void AddPlayer(Player p){
         players.add(p);
         actors.add(p);
     }
@@ -139,4 +139,5 @@ public final class Manager {
     public static void Lose(){
         game.Lose();
     }
+
 }

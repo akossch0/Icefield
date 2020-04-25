@@ -26,6 +26,7 @@ public abstract class Player extends Entity implements OutputToString{
         actualWorkUnit = _actualWorkUnit;
         maxHealth = _maxHealth;
         setField(_field);
+        Manager.AddPlayer(this);
     };
 
     private boolean endTurn = false;
