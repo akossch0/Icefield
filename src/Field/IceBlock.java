@@ -55,10 +55,17 @@ public class IceBlock extends Field {
         getEntites().add(e);
 
         for (Entity i: entities) {
-
             i.Meet(e);
         }
-        if(getEntites().size()>getCapacity()){
+
+        int numberOfPlayers = 0;
+        for(int i = 0; i < getEntites().size(); i++){
+            if(getEntites().get(i) instanceof Player){
+                numberOfPlayers++;
+            }
+        }
+
+        if(numberOfPlayers > getCapacity()){
             for (Entity i: getEntites()) {
                 i.setInWater(true);
             }

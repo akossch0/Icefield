@@ -194,11 +194,12 @@ public class TestCases {
                 }
                 strings.add(s);
                 before = s;
-            };
+            }
             StringBuilder commandsString = new StringBuilder();
             for(String s : strings){
                 commandsString.append(s);
             }
+
             Test test = new Test("game",commandsString.toString(),"");
 
             test.ExecuteTest();*/
