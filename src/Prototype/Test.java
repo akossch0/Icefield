@@ -212,10 +212,8 @@ public class Test {
             keys.add(itemId);
         switch (type){
             case "spade":
-                Spade spade = new Spade();
-                if (durability.equals("3")){
-                    spade.setDurability(3);
-                }
+                Spade spade = new Spade(3);
+
                 actors.put(itemId, spade);
                 break;
             case "food":

@@ -13,14 +13,26 @@ public class Spade extends Item {
     /**
      * @param p a player akin az item hasznalva lesz (megegyezhet a haszan,lojaval is)
      */
-    private int durability = Integer.MAX_VALUE;
+    private int durability;
     public void setDurability(int d){
         durability = d;
     }
+    public Spade(int dur){
+        durability = dur;
+    }
+
     @Override
     public void Use(Player p) {
         Field field = p.getField();
         field.DecrLayerOfSnow(2);
+        if(durability < 0){
+            if(durability - 1 == 0){
+                this.getHolder().RemoveItem(this);
+            }else{
+            durability--;
+            System.out.println("itt");
+            }
+        }
     }
 
     /**
