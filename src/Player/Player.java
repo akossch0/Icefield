@@ -60,7 +60,14 @@ public abstract class Player extends Entity implements OutputToString{
             Manager.Lose();
         }
     }
+    @Override
+    public void Step(Field f){
 
+        field.Remove(this);
+        field = f;
+        f.Accept(this);
+        actualWorkUnit = actualWorkUnit-1;
+    }
 
 
     /**

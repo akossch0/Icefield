@@ -3,6 +3,7 @@ field:
 	type:iceblock
 	layersOfSnow: 0
     neighbours:
-limit:10
-	open: i
+    limit:10
+	open: true
 	cover: IglooCover
+	item:
