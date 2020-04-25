@@ -1,9 +1,0 @@
-player:
-	ID: player_1
-	TYPE: eskimo
-	actualHealth: 5
-	items:
-	inWater: false
-	actualWorkUnit: 1
-	field: iceblock_1
-	clothes: NoClothesEquipped

@@ -1,8 +1,0 @@
-Játékos lyukra lép
-field 		iceblock_1 	iceblock 10 10 n
-field 		hole_1 		hole
-player 		player_1 	eskimo iceblock_1
-BEGIN 	    player_1
-STEP 		hole_1
-END
-SAVE player_1

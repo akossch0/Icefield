@@ -1,8 +1,0 @@
-Jegesmedve jégtáblára lép, ahol van legalább egy játékos
-field 		iceblock_1 	iceblock 	1 		0 	n
-field 		iceblock_2 	iceblock 	1 		0 	n
-neighbours 	iceblock_1 	iceblock_2
-player 		eskimo_1 	eskimo 	iceblock_2
-polarbear 	iceblock_1
-POLARSTEP 	iceblock_2
-SAVE		GAMESTATE
