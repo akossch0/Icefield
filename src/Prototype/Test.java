@@ -47,7 +47,9 @@ public class Test {
         String first = command[0];
         switch (first) {
             case "field":
-                newField(command[1], command[2], command[3], command[4], command[5]);
+                if(command[2] == "iceblock")
+                    newField(command[1], command[3], command[4], command[5]);
+                else newField(command[1]);
                 break;
             case "neighbours":
                 addNeighbours(command[1], command[2]);
@@ -146,22 +148,21 @@ public class Test {
         }
     }
 
-    private void newField(String id, String type, String limit, String snow, String open){
-        if (type.equals("iceblock")){
+    private void newField(String id, String limit, String snow, String open) {
             IceBlock iceblock = new IceBlock();
             iceblock.setCapacity(Integer.parseInt(limit));
             iceblock.setLayerOfSnow(Integer.parseInt(snow));
             iceblock.setIsOpen(Boolean.parseBoolean(open));
             actors.put(id, iceblock);
-            if(!keys.contains(id))
+            if (!keys.contains(id))
                 keys.add(id);
-        }
-        else{
+
+    }
+    private void newField(String id){
             Hole hole = new Hole();
             actors.put(id, hole);
             if(!keys.contains(id))
                 keys.add(id);
-        }
     }
 
     private void addNeighbours(String field1, String field2){
@@ -175,6 +176,7 @@ public class Test {
 
         if (type.equals("eskimo")){
             Eskimo eskimo = new Eskimo((Field)actors.get(fieldId));
+
             actors.put(Id, eskimo);
             if(!keys.contains(Id))
                 keys.add(Id);
@@ -189,13 +191,14 @@ public class Test {
 
     private void placeItem(String itemId, String targetId){
         Object target = actors.get(targetId);
+        Item item = (Item)actors.get(itemId);
         if (target instanceof Player){
             Player player = (Player)target;
-            player.AcceptItem((Item)actors.get(itemId));
+            player.AcceptItem(item);
         }
         else if (target instanceof Field){
             Field field = (Field)target;
-            field.setItem((Item)actors.get(itemId));
+            field.setItem(item);
         }
     }
 
