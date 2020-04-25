@@ -76,10 +76,10 @@ public final class Game {
         int Number_Of_Fields = 20;
         int Max_Capacity = 4;
         double P_Hole = 0.20;
-        int Width = 600;
-        int Height = 600;
+        int Width = 100;
+        int Height = 100;
         int Min_Dist = 20;
-        int Max_Dist = 40;
+        int Max_Dist = 50;
         while(fields.size() != Number_Of_Fields){
             int randomX = random.nextInt(Width);
             int randomY = random.nextInt(Height);
@@ -126,6 +126,8 @@ public final class Game {
         }
         for (Field i: fields){
             for(Field j: fields){
+                if (i == j)
+                    continue;
                 int X_Dist = i.X- j.X;
                 int Y_Dist = i.Y- j.Y;
 

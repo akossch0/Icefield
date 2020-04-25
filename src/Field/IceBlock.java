@@ -125,4 +125,8 @@ public class IceBlock extends Field {
                 "\titem: " + itemString;
         return result;
     }
+    @Override
+    public String toString(){
+        return "iceblock";
+    }
 }

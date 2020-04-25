@@ -199,6 +199,7 @@ public abstract class Player extends Entity implements OutputToString{
         return result;
     }
 
+
     public abstract String getType();
 
     /**

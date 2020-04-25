@@ -26,5 +26,8 @@ public class Eskimo extends Player {
 
     @Override
     public String getType() {return "eskimo";}
-
+    @Override
+    public String toString(){
+        return "eskimo";
+    }
 }

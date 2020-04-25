@@ -23,4 +23,8 @@ public class Researcher extends Player {
 
     @Override
     public String getType() {return "researcher";}
+    @Override
+    public String toString(){
+        return "researcher";
+    }
 }

@@ -87,4 +87,8 @@ public class Hole extends Field {
                 "\tlimit: " + this.getCapacity();
         return result;
     }
+    @Override
+    public String toString(){
+        return "hole";
+    }
 }

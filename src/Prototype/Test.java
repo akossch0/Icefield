@@ -29,6 +29,7 @@ public class Test {
     private Player currentPlayer;
     private String outputOfSave = "";
     private boolean testing;
+    private int ID = 0;
     public Test(String n, String con, String outCon, boolean t){
         name = n;
         content = con;
@@ -133,8 +134,9 @@ public class Test {
                 if(command.length == 1){
                     List<Object> newObjects = Game.getInstance().InitMap();
                     for(Object o: newObjects){
-                        actors.put(o.toString(),o);
-                        keys.add(o.toString());
+                        actors.put(o.toString()+"_"+String.valueOf(ID),o);
+                        keys.add(o.toString()+"_"+ String.valueOf(ID));
+                        ID = ID+1;
                     }
                 }else if(command.length == 2){
                     load(command[1]);
