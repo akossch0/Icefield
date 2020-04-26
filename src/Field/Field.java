@@ -133,15 +133,26 @@ public abstract class Field implements OutputToString {
      */
     public boolean IsCovered(){ return cover.IsCovered(); }
 
+    /**
+     * Visszater azzal, hogy megveallo-e a mezo
+     *
+     */
     public boolean IsBearProof(){
         return cover.IsBearProof();
     }
 
-
+    /**
+     * Visszater a horeteg szamaval, ami a mezon talalhato
+     *
+     */
     public int getLayerOfSnow() {
         return layerOfSnow;
     }
 
+    /**
+     *
+     * @param LayerOfSnow beallitja a mezon levo ho mennyiseget a kapott ertekre
+     */
     public void setLayerOfSnow(int LayerOfSnow) {
         layerOfSnow = LayerOfSnow;
     }

@@ -17,6 +17,11 @@ public class Food extends Item {
         p.IncrHp();
         p.RemoveItem(this);
     }
+
+    /**
+     * toString hivasra az osztaly nevevel ter vissza
+     *
+     */
     @Override
     public String toString(){
         return "food";

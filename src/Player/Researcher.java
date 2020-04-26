@@ -23,6 +23,11 @@ public class Researcher extends Player {
 
     @Override
     public String getType() {return "researcher";}
+
+    /**
+     * toString hivasra az osztaly nevevel ter vissza
+     *
+     */
     @Override
     public String toString(){
         return "researcher";

@@ -31,6 +31,10 @@ public abstract class Item implements OutputToString {
         holder = p;
     }
 
+    /**
+     * Visszaadja a targyat birtoklo jatekost
+     *
+     */
     public Player getHolder(){
         return holder;
     }

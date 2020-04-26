@@ -27,6 +27,11 @@ public class WinningItem extends Item {
     public WinningItem(){
         Manager.getInstance().register(this);
     }
+
+    /**
+     * toString hivasra az osztaly nevevel ter vissza
+     *
+     */
     @Override
     public String toString(){
         return "winningitem";

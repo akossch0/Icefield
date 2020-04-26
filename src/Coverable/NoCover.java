@@ -25,6 +25,11 @@ public class NoCover implements Coverable {
      */
     @Override
     public boolean IsBearProof() {return false; }
+
+    /**
+     * toString hivasra az osztaly nevevel ter vissza
+     *
+     */
     @Override
     public String toString(){
         return "NoCover";

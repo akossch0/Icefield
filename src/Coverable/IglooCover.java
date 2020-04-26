@@ -25,6 +25,11 @@ public class IglooCover implements Coverable{
      */
     @Override
     public boolean IsBearProof() { return true; }
+
+    /**
+     * toString hivasra az osztaly nevevel ter vissza
+     *
+     */
     @Override
     public String toString(){
         return "IglooCover";

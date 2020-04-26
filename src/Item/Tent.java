@@ -18,6 +18,11 @@ public class Tent extends Item {
         p.getField().Cover(new TentCover());
         getHolder().RemoveItem(this);
     }
+
+    /**
+     * toString hivasra az osztaly nevevel ter vissza
+     *
+     */
     @Override
     public String toString(){
         return "tent";

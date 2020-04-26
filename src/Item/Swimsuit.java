@@ -17,6 +17,11 @@ public class Swimsuit extends Item {
         SwimsuitEquipped swimsuit = new SwimsuitEquipped();
         p.setClothes(swimsuit);
     }
+
+    /**
+     * toString hivasra az osztaly nevevel ter vissza
+     *
+     */
     @Override
     public String toString(){
         return "swimsuit";

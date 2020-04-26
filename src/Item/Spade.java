@@ -48,6 +48,11 @@ public class Spade extends Item {
                 "\tdurability: " + this.durability + "\n";
         return result;
     }
+
+    /**
+     * toString hivasra az osztaly nevevel ter vissza
+     *
+     */
     @Override
     public String toString(){
         return "spade";
