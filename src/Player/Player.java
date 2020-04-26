@@ -13,12 +13,12 @@ import java.util.*;
  */
 
 public abstract class Player extends Entity implements OutputToString{
-    private int actualHealth ;// A játékos aktuális élete.
-    private int actualWorkUnit ;// A játékos a körben még hány munkát tud elvégezni. Minden körben 4 egységnyi munkát tud elvégezni az összes játékos.
-    private int maxHealth ;// A játékos maximális élete. Eszkimóknak (Eskimo) 5, Sarkkutatóknak (Researcher) 4.
-    private List<Item> items = new ArrayList<Item>();// A játékosnál lévő tárgyak.
-    private boolean inWater = false;// Megmondja hogy a játékos vízbe vanprivate e.
-    private ClothesEquipped clothes = new NoClothesEquipped();// A ruha viselése stratégiát tároló attribútum.
+    private int actualHealth ;
+    private int actualWorkUnit ;
+    private int maxHealth ;
+    private List<Item> items = new ArrayList<Item>();
+    private boolean inWater = false;
+    private ClothesEquipped clothes = new NoClothesEquipped();
     public Player(int _actualHealth,int _actualWorkUnit,int _maxHealth,Field _field){
         actualHealth = _actualHealth;
         actualWorkUnit = _actualWorkUnit;
@@ -130,7 +130,7 @@ public abstract class Player extends Entity implements OutputToString{
      */
     public void yourTurn(){
         //while(!endTurn&&actualWorkUnit!=0){ }
-        //Ez a rész majd tényleges játékmenetkor lesz lényeges, tesztelésnél, amikor a prototipust használjuk még nincs rá szülség
+        //Ez a resz majd tenyleges jatekmenetkor lesz lenyeges, tesztelesnel, amikor a prototipust hasznaljuk meg nincs ra szukseg
     }
 
     @Override
