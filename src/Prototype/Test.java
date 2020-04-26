@@ -225,6 +225,11 @@ public class Test {
                 keys.add(id);
     }
 
+    /**
+     * Szomszedokat ad hozza a mezokhoz
+     * @param field1 ennek a mezonek a field2 lesz a szomszedja
+     * @param field2 ennek a mezonek a field1 lesz a szomszedja
+     */
     private void addNeighbours(String field1, String field2){
         Field f1 = (Field)actors.get(field1);
         Field f2 = (Field)actors.get(field2);
@@ -232,6 +237,12 @@ public class Test {
         f2.AddNeighbour(f1);
     }
 
+    /**
+     * Uj jatekost ad hozza
+     * @param Id ez lesz a jatekos azonositoja
+     * @param type a tipusa
+     * @param fieldId erre a mezore fog a jatekos kerulni
+     */
     private void newPlayer( String Id, String type, String fieldId){
 
         if (type.equals("eskimo")){
@@ -249,6 +260,11 @@ public class Test {
         }
     }
 
+    /**
+     * Elhelyez egy targyat valahol vagy valakinel
+     * @param itemId a targy amit el fog helyezni
+     * @param targetId ide helyezi el
+     */
     private void placeItem(String itemId, String targetId){
         Object target = actors.get(targetId);
         Item item = (Item)actors.get(itemId);
@@ -262,6 +278,12 @@ public class Test {
         }
     }
 
+    /**
+     * Uj targyat hoz letre
+     * @param itemId ez lesz a targy azonositoja
+     * @param type ilyen fajta lesz a targy
+     * @param durability
+     */
     private void newItem(String itemId, String type, String durability){
         type = type.toLowerCase();
         if(!keys.contains(itemId))
@@ -289,6 +311,11 @@ public class Test {
         }
     }
 
+    /**
+     * Iglut epit vagy satra vagy uresse teszi a mezot
+     * @param fieldId a mezo azonositoja
+     * @param type az epitendo iglu vagy sator vagy ures mezo fajtaja
+     */
     private void build(String fieldId, String type){
         switch (type) {
             case "tentcover":
@@ -303,6 +330,11 @@ public class Test {
         }
     }
 
+    /**
+     * Jatekost tud felrhazni buvarruhaval vagy levetkoztetni
+     * @param playerId a jatekos azonositoja
+     * @param type vagy buvarruha vagy az hogy ne legyen a jatekoson ruha
+     */
     private void wear(String playerId, String type){
         if (type.equals("swimsuitequipped")){
             ((Player)actors.get(playerId)).setClothes(new SwimsuitEquipped());
@@ -312,24 +344,40 @@ public class Test {
         }
     }
 
+    /**
+     * A jelenlegi jatekos lepese
+     * @param targetId ide fog lepni a jatekos
+     */
     private void step(String targetId){
         Field targetField = (Field)actors.get(targetId);
         currentPlayer.Step(targetField);
     }
 
+    /**
+     * Targy hasznalat
+     * @param itemId a targy amit hasznalva lesz
+     * @param targetId o a celpont akire hasznalva lesz
+     */
     private void use_item(String itemId, String targetId){
         Item item = (Item)actors.get(itemId);
         Player target = (Player)actors.get(targetId);
         item.Use(target);
     }
 
+    /**
+     * A jelenlegi jatekos asasa
+     */
     private void dig(){
         currentPlayer.Dig();
     }
 
+    /**
+     * A jelenlegi jatekos felvesz egy targyat
+     */
     private void pickup(){
         currentPlayer.PickUpItem();
     }
+
 
     private void use_ability(String targetId) {
         currentPlayer.UseAbility((Field)actors.get(targetId));
