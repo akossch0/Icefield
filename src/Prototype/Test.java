@@ -44,103 +44,107 @@ public class Test {
     }
 
     public void interpretLine(String line) throws Exception {
-        String[] command = line.split("\\s+");
-        if (command.length == 0)
-            throw new Exception("Valami igencsak rossz:((");
-        String first = command[0];
-        switch (first) {
-            case "field":
-                if(command[2].equals("iceblock"))
-                    newField(command[1], command[3], command[4], command[5]);
-                else
-                    newField(command[1]);
-                break;
-            case "neighbours":
-                addNeighbours(command[1], command[2]);
-                break;
-            case "player":
-                newPlayer(command[1], command[2], command[3]);
-                break;
-            case "polarbear":
-                createPolarBear(command[1]);
-                break;
-            case "placeitem":
-                placeItem(command[1], command[2]);
-                break;
-            case "item":
-                if (command.length == 4)
-                    newItem(command[1], command[2], command[3]);
-                else
-                    newItem(command[1], command[2], "-1");
-                break;
-            case "build":
-                build(command[1], command[2]);
-                break;
-            case "wear":
-                wear( command[1], command[2]);
-                break; // Eddig nagyjából fasza
-            case "STEP":
-                step(command[1]);
-                break;
-            case "USE_ITEM":
-                use_item(command[1], command[2]);
-                break;
-            case "USE_ABILITY":
-                use_ability(command[1]);
-                break;
-            case "DIG":
-                dig();
-                break;
-            case "PICKUP":
-                pickup();
-                break;
-            case "BLIZZARD":
-                if (command.length > 1) {
-                    List<String> fieldList = new ArrayList();
-                    for (int i = 1; i < command.length; i++) {
-                        fieldList.add(command[i]);
+        try
+        {
+            String[] command = line.split("\\s+");
+            if (command.length == 0)
+                throw new Exception("Valami igencsak rossz:((");
+            String first = command[0];
+            switch (first) {
+                case "field":
+                    if(command[2].equals("iceblock"))
+                        newField(command[1], command[3], command[4], command[5]);
+                    else
+                        newField(command[1]);
+                    break;
+                case "neighbours":
+                    addNeighbours(command[1], command[2]);
+                    break;
+                case "player":
+                    newPlayer(command[1], command[2], command[3]);
+                    break;
+                case "polarbear":
+                    createPolarBear(command[1]);
+                    break;
+                case "placeitem":
+                    placeItem(command[1], command[2]);
+                    break;
+                case "item":
+                    if (command.length == 4)
+                        newItem(command[1], command[2], command[3]);
+                    else
+                        newItem(command[1], command[2], "-1");
+                    break;
+                case "build":
+                    build(command[1], command[2]);
+                    break;
+                case "wear":
+                    wear( command[1], command[2]);
+                    break; // Eddig nagyjából fasza
+                case "STEP":
+                    step(command[1]);
+                    break;
+                case "USE_ITEM":
+                    use_item(command[1], command[2]);
+                    break;
+                case "USE_ABILITY":
+                    use_ability(command[1]);
+                    break;
+                case "DIG":
+                    dig();
+                    break;
+                case "PICKUP":
+                    pickup();
+                    break;
+                case "BLIZZARD":
+                    if (command.length > 1) {
+                        List<String> fieldList = new ArrayList();
+                        for (int i = 1; i < command.length; i++) {
+                            fieldList.add(command[i]);
+                        }
+                        blizzard(fieldList);
                     }
-                    blizzard(fieldList);
-                }
-                else
-                    blizzard(null);
-                break;
-            case "POLARSTEP":
-                if (command.length > 1) {
-                    polarstep(command[1]);
-                }
-                else
-                    polarstep(null);
-                break;
-            case "BEGIN":
-                TurnPassed();
-                currentPlayer = (Player)actors.get(command[1]);
-                if(currentPlayer.getActualWorkUnit() != 4)
-                    currentPlayer.setActualWorkUnit(4);
-                break;
-            case "END":
-                currentPlayer = null;
-                break;
-            case "LOAD":
-                if(command.length == 1){
-                    List<Object> newObjects = Game.getInstance().InitMap();
-                    for(Object o: newObjects){
-                        actors.put(o.toString()+"_"+String.valueOf(ID),o);
-                        keys.add(o.toString()+"_"+ String.valueOf(ID));
-                        ID = ID+1;
+                    else
+                        blizzard(null);
+                    break;
+                case "POLARSTEP":
+                    if (command.length > 1) {
+                        polarstep(command[1]);
                     }
-                }/*else if(command.length == 2){
+                    else
+                        polarstep(null);
+                    break;
+                case "BEGIN":
+                    TurnPassed();
+                    currentPlayer = (Player)actors.get(command[1]);
+                    if(currentPlayer.getActualWorkUnit() != 4)
+                        currentPlayer.setActualWorkUnit(4);
+                    break;
+                case "END":
+                    currentPlayer = null;
+                    break;
+                case "LOAD":
+                    if(command.length == 1){
+                        List<Object> newObjects = Game.getInstance().InitMap();
+                        for(Object o: newObjects){
+                            actors.put(o.toString()+"_"+String.valueOf(ID),o);
+                            keys.add(o.toString()+"_"+ String.valueOf(ID));
+                            ID = ID+1;
+                        }
+                    }/*else if(command.length == 2){
                     load(command[1]);
                 }else{
                     System.out.println("Wrong arguments given!");
                 }*/
-                break;
-            case "SAVE":
-                save(command);
-                if(!testing)
-                    printOutput();
-                break;
-        }
+                    break;
+                case "SAVE":
+                    save(command);
+                    if(!testing)
+                        printOutput();
+                    break;
+                }
+        }catch(Exception e){System.out.println("Rossz volt a parancs paraméterezés.");}
+
     }
 
     public void createPolarBear(String field){
