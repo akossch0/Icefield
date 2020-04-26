@@ -18,7 +18,7 @@ public interface Actor {
     public abstract void yourTurn();
 
     /**
-     * acror interakcioja playerrel
+     * actor interakcioja playerrel
      * @param p a player akivel az aktor interakcioba lep
      */
     public abstract void InteractWith(Player p);

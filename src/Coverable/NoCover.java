@@ -1,17 +1,9 @@
 package Coverable;
 
-import Game.Manager;
-
 /**
  * A Field-nek egy strategy-je. Ha ez a tipus a Field strategy-je, akkor nem fedett a Field.
  */
 public class NoCover implements Coverable {
-    /**
-     * Konstruktor
-     */
-    public NoCover(){
-        //Manager.Update(false);
-    }
     /**
      * Hamisat ad vissza, vagyis jelzi hogy nem fedett a mezo.
      * @return false

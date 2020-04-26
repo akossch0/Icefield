@@ -121,7 +121,6 @@ public abstract class Player extends Entity implements OutputToString{
 
     @Override
     public void Meet(Actor a) {
-
         a.InteractWith(this);
 
     }

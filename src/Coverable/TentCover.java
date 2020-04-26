@@ -1,19 +1,11 @@
 package Coverable;
 
-import Game.Manager;
+
 
 /**
  * A Field-nek egy strategy-je. Ha ez a tipus a Field strategy-je, akkor egy korig fedett a Field.
  */
 public class TentCover implements Coverable {
-    /**
-     * Konstruktor
-     */
-    public TentCover(){
-      //  Manager.Update(true);
-
-    }
-
     /**
      * Sator megved a hovihar elol
      * @return igazzal ter vissza

@@ -148,7 +148,7 @@ public abstract class Field implements OutputToString {
 
     /**
      * A kimeneti nyelv miatt szukseges fuggveny, egy field szomszedos fieldjeibol csinal egy string-et
-     * ami az field-ek id-jet felsorolja egymas utan space-el elvalasztva
+     * ami a field-ek id-jet felsorolja egymas utan space-el elvalasztva
      * @param nbs szomszedos field-ek
      * @param objects hashmap ami tarolja az id-ket
      * @return az osszefuzott string

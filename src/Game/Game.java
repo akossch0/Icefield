@@ -17,8 +17,7 @@ public final class Game {
     private static boolean gameLost = false;
     /**
      * A jatekteren talalhato osszes mezo
-      */
-
+     */
     private List<Field> fields = new ArrayList<>();
 
     /**
