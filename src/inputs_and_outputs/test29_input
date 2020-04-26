@@ -1,4 +1,4 @@
-Játékos sátras jégtáblára iglut épít
+Jatekos satras jegtablara iglut epit
 field iceblock_1 iceblock 1 0 n
 build iceblock_1 tentcover
 player eskimo_1 eskimo iceblock_1
