@@ -69,6 +69,7 @@ public class TestCases {
                 while ((line = br.readLine()) != null) {
                     res.append(line).append("\n");
                 }
+                br.close();
             }catch(Exception e){
                 e.printStackTrace();
             }

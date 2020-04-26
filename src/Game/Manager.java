@@ -134,7 +134,7 @@ public final class Manager {
         actors.add(PolarBear.getInstance());
         actors.add(Weather.getInstance());
 
-        while(!game.isGameWon() && !game.isGameLost()){
+        while(!Game.isGameWon() && !Game.isGameLost()){
             for(Actor a : actors){
                 //Allt egy korig a tent
                 for (Field i:timeTent.keySet()) {

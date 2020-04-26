@@ -3,13 +3,13 @@ package Field;
 
 import Coverable.Coverable;
 import Game.Entity;
-import Game.OutputToString;
+
 import Item.Item;
-import Player.Player;
+
 import Prototype.Test;
 
 import java.util.HashMap;
-import java.util.List;
+
 
 /**
  * A mezo egy tipusa. A jegtablak kozott levo lyukat reprezentalja a jatekban.

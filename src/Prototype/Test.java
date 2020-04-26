@@ -105,7 +105,7 @@ public class Test {
                     break;
                 case "BLIZZARD":
                     if (command.length > 1) {
-                        List<String> fieldList = new ArrayList();
+                        List<String> fieldList = new ArrayList<String>();
                         for (int i = 1; i < command.length; i++) {
                             fieldList.add(command[i]);
                         }
@@ -286,7 +286,7 @@ public class Test {
      * Uj targyat hoz letre
      * @param itemId ez lesz a targy azonositoja
      * @param type ilyen fajta lesz a targy
-     * @param durability
+     * @param durability maradek hasznalhatósag
      */
     private void newItem(String itemId, String type, String durability){
         type = type.toLowerCase();
@@ -433,6 +433,7 @@ public class Test {
                 while ((line = br.readLine()) != null) {
                     res.append(line).append("\n");
                 }
+                br.close();
                 content = res.toString();
                 expectedOutput = "";
                 ExecuteTest();
