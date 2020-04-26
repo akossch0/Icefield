@@ -144,8 +144,10 @@ public final class Manager {
         }
     }**/
 
+    /**
+     * Minden vizben levo ember es a satrak szamlalojat szamlalojat noveli
+     */
     public static void TurnPassed() {
-        //minden vízben lévő ember számlálóját növeli
         timeInWater.replaceAll((key,oldValue)->oldValue+1);
         for(Player i:timeInWater.keySet()) {
             if (timeInWater.get(i) >= actors.size()) game.Lose();
@@ -157,7 +159,7 @@ public final class Manager {
     }
 
     /**
-     * elinditja a jatekosok lepeseit
+     * Elinditja a jatekosok lepeseit
      */
     public static void Start(){
         actors.add(PolarBear.getInstance());
@@ -191,7 +193,7 @@ public final class Manager {
     }
 
     /**
-     * jatekos halalanal hivodik
+     * Jatekos halalanal hivodik
      */
     public static void Lose(){
         game.Lose();

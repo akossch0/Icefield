@@ -217,6 +217,10 @@ public abstract class Player extends Entity implements OutputToString{
         }
         return result.toString();
     }
+
+    /**
+     * Csokkenti a jatekos munkaegysegeit eggyel
+     */
     public void decreaseWorkUnits(){
         actualWorkUnit = actualWorkUnit - 1;
     }

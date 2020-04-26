@@ -24,6 +24,10 @@ public class WinningItem extends Item {
             p.decreaseWorkUnits();
 
     }
+
+    /**
+     * A nyerotargy letrehozaskor regisztralodik a managerben
+     */
     public WinningItem(){
         Manager.getInstance().register(this);
     }
