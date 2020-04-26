@@ -25,9 +25,16 @@ public abstract class Field implements OutputToString {
     /** A mezo strategyje, alapertelmezetten minden mezo fedettlen **/
     protected Coverable cover = new NoCover();
 
+    /**
+     * A horetegek szama a mezon
+     */
     private  int layerOfSnow = 0;
 
+    /**
+     * Ennyi jatekost bir el a mezo
+     */
     private  int capacity = 0;
+
     public int X;
     public int Y;
 
