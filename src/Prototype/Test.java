@@ -13,7 +13,7 @@ import java.util.*;
 import static Game.Manager.TurnPassed;
 
 /**
- * A teszteles
+ * A tesztelest vegrehajto osztaly
  */
 public class Test {
     private String content;
@@ -378,11 +378,18 @@ public class Test {
         currentPlayer.PickUpItem();
     }
 
-
+    /**
+     * A jelenlegei jatekos kepessegenek hasznalata
+     * @param targetId a velpont amire hasznalni fogja
+     */
     private void use_ability(String targetId) {
         currentPlayer.UseAbility((Field)actors.get(targetId));
     }
 
+    /**
+     * Hovihat valosit meg
+     * @param fieldIds ezeken a mezokon lesz a hovihar
+     */
     private void blizzard( List<String> fieldIds){
         if (fieldIds == null)
            Weather.getInstance().yourTurn();
@@ -396,6 +403,10 @@ public class Test {
         }
     }
 
+    /**
+     * A jegesmedve lepese
+     * @param direction ebbe az iranyba
+     */
     private void polarstep(String direction) {
         if (direction == null)
             PolarBear.getInstance().yourTurn();
@@ -403,6 +414,10 @@ public class Test {
             PolarBear.getInstance().Step((Field)actors.get(direction));
     }
 
+    /**
+     * Fajbol olvas be sorokat es vegrehajtaja oket
+     * @param path a fajt eleresi utvonala
+     */
     private void load(String path){
         File in = new File(path);
         if(in.exists()){
@@ -425,6 +440,10 @@ public class Test {
         }
     }
 
+    /**
+     * Elmenti az utasitast a megfelelo helyre
+     * @param command ezt az utasitast kell elmenteni
+     */
     private void save(String[] command){
         if(command.length == 1){
             for(String str : keys){
@@ -473,6 +492,12 @@ public class Test {
             System.out.println(objects.get(o));
     }
 
+    /**
+     * Ertek alapja kulcsot ad vissza
+     * @param map itt fog keresni
+     * @param value ez alapjan az ertek alapjan
+     * @return a kulcs
+     */
     public static String getKeyByValue(HashMap<String, Object> map, Object value) {
         for (HashMap.Entry<String, Object> entry : map.entrySet())
             if (Objects.equals(value, entry.getValue()))
@@ -480,6 +505,12 @@ public class Test {
         return null;
     }
 
+    /**
+     * Osszehasonlitja a megadott kimeneteket
+     * @param expected elvart kimenet
+     * @param actual valodi kimenet
+     * @return igazzal vagy hamissal ter vissza
+     */
     public boolean compareOutputs(String expected, String actual){
         String[] exp = expected.split("\n");
         String[] act = actual.split("\n");
