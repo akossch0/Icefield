@@ -110,39 +110,6 @@ public final class Manager {
 
     }
 
-    /**
-     *
-     * @param i a targy amit a jatekos atad a managernek a jatek megnyeresehez
-     */
-    // Elméletileg sehol sem használva!
-    //
-    /**
-    public static void addItem(Item i){
-        parts.add(i);
-        boolean egyhelyen = true;
-
-        for (int l = 0;players.size()>l&&egyhelyen;l++){
-            if(!players.get(l).getField().equals(players.get(0).getField())){ egyhelyen = false;}
-        }
-
-        if(egyhelyen){
-            if(parts.size()==3){
-                Game game = Game.getInstance();
-                game.Win();
-            }else{
-                Player holder = i.getHolder();
-                holder.IncreaseWorkUnit();
-            }
-        }else{
-            for (Item temp : parts){
-                Player holder = temp.getHolder();
-                holder.AcceptItem(temp);
-
-                parts.remove(temp);
-            }
-            i.getHolder().IncreaseWorkUnit();
-        }
-    }**/
 
     /**
      * Minden vizben levo ember es a satrak szamlalojat szamlalojat noveli
@@ -181,10 +148,6 @@ public final class Manager {
                 }
                 //Actor köre jön
                 a.yourTurn();
-
-
-                //minden tent számlálóját növeli
-                timeTent.replaceAll((key,oldValue)->oldValue+1);
 
             }
 
