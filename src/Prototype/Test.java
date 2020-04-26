@@ -87,7 +87,7 @@ public class Test {
                     break;
                 case "wear":
                     wear( command[1], command[2]);
-                    break; // Eddig nagyjából fasza
+                    break;
                 case "STEP":
                     step(command[1]);
                     break;
@@ -518,8 +518,6 @@ public class Test {
     public boolean compareOutputs(String expected, String actual){
         String[] exp = expected.split("\n");
         String[] act = actual.split("\n");
-        //System.out.println("EXPECTED:\n" + expected);
-        //System.out.println("ACTUAL:\n" + actual);
         boolean res = true;
         for(int i = 0; i < act.length; i++){
             act[i] = act[i].replaceAll("\\s","");
