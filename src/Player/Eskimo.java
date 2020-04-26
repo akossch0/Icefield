@@ -15,7 +15,7 @@ public class Eskimo extends Player {
     }
 
     /**
-     * @param f A mező amire a kepesseget hasznalja majd a player (Oda epit Iglut vagy deriti fel)
+     * @param f A mezo amire a kepesseget hasznalja majd a player (Oda epit Iglut vagy deriti fel)
      * @return visszater nullaval
      */
     @Override
