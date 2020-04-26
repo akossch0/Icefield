@@ -127,6 +127,11 @@ public class IceBlock extends Field {
                 "\titem: " + itemString;
         return result;
     }
+
+    /**
+     * toString hivasra az osztaly nevevel ter vissza
+     *
+     */
     @Override
     public String toString(){
         return "iceblock";

@@ -25,6 +25,11 @@ public final class PolarBear extends Entity implements OutputToString{
 
         return INSTANCE;
     }
+
+    /**
+     *
+     * Nem csinal semmit, csak az oroklodes miatt szukseges
+     */
     @Override
     public void setInWater(boolean b) {
         return;

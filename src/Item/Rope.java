@@ -18,6 +18,11 @@ public class Rope extends Item {
         p.setInWater(false);
         p.setField(target);
     }
+
+    /**
+     * toString hivasra az osztaly nevevel ter vissza
+     *
+     */
     @Override
     public String toString(){
         return "rope";

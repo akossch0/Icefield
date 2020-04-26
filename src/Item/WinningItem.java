@@ -24,9 +24,18 @@ public class WinningItem extends Item {
             p.decreaseWorkUnits();
 
     }
+
+    /**
+     * A nyerotargy letrehozaskor regisztralodik a managerben
+     */
     public WinningItem(){
         Manager.getInstance().register(this);
     }
+
+    /**
+     * toString hivasra az osztaly nevevel ter vissza
+     *
+     */
     @Override
     public String toString(){
         return "winningitem";

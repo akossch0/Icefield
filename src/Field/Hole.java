@@ -87,6 +87,11 @@ public class Hole extends Field {
                 "\tlimit: " + this.getCapacity();
         return result;
     }
+
+    /**
+     * toString hivasra az osztaly nevevel ter vissza
+     *
+     */
     @Override
     public String toString(){
         return "hole";

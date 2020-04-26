@@ -19,6 +19,11 @@ public class TentCover implements Coverable {
      */
     @Override
     public boolean IsBearProof() { return false; }
+
+    /**
+     * toString hivasra az osztaly nevevel ter vissza
+     *
+     */
     @Override
     public String toString(){
         return "TentCover";

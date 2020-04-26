@@ -110,15 +110,48 @@ public final class Manager {
 
     }
 
+    /**
+     *
+     * @param i a targy amit a jatekos atad a managernek a jatek megnyeresehez
+     */
+    // Elméletileg sehol sem használva!
+    //
+    /**
+    public static void addItem(Item i){
+        parts.add(i);
+        boolean egyhelyen = true;
 
+        for (int l = 0;players.size()>l&&egyhelyen;l++){
+            if(!players.get(l).getField().equals(players.get(0).getField())){ egyhelyen = false;}
+        }
 
+        if(egyhelyen){
+            if(parts.size()==3){
+                Game game = Game.getInstance();
+                game.Win();
+            }else{
+                Player holder = i.getHolder();
+                holder.IncreaseWorkUnit();
+            }
+        }else{
+            for (Item temp : parts){
+                Player holder = temp.getHolder();
+                holder.AcceptItem(temp);
+
+                parts.remove(temp);
+            }
+            i.getHolder().IncreaseWorkUnit();
+        }
+    }**/
+
+    /**
+     * Minden vizben levo ember es a satrak szamlalojat szamlalojat noveli
+     */
     public static void TurnPassed() {
-        //minden vizben levo ember szamlalojat noveli
         timeInWater.replaceAll((key,oldValue)->oldValue+1);
         for(Player i:timeInWater.keySet()) {
             if (timeInWater.get(i) >= actors.size()) game.Lose();
         }
-        //minden sator szamlalojat noveli
         timeTent.replaceAll((key,oldValue)->oldValue+1);
         for (Field i: timeTent.keySet()) {
             if(timeTent.get(i)>=actors.size()) i.Cover(new NoCover());
@@ -126,7 +159,7 @@ public final class Manager {
     }
 
     /**
-     * elinditja a jatekosok lepeseit
+     * Elinditja a jatekosok lepeseit
      */
     public static void Start(){
         actors.add(PolarBear.getInstance());
@@ -134,26 +167,33 @@ public final class Manager {
 
         while(!game.isGameWon() && !game.isGameLost()){
             for(Actor a : actors){
-                //Allt egy korig a tent
+                //Állt egy körig a tent
                 for (Field i:timeTent.keySet()) {
                     if(timeTent.get(i)>actors.size())i.Cover(new NoCover());
                 }
-
+                //Player e a jelenlegi actor, ha igen akkor ha sok ideig volt vízben és nem vízálló akkor vége a játéknak
+                //minden vízben lévő ember számlálóját növeli
                 TurnPassed();
 
                 int index = (actors.indexOf(a)>=players.size()?-1:actors.indexOf(a));
                 if(index!=-1){
                     currentPlayer = players.get(index);
                 }
-                //a Actor kore jon
+                //Actor köre jön
                 a.yourTurn();
 
+
+                //minden tent számlálóját növeli
+                timeTent.replaceAll((key,oldValue)->oldValue+1);
+
             }
+
+
         }
     }
 
     /**
-     * jatekos halalanal hivodik
+     * Jatekos halalanal hivodik
      */
     public static void Lose(){
         game.Lose();
