@@ -256,8 +256,6 @@ public class TestCases {
                             "The command: ");
             String s;
             do{
-
-
                 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
                 s = br.readLine();
                 test.interpretLine(s);
