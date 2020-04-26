@@ -70,7 +70,7 @@ public abstract class Field implements OutputToString {
     public abstract void setItem(Item item);
     public abstract Item getItem();
     /**
-     * Visszaad egy mar kiasott targyat és eltavolitja azt a mezobol.
+     * Visszaad egy mar kiasott targyat es eltavolitja azt a mezobol.
      * @return a visszaadott item
      */
     public abstract Item RemoveItem();

@@ -113,7 +113,6 @@ public final class Manager {
 
     }
 
-
     /**
      * Minden vizben levo ember es a satrak szamlalojat szamlalojat noveli
      */

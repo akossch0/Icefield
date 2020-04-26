@@ -74,7 +74,6 @@ public final class Game {
         int Snow_Thickness = 4;
         int Number_Of_Fields = 20;
         int Max_Capacity = 4;
-        double P_Hole = 0.20;
         int Width = 100;
         int Height = 100;
         int Min_Dist = 20;

@@ -2,8 +2,6 @@ package Game;
 
 import Field.Field;
 
-import java.util.List;
-
 /**
  * Abstract osztaly. Jatekon belul fizikai lettel rendelkezo elolenyek ose.
  */

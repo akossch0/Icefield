@@ -8,7 +8,7 @@ package Coverable;
 public class IglooCover implements Coverable{
 
     /**
-     * Igazzal ter vissza, vagyis jelzi, hogy fedett a mező.
+     * Igazzal ter vissza, vagyis jelzi, hogy fedett a mezo.
      * @return boolean
      */
     @Override
