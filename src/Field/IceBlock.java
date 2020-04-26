@@ -3,14 +3,11 @@ package Field;
 import Coverable.*;
 import Game.Entity;
 import Game.Manager;
-import Game.OutputToString;
 import Item.*;
 import Player.Player;
 import Prototype.Test;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * A mezo egy tipusa. A jegtablat reprezentalja a jatekban.

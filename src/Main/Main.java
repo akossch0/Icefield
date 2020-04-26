@@ -1,10 +1,6 @@
 package Main;
 
 import Prototype.*;
-//import Skeleton.*;
-
-import java.awt.*;
-import java.io.*;
 
 class Main
 {

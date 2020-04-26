@@ -1,11 +1,8 @@
 package Item;
 
-import Game.Game;
 import Game.Manager;
 import Player.*;
 
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A jelzoraketa alkatreszeit reprezentalja a jatekban.
