@@ -73,7 +73,7 @@ public final class Game {
         double P_IceField = 0.80;
         int Snow_Thickness = 4;
         int Number_Of_Fields = 20;
-        int Max_Capacity = 4;
+        int Max_Capacity = Manager.getInstance().GetNumberOfPlayers();
         double P_Hole = 0.20;
         int Width = 100;
         int Height = 100;
@@ -112,9 +112,9 @@ public final class Game {
                     int thickness = random.nextInt(Snow_Thickness);
                     int capacity = random.nextInt(Max_Capacity + 1);
                     if (capacity >= Max_Capacity) {
-                        iceblock.setCapacity(-1);
+                        iceblock.setCapacity(Manager.getInstance().GetNumberOfPlayers());
                     } else {
-                        iceblock.setCapacity(capacity + 1);
+                        iceblock.setCapacity(capacity);
                     }
                     iceblock.setLayerOfSnow(thickness);
                     iceblock.X = randomX;
