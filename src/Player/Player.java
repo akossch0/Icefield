@@ -47,7 +47,7 @@ public abstract class Player extends Entity implements OutputToString{
         return items;
     }
     /**
-     * @param f A mező amire a kepesseget hasznalja majd a player (Oda epit Iglut vagy deriti fel)
+     * @param f A mezo amire a kepesseget hasznalja majd a player (Oda epit Iglut vagy deriti fel)
      * @return Ha Researcher hivja meg akkor ter vissza fontos szammal, ha Eszkimo akkor 0 a visszateresi ertek
      */
     public abstract int UseAbility (Field f);

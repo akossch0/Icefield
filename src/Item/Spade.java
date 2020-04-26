@@ -7,7 +7,7 @@ import Prototype.Test;
 import java.util.HashMap;
 
 /**
- * Asot reprezentalja a jatekban, hasznalataval 2 egysegnyi havat tud eltakarítani egy munkaegység felhasználasaval a jatekos, aki hasznalja.
+ * Asot reprezentalja a jatekban, hasznalataval 2 egysegnyi havat tud eltakarítani egy munkaegység felhasznalasaval a jatekos, aki hasznalja.
  */
 public class Spade extends Item {
     /**
