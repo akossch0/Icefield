@@ -1,4 +1,4 @@
-Játékos ásót használ olyan jégtáblán, amin 2 vagy 1 hóréteg van
+Jatekos asot hasznal olyan jegtablan, amin 2 vagy 1 horeteg van
 field		iceblock_1	iceblock	1	1	n
 player		player_1	eskimo		iceblock_1
 item		item_1		spade

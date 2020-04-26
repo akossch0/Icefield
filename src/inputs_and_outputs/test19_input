@@ -1,4 +1,4 @@
-Igluban lévő játékost vihar sújt
+Igluban levo jatekos vihar sujt
 field 		iceblock_1 	iceblock 10 0 i
 player 		player_1 	eskimo iceblock_1
 build		iceblock_1	igloocover

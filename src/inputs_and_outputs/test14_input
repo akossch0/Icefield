@@ -1,4 +1,4 @@
-Játékos megpróbálja összeszerelni a nyerő tárgyakat, úgy, hogy az összes nyerő tárgy nála van és minden játékos vele azonos jégtáblán áll
+Jatekos megprobalja osszeszerelni a nyero targyakat ugy, hogy az osszes nyero targy nala van es minden jatekos vele azonos jegtablan all
 field 		iceblock_1 	iceblock 2 0 i
 player 		player_1 	eskimo  iceblock_1
 player 		player_2 	eskimo  iceblock_1
