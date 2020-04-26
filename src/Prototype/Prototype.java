@@ -4,6 +4,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/**
+ * A prototipus iranyitasat vegzo osztaly
+ */
 public class Prototype {
     /**
      * A felhasznalo altal valasztott jatekmodot reprezentalja
@@ -11,7 +14,7 @@ public class Prototype {
     private String gameMode;
 
     /**
-     * A test ahova be lesznek olvas
+     * A programmodok iranyitasaert felelos
      */
     private TestCases test = new TestCases();
 
@@ -22,6 +25,9 @@ public class Prototype {
         return test;
     }
 
+    /**
+     * Felahsznaloi utasitast var ami alatjan a programott tesztelesi modban vagy jatek modban inditja el
+     */
     public void Run() {
         String answer;
 

@@ -12,6 +12,9 @@ import java.util.*;
 
 import static Game.Manager.TurnPassed;
 
+/**
+ * A teszteles
+ */
 public class Test {
     private String content;
     private String expectedOutput;
@@ -44,6 +47,9 @@ public class Test {
         return name;
     }
 
+    /**
+     * Ertelmezi a kapott stringet es utasitast keszit belole, meghivja a megfelelo utasitast vegzo fuggvenyt
+     */
     public void interpretLine(String line) throws Exception {
         try
         {
@@ -153,12 +159,21 @@ public class Test {
 
     }
 
+    /**
+     * Jegesmedvet hoz letre
+     * @param field a mezo, ahol a jegesmedve tartozkodni fog
+     */
     public void createPolarBear(String field){
         PolarBear.getInstance().setField((Field)actors.get(field));
         actors.putIfAbsent("PolarBear",PolarBear.getInstance());
         if(!keys.contains("PolarBear"))
             keys.add("PolarBear");
     }
+
+    /**
+     * Prancsertelmezo
+     * A paracsokat soronkent ertelmzi
+     */
     public boolean ExecuteTest() throws Exception {
         Manager.getInstance().Reset();
         Game.getInstance().Reset();
@@ -181,6 +196,13 @@ public class Test {
             return true;
     }
 
+    /**
+     * Uj mezot keszit, ami egy jegtabla
+     * @param id a jegtabla azonositoja lesz
+     * @param limit a jegtabla kapacitasat adja meg
+     * @param snow a jegtablan levo horetegek szamat adja
+     * @param open megadja hogy nyitott e a jegtabla
+     */
     private void newField(String id, String limit, String snow, String open) {
             IceBlock iceblock = new IceBlock();
             iceblock.setCapacity(Integer.parseInt(limit));
@@ -191,6 +213,11 @@ public class Test {
                 keys.add(id);
 
     }
+
+    /**
+     * Uj mezot keszit, ami eredendoen egy lyuk,
+     * @param id ez fogja azonositani a mezot
+     */
     private void newField(String id){
             Hole hole = new Hole();
             actors.put(id, hole);
@@ -390,6 +417,9 @@ public class Test {
         }
     }
 
+    /**
+     * A teszt kimenetet listazza ki a konzolra
+     */
     public void printOutput(){
         for(String o : objects.keySet())
             System.out.println(objects.get(o));

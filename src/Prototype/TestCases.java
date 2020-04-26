@@ -6,6 +6,7 @@ import java.io.*;
 import java.util.*;
 
 /**
+ * A programmodok iranyitasat vegzo osztaly
  * Teszteket tarolo osztaly, melynek feladata teszt jatemod eseten a tesztek betoltese, helyes ertelmezese.
  * Jatek nevu jatekmod eseten a felhasznalo utasitasainak ertelmezese
  */
