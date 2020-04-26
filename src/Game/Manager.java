@@ -136,19 +136,19 @@ public final class Manager {
 
         while(!game.isGameWon() && !game.isGameLost()){
             for(Actor a : actors){
-                //Állt egy körig a tent
+                //Allt egy korig a tent
                 for (Field i:timeTent.keySet()) {
                     if(timeTent.get(i)>actors.size())i.Cover(new NoCover());
                 }
-                //Player e a jelenlegi actor, ha igen akkor ha sok ideig volt vízben és nem vízálló akkor vége a játéknak
-                //minden vízben lévő ember számlálóját növeli
+                //Player e a jelenlegi actor, ha igen akkor ha sok ideig volt vizben es nem vizallo, akkor vege a jateknak
+                //minden vizben levo ember szamlalojat noveli
                 TurnPassed();
 
                 int index = (actors.indexOf(a)>=players.size()?-1:actors.indexOf(a));
                 if(index!=-1){
                     currentPlayer = players.get(index);
                 }
-                //Actor köre jön
+                //Actor kore jon
                 a.yourTurn();
 
             }

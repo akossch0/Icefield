@@ -66,7 +66,7 @@ public final class Weather implements Actor{
 
     /**
      *
-     * @param fs hozzáadott lista
+     * @param fs hozzaadott lista
      */
     public void add(List<Field> fs){
         fields = fs;
