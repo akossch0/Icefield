@@ -112,7 +112,7 @@ public final class Game {
                     int thickness = random.nextInt(Snow_Thickness);
                     int capacity = random.nextInt(Max_Capacity + 1);
                     if (capacity >= Max_Capacity) {
-                        iceblock.setCapacity(Integer.MAX_VALUE);
+                        iceblock.setCapacity(-1);
                     } else {
                         iceblock.setCapacity(capacity + 1);
                     }
