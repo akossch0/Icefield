@@ -147,7 +147,10 @@ public class Test {
                 case "SAVE":
                     save(command);
                     if(!testing && !all)
-                        printOutput();
+                        if(command.length == 1)
+                            printOutput();
+                        else
+                            System.out.println(objects.get(command[1]));
                     break;
                 case "exit":
                     break;
