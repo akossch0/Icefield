@@ -335,7 +335,7 @@ public class Test {
     }
 
     /**
-     * Jatekost tud felrhazni buvarruhaval vagy levetkoztetni
+     * Jatekost tud felruhazni buvarruhaval vagy levetkoztetni
      * @param playerId a jatekos azonositoja
      * @param type vagy buvarruha vagy az hogy ne legyen a jatekoson ruha
      */

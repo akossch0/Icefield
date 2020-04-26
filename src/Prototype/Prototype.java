@@ -46,7 +46,6 @@ public class Prototype {
                 System.out.println(e.getMessage());
             }
         }
-        String description;
 
         switch(gameMode){
             case "test":
