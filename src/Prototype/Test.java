@@ -22,6 +22,7 @@ public class Test {
     private Player currentPlayer;
     private String outputOfSave = "";
     private boolean testing;
+    private boolean all = false;
     private int ID = 0;
     public Test(String n, String con, String outCon, boolean t){
         name = n;
@@ -30,15 +31,15 @@ public class Test {
         actors = new HashMap<String,Object>();
         testing = t;
     }
-/*
-    public String getOutputOfSave() {
-        return outputOfSave;
+
+    public boolean isAll() {
+        return all;
     }
 
-    public HashMap<String, Object> getActors() {
-        return actors;
+    public void setAll(boolean all) {
+        this.all = all;
     }
-*/
+
     public String getName(){
         return name;
     }
@@ -131,19 +132,24 @@ public class Test {
                             keys.add(o.toString()+"_"+ String.valueOf(ID));
                             ID = ID+1;
                         }
-                    }/*else if(command.length == 2){
+                    }else if(command.length == 2){
                     load(command[1]);
                 }else{
                     System.out.println("Wrong arguments given!");
-                }*/
+                }
                     break;
                 case "SAVE":
                     save(command);
-                    if(!testing)
+                    if(!testing && !all)
                         printOutput();
                     break;
+                case "exit":
+                    break;
+                default:
+                    System.out.println("'" + command[0] + "' parancs nem volt ertelmezheto!");
+                    break;
                 }
-        }catch(Exception e){System.out.println("Rossz volt a parancs paraméterezés.");}
+        }catch(Exception e){System.out.println("Rossz volt a parancs parameterezes.");}
 
     }
 
@@ -153,7 +159,7 @@ public class Test {
         if(!keys.contains("PolarBear"))
             keys.add("PolarBear");
     }
-    public void ExecuteTest() throws Exception {
+    public boolean ExecuteTest() throws Exception {
         Manager.getInstance().Reset();
         Game.getInstance().Reset();
         Weather.getInstance().Reset();
@@ -161,7 +167,6 @@ public class Test {
         keys = new ArrayList<>();
         currentPlayer = null;
         outputOfSave = "";
-        System.out.println(content);
         String[] lines = this.content.split("\n");
         for (String line : lines) {
             try{
@@ -170,7 +175,10 @@ public class Test {
                 System.out.println("Rossz volt a parancs.");
             }
         }
-        compareOutputs(expectedOutput,outputOfSave);
+        if(testing)
+            return compareOutputs(expectedOutput,outputOfSave);
+        else
+            return true;
     }
 
     private void newField(String id, String limit, String snow, String open) {
@@ -320,7 +328,7 @@ public class Test {
             PolarBear.getInstance().Step((Field)actors.get(direction));
     }
 
-    private  void load(String path){
+    private void load(String path){
         File in = new File(path);
         if(in.exists()){
             try {
@@ -329,7 +337,7 @@ public class Test {
                 String line;
                 StringBuilder res = new StringBuilder();
                 while ((line = br.readLine()) != null) {
-                    res.append(line);
+                    res.append(line).append("\n");
                 }
                 content = res.toString();
                 expectedOutput = "";
@@ -394,20 +402,24 @@ public class Test {
         return null;
     }
 
-    public static boolean compareOutputs(String expected, String actual){
+    public boolean compareOutputs(String expected, String actual){
         String[] exp = expected.split("\n");
         String[] act = actual.split("\n");
-        System.out.println("EXPECTED:\n" + expected);
-        System.out.println("ACTUAL:\n" + actual);
+        //System.out.println("EXPECTED:\n" + expected);
+        //System.out.println("ACTUAL:\n" + actual);
+        boolean res = true;
         for(int i = 0; i < act.length; i++){
             act[i] = act[i].replaceAll("\\s","");
             exp[i] = exp[i].replaceAll("\\s","");
             if(!act[i].equals(exp[i])){
-                System.out.println("ERROR:\nactual:\n" + act[i] + "\nexpected:\n" + exp[i]);
-                return false;
+                System.out.println("ERROR:\nactual:\n\t" + act[i] + "\nexpected:\n\t" + exp[i]);
+                res = false;
             }
         }
-        System.out.println("NICE JOB GAYLORD!");
-        return true;
+        if(testing && !all && res)
+            System.out.println("Test succeeded!");
+        if(testing && !all && !res)
+            System.out.println("Test failed!");
+        return res;
     }
 }

@@ -31,7 +31,6 @@ public class Spade extends Item {
                 this.getHolder().RemoveItem(this);
             }else{
             durability--;
-            System.out.println("itt");
             }
         }
     }

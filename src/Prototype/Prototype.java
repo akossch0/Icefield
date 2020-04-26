@@ -17,14 +17,14 @@ public class Prototype {
 
         while(true){
             try {
-                System.out.println("<question> Do you want to test or to play?(test/play)");
+                System.out.println("\tPROTOTYPE\n<question> Do you want to test or to play?(test/play)");
                 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
                 answer = br.readLine();
                 if (answer.equals("test") || answer.equals("play")) {
                     gameMode = answer;
                     break;
                 } else {
-                    System.out.println("Wrong answer!");
+                    System.out.println("Wrong command!");
                 }
             } catch (Exception e) {
                 System.out.println(e.getMessage());
@@ -34,19 +34,12 @@ public class Prototype {
 
         switch(gameMode){
             case "test":
-                description = "You chose the testing mode!\n" +
-                        "You can use the command\n\tfile <path to the file of the test-cases>\n" +
-                        "to read test-cases from a .txt file\n" +
-                        "Yo can also test manually, choosing the number of the test-case written below.";
-
-                System.out.println(description);
+                System.out.println("You chose the testing mode!");
                 //itt lesz a tesztesetek kilistazasa, es a menuvezerles
                 test.Test();
                 break;
             case "play":
-                description = "You chose the playing mode!\n";
-
-                System.out.println(description);
+                System.out.println("You chose the playing mode!");
                 test.Game();
                 break;
         }

@@ -45,7 +45,25 @@ public class TestCases {
                 e.printStackTrace();
             }
         }
-        System.out.println(tests);
+    }
+
+    public String LoadTest(String path){
+        File in = new File(path);
+        StringBuilder res = new StringBuilder();
+        if(in.exists()){
+            try {
+                BufferedReader br = new BufferedReader(new FileReader(in));
+                String line;
+                while ((line = br.readLine()) != null) {
+                    res.append(line).append("\n");
+                }
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }else{
+            System.out.println("The path given does not represent a file.");
+        }
+        return res.toString();
     }
 
     public void ListOutTests(){
@@ -57,117 +75,144 @@ public class TestCases {
     public void Test(){
         LoadTests();
         ListOutTests();
-        int numberOfTestCase = -1;
+        String[] command = {"-1"};
         do{
             try{
-                System.out.print("Give the number of a test-case you want to see. To quit press 0! \n");
+                System.out.println("---------------------------------------");
+                System.out.print(
+                        "To execute all of the tests use command 'all'.\n"+
+                        "You can use the command\n\tfile <path to the file of the test-cases>\n" +
+                        "to read test-cases from a .txt file.\n" +
+                        "Yo can also test manually, choosing the number of the test-input written up.\nTo quit press '0'!\n" +
+                        "The command: ");
+
                 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
                 String s = br.readLine();
-                numberOfTestCase = Integer.parseInt(s);
+                command = s.split("\\s");
 
-            }catch(Exception e){
-                System.out.println(e.getMessage());
-            }
-            try {
-                switch (numberOfTestCase) {
-                    case (0): /*kilepunk a programbol*/
+                switch (command[0]) {
+                    case ("0"): /*kilepunk a programbol*/
                         System.out.println("Bye!");
                         break;
-                    case (1):
+                    case ("1"):
                         tests.get(1).ExecuteTest();
                         break;
-                    case (2):
+                    case ("2"):
                         tests.get(2).ExecuteTest();
                         break;
-                    case (3):
+                    case ("3"):
                         tests.get(3).ExecuteTest();
                         break;
-                    case (4):
+                    case ("4"):
                         tests.get(4).ExecuteTest();
                         break;
-                    case (5):
+                    case ("5"):
                         tests.get(5).ExecuteTest();
                     break;
-                    case (6):
+                    case ("6"):
                         tests.get(6).ExecuteTest();
                         break;
-                    case (7):
+                    case ("7"):
                         tests.get(7).ExecuteTest();
                         break;
-                    case (8):
+                    case ("8"):
                         tests.get(8).ExecuteTest();
                         break;
-                    case (9):
+                    case ("9"):
                         tests.get(9).ExecuteTest();
                         break;
-                    case (10):
+                    case ("10"):
                         tests.get(10).ExecuteTest();
                         break;
-                    case (11):
+                    case ("11"):
                         tests.get(11).ExecuteTest();
                         break;
-                    case (12):
+                    case ("12"):
                         tests.get(12).ExecuteTest();
                         break;
-                    case (13):
+                    case ("13"):
                         tests.get(13).ExecuteTest();
                         break;
-                    case (14):
+                    case ("14"):
                         tests.get(14).ExecuteTest();
                         break;
-                    case (15):
+                    case ("15"):
                         tests.get(15).ExecuteTest();
                         break;
-                    case (16):
+                    case ("16"):
                         tests.get(16).ExecuteTest();
                         break;
-                    case (17):
+                    case ("17"):
                         tests.get(17).ExecuteTest();
                         break;
-                    case (18):
+                    case ("18"):
                         tests.get(18).ExecuteTest();
                         break;
-                    case (19):
+                    case ("19"):
                         tests.get(19).ExecuteTest();
                         break;
-                    case (20):
+                    case ("20"):
                         tests.get(20).ExecuteTest();
                         break;
-                    case (21):
+                    case ("21"):
                         tests.get(21).ExecuteTest();
                         break;
-                    case (22):
+                    case ("22"):
                         tests.get(22).ExecuteTest();
                         break;
-                    case (23):
+                    case ("23"):
                         tests.get(23).ExecuteTest();
                         break;
-                    case (24):
+                    case ("24"):
                         tests.get(24).ExecuteTest();
                         break;
-                    case (25):
+                    case ("25"):
                         tests.get(25).ExecuteTest();
                         break;
-                    case (26):
+                    case ("26"):
                         tests.get(26).ExecuteTest();
                         break;
-                    case (27):
+                    case ("27"):
                         tests.get(27).ExecuteTest();
                         break;
-                    case (28):
+                    case ("28"):
                         tests.get(28).ExecuteTest();
                         break;
-                    case (29):
+                    case ("29"):
                         tests.get(29).ExecuteTest();
                         break;
-                    case (30):
+                    case ("30"):
                         tests.get(30).ExecuteTest();
                         break;
-                    case (31):
+                    case ("31"):
                         tests.get(31).ExecuteTest();
                         break;
-                    case (32):
+                    case ("32"):
                         tests.get(32).ExecuteTest();
+                        break;
+                    case ("all"):
+                        //kiiratasi okok miatt
+                       for(int i : tests.keySet())
+                           tests.get(i).setAll(true);
+
+                        int testsSucceeded = 0;
+                        for(int i : tests.keySet()){
+                            if(tests.get(i).ExecuteTest()){
+                                testsSucceeded++;
+                            }else{
+                                System.out.println(Integer.toString(i) + ". test failed!");
+                            }
+                        }
+                        System.out.println("Tests run/succeeded: " + tests.keySet().size() + "/" + testsSucceeded );
+
+                        //parancs lefutasa utan visszaallitani
+                        for(int i : tests.keySet())
+                            tests.get(i).setAll(false);
+
+                        break;
+                    case ("file"):
+                        Test t = new Test("reading from a file",LoadTest(command[1]),"",false);
+                        t.ExecuteTest();
                         break;
                     default:
                         System.out.println("Wrong input given!");
@@ -177,37 +222,21 @@ public class TestCases {
                 e.printStackTrace();
             }
 
-        }while(numberOfTestCase != 0);
+        }while(!command[0].equals("0"));
     }
 
     public void Game() {
         try{
-            /*boolean twoEnters = false;
-            String before = null;
-            ArrayList<String> strings = new ArrayList<>();
-            System.out.println("Write commands here:");
-            while(!twoEnters){
-                BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-                String s = br.readLine();
-                if(s.equals("") && before.equals("")){
-                    twoEnters = true;
-                }
-                strings.add(s);
-                before = s;
-            }
-            StringBuilder commandsString = new StringBuilder();
-            for(String s : strings){
-                commandsString.append(s);
-            }
-
-            Test test = new Test("game",commandsString.toString(),"");
-
-            test.ExecuteTest();*/
             Test test = new Test("game","","",false);
-            System.out.println("Write commands here:");
-            System.out.println("Write 'exit' to close the program.");
+            System.out.println("---------------------------------------");
+            System.out.print(
+                    "You should check the input language for commands to use.\n"+
+                            "To quit press 'exit'!\n" +
+                            "The command: ");
             String s;
             do{
+
+
                 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
                 s = br.readLine();
                 test.interpretLine(s);
