@@ -155,7 +155,8 @@ public class Test {
                 case "exit":
                     break;
                 default:
-                    System.out.println("'" + command[0] + "' parancs nem volt ertelmezheto!");
+                    if(!testing)
+                        System.out.println("'" + command[0] + "' parancs nem volt ertelmezheto!");
                     break;
                 }
         }catch(Exception e){System.out.println("Rossz volt a parancs parameterezes.");}

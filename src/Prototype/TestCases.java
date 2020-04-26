@@ -239,7 +239,6 @@ public class TestCases {
             }catch(Exception e){
                 e.printStackTrace();
             }
-
         }while(!command[0].equals("0"));
     }
 
