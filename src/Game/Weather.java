@@ -86,15 +86,9 @@ public final class Weather implements Actor{
      */
     @Override
     public void yourTurn() {
+        //majd gui-ban meghatarozott mezokre tortenik ez a hivas
         List<Field> struck = new ArrayList<Field>();
-        /*
-        *
-        * Ide kell még random generálás
-        * WIP
-        *
-        * */
         Blizzard(struck);
-
     }
 
     /**
