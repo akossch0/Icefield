@@ -5,9 +5,19 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Prototype {
+    /**
+     * A felhasznalo altal valasztott jatekmodot reprezentalja
+     */
     private String gameMode;
+
+    /**
+     * A test ahova be lesznek olvas
+     */
     private TestCases test = new TestCases();
 
+    /**
+     * Meghivaskor a testet adja vissza
+     */
     public TestCases getTest() {
         return test;
     }

@@ -5,9 +5,16 @@ import java.io.BufferedReader;
 import java.io.*;
 import java.util.*;
 
+/**
+ * Teszteket tarolo osztaly, melynek feladata teszt jatemod eseten a tesztek betoltese, helyes ertelmezese.
+ * Jatek nevu jatekmod eseten a felhasznalo utasitasainak ertelmezese
+ */
 public class TestCases {
     private HashMap<Integer,Test> tests = new HashMap<Integer, Test>();
 
+    /**
+     * Fajlbol beolvassa a teszteket a tests nevu valtozoba, jelzi ha problemat eszlel
+     */
     public void LoadTests(){
         for(Integer i = 1; i < 33; i++) {
             try {
@@ -47,6 +54,10 @@ public class TestCases {
         }
     }
 
+    /**
+     * @param path fajl utvonal ahonnna be lesz olvasva a teszt
+     * @return visszaadja a beolvasasra kerult tesztet
+     */
     public String LoadTest(String path){
         File in = new File(path);
         StringBuilder res = new StringBuilder();
@@ -66,12 +77,18 @@ public class TestCases {
         return res.toString();
     }
 
+    /**
+     * Tesztek kilistazasa a konzolra
+     */
     public void ListOutTests(){
         for(Integer i : tests.keySet()){
             System.out.println(i.toString() + ": " + tests.get(i).getName());
         }
     }
 
+    /**
+     * Beolvass fajlbol teszteket, kilistazza q konzolra, majd felhasznaloi utasitas szerint lefutattja a valasztott teszteket
+     */
     public void Test(){
         LoadTests();
         ListOutTests();
@@ -225,6 +242,9 @@ public class TestCases {
         }while(!command[0].equals("0"));
     }
 
+    /**
+     * A felhasznalotol varja a parancsokat, azokat ertelmezi es vegrahajta oket
+     */
     public void Game() {
         try{
             Test test = new Test("game","","",false);
