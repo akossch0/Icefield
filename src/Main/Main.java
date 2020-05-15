@@ -1,11 +1,14 @@
 package Main;
 
 import Prototype.*;
+import views.GameFrame;
+
+import javax.swing.*;
 
 class Main
 {
     public static void main(String[] args) {
-        Prototype proto = new Prototype();
-        proto.Run();
+        GameFrame.Run(args);
+        //JFrame frame = new GameFrame();
     }
 }

@@ -1,6 +1,6 @@
 package views;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 
 import java.util.ArrayList;
 
@@ -18,6 +18,5 @@ public class View {
         views.remove(badView);
     }
     public void Init(){
-        throw new NotImplementedException();
     };
 }

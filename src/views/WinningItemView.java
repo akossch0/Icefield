@@ -1,7 +1,7 @@
 package views;
 
 import Item.WinningItem;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 
 public class WinningItemView implements IView{
 
@@ -9,11 +9,11 @@ public class WinningItemView implements IView{
     WinningItemView(WinningItem w){winningItem = w;}
     @Override
     public void Draw() {
-        throw new NotImplementedException();
+
     }
 
     @Override
     public void RefreshData() {
-        throw new NotImplementedException();
+
     }
 }

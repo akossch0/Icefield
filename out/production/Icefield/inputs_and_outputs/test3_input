@@ -1,4 +1,4 @@
-Jegesmedve jégtáblára lép, ahol sátor van
+Jegesmedve jegtablara lep, ahol sator van
 field 		iceblock_1 	iceblock 	1 		0 	n
 field 		iceblock_2 	iceblock 	1 		0 	n
 neighbours 	iceblock_1 	iceblock_2

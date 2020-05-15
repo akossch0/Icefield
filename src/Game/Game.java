@@ -7,12 +7,15 @@ import java.util.*;
 import Item.*;
 import java.lang.Math;
 import Field.*;
+import views.View;
+
 /**
  * Inicializalja a jegtablakat. Inicializalja a jatekot, majd szamontartja, hogy eppen melyik jatekos lep.
  * Hoviharokat general a jatekosok lepesei kozott.
  */
 public final class Game {
 
+    View view;
     private static boolean gameWon = false;
     private static boolean gameLost = false;
     /**
@@ -61,6 +64,8 @@ public final class Game {
      */
     public void StartGame(){
         InitMap();
+        view = new View();
+        view.Init();
         Manager.Start();
     }
 
@@ -176,4 +181,8 @@ public final class Game {
      * Jatek elvesztese
      */
     public void Lose(){ gameLost = true; }
+
+    public View getView() {
+        return view;
+    }
 }

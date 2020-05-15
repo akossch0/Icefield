@@ -1,4 +1,4 @@
-Játékos ételt fogyaszt úgy, hogy maximum a testhője
+Jatekos etelt fogyaszt ugy, hogy maximum a testhoje
 field		iceblock_1	iceblock	1	0	n
 player		player_1	eskimo		iceblock_1
 item		item_1		food
