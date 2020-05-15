@@ -5,6 +5,9 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class FoodView implements IView {
     Food food;
+    FoodView(Food f){
+        food = f;
+    }
     @Override
     public void Draw() {
         throw new NotImplementedException();

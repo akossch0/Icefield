@@ -5,6 +5,7 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class HoleView implements IView{
     Hole hole;
+    HoleView(Hole h){hole = h;}
     @Override
     public void Draw() {
         throw new NotImplementedException();

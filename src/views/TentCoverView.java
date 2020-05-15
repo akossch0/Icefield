@@ -5,6 +5,7 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class TentCoverView implements IView{
     TentCover tentCover;
+    TentCoverView(TentCover t){tentCover = t;}
     @Override
     public void Draw() {
         throw  new NotImplementedException();

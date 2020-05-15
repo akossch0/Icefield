@@ -6,6 +6,7 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 public class WinningItemView implements IView{
 
     WinningItem winningItem;
+    WinningItemView(WinningItem w){winningItem = w;}
     @Override
     public void Draw() {
         throw new NotImplementedException();
