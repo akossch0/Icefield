@@ -1,6 +1,6 @@
 package views;
 
-import Field.Field;
+import Field.*;
 import Game.*;
 import Item.*;
 import Player.*;
@@ -156,9 +156,13 @@ public class GameplayFrame {
                 Game.getInstance().getView().AddView(new ResearcherView((Researcher) p));
             }
             fields = Game.getFields();
-            int randField = (new Random(i)).nextInt(fields.size());
-            //int randField = 10;
-            p.setField(fields.get(randField));
+            while (true) {
+                int randField = (new Random()).nextInt(fields.size());
+                if (fields.get(randField) instanceof IceBlock) {
+                    p.setField(fields.get(randField));
+                    break;
+                }
+            }
 
             players.put(name, p);
             Manager.getInstance().AddPlayer(p);
