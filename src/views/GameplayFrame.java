@@ -7,8 +7,13 @@ public class GameplayFrame {
     private JPanel mainPanel;
     private JPanel centerPanel;
     private JPanel informationPanel;
+    private JPanel centerPanel;
+    private JPanel info1;
+    private JPanel buttons;
+    private JPanel info2;
+    private JButton button1;
 
-    public static void Run() {
+    public static void Run(){
         JFrame frame = new JFrame("Gameplay");
         frame.setContentPane(new GameplayFrame().mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -18,14 +23,10 @@ public class GameplayFrame {
         //opens in the center of the monitor
         frame.setLocationRelativeTo(null);
     }
-
     private void createUIComponents() {
         // TODO: place custom component creation code here
-        mainPanel = new JPanel();
         mainPanel.setPreferredSize(new Dimension(1200, 900));
-        centerPanel = new JPanel();
         centerPanel.setPreferredSize(new Dimension(900, 900));
-        informationPanel = new JPanel();
         informationPanel.setPreferredSize(new Dimension(300, 900));
     }
 
@@ -45,12 +46,34 @@ public class GameplayFrame {
      * @noinspection ALL
      */
     private void $$$setupUI$$$() {
-        createUIComponents();
+        mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout(0, 0));
+        mainPanel.setBackground(new Color(-1312769));
+        mainPanel.setEnabled(false);
         mainPanel.setVisible(true);
-        final JPanel panel1 = new JPanel();
-        panel1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-        mainPanel.add(panel1, BorderLayout.CENTER);
+        informationPanel = new JPanel();
+        informationPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+        informationPanel.setPreferredSize(new Dimension(300, 900));
+        mainPanel.add(informationPanel, BorderLayout.EAST);
+        info1 = new JPanel();
+        info1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+        info1.setPreferredSize(new Dimension(300, 200));
+        informationPanel.add(info1);
+        buttons = new JPanel();
+        buttons.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+        buttons.setPreferredSize(new Dimension(300, 400));
+        informationPanel.add(buttons);
+        button1 = new JButton();
+        button1.setText("Button");
+        buttons.add(button1);
+        info2 = new JPanel();
+        info2.setLayout(new BorderLayout(0, 0));
+        info2.setPreferredSize(new Dimension(300, 300));
+        informationPanel.add(info2);
+        centerPanel = new JPanel();
+        centerPanel.setLayout(new BorderLayout(0, 0));
+        centerPanel.setPreferredSize(new Dimension(900, 900));
+        mainPanel.add(centerPanel, BorderLayout.CENTER);
     }
 
     /**
@@ -59,5 +82,4 @@ public class GameplayFrame {
     public JComponent $$$getRootComponent$$$() {
         return mainPanel;
     }
-
 }
