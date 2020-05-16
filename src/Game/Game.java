@@ -181,8 +181,8 @@ public final class Game {
 
     public List<Object> InitMap(){
         double P_ICEFIELD = 0.80;
-        int WIDTH = 10;
-        int HEIGHT = 10;
+        int WIDTH = 14;
+        int HEIGHT = 14;
         int NUMBER_OF_FIELDS = WIDTH * HEIGHT;
         int MAX_SNOW_THICKNESS = 4;
         int MAX_CAPACITY = 4;
@@ -239,7 +239,10 @@ public final class Game {
         while (cnt < 3){
             Field field = fields.get(random.nextInt(NUMBER_OF_FIELDS));
             if (field.getItem() == null && field instanceof IceBlock ){
-                field.setItem(new WinningItem(cnt));
+                WinningItem winningItem = new WinningItem(cnt);
+                field.setItem(winningItem);
+                winningItem.setField((IceBlock)field);
+                view.AddView(new WinningItemView(winningItem));
                 cnt++;
             }
         }
@@ -266,7 +269,7 @@ public final class Game {
                 view.AddView(new SwimsuitView(swimsuit));
             }
         }
-            // Spade
+        // Spade
         for (int i = 0; i < NUMBER_OF_FIELDS /5; i++ ){
             int randomField = random.nextInt(fields.size());
             Field field = fields.get(randomField);

@@ -14,14 +14,14 @@ public class WinningItemView implements IView{
 
     WinningItem winningItem;
     BufferedImage image;
-    WinningItemView(WinningItem w){
+    public WinningItemView(WinningItem w){
         winningItem = w;
         String path = null;
-        if(w.id == 1)
+        if(w.id == 0)
             path = "src/images/flare.png";
+        else if (w.id == 1)
+            path = "src/images/gun.png";
         else if (w.id == 2)
-            path = "src/images/pistol.png";
-        else if (w.id ==3)
             path = "src/images/cartridge.png";
         try{
             image = (BufferedImage) ImageIO.read(new File(path));

@@ -173,7 +173,6 @@ public class GameplayFrame {
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
                 Game.getInstance().view.Update(g);
-                //g.drawString("BLAH", 20, 20);
             }
         };
         drawPanel.invalidate();
