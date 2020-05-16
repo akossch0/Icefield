@@ -8,7 +8,7 @@ public class GameplayFrame {
     private JPanel centerPanel;
     private JPanel informationPanel;
 
-    public static void Run(){
+    public static void Run() {
         JFrame frame = new JFrame("Gameplay");
         frame.setContentPane(new GameplayFrame().mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -18,10 +18,14 @@ public class GameplayFrame {
         //opens in the center of the monitor
         frame.setLocationRelativeTo(null);
     }
+
     private void createUIComponents() {
         // TODO: place custom component creation code here
+        mainPanel = new JPanel();
         mainPanel.setPreferredSize(new Dimension(1200, 900));
+        centerPanel = new JPanel();
         centerPanel.setPreferredSize(new Dimension(900, 900));
+        informationPanel = new JPanel();
         informationPanel.setPreferredSize(new Dimension(300, 900));
     }
 
@@ -55,4 +59,5 @@ public class GameplayFrame {
     public JComponent $$$getRootComponent$$$() {
         return mainPanel;
     }
+
 }

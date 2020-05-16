@@ -14,7 +14,7 @@ public class RopeView implements IView {
     Rope rope;
     BufferedImage image = null;
 
-    RopeView(Rope r) {
+    public RopeView(Rope r) {
         rope = r;
         try {
             image = (BufferedImage) ImageIO.read(new File("src/images/rope.png")).getScaledInstance(64, 64, Image.SCALE_DEFAULT);
