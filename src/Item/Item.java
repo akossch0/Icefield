@@ -30,7 +30,11 @@ public abstract class Item implements OutputToString {
 
     public void setField(Field f) { field = f; }
 
-    public Field getField() { return field; }
+    public Field getField() {
+        if(holder == null)
+            return field;
+        return null;
+    }
 
     /**
      * A tulajdonost allitja be
