@@ -304,6 +304,12 @@ public final class Game {
                 view.AddView(new FoodView(food));
             }
         }
+        //polarbear
+        PolarBear pb = new PolarBear();
+        int randField = random.nextInt(fields.size());
+        pb.setField(fields.get(randField));
+        view.AddView(new PolarBearView(pb));
+
 
         for (Field f:fields)
         {

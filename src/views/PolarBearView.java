@@ -12,7 +12,7 @@ import java.io.IOException;
 public class PolarBearView implements IView {
     PolarBear polarBear;
     BufferedImage image = null;
-    PolarBearView(PolarBear p){
+    public PolarBearView(PolarBear p){
         polarBear = p;
         try {
             image = (BufferedImage) ImageIO.read(new File("src/images/polarbear.png"));
