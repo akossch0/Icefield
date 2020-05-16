@@ -17,6 +17,8 @@ import java.util.Random;
 public final class PolarBear extends Entity implements OutputToString{
     private static PolarBear INSTANCE;
 
+    private PolarBear(){}
+
     /**
      * Ha szuksegunk van a weather osztaly peldanyara ezt a fuggvenyt kell meghivni
      * @return
@@ -48,7 +50,7 @@ public final class PolarBear extends Entity implements OutputToString{
     }
 
     private Direction randomDir(){
-        int pick = new Random().nextInt(Direction.values().length);
+        int pick = new Random(69420).nextInt(Direction.values().length);
         return Direction.values()[pick];
     }
 
@@ -58,7 +60,10 @@ public final class PolarBear extends Entity implements OutputToString{
     @Override
     public void yourTurn() {
         HashMap<Direction, Field> neighbours = field.getNeighboursWithDir();
-        Field target = neighbours.get(randomDir());
+        Field target = null;
+        while(target == null) {
+            target = neighbours.get(randomDir());
+        }
         Step(target);
         Controller.UpdateRequired();
     }

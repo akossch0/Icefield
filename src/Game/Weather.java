@@ -4,9 +4,9 @@ import Coverable.*;
 import Field.Field;
 import Player.Player;
 import views.Controller;
+import views.Direction;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Egy singleton osztaly ami a hoviharokert felel
@@ -15,7 +15,7 @@ public final class Weather implements Actor{
     /**
      * Az osszes mezo a palyan
      */
-    private static List<Field> fields = new ArrayList<Field>();
+    private static List<Field> fields = Game.getInstance().getFields();
     /**
      * A weather egyetlen peldanya
      */
@@ -62,7 +62,6 @@ public final class Weather implements Actor{
             if(Game.isGameLost())
                 break;
         }
-
     }
 
     /**
@@ -82,15 +81,37 @@ public final class Weather implements Actor{
         return;
     }
 
+
+    void recStruckField(HashSet<Field> str, Field field, int depth){
+        if(depth <= 0)
+            return;
+
+        for(Direction dir : field.getNeighboursWithDir().keySet()){
+            Field chosen = field.getNeighboursWithDir().get(dir);
+            if(chosen != null) {
+                str.add(chosen);
+                System.out.println(depth);
+                recStruckField(str, chosen, depth - 1);
+            }
+        }
+    }
+
     /**
      * weather a soros
      */
     @Override
     public void yourTurn() {
         //majd gui-ban meghatarozott mezokre tortenik ez a hivas
-        List<Field> struck = new ArrayList<Field>();
+        List<Field> struck;
+        int recDepth = 5;
+        Random rand = new Random(40);
+        Field randField = fields.get(rand.nextInt(fields.size()));
+        HashSet<Field> targetSet = new HashSet<>();
+        recStruckField(targetSet, randField, recDepth);
+        struck = new ArrayList<Field>(targetSet);
+        System.out.println(struck.size());
         Blizzard(struck);
-        Controller.UpdateRequired();
+        //Controller.UpdateRequired();
     }
 
     /**

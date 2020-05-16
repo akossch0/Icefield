@@ -2,17 +2,10 @@ package views;
 
 import Game.Game;
 
-
-
-import java.awt.event.KeyListener;
+import java.awt.*;
 
 public class Controller {
-    static Game game;
-    // Ide Kéne egy MouseHandler? az nem tudom mi
-    //Ide kéne egy ButtonListener? az nem tudom mi
-    KeyListener keyListener;
      public static void UpdateRequired(){
-         View v = game.getView();
-         v.Update(null);
+         Game.getInstance().getView().Update();
      }
 }
