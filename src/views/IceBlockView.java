@@ -17,7 +17,7 @@ public class IceBlockView implements IView {
     }
     @Override
     public void Draw(Graphics graphics) {
-        graphics.drawImage(image,iceBlock.X*64,iceBlock.Y*64,null);
+        graphics.drawImage(image.getScaledInstance(64,64,Image.SCALE_DEFAULT),iceBlock.X*64,iceBlock.Y*64,null);
     }
 
     @Override
