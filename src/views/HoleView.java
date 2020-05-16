@@ -15,7 +15,7 @@ public class HoleView implements IView{
     }
     @Override
     public void Draw(Graphics graphics) {
-        graphics.drawImage(image,hole.X*64,hole.Y*64,null);
+        graphics.drawImage(image.getScaledInstance(64,64,image.SCALE_DEFAULT),hole.X*64,hole.Y*64,null);
     }
 
     @Override
