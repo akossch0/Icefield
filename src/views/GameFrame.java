@@ -2,7 +2,8 @@ package views;
 
 import Field.Field;
 import Item.Item;
-import Player.Player;
+import Player.*;
+
 
 
 import javax.swing.*;
@@ -12,6 +13,7 @@ import javax.swing.table.TableColumnModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
 
 public class GameFrame extends JFrame {
     static Field chosenField;
@@ -27,6 +29,9 @@ public class GameFrame extends JFrame {
     private JTable characterTable;
     private JLabel characterLabel;
     private JTextField playerNameTextfield;
+    private JList playerList;
+    private DefaultListModel playerListModel;
+    private HashMap<String, Player> players = new HashMap<>();
 
     public GameFrame() {
         $$$setupUI$$$();
@@ -39,7 +44,6 @@ public class GameFrame extends JFrame {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-        frame.setPreferredSize(new Dimension(1000, 800));
         frame.setResizable(false);
         //opens in the center of the monitor
         frame.setLocationRelativeTo(null);
@@ -64,7 +68,24 @@ public class GameFrame extends JFrame {
         addPlayerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                String name = playerNameTextfield.getText();
+                int row = characterTable.getSelectedRow();
+                int column = characterTable.getSelectedColumn();
 
+                if (name.equals(null) || row == -1 || column == -1 || name.equals("")) {
+                    System.out.println("Name or character not yet chosen!");
+                    return;
+                }
+                String character = (String) characterTable.getValueAt(row, column);
+                Player p;
+                if (character.equals("Eskimo"))
+                    p = new Eskimo();
+                else
+                    p = new Researcher();
+
+                players.put(name, p);
+                if (players.size() >= 3) startButton.setEnabled(true);
+                refreshListModel();
             }
         });
     }
@@ -83,6 +104,15 @@ public class GameFrame extends JFrame {
 
     public static void setChosenItem(Item i) {
         chosenItem = i;
+    }
+
+    public void refreshListModel() {
+        playerListModel.removeAllElements();
+        int i = 0;
+        for (String str : players.keySet()) {
+            playerListModel.add(i, str + " | " + players.get(str).toString());
+            i++;
+        }
     }
 
     private void createUIComponents() {
@@ -113,6 +143,12 @@ public class GameFrame extends JFrame {
         characterTableModel.setValueAt("Eskimo", 0, 0);
         characterTableModel.setValueAt("Researcher", 0, 1);
 
+        playerListModel = new DefaultListModel();
+        playerList = new JList(playerListModel);
+
+        refreshListModel();
+
+
     }
 
     /**
@@ -125,7 +161,7 @@ public class GameFrame extends JFrame {
     private void $$$setupUI$$$() {
         createUIComponents();
         mainPanel = new JPanel();
-        mainPanel.setLayout(new BorderLayout(100, 30));
+        mainPanel.setLayout(new BorderLayout(30, 30));
         mainPanel.setBackground(new Color(-13443621));
         Font mainPanelFont = this.$$$getFont$$$("Consolas", Font.BOLD | Font.ITALIC, 36, mainPanel.getFont());
         if (mainPanelFont != null) mainPanel.setFont(mainPanelFont);
@@ -146,6 +182,7 @@ public class GameFrame extends JFrame {
         startButton = new JButton();
         startButton.setAlignmentX(0.0f);
         startButton.setBackground(new Color(-12828607));
+        startButton.setEnabled(false);
         Font startButtonFont = this.$$$getFont$$$("Consolas", Font.PLAIN, 20, startButton.getFont());
         if (startButtonFont != null) startButton.setFont(startButtonFont);
         startButton.setForeground(new Color(-1));
@@ -191,7 +228,7 @@ public class GameFrame extends JFrame {
         panel6.setLayout(new FlowLayout(FlowLayout.CENTER, 30, 30));
         panel6.setBackground(new Color(-9803154));
         panel6.setOpaque(true);
-        panel6.setPreferredSize(new Dimension(0, 300));
+        panel6.setPreferredSize(new Dimension(0, 250));
         panel5.add(panel6, BorderLayout.NORTH);
         playerNameLabel = new JLabel();
         Font playerNameLabelFont = this.$$$getFont$$$("Consolas", Font.PLAIN, 28, playerNameLabel.getFont());
@@ -205,10 +242,12 @@ public class GameFrame extends JFrame {
         playerNameTextfield.setPreferredSize(new Dimension(300, 30));
         panel6.add(playerNameTextfield);
         final JPanel panel7 = new JPanel();
-        panel7.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 60));
+        panel7.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
         panel7.setBackground(new Color(-9803154));
-        panel7.setPreferredSize(new Dimension(0, 170));
+        panel7.setPreferredSize(new Dimension(300, 170));
         panel5.add(panel7, BorderLayout.SOUTH);
+        playerList.setPreferredSize(new Dimension(400, 150));
+        panel7.add(playerList);
         final JPanel panel8 = new JPanel();
         panel8.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 30));
         panel8.setBackground(new Color(-9803154));

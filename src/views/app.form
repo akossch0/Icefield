@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="views.GameFrame">
-  <grid id="27dc6" binding="mainPanel" layout-manager="BorderLayout" hgap="100" vgap="30">
+  <grid id="27dc6" binding="mainPanel" layout-manager="BorderLayout" hgap="30" vgap="30">
     <constraints>
       <xy x="15" y="21" width="858" height="874"/>
     </constraints>
@@ -37,6 +37,7 @@
                 <properties>
                   <alignmentX value="0.0"/>
                   <background color="-12828607"/>
+                  <enabled value="false"/>
                   <font name="Consolas" size="20" style="0"/>
                   <foreground color="-1"/>
                   <horizontalAlignment value="0"/>
@@ -106,7 +107,7 @@
             <properties>
               <background color="-9803154"/>
               <opaque value="true"/>
-              <preferredSize width="0" height="300"/>
+              <preferredSize width="0" height="250"/>
             </properties>
             <border type="none"/>
             <children>
@@ -128,14 +129,21 @@
               </component>
             </children>
           </grid>
-          <grid id="54622" layout-manager="FlowLayout" hgap="5" vgap="60" flow-align="1">
+          <grid id="54622" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
             <constraints border-constraint="South"/>
             <properties>
               <background color="-9803154"/>
-              <preferredSize width="0" height="170"/>
+              <preferredSize width="300" height="170"/>
             </properties>
             <border type="none"/>
-            <children/>
+            <children>
+              <component id="eec94" class="javax.swing.JList" binding="playerList" custom-create="true">
+                <constraints/>
+                <properties>
+                  <preferredSize width="400" height="150"/>
+                </properties>
+              </component>
+            </children>
           </grid>
           <grid id="b4cdb" layout-manager="FlowLayout" hgap="5" vgap="30" flow-align="1">
             <constraints border-constraint="Center"/>
