@@ -190,7 +190,7 @@ public final class Game {
         List<Object> newObjects = new ArrayList<>();
         fields = new ArrayList<Field>();
         view = new View();
-        Random random = new Random(1);
+        Random random = new Random(69420);
 
         for (int i = 0; i<HEIGHT; i++){
             for (int j = 0; j < WIDTH; j++){
@@ -249,7 +249,7 @@ public final class Game {
             }
         }
         // Tent
-        for (int i = 0; i < NUMBER_OF_FIELDS /10; i++ ){
+        for (int i = 0; i < NUMBER_OF_FIELDS /15; i++ ){
             int randomField = random.nextInt(fields.size());
             Field field = fields.get(randomField);
             if (field.getItem() == null && field instanceof IceBlock ){
@@ -272,7 +272,7 @@ public final class Game {
             }
         }
         // Spade
-        for (int i = 0; i < NUMBER_OF_FIELDS /5; i++ ){
+        for (int i = 0; i < NUMBER_OF_FIELDS /15; i++ ){
             int randomField = random.nextInt(fields.size());
             Field field = fields.get(randomField);
             if (field.getItem() == null && field instanceof IceBlock) {
@@ -283,7 +283,7 @@ public final class Game {
             }
         }
         // Rope
-        for (int i = 0; i < NUMBER_OF_FIELDS /8; i++ ){
+        for (int i = 0; i < NUMBER_OF_FIELDS /15; i++ ){
             int randomField = random.nextInt(fields.size());
             Field field = fields.get(randomField);
             if (field.getItem() == null && field instanceof IceBlock) {
@@ -294,7 +294,7 @@ public final class Game {
             }
         }
         // Food
-        for (int i = 0; i < NUMBER_OF_FIELDS /4; i++ ){
+        for (int i = 0; i < NUMBER_OF_FIELDS /7; i++ ){
             int randomField = random.nextInt(fields.size());
             Field field = fields.get(randomField);
             if (field.getItem() == null && field instanceof IceBlock) {
