@@ -44,8 +44,6 @@ public class GameplayFrame {
     public GameplayFrame() {
         $$$setupUI$$$();
         InitListeners();
-        mainPanel.addKeyListener(new KeyAdapter() {
-        });
     }
 
     void InitListeners() {
@@ -121,8 +119,7 @@ public class GameplayFrame {
                 currentPlayer.setActualWorkUnit(0);
             }
         });
-        mainPanel.addKeyListener(new KeyAdapter() {
-        });
+
         jplayerList.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -202,7 +199,7 @@ public class GameplayFrame {
         createUIComponents();
         mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout(0, 0));
-        mainPanel.setBackground(new Color(-1312769));
+        mainPanel.setBackground(new Color(-8541700));
         mainPanel.setEnabled(false);
         mainPanel.setVisible(true);
         informationPanel = new JPanel();
@@ -325,8 +322,6 @@ public class GameplayFrame {
         info2.add(scrollPane2);
         jplayerList.setPreferredSize(new Dimension(300, 150));
         scrollPane2.setViewportView(jplayerList);
-        drawPanel = new JPanel();
-        drawPanel.setLayout(new BorderLayout(0, 0));
         drawPanel.setBackground(new Color(-8541700));
         drawPanel.setPreferredSize(new Dimension(900, 900));
         mainPanel.add(drawPanel, BorderLayout.CENTER);

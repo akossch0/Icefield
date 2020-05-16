@@ -13,8 +13,8 @@ public class HoleView implements IView{
     Hole hole;
     BufferedImage imagewithsnow;
     BufferedImage imagewithoutsnow;
-    public HoleView(Hole h){hole = h;
-
+    public HoleView(Hole h){
+        hole = h;
         try{
             imagewithoutsnow  = ImageIO.read(new File("src/images/hole.png"));
             imagewithsnow = ImageIO.read(new File("src/images/snow.png"));
