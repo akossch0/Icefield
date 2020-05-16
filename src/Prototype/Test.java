@@ -503,10 +503,12 @@ public class Test {
      * @param value ez alapjan az ertek alapjan
      * @return a kulcs
      */
-    public static String getKeyByValue(HashMap<String, Object> map, Object value) {
-        for (HashMap.Entry<String, Object> entry : map.entrySet())
-            if (Objects.equals(value, entry.getValue()))
+    public static <T, E> T getKeyByValue(Map<T, E> map, E value) {
+        for (Map.Entry<T, E> entry : map.entrySet()) {
+            if (Objects.equals(value, entry.getValue())) {
                 return entry.getKey();
+            }
+        }
         return null;
     }
 

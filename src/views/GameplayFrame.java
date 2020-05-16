@@ -4,6 +4,7 @@ import Field.*;
 import Game.*;
 import Item.*;
 import Player.*;
+import Prototype.Test;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,7 +17,7 @@ public class GameplayFrame {
     private static HashMap<String, Player> players = new HashMap<String, Player>();
     private static ArrayList<Field> fields = new ArrayList<Field>();
     static Field chosenField;
-    static Player currentPlayer;
+    public static Player currentPlayer;
     static Player chosenPlayer;
     static String chosenPlayerName;
     static Item chosenItem;
@@ -47,6 +48,12 @@ public class GameplayFrame {
         InitListeners();
     }
 
+    void UpdateComponents() {
+        drawPanel.repaint();
+        currentPlayerLabel.setText(Test.getKeyByValue(players, currentPlayer));
+        notifyAll();
+    }
+
     void InitListeners() {
         mainPanel.addKeyListener(new KeyAdapter() {
             @Override
@@ -75,9 +82,8 @@ public class GameplayFrame {
         bStep.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //currentPlayer.Step(chosenField);
-                Weather.getInstance().yourTurn();
-                drawPanel.repaint();
+                currentPlayer.Step(chosenField);
+                UpdateComponents();
             }
         });
 
@@ -85,7 +91,7 @@ public class GameplayFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 currentPlayer.UseAbility(chosenField);
-                drawPanel.repaint();
+                UpdateComponents();
             }
         });
 
@@ -93,7 +99,7 @@ public class GameplayFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 currentPlayer.Dig();
-                drawPanel.repaint();
+                UpdateComponents();
             }
         });
 
@@ -107,7 +113,7 @@ public class GameplayFrame {
                 } else {
                     System.out.println("Nem jó a Useitem kiválasztás!");
                 }
-                drawPanel.repaint();
+                UpdateComponents();
             }
         });
 
@@ -115,7 +121,7 @@ public class GameplayFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 currentPlayer.PickUpItem();
-                drawPanel.repaint();
+                UpdateComponents();
             }
         });
 
@@ -123,7 +129,7 @@ public class GameplayFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 currentPlayer.setActualWorkUnit(0);
-                drawPanel.repaint();
+                UpdateComponents();
             }
         });
 
@@ -171,11 +177,7 @@ public class GameplayFrame {
 
             players.put(name, p);
             Manager.getInstance().AddPlayer(p);
-            Manager.getInstance().AddActor(p);
         }
-        //Game g = Game.getInstance();
-        //g.getView().setpDraw(drawPanel);
-        //Game.getInstance().getView().setpDraw(drawPanel);
         JFrame frame = new JFrame("Gameplay");
         frame.setContentPane(new GameplayFrame().mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -186,9 +188,12 @@ public class GameplayFrame {
         frame.setLocationRelativeTo(null);
 
         //vihar teszt
-        Weather.getInstance().yourTurn();
-
-        //Manager.Start();
+        //Weather.getInstance().yourTurn();
+        try {
+            Manager.Start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void createUIComponents() {

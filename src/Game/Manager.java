@@ -15,9 +15,6 @@ import java.util.*;
  */
 public final class Manager {
 
-    /** A jatek Game osztalya, szukseges nehany dolog menedzselese miatt (pl halal)**/
-    private static Game game = Game.getInstance();
-
     private static ArrayList<Actor> actors = new ArrayList<Actor>();
 
     private static HashMap<Player,Integer> timeInWater = new HashMap<Player, Integer>();
@@ -31,7 +28,6 @@ public final class Manager {
     public void AddActor(Actor a){
         actors.add(a);
     }
-
     /**
      * Az egyetlen manager peldany
      */
@@ -61,6 +57,7 @@ public final class Manager {
      */
     private Manager(){
     }
+
     public static void AddPlayer(Player p){
         players.add(p);
         actors.add(p);
@@ -80,7 +77,7 @@ public final class Manager {
                 everythingOwned = false;
         }
         if(samePlace && everythingOwned && winningItems.size() == 3){
-            game.Win();
+            Game.getInstance().Win();
             return true;
         }
         return false;
@@ -124,7 +121,7 @@ public final class Manager {
     public static void TurnPassed() {
         timeInWater.replaceAll((key,oldValue)->oldValue+1);
         for(Player i:timeInWater.keySet()) {
-            if (timeInWater.get(i) >= actors.size()) game.Lose();
+            if (timeInWater.get(i) >= actors.size()) Game.getInstance().Lose();
         }
         timeTent.replaceAll((key,oldValue)->oldValue+1);
         for (Field i: timeTent.keySet()) {
@@ -146,10 +143,10 @@ public final class Manager {
                 //minden vizben levo ember szamlalojat noveli
                 TurnPassed();
 
-                int index = (actors.indexOf(a)>=players.size()?-1:actors.indexOf(a));
+                /*int index = (actors.indexOf(a)>=players.size()?-1:actors.indexOf(a));
                 if(index!=-1){
                     currentPlayer = players.get(index);
-                }
+                }*/
                 //Actor kore jon
                 a.yourTurn();
             }
@@ -160,7 +157,7 @@ public final class Manager {
      * Jatekos halalanal hivodik
      */
     public static void Lose(){
-        game.Lose();
+        Game.getInstance().Lose();
     }
 
 }
