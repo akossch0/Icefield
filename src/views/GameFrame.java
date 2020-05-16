@@ -16,10 +16,6 @@ import java.awt.event.ActionListener;
 import java.util.HashMap;
 
 public class GameFrame extends JFrame {
-    static Field chosenField;
-    static Player currentPlayer;
-    static Player chosenPlayer;
-    static Item chosenItem;
     private JPanel mainPanel;
     private JButton startButton;
     private JButton exitButton;
@@ -92,18 +88,6 @@ public class GameFrame extends JFrame {
 
     public void InitComponents() {
         initListeners();
-    }
-
-    public static void setChosenField(Direction dir) {
-
-    }
-
-    public static void setChosenPlayer(Player p) {
-        chosenPlayer = p;
-    }
-
-    public static void setChosenItem(Item i) {
-        chosenItem = i;
     }
 
     public void refreshListModel() {

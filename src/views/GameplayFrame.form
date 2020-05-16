@@ -26,25 +26,26 @@
             </properties>
             <border type="none"/>
             <children>
-              <component id="3946" class="javax.swing.JLabel">
+              <component id="3946" class="javax.swing.JLabel" binding="lCurrentPlayer">
                 <constraints/>
                 <properties>
                   <preferredSize width="250" height="30"/>
+                  <requestFocusEnabled value="true"/>
                   <text value="Jelenlegi játékos:"/>
                 </properties>
               </component>
-              <component id="111ae" class="javax.swing.JLabel">
+              <component id="111ae" class="javax.swing.JLabel" binding="lNumberOfWorkUnits">
                 <constraints/>
                 <properties>
                   <preferredSize width="250" height="30"/>
-                  <text value="Label"/>
+                  <text value="Maradék work unit:"/>
                 </properties>
               </component>
-              <component id="38b14" class="javax.swing.JLabel">
+              <component id="38b14" class="javax.swing.JLabel" binding="lItems">
                 <constraints/>
                 <properties>
                   <preferredSize width="250" height="30"/>
-                  <text value="Label"/>
+                  <text value="Itemek:"/>
                 </properties>
               </component>
               <component id="14091" class="javax.swing.JList">
@@ -63,7 +64,7 @@
             </properties>
             <border type="none"/>
             <children>
-              <component id="41053" class="javax.swing.JButton" binding="addPlayerButton">
+              <component id="41053" class="javax.swing.JButton" binding="bStep">
                 <constraints/>
                 <properties>
                   <alignmentX value="0.0"/>
@@ -71,10 +72,10 @@
                   <font name="Consolas" size="20" style="0"/>
                   <foreground color="-1"/>
                   <preferredSize width="220" height="50"/>
-                  <text value="Add Player"/>
+                  <text value="Step"/>
                 </properties>
               </component>
-              <component id="e6247" class="javax.swing.JButton">
+              <component id="e6247" class="javax.swing.JButton" binding="bUseAbility">
                 <constraints/>
                 <properties>
                   <alignmentX value="0.0"/>
@@ -82,10 +83,10 @@
                   <font name="Consolas" size="20" style="0"/>
                   <foreground color="-1"/>
                   <preferredSize width="220" height="50"/>
-                  <text value="Add Player"/>
+                  <text value="Use Ability"/>
                 </properties>
               </component>
-              <component id="c9e0c" class="javax.swing.JButton">
+              <component id="c9e0c" class="javax.swing.JButton" binding="bDig">
                 <constraints/>
                 <properties>
                   <alignmentX value="0.0"/>
@@ -93,10 +94,10 @@
                   <font name="Consolas" size="20" style="0"/>
                   <foreground color="-1"/>
                   <preferredSize width="220" height="50"/>
-                  <text value="Add Player"/>
+                  <text value="Dig"/>
                 </properties>
               </component>
-              <component id="c36c9" class="javax.swing.JButton">
+              <component id="c36c9" class="javax.swing.JButton" binding="bUseItem">
                 <constraints/>
                 <properties>
                   <alignmentX value="0.0"/>
@@ -104,10 +105,10 @@
                   <font name="Consolas" size="20" style="0"/>
                   <foreground color="-1"/>
                   <preferredSize width="220" height="50"/>
-                  <text value="Add Player"/>
+                  <text value="Use Item"/>
                 </properties>
               </component>
-              <component id="d228c" class="javax.swing.JButton">
+              <component id="d228c" class="javax.swing.JButton" binding="bPickUpItem">
                 <constraints/>
                 <properties>
                   <alignmentX value="0.0"/>
@@ -115,10 +116,10 @@
                   <font name="Consolas" size="20" style="0"/>
                   <foreground color="-1"/>
                   <preferredSize width="220" height="50"/>
-                  <text value="Add Player"/>
+                  <text value="Pick Up Item"/>
                 </properties>
               </component>
-              <component id="c0c05" class="javax.swing.JButton">
+              <component id="c0c05" class="javax.swing.JButton" binding="bEndTurn">
                 <constraints/>
                 <properties>
                   <alignmentX value="0.0"/>
@@ -126,12 +127,12 @@
                   <font name="Consolas" size="20" style="0"/>
                   <foreground color="-1"/>
                   <preferredSize width="220" height="50"/>
-                  <text value="Add Player"/>
+                  <text value="End Turn"/>
                 </properties>
               </component>
             </children>
           </grid>
-          <grid id="1d133" binding="info2" layout-manager="BorderLayout" hgap="0" vgap="0">
+          <grid id="1d133" binding="info2" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
             <constraints/>
             <properties>
               <background color="-1312769"/>
@@ -139,20 +140,27 @@
             </properties>
             <border type="none"/>
             <children>
-              <component id="37463" class="javax.swing.JList" binding="playerList" custom-create="true">
-                <constraints border-constraint="Center"/>
+              <component id="285c4" class="javax.swing.JLabel" binding="lPlayers">
+                <constraints/>
                 <properties>
-                  <preferredSize width="400" height="150"/>
+                  <preferredSize width="250" height="30"/>
+                  <text value="Játékosok:"/>
+                </properties>
+              </component>
+              <component id="3e4c5" class="javax.swing.JList" binding="playerList" custom-create="true">
+                <constraints/>
+                <properties>
+                  <preferredSize width="300" height="150"/>
                 </properties>
               </component>
             </children>
           </grid>
         </children>
       </grid>
-      <grid id="ef570" binding="centerPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+      <grid id="ef570" binding="drawPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
         <constraints border-constraint="Center"/>
         <properties>
-          <background color="-1444612"/>
+          <background color="-8541700"/>
           <preferredSize width="900" height="900"/>
         </properties>
         <border type="none"/>
