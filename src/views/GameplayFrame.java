@@ -107,14 +107,14 @@ public class GameplayFrame {
         bPickUpItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                currentPlayer.PickUpItem();
             }
         });
 
         bEndTurn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                currentPlayer.setActualWorkUnit(0);
             }
         });
         mainPanel.addKeyListener(new KeyAdapter() {
@@ -125,7 +125,6 @@ public class GameplayFrame {
                 super.mouseClicked(e);
                 chosenPlayerName = ((String) playerList.getSelectedValue()).split("|")[0].trim();
                 chosenPlayer = players.get(chosenPlayerName);
-                //currentPlayerLabel.setText(chosenPlayerName);
             }
         });
     }
