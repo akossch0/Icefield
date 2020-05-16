@@ -27,6 +27,11 @@ public final class Manager {
     private static ArrayList<WinningItem> winningItems = new ArrayList<>();
 
     private static Player currentPlayer;
+
+    public void AddActor(Actor a){
+        actors.add(a);
+    }
+
     /**
      * Az egyetlen manager peldany
      */
@@ -131,9 +136,6 @@ public final class Manager {
      * Elinditja a jatekosok lepeseit
      */
     public static void Start(){
-        actors.add(PolarBear.getInstance());
-        actors.add(Weather.getInstance());
-
         while(!Game.isGameWon() && !Game.isGameLost()){
             for(Actor a : actors){
                 //Allt egy korig a tent
@@ -150,10 +152,7 @@ public final class Manager {
                 }
                 //Actor kore jon
                 a.yourTurn();
-
             }
-
-
         }
     }
 

@@ -1,7 +1,7 @@
 package views;
 
 import Field.Field;
-import Game.Game;
+import Game.*;
 import Item.*;
 import Player.*;
 
@@ -10,6 +10,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 public class GameplayFrame {
     private static HashMap<String, Player> players = new HashMap<String, Player>();
@@ -103,7 +104,6 @@ public class GameplayFrame {
                 } else {
                     System.out.println("Nem jó a Useitem kiválasztás!");
                 }
-
             }
         });
 
@@ -145,15 +145,28 @@ public class GameplayFrame {
 
     public static void Run(HashMap<String, String> ps) {
         Game.getInstance().InitMap();
+        int i = 1;
         for (String name : ps.keySet()) {
             Player p;
-            if (ps.get(name).equals("Eskimo"))
+            if (ps.get(name).equals("Eskimo")) {
                 p = new Eskimo();
-            else
+                Game.getInstance().getView().AddView(new EskimoView((Eskimo)p));
+            }else {
                 p = new Researcher();
+                Game.getInstance().getView().AddView(new ResearcherView((Researcher)p));
+            }
+            fields = Game.getFields();
+            int randField = (new Random(i)).nextInt(fields.size());
+            p.setField(fields.get(randField));
 
             players.put(name, p);
+            Manager.getInstance().AddPlayer(p);
+            Manager.getInstance().AddActor(p);
+            i++;
         }
+        //Game g = Game.getInstance();
+        //g.getView().setpDraw(drawPanel);
+        //Game.getInstance().getView().setpDraw(drawPanel);
         JFrame frame = new JFrame("Gameplay");
         frame.setContentPane(new GameplayFrame().mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -162,6 +175,15 @@ public class GameplayFrame {
         frame.setResizable(false);
         //opens in the center of the monitor
         frame.setLocationRelativeTo(null);
+
+        //vihar teszt
+        Weather.getInstance().yourTurn();
+
+        //Manager.Start();
+    }
+
+    public static void Update(JPanel panel) {
+        panel.invalidate();
     }
 
     private void createUIComponents() {
@@ -172,11 +194,10 @@ public class GameplayFrame {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                Game.getInstance().view.Update(g);
-                //g.drawString("KIRAJZOLNI", 100, 100);
+                Game.getInstance().getView().setGraphics(g);
+                Game.getInstance().getView().Update();
             }
         };
-        drawPanel.invalidate();
         informationPanel = new JPanel();
         playerListModel = new DefaultListModel();
         int i = 0;
