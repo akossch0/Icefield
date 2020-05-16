@@ -33,8 +33,17 @@ public class WinningItemView implements IView{
     @Override
     public void Draw(Graphics graphics) {
         if (winningItem.getHolder() == null)   {
+
             Field field = winningItem.getField();
-            graphics.drawImage(image, field.X*64, field.Y*64,null );
+            if (field.getLayerOfSnow() == 0) {
+                if (field.IsOpen())
+                    graphics.drawImage(image, field.X * 64, field.Y * 64, null);
+                else {
+                    // TODO: Opacity
+                    graphics.drawImage(image, field.X * 64, field.Y * 64, null);
+                }
+            }
+
         }
     }
 
