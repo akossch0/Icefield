@@ -19,11 +19,11 @@ public class IceBlockView implements IView {
     public IceBlockView(IceBlock i){
         iceBlock = i;
         try {
-            imagewithoutsnow = (BufferedImage) ImageIO.read(new File("images/iceblock"));
-            imagewithsnow = (BufferedImage) ImageIO.read(new File("images/snow"));
+            imagewithoutsnow =  ImageIO.read(new File("images/iceblock.png"));
+            imagewithsnow = ImageIO.read(new File("images/snow.png"));
 
         } catch (IOException e) {
-            System.out.println("Baj van - HoleView betoltese");
+            System.out.println("Baj van - IceBlockView betoltese");
         }
     }
     @Override

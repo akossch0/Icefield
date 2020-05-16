@@ -16,8 +16,9 @@ public class HoleView implements IView{
     public HoleView(Hole h){hole = h;
 
         try{
-            imagewithoutsnow  = (BufferedImage) ImageIO.read(new File("src/images/hole.png"));
-            imagewithsnow= (BufferedImage) ImageIO.read(new File("src/images/snow.png"));
+            imagewithoutsnow  = ImageIO.read(new File("src/images/hole.png"));
+            imagewithsnow = ImageIO.read(new File("src/images/snow.png"));
+
 
         }catch(IOException e){
             System.out.println("Baj van - HoleView betoltese");
