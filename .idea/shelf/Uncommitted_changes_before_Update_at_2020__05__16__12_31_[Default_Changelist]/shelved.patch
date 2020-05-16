@@ -1,0 +1,77 @@
+Index: src/views/GameplayFrame.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package views;\r\n\r\nimport javax.swing.*;\r\nimport java.awt.*;\r\n\r\npublic class GameplayFrame {\r\n    private JPanel mainPanel;\r\n    private JPanel centerPanel;\r\n    private JPanel informationPanel;\r\n\r\n    private void createUIComponents() {\r\n        // TODO: place custom component creation code here\r\n        mainPanel.setPreferredSize(new Dimension(1200, 900));\r\n        centerPanel.setPreferredSize(new Dimension(900, 900));\r\n        informationPanel.setPreferredSize(new Dimension(300, 900));\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/views/GameplayFrame.java	(revision e369136ca166c017442b9c251fe3e33d62cb5c48)
++++ src/views/GameplayFrame.java	(date 1589623217083)
+@@ -1,17 +1,9 @@
+ package views;
+ 
+ import javax.swing.*;
+-import java.awt.*;
+ 
+ public class GameplayFrame {
+     private JPanel mainPanel;
+-    private JPanel centerPanel;
+-    private JPanel informationPanel;
+-
+-    private void createUIComponents() {
+-        // TODO: place custom component creation code here
+-        mainPanel.setPreferredSize(new Dimension(1200, 900));
+-        centerPanel.setPreferredSize(new Dimension(900, 900));
+-        informationPanel.setPreferredSize(new Dimension(300, 900));
+-    }
++    private JPanel infoPanel;
++    private JPanel gamePanel;
+ }
+Index: src/views/GameplayFrame.form
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<form xmlns=\"http://www.intellij.com/uidesigner/form/\" version=\"1\" bind-to-class=\"views.GameplayFrame\">\r\n  <grid id=\"27dc6\" binding=\"mainPanel\" custom-create=\"true\" layout-manager=\"BorderLayout\" hgap=\"0\" vgap=\"0\">\r\n    <constraints>\r\n      <xy x=\"8\" y=\"20\" width=\"2088\" height=\"1226\"/>\r\n    </constraints>\r\n    <properties/>\r\n    <border type=\"none\"/>\r\n    <children>\r\n      <grid id=\"7df89\" layout-manager=\"FlowLayout\" hgap=\"5\" vgap=\"5\" flow-align=\"1\">\r\n        <constraints border-constraint=\"Center\"/>\r\n        <properties/>\r\n        <border type=\"none\"/>\r\n        <children/>\r\n      </grid>\r\n    </children>\r\n  </grid>\r\n</form>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/views/GameplayFrame.form	(revision e369136ca166c017442b9c251fe3e33d62cb5c48)
++++ src/views/GameplayFrame.form	(date 1589623404227)
+@@ -1,15 +1,34 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="views.GameplayFrame">
+-  <grid id="27dc6" binding="mainPanel" custom-create="true" layout-manager="BorderLayout" hgap="0" vgap="0">
++  <grid id="f83c9" binding="mainPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+     <constraints>
+-      <xy x="8" y="20" width="2088" height="1226"/>
++      <xy x="20" y="20" width="1461" height="908"/>
+     </constraints>
+     <properties/>
+     <border type="none"/>
+     <children>
+-      <grid id="7df89" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
++      <grid id="b27b8" binding="infoPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
++        <constraints border-constraint="East"/>
++        <properties>
++          <preferredSize width="300" height="900"/>
++        </properties>
++        <border type="none"/>
++        <children>
++          <grid id="83d8f" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
++            <constraints/>
++            <properties>
++              <preferredSize width="300" height="200"/>
++            </properties>
++            <border type="none"/>
++            <children/>
++          </grid>
++        </children>
++      </grid>
++      <grid id="ef570" binding="gamePanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+         <constraints border-constraint="Center"/>
+-        <properties/>
++        <properties>
++          <preferredSize width="900" height="900"/>
++        </properties>
+         <border type="none"/>
+         <children/>
+       </grid>
