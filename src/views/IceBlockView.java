@@ -19,8 +19,8 @@ public class IceBlockView implements IView {
     public IceBlockView(IceBlock i){
         iceBlock = i;
         try {
-            imagewithoutsnow =  ImageIO.read(new File("images/iceblock.png"));
-            imagewithsnow = ImageIO.read(new File("images/snow.png"));
+            imagewithoutsnow =  ImageIO.read(new File("src/images/iceblock.png"));
+            imagewithsnow = ImageIO.read(new File("src/images/snow.png"));
         } catch (IOException e) {
             System.out.println("Baj van - IceBlockView betoltese");
         }
