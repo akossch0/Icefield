@@ -27,7 +27,8 @@ public class GameplayFrame {
     private JPanel info2;
     private JButton bStep;
     private DefaultListModel playerListModel;
-    private JList playerList;
+    private JList jplayerList;
+    private JList jItemList;
     private JButton bUseAbility;
     private JButton bDig;
     private JButton bUseItem;
@@ -38,10 +39,13 @@ public class GameplayFrame {
     private JLabel lItems;
     private JLabel lPlayers;
     private JLabel currentPlayerLabel;
+    private JLabel numberofWorkUnitsLabel;
 
     public GameplayFrame() {
         $$$setupUI$$$();
         InitListeners();
+        mainPanel.addKeyListener(new KeyAdapter() {
+        });
     }
 
     void InitListeners() {
@@ -119,11 +123,11 @@ public class GameplayFrame {
         });
         mainPanel.addKeyListener(new KeyAdapter() {
         });
-        playerList.addMouseListener(new MouseAdapter() {
+        jplayerList.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                chosenPlayerName = ((String) playerList.getSelectedValue()).split("|")[0].trim();
+                chosenPlayerName = ((String) jplayerList.getSelectedValue()).split("|")[0].trim();
                 chosenPlayer = players.get(chosenPlayerName);
             }
         });
@@ -180,7 +184,7 @@ public class GameplayFrame {
             playerListModel.add(i, str + " | " + players.get(str).toString());
             i++;
         }
-        playerList = new JList(playerListModel);
+        jplayerList = new JList(playerListModel);
         mainPanel.setPreferredSize(new Dimension(1200, 900));
         drawPanel.setPreferredSize(new Dimension(900, 900));
         informationPanel.setPreferredSize(new Dimension(300, 900));
@@ -206,7 +210,7 @@ public class GameplayFrame {
         informationPanel.setPreferredSize(new Dimension(300, 900));
         mainPanel.add(informationPanel, BorderLayout.EAST);
         info1 = new JPanel();
-        info1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+        info1.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
         info1.setBackground(new Color(-3941126));
         info1.setPreferredSize(new Dimension(300, 300));
         informationPanel.add(info1);
@@ -227,10 +231,10 @@ public class GameplayFrame {
         lNumberOfWorkUnits.setPreferredSize(new Dimension(150, 30));
         lNumberOfWorkUnits.setText("Actual work unit:");
         info1.add(lNumberOfWorkUnits);
-        final JLabel label1 = new JLabel();
-        label1.setPreferredSize(new Dimension(100, 30));
-        label1.setText("");
-        info1.add(label1);
+        numberofWorkUnitsLabel = new JLabel();
+        numberofWorkUnitsLabel.setPreferredSize(new Dimension(100, 30));
+        numberofWorkUnitsLabel.setText("");
+        info1.add(numberofWorkUnitsLabel);
         lItems = new JLabel();
         Font lItemsFont = this.$$$getFont$$$("Consolas", -1, 14, lItems.getFont());
         if (lItemsFont != null) lItems.setFont(lItemsFont);
@@ -241,9 +245,9 @@ public class GameplayFrame {
         final JScrollPane scrollPane1 = new JScrollPane();
         scrollPane1.setPreferredSize(new Dimension(300, 200));
         info1.add(scrollPane1);
-        final JList list1 = new JList();
-        list1.setPreferredSize(new Dimension(300, 200));
-        scrollPane1.setViewportView(list1);
+        jItemList = new JList();
+        jItemList.setPreferredSize(new Dimension(300, 200));
+        scrollPane1.setViewportView(jItemList);
         buttons = new JPanel();
         buttons.setLayout(new FlowLayout(FlowLayout.CENTER, 15, 15));
         buttons.setBackground(new Color(-3941126));
@@ -304,7 +308,7 @@ public class GameplayFrame {
         bEndTurn.setText("End Turn");
         buttons.add(bEndTurn);
         info2 = new JPanel();
-        info2.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+        info2.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
         info2.setAutoscrolls(false);
         info2.setBackground(new Color(-3941126));
         info2.setPreferredSize(new Dimension(300, 200));
@@ -319,8 +323,8 @@ public class GameplayFrame {
         final JScrollPane scrollPane2 = new JScrollPane();
         scrollPane2.setPreferredSize(new Dimension(300, 150));
         info2.add(scrollPane2);
-        playerList.setPreferredSize(new Dimension(300, 150));
-        scrollPane2.setViewportView(playerList);
+        jplayerList.setPreferredSize(new Dimension(300, 150));
+        scrollPane2.setViewportView(jplayerList);
         drawPanel = new JPanel();
         drawPanel.setLayout(new BorderLayout(0, 0));
         drawPanel.setBackground(new Color(-8541700));
