@@ -107,7 +107,7 @@
             <properties>
               <background color="-9803154"/>
               <opaque value="true"/>
-              <preferredSize width="0" height="250"/>
+              <preferredSize width="0" height="200"/>
             </properties>
             <border type="none"/>
             <children>

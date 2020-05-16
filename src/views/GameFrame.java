@@ -15,7 +15,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
 
-public class GameFrame extends JFrame {
+public class GameFrame {
+    private static JFrame gameFrame;
     private JPanel mainPanel;
     private JButton startButton;
     private JButton exitButton;
@@ -43,10 +44,10 @@ public class GameFrame extends JFrame {
         frame.setResizable(false);
         //opens in the center of the monitor
         frame.setLocationRelativeTo(null);
+        gameFrame = frame;
     }
 
     public void initListeners() {
-
         exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -58,6 +59,7 @@ public class GameFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 GameplayFrame.Run(players);
+                gameFrame.setVisible(false);
             }
         });
 
@@ -68,7 +70,7 @@ public class GameFrame extends JFrame {
                 int row = characterTable.getSelectedRow();
                 int column = characterTable.getSelectedColumn();
 
-                if (name.equals(null) || row == -1 || column == -1 || name.equals("")) {
+                if (name == null || row == -1 || column == -1 || name.equals("")) {
                     System.out.println("Name or character not yet chosen!");
                     return;
                 }
@@ -77,6 +79,7 @@ public class GameFrame extends JFrame {
 
                 if (players.size() >= 3) startButton.setEnabled(true);
                 refreshListModel();
+                playerNameTextfield.setText("");
             }
         });
     }
@@ -140,7 +143,7 @@ public class GameFrame extends JFrame {
         createUIComponents();
         mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout(30, 30));
-        mainPanel.setBackground(new Color(-13443621));
+        mainPanel.setBackground(new Color(-6638598));
         Font mainPanelFont = this.$$$getFont$$$("Consolas", Font.BOLD | Font.ITALIC, 36, mainPanel.getFont());
         if (mainPanelFont != null) mainPanel.setFont(mainPanelFont);
         mainPanel.setPreferredSize(new Dimension(1000, 700));
@@ -206,7 +209,7 @@ public class GameFrame extends JFrame {
         panel6.setLayout(new FlowLayout(FlowLayout.CENTER, 30, 30));
         panel6.setBackground(new Color(-9803154));
         panel6.setOpaque(true);
-        panel6.setPreferredSize(new Dimension(0, 250));
+        panel6.setPreferredSize(new Dimension(0, 200));
         panel5.add(panel6, BorderLayout.NORTH);
         playerNameLabel = new JLabel();
         Font playerNameLabelFont = this.$$$getFont$$$("Consolas", Font.PLAIN, 28, playerNameLabel.getFont());
