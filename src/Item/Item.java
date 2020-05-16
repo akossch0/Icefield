@@ -1,5 +1,6 @@
 package Item;
 
+import Field.Field;
 import Game.OutputToString;
 import Player.*;
 import Prototype.Test;
@@ -17,11 +18,18 @@ public abstract class Item implements OutputToString {
      */
     private Player holder = null;
 
+    private Field field = null;
+
     /**
      * Az itemek kepesseget ezen a metoduson keresztul lehete hasznalni
      * @param p a player akin az item hasznalva lesz (megegyezhet a haszan,lojaval is)
      */
     public abstract void Use(Player p);
+
+
+    public void setField(Field f) { field = f; }
+
+    public Field getField() { return field; }
 
     /**
      * A tulajdonost allitja be
