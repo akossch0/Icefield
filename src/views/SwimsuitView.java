@@ -15,10 +15,10 @@ public class SwimsuitView implements IView {
 
 
     BufferedImage image = null;
-    public SwimsuitView(Swimsuit s) throws IOException {
+    public SwimsuitView(Swimsuit s) {
         swimsuit = s;
         try {
-            image = (BufferedImage) ImageIO.read(new File("src/images/swimsuit.png"));
+            image = (BufferedImage) ImageIO.read(new File("src/images/swimsuit.png")).getScaledInstance(64, 64, Image.SCALE_DEFAULT);
         }
         catch(IOException e) {
             System.out.println("nem jo a kotel rajzolas");
@@ -26,7 +26,7 @@ public class SwimsuitView implements IView {
     }
     @Override
     public void Draw(Graphics graphics) {
-
+        graphics.drawImage(image, swimsuit.getField().X * 64, swimsuit.getField().Y * 64, null);
     }
 
     @Override

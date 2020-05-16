@@ -1,6 +1,6 @@
 package Item;
 
-import Field.Field;
+import Field.IceBlock;
 import Game.OutputToString;
 import Player.*;
 import Prototype.Test;
@@ -18,7 +18,7 @@ public abstract class Item implements OutputToString {
      */
     private Player holder = null;
 
-    private Field field = null;
+    private IceBlock field = null;
 
     /**
      * Az itemek kepesseget ezen a metoduson keresztul lehete hasznalni
@@ -28,9 +28,9 @@ public abstract class Item implements OutputToString {
 
 
 
-    public void setField(Field f) { field = f; }
+    public void setField(IceBlock f) { field = f; }
 
-    public Field getField() {
+    public IceBlock getField() {
         if(holder == null)
             return field;
         return null;
