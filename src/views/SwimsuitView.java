@@ -21,7 +21,7 @@ public class SwimsuitView implements IView {
             image = (BufferedImage) ImageIO.read(new File("src/images/swimsuit.png")).getScaledInstance(64, 64, Image.SCALE_DEFAULT);
         }
         catch(IOException e) {
-            System.out.println("nem jo a kotel rajzolas");
+            System.out.println("nem jo a swimsuit rajzolas");
         }
     }
     @Override
