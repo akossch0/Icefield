@@ -204,7 +204,7 @@ public final class Game {
                     } else {
                         iceblock.setCapacity(capacity + 1);
                     }
-                    // TODO:: ezt vissza
+                    // TODO: ezt vissza
                     //iceblock.setLayerOfSnow(thickness);
                     iceblock.setLayerOfSnow(0);
                     iceblock.X = i;

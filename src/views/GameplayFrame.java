@@ -148,14 +148,17 @@ public class GameplayFrame {
         int i = 1;
         for (String name : ps.keySet()) {
             Player p;
-            if (ps.get(name).equals("Eskimo"))
+            if (ps.get(name).equals("Eskimo")) {
                 p = new Eskimo();
-            else
+                Game.getInstance().getView().AddView(new EskimoView((Eskimo)p));
+            }else {
                 p = new Researcher();
-
+                Game.getInstance().getView().AddView(new ResearcherView((Researcher)p));
+            }
             fields = Game.getFields();
             int randField = (new Random(i)).nextInt(fields.size());
             p.setField(fields.get(randField));
+
             players.put(name, p);
             Manager.getInstance().AddPlayer(p);
             Manager.getInstance().AddActor(p);
