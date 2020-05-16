@@ -16,14 +16,13 @@ public class IceBlockView implements IView {
 
     BufferedImage imagewithsnow;
     BufferedImage imagewithoutsnow;
-
     public IceBlockView(IceBlock i){
         iceBlock = i;
-        try{
-            imagewithoutsnow  = (BufferedImage) ImageIO.read(new File("valami")).getScaledInstance(64,64,Image.SCALE_DEFAULT);
-            imagewithsnow= (BufferedImage) ImageIO.read(new File("valami")).getScaledInstance(64,64,Image.SCALE_DEFAULT);
+        try {
+            imagewithoutsnow = (BufferedImage) ImageIO.read(new File("valami")).getScaledInstance(64, 64, Image.SCALE_DEFAULT);
+            imagewithsnow = (BufferedImage) ImageIO.read(new File("valami")).getScaledInstance(64, 64, Image.SCALE_DEFAULT);
 
-        }catch(IOException e){
+        } catch (IOException e) {
             System.out.println("Baj van - HoleView betoltese");
         }
     }
