@@ -211,7 +211,9 @@ public final class Game {
                     } else {
                         iceblock.setCapacity(capacity + 1);
                     }
-                    iceblock.setLayerOfSnow(thickness);
+                    // TODO:: ezt vissza
+                    //iceblock.setLayerOfSnow(thickness);
+                    iceblock.setLayerOfSnow(0);
                     iceblock.X = i;
                     iceblock.Y = j;
                     fields.add(iceblock);

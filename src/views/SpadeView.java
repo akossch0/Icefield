@@ -1,5 +1,6 @@
 package views;
 
+import Field.Field;
 import Item.Rope;
 import Item.Spade;
 
@@ -25,7 +26,10 @@ public class SpadeView implements IView {
     }
     @Override
     public void Draw(Graphics graphics) {
-        graphics.drawImage(image, spade.getField().X * 64, spade.getField().Y * 64, null);
+        if (spade.getHolder() == null) {
+            Field field = spade.getField();
+            if(field.getLayerOfSnow()==0)graphics.drawImage(image, field.X*64, field.Y*64, null );
+        }
     }
 
     @Override
