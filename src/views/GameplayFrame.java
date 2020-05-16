@@ -166,6 +166,7 @@ public class GameplayFrame {
     private void createUIComponents() {
         // TODO: place custom component creation code here
         mainPanel = new JPanel();
+
         drawPanel = new JPanel(){
             @Override
             protected void paintComponent(Graphics g){
