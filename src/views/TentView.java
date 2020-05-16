@@ -12,14 +12,11 @@ import java.io.IOException;
 
 public class TentView implements IView {
     Tent tent;
-    BufferedImage image = new BufferedImage(64,64, BufferedImage.TYPE_INT_ARGB);
+    BufferedImage image;
     public TentView(Tent t){
         tent = t;
         try{
-            BufferedImage big = (BufferedImage) ImageIO.read(new File("src/images/tent.png"));
-            Graphics2D g = image.createGraphics();
-            g.drawImage(big, 0, 0, 64, 64, null);
-            g.dispose();
+            image = (BufferedImage) ImageIO.read(new File("src/images/tent.png"));
         }
         catch(IOException e){
             System.out.println("Valami baj van a sátor i/o-val");

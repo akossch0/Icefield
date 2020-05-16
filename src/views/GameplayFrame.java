@@ -82,6 +82,7 @@ public class GameplayFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 currentPlayer.UseAbility(chosenField);
+                //drawPanel.invalidate();
             }
         });
 

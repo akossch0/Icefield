@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class View {
     private ArrayList<IView> views = new ArrayList<IView>();
     public void Update(Graphics graphics){
+        // System.out.println(Integer.toString(views.size()));
         for (IView item: views) {
             item.RefreshData();
             item.Draw(graphics);
