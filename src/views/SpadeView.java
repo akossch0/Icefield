@@ -14,10 +14,10 @@ public class SpadeView implements IView {
     Spade spade;
     BufferedImage image = null;
 
-    public SpadeView(Spade s) throws IOException {
+    public SpadeView(Spade s)  {
         spade = s;
         try {
-            image = (BufferedImage) ImageIO.read(new File("src/images/rope.png"));
+            image = (BufferedImage) ImageIO.read(new File("src/images/rope.png")).getScaledInstance(64, 64, Image.SCALE_DEFAULT);
         }
         catch(IOException e) {
             System.out.println("nem jo a kotel rajzolas");
