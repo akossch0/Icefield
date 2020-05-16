@@ -10,7 +10,8 @@ public class GameplayFrame {
     private JPanel info1;
     private JPanel buttons;
     private JPanel info2;
-    private JButton button1;
+    private JButton addPlayerButton;
+    private JList playerList;
 
     public static void Run() {
         JFrame frame = new JFrame("Gameplay");
@@ -25,6 +26,9 @@ public class GameplayFrame {
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
+        mainPanel = new JPanel();
+        centerPanel = new JPanel();
+        informationPanel = new JPanel();
         mainPanel.setPreferredSize(new Dimension(1200, 900));
         centerPanel.setPreferredSize(new Dimension(900, 900));
         informationPanel.setPreferredSize(new Dimension(300, 900));
@@ -45,6 +49,7 @@ public class GameplayFrame {
      * @noinspection ALL
      */
     private void $$$setupUI$$$() {
+        createUIComponents();
         mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout(0, 0));
         mainPanel.setBackground(new Color(-1312769));
@@ -56,23 +61,114 @@ public class GameplayFrame {
         mainPanel.add(informationPanel, BorderLayout.EAST);
         info1 = new JPanel();
         info1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-        info1.setPreferredSize(new Dimension(300, 200));
+        info1.setBackground(new Color(-1576198));
+        info1.setPreferredSize(new Dimension(300, 300));
         informationPanel.add(info1);
+        final JLabel label1 = new JLabel();
+        label1.setPreferredSize(new Dimension(250, 30));
+        label1.setText("Jelenlegi játékos:");
+        info1.add(label1);
+        final JLabel label2 = new JLabel();
+        label2.setPreferredSize(new Dimension(250, 30));
+        label2.setText("Label");
+        info1.add(label2);
+        final JLabel label3 = new JLabel();
+        label3.setPreferredSize(new Dimension(250, 30));
+        label3.setText("Label");
+        info1.add(label3);
+        final JList list1 = new JList();
+        list1.setPreferredSize(new Dimension(300, 200));
+        info1.add(list1);
         buttons = new JPanel();
-        buttons.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+        buttons.setLayout(new FlowLayout(FlowLayout.CENTER, 15, 15));
+        buttons.setBackground(new Color(-1378819));
         buttons.setPreferredSize(new Dimension(300, 400));
         informationPanel.add(buttons);
-        button1 = new JButton();
-        button1.setText("Button");
+        addPlayerButton = new JButton();
+        addPlayerButton.setAlignmentX(0.0f);
+        addPlayerButton.setBackground(new Color(-12828607));
+        Font addPlayerButtonFont = this.$$$getFont$$$("Consolas", Font.PLAIN, 20, addPlayerButton.getFont());
+        if (addPlayerButtonFont != null) addPlayerButton.setFont(addPlayerButtonFont);
+        addPlayerButton.setForeground(new Color(-1));
+        addPlayerButton.setPreferredSize(new Dimension(220, 50));
+        addPlayerButton.setText("Add Player");
+        buttons.add(addPlayerButton);
+        final JButton button1 = new JButton();
+        button1.setAlignmentX(0.0f);
+        button1.setBackground(new Color(-12828607));
+        Font button1Font = this.$$$getFont$$$("Consolas", Font.PLAIN, 20, button1.getFont());
+        if (button1Font != null) button1.setFont(button1Font);
+        button1.setForeground(new Color(-1));
+        button1.setPreferredSize(new Dimension(220, 50));
+        button1.setText("Add Player");
         buttons.add(button1);
+        final JButton button2 = new JButton();
+        button2.setAlignmentX(0.0f);
+        button2.setBackground(new Color(-12828607));
+        Font button2Font = this.$$$getFont$$$("Consolas", Font.PLAIN, 20, button2.getFont());
+        if (button2Font != null) button2.setFont(button2Font);
+        button2.setForeground(new Color(-1));
+        button2.setPreferredSize(new Dimension(220, 50));
+        button2.setText("Add Player");
+        buttons.add(button2);
+        final JButton button3 = new JButton();
+        button3.setAlignmentX(0.0f);
+        button3.setBackground(new Color(-12828607));
+        Font button3Font = this.$$$getFont$$$("Consolas", Font.PLAIN, 20, button3.getFont());
+        if (button3Font != null) button3.setFont(button3Font);
+        button3.setForeground(new Color(-1));
+        button3.setPreferredSize(new Dimension(220, 50));
+        button3.setText("Add Player");
+        buttons.add(button3);
+        final JButton button4 = new JButton();
+        button4.setAlignmentX(0.0f);
+        button4.setBackground(new Color(-12828607));
+        Font button4Font = this.$$$getFont$$$("Consolas", Font.PLAIN, 20, button4.getFont());
+        if (button4Font != null) button4.setFont(button4Font);
+        button4.setForeground(new Color(-1));
+        button4.setPreferredSize(new Dimension(220, 50));
+        button4.setText("Add Player");
+        buttons.add(button4);
+        final JButton button5 = new JButton();
+        button5.setAlignmentX(0.0f);
+        button5.setBackground(new Color(-12828607));
+        Font button5Font = this.$$$getFont$$$("Consolas", Font.PLAIN, 20, button5.getFont());
+        if (button5Font != null) button5.setFont(button5Font);
+        button5.setForeground(new Color(-1));
+        button5.setPreferredSize(new Dimension(220, 50));
+        button5.setText("Add Player");
+        buttons.add(button5);
         info2 = new JPanel();
         info2.setLayout(new BorderLayout(0, 0));
-        info2.setPreferredSize(new Dimension(300, 300));
+        info2.setBackground(new Color(-1312769));
+        info2.setPreferredSize(new Dimension(300, 200));
         informationPanel.add(info2);
+        playerList.setPreferredSize(new Dimension(400, 150));
+        info2.add(playerList, BorderLayout.CENTER);
         centerPanel = new JPanel();
         centerPanel.setLayout(new BorderLayout(0, 0));
+        centerPanel.setBackground(new Color(-1444612));
         centerPanel.setPreferredSize(new Dimension(900, 900));
         mainPanel.add(centerPanel, BorderLayout.CENTER);
+    }
+
+    /**
+     * @noinspection ALL
+     */
+    private Font $$$getFont$$$(String fontName, int style, int size, Font currentFont) {
+        if (currentFont == null) return null;
+        String resultName;
+        if (fontName == null) {
+            resultName = currentFont.getName();
+        } else {
+            Font testFont = new Font(fontName, Font.PLAIN, 10);
+            if (testFont.canDisplay('a') && testFont.canDisplay('1')) {
+                resultName = fontName;
+            } else {
+                resultName = currentFont.getName();
+            }
+        }
+        return new Font(resultName, style >= 0 ? style : currentFont.getStyle(), size >= 0 ? size : currentFont.getSize());
     }
 
     /**

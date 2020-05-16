@@ -9,7 +9,7 @@ import java.awt.image.BufferedImage;
 public class HoleView implements IView{
     Hole hole;
     BufferedImage image;
-    HoleView(Hole h){hole = h;
+    public HoleView(Hole h){hole = h;
         image = null;
         System.out.println("Még nincs betöltve");
     }

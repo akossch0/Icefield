@@ -10,7 +10,7 @@ public class IceBlockView implements IView {
     IceBlock iceBlock;
 
     BufferedImage image;
-    IceBlockView(IceBlock i){
+    public IceBlockView(IceBlock i){
         iceBlock = i;
         image = null;
         System.out.println("Még nincs betöltve");
