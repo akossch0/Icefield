@@ -7,7 +7,7 @@ import java.awt.*;
 
 public class TentView implements IView {
     Tent tent;
-    TentView(Tent t){tent = t;}
+    public TentView(Tent t){tent = t;}
     @Override
     public void Draw(Graphics graphics) {
 

@@ -11,6 +11,9 @@ public class Researcher extends Player {
     public Researcher(Field _field) {
         super(maxHealt, maxWorkUnit, maxHealt, _field);
     }
+    public Researcher(){
+        super(maxHealt, maxWorkUnit, maxHealt);
+    }
 
     /**
      * @param f A mezo amire a kepesseget hasznalja majd a player (Oda epit Iglut vagy deriti fel)

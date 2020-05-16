@@ -26,6 +26,12 @@ public abstract class Player extends Entity implements OutputToString{
         setField(_field);
         Manager.AddPlayer(this);
     };
+    public Player(int _actualHealth,int _actualWorkUnit,int _maxHealth){
+        actualHealth = _actualHealth;
+        actualWorkUnit = _actualWorkUnit;
+        maxHealth = _maxHealth;
+        Manager.AddPlayer(this);
+    };
 
     private boolean endTurn = false;
     public void setEndTurn(boolean _endturn){endTurn = _endturn;}

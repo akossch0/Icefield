@@ -7,7 +7,7 @@ import java.awt.*;
 
 public class FoodView implements IView {
     Food food;
-    FoodView(Food f){
+    public FoodView(Food f){
         food = f;
     }
     @Override
