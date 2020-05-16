@@ -3,6 +3,7 @@ package Game;
 import Coverable.*;
 import Field.Field;
 import Player.Player;
+import views.Controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -89,6 +90,7 @@ public final class Weather implements Actor{
         //majd gui-ban meghatarozott mezokre tortenik ez a hivas
         List<Field> struck = new ArrayList<Field>();
         Blizzard(struck);
+        Controller.UpdateRequired();
     }
 
     /**
