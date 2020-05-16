@@ -51,7 +51,9 @@ public abstract class Field implements OutputToString {
      * hozzaad a szomszedokhoz egy fieldet
      * @param e a hozzaadott szomszed
      */
-    public void AddNeighbour(Field e){neighbours.add(e);}
+    public void AddNeighbour(Direction dir, Field e){
+        neighboursWithDir.put(dir, e);
+        neighbours.add(e);}
 
     /**
      * kitorli a parameterkent kapott fieldet a szomszedok kozul
