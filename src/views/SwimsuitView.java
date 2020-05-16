@@ -26,16 +26,8 @@ public class SwimsuitView implements IView {
     public void Draw(Graphics graphics) {
         if (swimsuit.getHolder() == null) {
             Field field = swimsuit.getField();
-            if (field.getLayerOfSnow() == 0) {
-                if (field.IsOpen())
-                    graphics.drawImage(image, field.X * 64, field.Y * 64, null);
-                else {
-                    // TODO: Opacity
-                    graphics.drawImage(image, field.X * 64, field.Y * 64, null);
-                }
-            }
+            if(field.getLayerOfSnow()==0)graphics.drawImage(image, field.X*64, field.Y*64, null );
         }
-        // graphics.drawImage(image, swimsuit.getField().X * 64, swimsuit.getField().Y * 64, null);
     }
 
     @Override

@@ -1,5 +1,6 @@
 package views;
 
+import Field.Field;
 import Item.Food;
 
 import javax.imageio.ImageIO;
@@ -23,7 +24,10 @@ public class FoodView implements IView {
     }
     @Override
     public void Draw(Graphics graphics) {
-        graphics.drawImage(image, food.getField().X * 64, food.getField().Y * 64, null);
+        if (food.getHolder() == null) {
+            Field field = food.getField();
+            if(field.getLayerOfSnow()==0)graphics.drawImage(image, field.X*64, field.Y*64, null );
+        }
     }
 
     @Override

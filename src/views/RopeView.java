@@ -1,5 +1,6 @@
 package views;
 
+import Field.Field;
 import Field.IceBlock;
 import Item.Rope;
 
@@ -26,7 +27,10 @@ public class RopeView implements IView {
     @Override
     public void Draw(Graphics graphics) {
         if(!rope.getField().IsOpen()) { /*opacity valtoztatasa*/}
-        graphics.drawImage(image, rope.getField().X * 64, rope.getField().Y * 64, null);
+        if (rope.getHolder() == null) {
+            Field field = rope.getField();
+            if(field.getLayerOfSnow()==0)graphics.drawImage(image, field.X*64, field.Y*64, null );
+        }
 
     }
 
