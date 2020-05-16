@@ -7,7 +7,7 @@ import java.util.*;
 import Item.*;
 import java.lang.Math;
 import Field.*;
-import views.View;
+import views.*;
 
 /**
  * Inicializalja a jegtablakat. Inicializalja a jatekot, majd szamontartja, hogy eppen melyik jatekos lep.
@@ -72,7 +72,7 @@ public final class Game {
     /**
      * inicializalja a jatekteret, vagyis beallitja a jegtablak es targyak elhelyezkedeset
      */
-    public List<Object> InitMap(){
+    /**public List<Object> InitMap(){
         List<Object> newObjects = new ArrayList<>();
         Random random = new Random(1);
         double P_IceField = 0.80;
@@ -170,6 +170,118 @@ public final class Game {
                 newObjects.add(f.getItem());
         }
         return newObjects;
+    }
+*/
+
+    public List<Object> InitMap(){
+        double P_ICEFIELD = 0.80;
+        int WIDTH = 10;
+        int HEIGHT = 10;
+        int NUMBER_OF_FIELDS = WIDTH * HEIGHT;
+        int MAX_SNOW_THICKNESS = 4;
+        int MAX_CAPACITY = 4;
+        
+        List<Object> newObjects = new ArrayList<>();
+        Random random = new Random(1);
+
+        for (int i = 0; i<WIDTH; i++){
+            for (int j = 0; j < HEIGHT; j++){
+                double prob = random.nextDouble();
+                if (prob > P_ICEFIELD){
+                    Hole hole = new Hole();
+                    hole.X = i;
+                    hole.Y = j;
+                    fields.add(hole);
+                    view.AddView(new HoleView(hole));
+                }
+                else {
+                    IceBlock iceblock = new IceBlock();
+                    int thickness = random.nextInt(MAX_SNOW_THICKNESS);
+                    int capacity = random.nextInt(MAX_CAPACITY + 1);
+                    if (capacity >= MAX_CAPACITY) {
+                        iceblock.setCapacity(-1);
+                    } else {
+                        iceblock.setCapacity(capacity + 1);
+                    }
+                    iceblock.setLayerOfSnow(thickness);
+                    iceblock.X = i;
+                    iceblock.Y = j;
+                    fields.add(iceblock);
+                    view.AddView(new IceBlockView(iceblock));
+                }
+            }
+        }
+
+        ArrayList<Item> items = new ArrayList<Item>();
+        int cnt = 0;
+        while (cnt < 3){
+            Field field = fields.get(random.nextInt(NUMBER_OF_FIELDS));
+            if (field.getItem() == null && field instanceof IceBlock ){
+                field.setItem(new WinningItem());
+                cnt++;
+            }
+        }
+        // Tent
+        for (int i = 0; i < NUMBER_OF_FIELDS /10; i++ ){
+            int randomField = random.nextInt(fields.size());
+            Field field = fields.get(randomField);
+            if (field.getItem() == null && field instanceof IceBlock ){
+                Tent tent = new Tent();
+                field.setItem(tent);
+                view.AddView(new TentView(tent));
+            }
+        }
+
+        // Swimsuit
+        for (int i = 0; i < NUMBER_OF_FIELDS /15; i++ ) {
+            int randomField = random.nextInt(fields.size());
+            Field field = fields.get(randomField);
+            if (field.getItem() == null && field instanceof IceBlock) {
+                Swimsuit swimsuit = new Swimsuit();
+                field.setItem(swimsuit);
+                view.AddView(new SwimsuitView(swimsuit));
+            }
+        }
+            // Spade
+        for (int i = 0; i < NUMBER_OF_FIELDS /5; i++ ){
+            int randomField = random.nextInt(fields.size());
+            Field field = fields.get(randomField);
+            if (field.getItem() == null && field instanceof IceBlock) {
+                Spade spade = new Spade(3);
+                field.setItem(spade);
+                view.AddView(new SpadeView(spade));
+            }
+        }
+        // Rope
+        for (int i = 0; i < NUMBER_OF_FIELDS /8; i++ ){
+            int randomField = random.nextInt(fields.size());
+            Field field = fields.get(randomField);
+            if (field.getItem() == null && field instanceof IceBlock) {
+                Rope rope = new Rope();
+                field.setItem(rope);
+                view.AddView(new RopeView(rope));
+            }
+        }
+        // Food
+        for (int i = 0; i < NUMBER_OF_FIELDS /4; i++ ){
+            int randomField = random.nextInt(fields.size());
+            Field field = fields.get(randomField);
+            if (field.getItem() == null && field instanceof IceBlock) {
+                Food food = new Food();
+                field.setItem(food);
+                view.AddView(new FoodView(food));
+            }
+        }
+
+        for (Field f:fields)
+        {
+            newObjects.add(f);
+            if (f.getItem() != null){
+                newObjects.add(f.getItem());
+            }
+        }
+        return newObjects;
+
     }
 
     /**
