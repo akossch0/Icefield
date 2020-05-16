@@ -15,7 +15,7 @@ import views.*;
  */
 public final class Game {
 
-    View view;
+    public View view;
     private static boolean gameWon = false;
     private static boolean gameLost = false;
     /**
