@@ -30,8 +30,9 @@ public class EskimoView implements IView {
         Field field = eskimo.getField();
         float index = field.getEntites().indexOf(eskimo);
         float entities = field.getEntites().size();
-        // graphics.drawImage(image, (int) (field.X*64-20+index/entities*50), field.Y*64, null );
-        graphics.drawImage(image, field.X*64, field.Y*64, null );
+        int tilt = (int)(-10+index/entities*10 )>20? 20:(int)(-10+index/entities*10);
+        graphics.drawImage(image, (int) (field.X*64)+tilt, field.Y*64, null );
+        // graphics.drawImage(image, field.X*64, field.Y*64, null );
     }
 
     @Override
