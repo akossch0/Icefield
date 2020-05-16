@@ -6,6 +6,7 @@ import Game.Entity;
 import Game.OutputToString;
 import Item.*;
 import Prototype.Test;
+import views.Direction;
 
 import java.util.*;
 
@@ -21,6 +22,7 @@ public abstract class Field implements OutputToString {
 
     /** A szomszedos mezok listaja**/
     private List<Field> neighbours = new ArrayList<Field>();
+    private HashMap<Direction,Field> neighboursWithDir = new HashMap<Direction, Field>();
 
     /** A mezo strategyje, alapertelmezetten minden mezo fedettlen **/
     protected Coverable cover = new NoCover();

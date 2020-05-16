@@ -48,12 +48,21 @@
                   <text value="Itemek:"/>
                 </properties>
               </component>
-              <component id="14091" class="javax.swing.JList">
+              <scrollpane id="4842c">
                 <constraints/>
                 <properties>
                   <preferredSize width="300" height="200"/>
                 </properties>
-              </component>
+                <border type="none"/>
+                <children>
+                  <component id="bc7d2" class="javax.swing.JList">
+                    <constraints/>
+                    <properties>
+                      <preferredSize width="300" height="200"/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
             </children>
           </grid>
           <grid id="19860" binding="buttons" layout-manager="FlowLayout" hgap="15" vgap="15" flow-align="1">
@@ -147,12 +156,21 @@
                   <text value="Játékosok:"/>
                 </properties>
               </component>
-              <component id="3e4c5" class="javax.swing.JList" binding="playerList" custom-create="true">
+              <scrollpane id="7b093">
                 <constraints/>
                 <properties>
                   <preferredSize width="300" height="150"/>
                 </properties>
-              </component>
+                <border type="none"/>
+                <children>
+                  <component id="1725f" class="javax.swing.JList" binding="playerList" custom-create="true">
+                    <constraints/>
+                    <properties>
+                      <preferredSize width="300" height="150"/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
             </children>
           </grid>
         </children>
