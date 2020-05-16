@@ -16,7 +16,7 @@ public class HoleView implements IView{
     public HoleView(Hole h){hole = h;
 
         try{
-            imagewithoutsnow  = (BufferedImage) ImageIO.read(new File("valami")).getScaledInstance(64,64,Image.SCALE_DEFAULT);
+            imagewithoutsnow  = (BufferedImage) ImageIO.read(new File("images/hole")).getScaledInstance(64,64,Image.SCALE_DEFAULT);
             imagewithsnow= (BufferedImage) ImageIO.read(new File("images/snow")).getScaledInstance(64,64,Image.SCALE_DEFAULT);
 
         }catch(IOException e){

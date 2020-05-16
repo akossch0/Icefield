@@ -19,7 +19,7 @@ public class IceBlockView implements IView {
     public IceBlockView(IceBlock i){
         iceBlock = i;
         try {
-            imagewithoutsnow = (BufferedImage) ImageIO.read(new File("valami")).getScaledInstance(64, 64, Image.SCALE_DEFAULT);
+            imagewithoutsnow = (BufferedImage) ImageIO.read(new File("images/iceblock")).getScaledInstance(64, 64, Image.SCALE_DEFAULT);
             imagewithsnow = (BufferedImage) ImageIO.read(new File("images/snow")).getScaledInstance(64, 64, Image.SCALE_DEFAULT);
 
         } catch (IOException e) {
