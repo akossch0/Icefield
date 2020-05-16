@@ -27,6 +27,7 @@ public abstract class Item implements OutputToString {
     public abstract void Use(Player p);
 
 
+
     public void setField(Field f) { field = f; }
 
     public Field getField() { return field; }

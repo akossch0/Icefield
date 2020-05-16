@@ -16,6 +16,7 @@ public class RopeView implements IView {
     @Override
     public void Draw(Graphics graphics) {
         graphics.drawImage(image, rope.getField().X * 64, rope.getField().Y * 64, null);
+
     }
 
     @Override
