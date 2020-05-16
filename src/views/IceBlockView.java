@@ -2,22 +2,33 @@ package views;
 
 import Field.IceBlock;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 
 public class IceBlockView implements IView {
     IceBlock iceBlock;
-
-    BufferedImage image;
+    BufferedImage imagewithsnow;
+    BufferedImage imagewithoutsnow;
     IceBlockView(IceBlock i){
         iceBlock = i;
-        image = null;
-        System.out.println("Még nincs betöltve");
+        try{
+            imagewithoutsnow  = (BufferedImage) ImageIO.read(new File("valami")).getScaledInstance(64,64,Image.SCALE_DEFAULT);
+            imagewithsnow= (BufferedImage) ImageIO.read(new File("valami")).getScaledInstance(64,64,Image.SCALE_DEFAULT);
+
+        }catch(IOException e){
+            System.out.println("Baj van - HoleView betoltese");
+        }
     }
     @Override
     public void Draw(Graphics graphics) {
-        graphics.drawImage(image.getScaledInstance(64,64,Image.SCALE_DEFAULT),iceBlock.X*64,iceBlock.Y*64,null);
+        if(iceBlock.getLayerOfSnow()==0)
+            graphics.drawImage(imagewithoutsnow,iceBlock.X*64,iceBlock.Y*64,null);
+        else
+            graphics.drawImage(imagewithsnow,iceBlock.X*64,iceBlock.Y*64,null);
     }
 
     @Override
