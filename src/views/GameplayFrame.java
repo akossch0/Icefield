@@ -150,13 +150,14 @@ public class GameplayFrame {
             Player p;
             if (ps.get(name).equals("Eskimo")) {
                 p = new Eskimo();
-                Game.getInstance().getView().AddView(new EskimoView((Eskimo)p));
-            }else {
+                Game.getInstance().getView().AddView(new EskimoView((Eskimo) p));
+            } else {
                 p = new Researcher();
-                Game.getInstance().getView().AddView(new ResearcherView((Researcher)p));
+                Game.getInstance().getView().AddView(new ResearcherView((Researcher) p));
             }
             fields = Game.getFields();
             int randField = (new Random(i)).nextInt(fields.size());
+            //int randField = 10;
             p.setField(fields.get(randField));
 
             players.put(name, p);
