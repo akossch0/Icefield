@@ -165,7 +165,13 @@ public class GameplayFrame {
     private void createUIComponents() {
         // TODO: place custom component creation code here
         mainPanel = new JPanel();
-        drawPanel = new JPanel();
+        drawPanel = new JPanel(){
+            @Override
+            protected void paintComponent(Graphics g){
+                super.paintComponent(g);
+                Game.getInstance().view.Update(g);
+            }
+        };
         informationPanel = new JPanel();
         playerListModel = new DefaultListModel();
         int i = 0;
