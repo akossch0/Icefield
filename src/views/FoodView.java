@@ -2,6 +2,8 @@ package views;
 
 import Item.Food;
 
+import java.awt.*;
+
 
 public class FoodView implements IView {
     Food food;
@@ -9,7 +11,7 @@ public class FoodView implements IView {
         food = f;
     }
     @Override
-    public void Draw() {
+    public void Draw(Graphics graphics) {
 
     }
 
