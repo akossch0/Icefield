@@ -1,6 +1,7 @@
 package views;
 
 import Field.Field;
+import Game.Game;
 import Item.Item;
 import Player.*;
 

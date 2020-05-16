@@ -17,7 +17,7 @@ public class SpadeView implements IView {
     public SpadeView(Spade s)  {
         spade = s;
         try {
-            image = (BufferedImage) ImageIO.read(new File("src/images/rope.png")).getScaledInstance(64, 64, Image.SCALE_DEFAULT);
+            image = (BufferedImage) ImageIO.read(new File("src/images/spade.png"));
         }
         catch(IOException e) {
             System.out.println("nem jo a spade rajzolas");

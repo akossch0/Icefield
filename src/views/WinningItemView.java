@@ -24,10 +24,10 @@ public class WinningItemView implements IView{
         else if (w.id ==3)
             path = "src/images/cartridge.png";
         try{
-            image = (BufferedImage) ImageIO.read(new File(path)).getScaledInstance(64,64,Image.SCALE_DEFAULT);
+            image = (BufferedImage) ImageIO.read(new File(path));
         }
         catch(IOException e){
-            System.out.println("Valami baj van a sátor i/o-val");
+            System.out.println("Valami baj van a winningitem i/o-val");
         }
     }
     @Override
