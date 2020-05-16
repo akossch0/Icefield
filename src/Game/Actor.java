@@ -15,7 +15,7 @@ public interface Actor {
     /**
      * megmondja egy aktornak hogy o a soros
      */
-    public abstract void yourTurn();
+    public abstract void yourTurn() throws InterruptedException;
 
     /**
      * actor interakcioja playerrel

@@ -75,7 +75,9 @@ public class GameplayFrame {
         bStep.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                currentPlayer.Step(chosenField);
+                //currentPlayer.Step(chosenField);
+                Weather.getInstance().yourTurn();
+                drawPanel.repaint();
             }
         });
 
@@ -83,7 +85,7 @@ public class GameplayFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 currentPlayer.UseAbility(chosenField);
-                //drawPanel.invalidate();
+                drawPanel.repaint();
             }
         });
 
@@ -91,6 +93,7 @@ public class GameplayFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 currentPlayer.Dig();
+                drawPanel.repaint();
             }
         });
 
@@ -104,6 +107,7 @@ public class GameplayFrame {
                 } else {
                     System.out.println("Nem jó a Useitem kiválasztás!");
                 }
+                drawPanel.repaint();
             }
         });
 
@@ -111,6 +115,7 @@ public class GameplayFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 currentPlayer.PickUpItem();
+                drawPanel.repaint();
             }
         });
 
@@ -118,6 +123,7 @@ public class GameplayFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 currentPlayer.setActualWorkUnit(0);
+                drawPanel.repaint();
             }
         });
 
@@ -132,7 +138,7 @@ public class GameplayFrame {
     }
 
     public static void setChosenField(Direction dir) {
-        fields = Game.getInstance().getFields();
+        chosenField = currentPlayer.getField().getNeighboursWithDir().get(dir);
     }
 
     public static void setChosenPlayer(Player p) {
@@ -145,7 +151,6 @@ public class GameplayFrame {
 
     public static void Run(HashMap<String, String> ps) {
         Game.getInstance().InitMap();
-        int i = 1;
         for (String name : ps.keySet()) {
             Player p;
             if (ps.get(name).equals("Eskimo")) {
@@ -167,7 +172,6 @@ public class GameplayFrame {
             players.put(name, p);
             Manager.getInstance().AddPlayer(p);
             Manager.getInstance().AddActor(p);
-            i++;
         }
         //Game g = Game.getInstance();
         //g.getView().setpDraw(drawPanel);
@@ -185,10 +189,6 @@ public class GameplayFrame {
         Weather.getInstance().yourTurn();
 
         //Manager.Start();
-    }
-
-    public static void Update(JPanel panel) {
-        panel.invalidate();
     }
 
     private void createUIComponents() {

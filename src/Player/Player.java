@@ -5,6 +5,7 @@ import Game.*;
 import Item.*;
 import Field.*;
 import Prototype.Test;
+import views.Controller;
 
 import java.util.*;
 
@@ -134,8 +135,11 @@ public abstract class Player extends Entity implements OutputToString{
     /**
      *  A menedzser kozli a playerrel, hogy az o kore kovetkezik
      */
-    public void yourTurn(){
-        while(!endTurn&&actualWorkUnit!=0){ }
+    public void yourTurn() throws InterruptedException {
+        while(!endTurn&&actualWorkUnit!=0){
+            Thread.currentThread().wait();
+            Controller.UpdateRequired();
+        }
         //Ez a resz majd tenyleges jatekmenetkor lesz lenyeges, tesztelesnel, amikor a prototipust hasznaljuk meg nincs ra szukseg
 
     }

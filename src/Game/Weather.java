@@ -90,7 +90,6 @@ public final class Weather implements Actor{
             Field chosen = field.getNeighboursWithDir().get(dir);
             if(chosen != null) {
                 str.add(chosen);
-                System.out.println(depth);
                 recStruckField(str, chosen, depth - 1);
             }
         }
@@ -104,12 +103,11 @@ public final class Weather implements Actor{
         //majd gui-ban meghatarozott mezokre tortenik ez a hivas
         List<Field> struck;
         int recDepth = 5;
-        Random rand = new Random(40);
+        Random rand = new Random();
         Field randField = fields.get(rand.nextInt(fields.size()));
         HashSet<Field> targetSet = new HashSet<>();
         recStruckField(targetSet, randField, recDepth);
         struck = new ArrayList<Field>(targetSet);
-        System.out.println(struck.size());
         Blizzard(struck);
         //Controller.UpdateRequired();
     }

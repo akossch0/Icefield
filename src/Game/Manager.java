@@ -135,7 +135,7 @@ public final class Manager {
     /**
      * Elinditja a jatekosok lepeseit
      */
-    public static void Start(){
+    public static void Start() throws InterruptedException {
         while(!Game.isGameWon() && !Game.isGameLost()){
             for(Actor a : actors){
                 //Allt egy korig a tent
