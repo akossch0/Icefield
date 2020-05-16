@@ -13,6 +13,9 @@ public class Eskimo extends Player {
     public Eskimo(Field _field) {
         super(maxHealt, maxWorkUnit, maxHealt, _field);
     }
+    public Eskimo(){
+        super(maxHealt, maxWorkUnit, maxHealt);
+    }
 
     /**
      * @param f A mezo amire a kepesseget hasznalja majd a player (Oda epit Iglut vagy deriti fel)
