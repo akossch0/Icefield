@@ -7,14 +7,13 @@ public class GameplayFrame {
     private JPanel mainPanel;
     private JPanel centerPanel;
     private JPanel informationPanel;
-    private JPanel centerPanel;
     private JPanel info1;
     private JPanel buttons;
     private JPanel info2;
     private JButton addPlayerButton;
     private JList playerList;
 
-    public static void Run(){
+    public static void Run() {
         JFrame frame = new JFrame("Gameplay");
         frame.setContentPane(new GameplayFrame().mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -24,8 +23,10 @@ public class GameplayFrame {
         //opens in the center of the monitor
         frame.setLocationRelativeTo(null);
     }
+
     private void createUIComponents() {
         // TODO: place custom component creation code here
+        playerList = new JList();
         mainPanel = new JPanel();
         centerPanel = new JPanel();
         informationPanel = new JPanel();
@@ -179,4 +180,5 @@ public class GameplayFrame {
     public JComponent $$$getRootComponent$$$() {
         return mainPanel;
     }
+
 }

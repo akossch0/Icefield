@@ -13,10 +13,11 @@ public class IceBlockView implements IView {
     IceBlock iceBlock;
 
     BufferedImage image;
-    public IceBlockView(IceBlock i){
+
     BufferedImage imagewithsnow;
     BufferedImage imagewithoutsnow;
-    IceBlockView(IceBlock i){
+
+    public IceBlockView(IceBlock i){
         iceBlock = i;
         try{
             imagewithoutsnow  = (BufferedImage) ImageIO.read(new File("valami")).getScaledInstance(64,64,Image.SCALE_DEFAULT);
