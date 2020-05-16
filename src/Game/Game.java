@@ -223,7 +223,7 @@ public final class Game {
         while (cnt < 3){
             Field field = fields.get(random.nextInt(NUMBER_OF_FIELDS));
             if (field.getItem() == null && field instanceof IceBlock ){
-                field.setItem(new WinningItem());
+                field.setItem(new WinningItem(cnt));
                 cnt++;
             }
         }
