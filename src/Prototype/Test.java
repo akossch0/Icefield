@@ -301,7 +301,7 @@ public class Test {
                 actors.put(itemId, new Food());
                 break;
             case "winningitem":
-                actors.put(itemId, new WinningItem());
+                actors.put(itemId, new WinningItem(1));
                 break;
             case "tent":
                 actors.put(itemId, new Tent());

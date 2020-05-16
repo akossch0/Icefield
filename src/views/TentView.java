@@ -3,8 +3,11 @@ package views;
 import Field.Field;
 import Item.Tent;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 
 public class TentView implements IView {
@@ -12,6 +15,12 @@ public class TentView implements IView {
     BufferedImage image = null;
     public TentView(Tent t){
         tent = t;
+        try{
+            image = (BufferedImage) ImageIO.read(new File("images/tent.png")).getScaledInstance(64,64,Image.SCALE_DEFAULT);
+        }
+        catch(IOException e){
+            System.out.println("Valami baj van a sátor i/o-val");
+        }
     }
 
     @Override
