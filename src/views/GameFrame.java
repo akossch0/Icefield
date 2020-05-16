@@ -129,7 +129,6 @@ public class GameFrame extends JFrame {
         characterTable.getTableHeader().setResizingAllowed(false);
         characterTable.getTableHeader().setReorderingAllowed(false);
 
-
         //allowing single cell selection
         characterTable.setColumnSelectionAllowed(true);
         characterTable.setRowSelectionAllowed(true);
