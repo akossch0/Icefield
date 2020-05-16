@@ -183,7 +183,7 @@ public final class Game {
         
         List<Object> newObjects = new ArrayList<>();
         fields = new ArrayList<Field>();
-        Random random = new Random(69420);
+        Random random = new Random();
 
         for (int i = 0; i<HEIGHT; i++){
             for (int j = 0; j < WIDTH; j++){
