@@ -15,7 +15,7 @@ import views.*;
  */
 public final class Game {
 
-    public View view;
+    private View view = new View();
 
 
     private static boolean gameWon = false;
@@ -68,12 +68,6 @@ public final class Game {
     /**
      * elinditja a jatekot
      */
-    public void StartGame(){
-        InitMap();
-        view = new View();
-        view.Init();
-        Manager.Start();
-    }
 
     /**
      * inicializalja a jatekteret, vagyis beallitja a jegtablak es targyak elhelyezkedeset
@@ -189,7 +183,6 @@ public final class Game {
         
         List<Object> newObjects = new ArrayList<>();
         fields = new ArrayList<Field>();
-        view = new View();
         Random random = new Random(69420);
 
         for (int i = 0; i<HEIGHT; i++){
@@ -305,11 +298,14 @@ public final class Game {
             }
         }
         //polarbear
-        PolarBear pb = new PolarBear();
+        PolarBear pb = PolarBear.getInstance();
         int randField = random.nextInt(fields.size());
         pb.setField(fields.get(randField));
         view.AddView(new PolarBearView(pb));
 
+        //weather es jegesmedve actorkent besorolasa
+        Manager.getInstance().AddActor(Weather.getInstance());
+        Manager.getInstance().AddActor(pb);
 
         for (Field f:fields)
         {
