@@ -2,6 +2,7 @@ package Main;
 
 import Prototype.*;
 import views.GameFrame;
+import views.GameplayFrame;
 
 import javax.swing.*;
 

@@ -21,22 +21,112 @@
           <grid id="83d8f" binding="info1" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
             <constraints/>
             <properties>
-              <preferredSize width="300" height="200"/>
+              <background color="-1576198"/>
+              <preferredSize width="300" height="300"/>
             </properties>
             <border type="none"/>
-            <children/>
+            <children>
+              <component id="3946" class="javax.swing.JLabel">
+                <constraints/>
+                <properties>
+                  <preferredSize width="250" height="30"/>
+                  <text value="Jelenlegi játékos:"/>
+                </properties>
+              </component>
+              <component id="111ae" class="javax.swing.JLabel">
+                <constraints/>
+                <properties>
+                  <preferredSize width="250" height="30"/>
+                  <text value="Label"/>
+                </properties>
+              </component>
+              <component id="38b14" class="javax.swing.JLabel">
+                <constraints/>
+                <properties>
+                  <preferredSize width="250" height="30"/>
+                  <text value="Label"/>
+                </properties>
+              </component>
+              <component id="14091" class="javax.swing.JList">
+                <constraints/>
+                <properties>
+                  <preferredSize width="300" height="200"/>
+                </properties>
+              </component>
+            </children>
           </grid>
-          <grid id="19860" binding="buttons" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+          <grid id="19860" binding="buttons" layout-manager="FlowLayout" hgap="15" vgap="15" flow-align="1">
             <constraints/>
             <properties>
+              <background color="-1378819"/>
               <preferredSize width="300" height="400"/>
             </properties>
             <border type="none"/>
             <children>
-              <component id="cf771" class="javax.swing.JButton" binding="button1" default-binding="true">
+              <component id="41053" class="javax.swing.JButton" binding="addPlayerButton">
                 <constraints/>
                 <properties>
-                  <text value="Button"/>
+                  <alignmentX value="0.0"/>
+                  <background color="-12828607"/>
+                  <font name="Consolas" size="20" style="0"/>
+                  <foreground color="-1"/>
+                  <preferredSize width="220" height="50"/>
+                  <text value="Add Player"/>
+                </properties>
+              </component>
+              <component id="e6247" class="javax.swing.JButton">
+                <constraints/>
+                <properties>
+                  <alignmentX value="0.0"/>
+                  <background color="-12828607"/>
+                  <font name="Consolas" size="20" style="0"/>
+                  <foreground color="-1"/>
+                  <preferredSize width="220" height="50"/>
+                  <text value="Add Player"/>
+                </properties>
+              </component>
+              <component id="c9e0c" class="javax.swing.JButton">
+                <constraints/>
+                <properties>
+                  <alignmentX value="0.0"/>
+                  <background color="-12828607"/>
+                  <font name="Consolas" size="20" style="0"/>
+                  <foreground color="-1"/>
+                  <preferredSize width="220" height="50"/>
+                  <text value="Add Player"/>
+                </properties>
+              </component>
+              <component id="c36c9" class="javax.swing.JButton">
+                <constraints/>
+                <properties>
+                  <alignmentX value="0.0"/>
+                  <background color="-12828607"/>
+                  <font name="Consolas" size="20" style="0"/>
+                  <foreground color="-1"/>
+                  <preferredSize width="220" height="50"/>
+                  <text value="Add Player"/>
+                </properties>
+              </component>
+              <component id="d228c" class="javax.swing.JButton">
+                <constraints/>
+                <properties>
+                  <alignmentX value="0.0"/>
+                  <background color="-12828607"/>
+                  <font name="Consolas" size="20" style="0"/>
+                  <foreground color="-1"/>
+                  <preferredSize width="220" height="50"/>
+                  <text value="Add Player"/>
+                </properties>
+              </component>
+              <component id="c0c05" class="javax.swing.JButton">
+                <constraints/>
+                <properties>
+                  <alignmentX value="0.0"/>
+                  <background color="-12828607"/>
+                  <font name="Consolas" size="20" style="0"/>
+                  <foreground color="-1"/>
+                  <preferredSize width="220" height="50"/>
+                  <text value="Add Player"/>
                 </properties>
               </component>
             </children>
@@ -44,16 +134,25 @@
           <grid id="1d133" binding="info2" layout-manager="BorderLayout" hgap="0" vgap="0">
             <constraints/>
             <properties>
-              <preferredSize width="300" height="300"/>
+              <background color="-1312769"/>
+              <preferredSize width="300" height="200"/>
             </properties>
             <border type="none"/>
-            <children/>
+            <children>
+              <component id="37463" class="javax.swing.JList" binding="playerList" custom-create="true">
+                <constraints border-constraint="Center"/>
+                <properties>
+                  <preferredSize width="400" height="150"/>
+                </properties>
+              </component>
+            </children>
           </grid>
         </children>
       </grid>
       <grid id="ef570" binding="centerPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
         <constraints border-constraint="Center"/>
         <properties>
+          <background color="-1444612"/>
           <preferredSize width="900" height="900"/>
         </properties>
         <border type="none"/>
