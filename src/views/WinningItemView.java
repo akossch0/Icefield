@@ -18,13 +18,13 @@ public class WinningItemView implements IView{
         winningItem = w;
         String path = null;
         if(w.id == 1)
-            path = "images/flare.png";
+            path = "src/images/flare.png";
         else if (w.id == 2)
-            path = "images/pistol.png";
+            path = "src/images/pistol.png";
         else if (w.id ==3)
-            path = "images/cartridge.png";
+            path = "src/images/cartridge.png";
         try{
-            image = (BufferedImage) ImageIO.read(new File("images/tent.png")).getScaledInstance(64,64,Image.SCALE_DEFAULT);
+            image = (BufferedImage) ImageIO.read(new File(path)).getScaledInstance(64,64,Image.SCALE_DEFAULT);
         }
         catch(IOException e){
             System.out.println("Valami baj van a sátor i/o-val");

@@ -65,7 +65,7 @@ public class Test {
                         newField(command[1]);
                     break;
                 case "neighbours":
-                    addNeighbours(command[1], command[2]);
+                    // addNeighbours(command[1], command[2]);
                     break;
                 case "player":
                     newPlayer(command[1], command[2], command[3]);
@@ -234,12 +234,12 @@ public class Test {
      * @param field1 ennek a mezonek a field2 lesz a szomszedja
      * @param field2 ennek a mezonek a field1 lesz a szomszedja
      */
-    private void addNeighbours(String field1, String field2){
+    /**private void addNeighbours(String field1, String field2){
         Field f1 = (Field)actors.get(field1);
         Field f2 = (Field)actors.get(field2);
         f1.AddNeighbour(f2);
         f2.AddNeighbour(f1);
-    }
+    }*/
 
     /**
      * Uj jatekost ad hozza
