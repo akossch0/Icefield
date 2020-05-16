@@ -187,6 +187,8 @@ public final class Game {
         int MAX_CAPACITY = 4;
 
         List<Object> newObjects = new ArrayList<>();
+        fields = new ArrayList<Field>();
+        view = new View();
         Random random = new Random(1);
 
         for (int i = 0; i < HEIGHT; i++){

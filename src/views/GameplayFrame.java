@@ -135,7 +135,7 @@ public class GameplayFrame {
     }
 
     public static void Run(HashMap<String, String> ps) {
-
+        Game.getInstance().InitMap();
         players = ps;
         JFrame frame = new JFrame("Gameplay");
         frame.setContentPane(new GameplayFrame().mainPanel);
