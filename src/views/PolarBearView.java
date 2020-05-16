@@ -15,7 +15,7 @@ public class PolarBearView implements IView {
     PolarBearView(PolarBear p){
         polarBear = p;
         try {
-            image = (BufferedImage) ImageIO.read(new File("src/images/polarbear.png")).getScaledInstance(64, 64, Image.SCALE_DEFAULT);
+            image = (BufferedImage) ImageIO.read(new File("src/images/polarbear.png"));
         }
         catch(IOException e) {
             System.out.println("nem jo a polarbear rajzolas");
