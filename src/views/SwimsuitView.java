@@ -1,5 +1,6 @@
 package views;
 
+import Field.Field;
 import Item.Swimsuit;
 
 import javax.imageio.ImageIO;
@@ -23,7 +24,10 @@ public class SwimsuitView implements IView {
     }
     @Override
     public void Draw(Graphics graphics) {
-        graphics.drawImage(image, swimsuit.getField().X * 64, swimsuit.getField().Y * 64, null);
+        if (swimsuit.getHolder() == null) {
+            Field field = swimsuit.getField();
+            if(field.getLayerOfSnow()==0)graphics.drawImage(image, field.X*64, field.Y*64, null );
+        }
     }
 
     @Override
