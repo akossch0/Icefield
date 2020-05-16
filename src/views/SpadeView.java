@@ -1,5 +1,6 @@
 package views;
 
+import Item.Rope;
 import Item.Spade;
 
 import javax.imageio.ImageIO;
@@ -11,8 +12,17 @@ import java.io.IOException;
 
 public class SpadeView implements IView {
     Spade spade;
-    BufferedImage image = ImageIO.read(new File("src/images/spade.png"));
-    public SpadeView(Spade s) throws IOException {spade = s;}
+    BufferedImage image = null;
+
+    public SpadeView(Spade s) throws IOException {
+        spade = s;
+        try {
+            image = (BufferedImage) ImageIO.read(new File("src/images/rope.png"));
+        }
+        catch(IOException e) {
+            System.out.println("nem jo a kotel rajzolas");
+        }
+    }
     @Override
     public void Draw(Graphics graphics) {
         graphics.drawImage(image, spade.getField().X * 64, spade.getField().Y * 64, null);

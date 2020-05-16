@@ -11,8 +11,17 @@ import java.io.IOException;
 
 public class RopeView implements IView {
     Rope rope;
-    BufferedImage image = ImageIO.read(new File("src/images/rope.png"));
-    RopeView(Rope r) throws IOException {rope = r;}
+    BufferedImage image = null;
+
+    RopeView(Rope r) {
+        rope = r;
+        try {
+            image = (BufferedImage) ImageIO.read(new File("src/images/rope.png"));
+        }
+        catch(IOException e) {
+            System.out.println("nem jo a kotel rajzolas");
+        }
+    }
     @Override
     public void Draw(Graphics graphics) {
         graphics.drawImage(image, rope.getField().X * 64, rope.getField().Y * 64, null);
