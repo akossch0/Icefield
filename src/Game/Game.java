@@ -15,8 +15,9 @@ import views.*;
  */
 public final class Game {
 
+    public View view;
 
-    View view;
+
     private static boolean gameWon = false;
     private static boolean gameLost = false;
 
@@ -185,14 +186,14 @@ public final class Game {
         int NUMBER_OF_FIELDS = WIDTH * HEIGHT;
         int MAX_SNOW_THICKNESS = 4;
         int MAX_CAPACITY = 4;
-
+        
         List<Object> newObjects = new ArrayList<>();
         fields = new ArrayList<Field>();
         view = new View();
         Random random = new Random(1);
 
-        for (int i = 0; i < HEIGHT; i++){
-            for (int j = 0; j < WIDTH; j++){
+        for (int i = 0; i<WIDTH; i++){
+            for (int j = 0; j < HEIGHT; j++){
                 double prob = random.nextDouble();
                 if (prob > P_ICEFIELD){
                     Hole hole = new Hole();
@@ -218,19 +219,7 @@ public final class Game {
                 }
             }
         }
-        for (int i = 0; i < HEIGHT; i++){
-            for (int j = 0; j < WIDTH; j++){
-                Field current = fields.get(j+i*WIDTH);
-                if (i-1 >= 0)
-                    current.AddNeighbour(Direction.UP, fields.get(j+(i-1)*WIDTH));
-                if (i+1 < HEIGHT)
-                    current.AddNeighbour(Direction.DOWN, fields.get(j+(i+1)*WIDTH));
-                if (j-1 >= 0)
-                    current.AddNeighbour(Direction.LEFT, fields.get(j-1+i*WIDTH));
-                if (j+1 < WIDTH)
-                    current.AddNeighbour(Direction.RIGHT, fields.get(j+1+i*WIDTH));
-            }
-        }
+
         ArrayList<Item> items = new ArrayList<Item>();
         int cnt = 0;
         while (cnt < 3){

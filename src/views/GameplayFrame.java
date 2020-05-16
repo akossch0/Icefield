@@ -3,23 +3,21 @@ package views;
 import Field.Field;
 import Game.Game;
 import Item.*;
-import Player.Player;
+import Player.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class GameplayFrame {
-    private static HashMap<String, String> players;
+    private static HashMap<String, Player> players = new HashMap<String, Player>();
     private static ArrayList<Field> fields = new ArrayList<Field>();
     static Field chosenField;
     static Player currentPlayer;
     static Player chosenPlayer;
+    static String chosenPlayerName;
     static Item chosenItem;
     private JPanel mainPanel;
     private JPanel drawPanel;
@@ -39,12 +37,11 @@ public class GameplayFrame {
     private JLabel lNumberOfWorkUnits;
     private JLabel lItems;
     private JLabel lPlayers;
+    private JLabel currentPlayerLabel;
 
     public GameplayFrame() {
         $$$setupUI$$$();
         InitListeners();
-        mainPanel.addKeyListener(new KeyAdapter() {
-        });
     }
 
     void InitListeners() {
@@ -120,6 +117,17 @@ public class GameplayFrame {
 
             }
         });
+        mainPanel.addKeyListener(new KeyAdapter() {
+        });
+        playerList.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                chosenPlayerName = ((String) playerList.getSelectedValue()).split("|")[0].trim();
+                chosenPlayer = players.get(chosenPlayerName);
+                //currentPlayerLabel.setText(chosenPlayerName);
+            }
+        });
     }
 
     public static void setChosenField(Direction dir) {
@@ -135,8 +143,15 @@ public class GameplayFrame {
     }
 
     public static void Run(HashMap<String, String> ps) {
-        Game.getInstance().InitMap();
-        players = ps;
+        for (String name : ps.keySet()) {
+            Player p;
+            if (ps.get(name).equals("Eskimo"))
+                p = new Eskimo();
+            else
+                p = new Researcher();
+
+            players.put(name, p);
+        }
         JFrame frame = new JFrame("Gameplay");
         frame.setContentPane(new GameplayFrame().mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -155,7 +170,7 @@ public class GameplayFrame {
         playerListModel = new DefaultListModel();
         int i = 0;
         for (String str : players.keySet()) {
-            playerListModel.add(i, str + " | " + players.get(str));
+            playerListModel.add(i, str + " | " + players.get(str).toString());
             i++;
         }
         playerList = new JList(playerListModel);
@@ -185,21 +200,36 @@ public class GameplayFrame {
         mainPanel.add(informationPanel, BorderLayout.EAST);
         info1 = new JPanel();
         info1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-        info1.setBackground(new Color(-1576198));
+        info1.setBackground(new Color(-3941126));
         info1.setPreferredSize(new Dimension(300, 300));
         informationPanel.add(info1);
         lCurrentPlayer = new JLabel();
-        lCurrentPlayer.setPreferredSize(new Dimension(250, 30));
+        Font lCurrentPlayerFont = this.$$$getFont$$$("Consolas", -1, 14, lCurrentPlayer.getFont());
+        if (lCurrentPlayerFont != null) lCurrentPlayer.setFont(lCurrentPlayerFont);
+        lCurrentPlayer.setPreferredSize(new Dimension(150, 30));
         lCurrentPlayer.setRequestFocusEnabled(true);
-        lCurrentPlayer.setText("Jelenlegi játékos:");
+        lCurrentPlayer.setText("Current player:");
         info1.add(lCurrentPlayer);
+        currentPlayerLabel = new JLabel();
+        currentPlayerLabel.setPreferredSize(new Dimension(100, 30));
+        currentPlayerLabel.setText("");
+        info1.add(currentPlayerLabel);
         lNumberOfWorkUnits = new JLabel();
-        lNumberOfWorkUnits.setPreferredSize(new Dimension(250, 30));
-        lNumberOfWorkUnits.setText("Maradék work unit:");
+        Font lNumberOfWorkUnitsFont = this.$$$getFont$$$("Consolas", -1, 14, lNumberOfWorkUnits.getFont());
+        if (lNumberOfWorkUnitsFont != null) lNumberOfWorkUnits.setFont(lNumberOfWorkUnitsFont);
+        lNumberOfWorkUnits.setPreferredSize(new Dimension(150, 30));
+        lNumberOfWorkUnits.setText("Actual work unit:");
         info1.add(lNumberOfWorkUnits);
+        final JLabel label1 = new JLabel();
+        label1.setPreferredSize(new Dimension(100, 30));
+        label1.setText("");
+        info1.add(label1);
         lItems = new JLabel();
+        Font lItemsFont = this.$$$getFont$$$("Consolas", -1, 14, lItems.getFont());
+        if (lItemsFont != null) lItems.setFont(lItemsFont);
+        lItems.setHorizontalAlignment(0);
         lItems.setPreferredSize(new Dimension(250, 30));
-        lItems.setText("Itemek:");
+        lItems.setText("Items:");
         info1.add(lItems);
         final JScrollPane scrollPane1 = new JScrollPane();
         scrollPane1.setPreferredSize(new Dimension(300, 200));
@@ -209,7 +239,7 @@ public class GameplayFrame {
         scrollPane1.setViewportView(list1);
         buttons = new JPanel();
         buttons.setLayout(new FlowLayout(FlowLayout.CENTER, 15, 15));
-        buttons.setBackground(new Color(-1378819));
+        buttons.setBackground(new Color(-3941126));
         buttons.setPreferredSize(new Dimension(300, 400));
         informationPanel.add(buttons);
         bStep = new JButton();
@@ -268,12 +298,16 @@ public class GameplayFrame {
         buttons.add(bEndTurn);
         info2 = new JPanel();
         info2.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-        info2.setBackground(new Color(-1312769));
+        info2.setAutoscrolls(false);
+        info2.setBackground(new Color(-3941126));
         info2.setPreferredSize(new Dimension(300, 200));
         informationPanel.add(info2);
         lPlayers = new JLabel();
+        Font lPlayersFont = this.$$$getFont$$$("Consolas", -1, 14, lPlayers.getFont());
+        if (lPlayersFont != null) lPlayers.setFont(lPlayersFont);
+        lPlayers.setHorizontalAlignment(0);
         lPlayers.setPreferredSize(new Dimension(250, 30));
-        lPlayers.setText("Játékosok:");
+        lPlayers.setText("Players:");
         info2.add(lPlayers);
         final JScrollPane scrollPane2 = new JScrollPane();
         scrollPane2.setPreferredSize(new Dimension(300, 150));

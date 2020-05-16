@@ -141,7 +141,7 @@ public class GameFrame extends JFrame {
         createUIComponents();
         mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout(30, 30));
-        mainPanel.setBackground(new Color(-13443621));
+        mainPanel.setBackground(new Color(-6638598));
         Font mainPanelFont = this.$$$getFont$$$("Consolas", Font.BOLD | Font.ITALIC, 36, mainPanel.getFont());
         if (mainPanelFont != null) mainPanel.setFont(mainPanelFont);
         mainPanel.setPreferredSize(new Dimension(1000, 700));
