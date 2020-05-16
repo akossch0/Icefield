@@ -163,7 +163,8 @@ public class GameplayFrame {
             fields = Game.getFields();
             while (true) {
                 int randField = (new Random()).nextInt(fields.size());
-                if (fields.get(randField) instanceof IceBlock) {
+                int polarIndex = fields.get(randField).getEntites().indexOf(PolarBear.getInstance());
+                if (fields.get(randField) instanceof IceBlock && polarIndex == -1 ) {
                     p.setField(fields.get(randField));
                     break;
                 }
