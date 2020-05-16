@@ -173,6 +173,7 @@ public class GameplayFrame {
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
                 Game.getInstance().view.Update(g);
+                //g.drawString("KIRAJZOLNI", 100, 100);
             }
         };
         drawPanel.invalidate();
