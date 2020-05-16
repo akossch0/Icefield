@@ -22,6 +22,11 @@ public abstract class Field implements OutputToString {
 
     /** A szomszedos mezok listaja**/
     private List<Field> neighbours = new ArrayList<Field>();
+
+    public HashMap<Direction, Field> getNeighboursWithDir() {
+        return neighboursWithDir;
+    }
+
     private HashMap<Direction,Field> neighboursWithDir = new HashMap<Direction, Field>();
 
     /** A mezo strategyje, alapertelmezetten minden mezo fedettlen **/

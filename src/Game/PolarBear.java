@@ -4,6 +4,7 @@ import Field.Field;
 import Player.Player;
 import Prototype.Test;
 import views.Controller;
+import views.Direction;
 
 import java.util.HashMap;
 import java.util.List;
@@ -46,14 +47,18 @@ public final class PolarBear extends Entity implements OutputToString{
         a.InteractWith(this);
     }
 
+    private Direction randomDir(){
+        int pick = new Random().nextInt(Direction.values().length);
+        return Direction.values()[pick];
+    }
+
     /**
      * manager megmondja a macinak hogy o a soros
      */
     @Override
     public void yourTurn() {
-        List<Field> neighbours = field.getNeighbours();
-        Random rand = new Random();
-        Field target = neighbours.get(rand.nextInt(neighbours.size()));
+        HashMap<Direction, Field> neighbours = field.getNeighboursWithDir();
+        Field target = neighbours.get(randomDir());
         Step(target);
         Controller.UpdateRequired();
     }
