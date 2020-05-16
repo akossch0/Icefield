@@ -21,11 +21,12 @@ public class WinningItem extends Item {
             p.decreaseWorkUnits();
 
     }
-
+    public int id;
     /**
      * A nyerotargy letrehozaskor regisztralodik a managerben
      */
-    public WinningItem(){
+    public WinningItem(int _id){
+        id = _id;
         Manager.getInstance().register(this);
     }
 

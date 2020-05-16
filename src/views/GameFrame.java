@@ -27,7 +27,7 @@ public class GameFrame extends JFrame {
     private JTextField playerNameTextfield;
     private JList playerList;
     private DefaultListModel playerListModel;
-    private HashMap<String, Player> players = new HashMap<>();
+    private HashMap<String, String> players = new HashMap<>();
 
     public GameFrame() {
         $$$setupUI$$$();
@@ -57,7 +57,7 @@ public class GameFrame extends JFrame {
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                GameplayFrame.Run();
+                GameplayFrame.Run(players);
             }
         });
 
@@ -73,13 +73,8 @@ public class GameFrame extends JFrame {
                     return;
                 }
                 String character = (String) characterTable.getValueAt(row, column);
-                Player p;
-                if (character.equals("Eskimo"))
-                    p = new Eskimo();
-                else
-                    p = new Researcher();
+                players.put(name, character);
 
-                players.put(name, p);
                 if (players.size() >= 3) startButton.setEnabled(true);
                 refreshListModel();
             }
@@ -94,7 +89,7 @@ public class GameFrame extends JFrame {
         playerListModel.removeAllElements();
         int i = 0;
         for (String str : players.keySet()) {
-            playerListModel.add(i, str + " | " + players.get(str).toString());
+            playerListModel.add(i, str + " | " + players.get(str));
             i++;
         }
     }

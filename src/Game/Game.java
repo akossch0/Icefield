@@ -16,13 +16,19 @@ import views.*;
 public final class Game {
 
     public View view;
+
+
     private static boolean gameWon = false;
     private static boolean gameLost = false;
+
+    public static ArrayList<Field> getFields() {
+        return fields;
+    }
+
     /**
      * A jatekteren talalhato osszes mezo
      */
-    private List<Field> fields = new ArrayList<>();
-
+    private static ArrayList<Field> fields;
     /**
      * a statikus valtozo amin hivjuk a fuggvenyeket
      */

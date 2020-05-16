@@ -2,7 +2,7 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="views.GameFrame">
   <grid id="27dc6" binding="mainPanel" layout-manager="BorderLayout" hgap="30" vgap="30">
     <constraints>
-      <xy x="15" y="21" width="858" height="874"/>
+      <xy x="23" y="27" width="850" height="868"/>
     </constraints>
     <properties>
       <background color="-13443621"/>

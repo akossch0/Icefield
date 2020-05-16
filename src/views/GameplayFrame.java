@@ -2,7 +2,7 @@ package views;
 
 import Field.Field;
 import Game.Game;
-import Item.Item;
+import Item.*;
 import Player.Player;
 
 import javax.swing.*;
@@ -11,8 +11,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class GameplayFrame {
+    private static HashMap<String, String> players;
+    private static ArrayList<Field> fields = new ArrayList<Field>();
     static Field chosenField;
     static Player currentPlayer;
     static Player chosenPlayer;
@@ -24,6 +28,7 @@ public class GameplayFrame {
     private JPanel buttons;
     private JPanel info2;
     private JButton bStep;
+    private DefaultListModel playerListModel;
     private JList playerList;
     private JButton bUseAbility;
     private JButton bDig;
@@ -38,6 +43,8 @@ public class GameplayFrame {
     public GameplayFrame() {
         $$$setupUI$$$();
         InitListeners();
+        mainPanel.addKeyListener(new KeyAdapter() {
+        });
     }
 
     void InitListeners() {
@@ -45,33 +52,57 @@ public class GameplayFrame {
             @Override
             public void keyTyped(KeyEvent e) {
                 super.keyTyped(e);
+                switch (e.getKeyCode()) {
+                    case KeyEvent.VK_UP:
+                        setChosenField(Direction.UP);
+                        break;
+                    case KeyEvent.VK_DOWN:
+                        setChosenField(Direction.DOWN);
+                        break;
+                    case KeyEvent.VK_RIGHT:
+                        setChosenField(Direction.RIGHT);
+                        break;
+                    case KeyEvent.VK_LEFT:
+                        setChosenField(Direction.LEFT);
+                        break;
+                    default:
+                        System.out.println("Wrong key typed!");
+                        break;
+                }
             }
         });
 
         bStep.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                currentPlayer.Step(chosenField);
             }
         });
 
         bUseAbility.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                currentPlayer.UseAbility(chosenField);
             }
         });
 
         bDig.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                currentPlayer.Dig();
             }
         });
 
         bUseItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (!(chosenItem instanceof Rope)) {
+                    currentPlayer.UseItem(chosenItem, currentPlayer);
+                } else if (chosenItem instanceof Rope) {
+                    currentPlayer.UseItem(chosenItem, chosenPlayer);
+                } else {
+                    System.out.println("Nem jó a Useitem kiválasztás!");
+                }
 
             }
         });
@@ -92,6 +123,7 @@ public class GameplayFrame {
     }
 
     public static void setChosenField(Direction dir) {
+        fields = Game.getInstance().getFields();
     }
 
     public static void setChosenPlayer(Player p) {
@@ -102,7 +134,9 @@ public class GameplayFrame {
         chosenItem = i;
     }
 
-    public static void Run() {
+    public static void Run(HashMap<String, String> ps) {
+
+        players = ps;
         JFrame frame = new JFrame("Gameplay");
         frame.setContentPane(new GameplayFrame().mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -115,18 +149,16 @@ public class GameplayFrame {
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
-        playerList = new JList();
         mainPanel = new JPanel();
-        drawPanel = new JPanel(){
-            @Override
-            protected void paintComponent(Graphics g){
-                super.paint(g);
-                Game.getInstance().view.Update(g);
-            }
-        };
+        drawPanel = new JPanel();
         informationPanel = new JPanel();
-        //playerListModel = new DefaultListModel();
-        playerList = new JList();
+        playerListModel = new DefaultListModel();
+        int i = 0;
+        for (String str : players.keySet()) {
+            playerListModel.add(i, str + " | " + players.get(str));
+            i++;
+        }
+        playerList = new JList(playerListModel);
         mainPanel.setPreferredSize(new Dimension(1200, 900));
         drawPanel.setPreferredSize(new Dimension(900, 900));
         informationPanel.setPreferredSize(new Dimension(300, 900));
@@ -169,9 +201,12 @@ public class GameplayFrame {
         lItems.setPreferredSize(new Dimension(250, 30));
         lItems.setText("Itemek:");
         info1.add(lItems);
+        final JScrollPane scrollPane1 = new JScrollPane();
+        scrollPane1.setPreferredSize(new Dimension(300, 200));
+        info1.add(scrollPane1);
         final JList list1 = new JList();
         list1.setPreferredSize(new Dimension(300, 200));
-        info1.add(list1);
+        scrollPane1.setViewportView(list1);
         buttons = new JPanel();
         buttons.setLayout(new FlowLayout(FlowLayout.CENTER, 15, 15));
         buttons.setBackground(new Color(-1378819));
@@ -240,8 +275,11 @@ public class GameplayFrame {
         lPlayers.setPreferredSize(new Dimension(250, 30));
         lPlayers.setText("Játékosok:");
         info2.add(lPlayers);
+        final JScrollPane scrollPane2 = new JScrollPane();
+        scrollPane2.setPreferredSize(new Dimension(300, 150));
+        info2.add(scrollPane2);
         playerList.setPreferredSize(new Dimension(300, 150));
-        info2.add(playerList);
+        scrollPane2.setViewportView(playerList);
         drawPanel = new JPanel();
         drawPanel.setLayout(new BorderLayout(0, 0));
         drawPanel.setBackground(new Color(-8541700));
