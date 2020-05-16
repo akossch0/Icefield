@@ -3,6 +3,8 @@ package views;
 import Game.Actor;
 import Player.Eskimo;
 
+import java.awt.*;
+
 
 public class EskimoView implements IView {
     Eskimo eskimo;
@@ -10,7 +12,7 @@ public class EskimoView implements IView {
         eskimo = e;
     };
     @Override
-    public void Draw() {
+    public void Draw(Graphics graphics) {
     }
 
     @Override
