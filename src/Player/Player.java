@@ -80,7 +80,7 @@ public abstract class Player extends Entity implements OutputToString{
         field.Remove(this);
         field = f;
         f.Accept(this);
-        actualWorkUnit = actualWorkUnit-1;
+        decreaseWorkUnits();
     }
 
 
@@ -135,8 +135,9 @@ public abstract class Player extends Entity implements OutputToString{
      *  A menedzser kozli a playerrel, hogy az o kore kovetkezik
      */
     public void yourTurn(){
-        //while(!endTurn&&actualWorkUnit!=0){ }
+        while(!endTurn&&actualWorkUnit!=0){ }
         //Ez a resz majd tenyleges jatekmenetkor lesz lenyeges, tesztelesnel, amikor a prototipust hasznaljuk meg nincs ra szukseg
+
     }
 
     @Override

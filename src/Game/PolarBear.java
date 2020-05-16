@@ -3,6 +3,7 @@ package Game;
 import Field.Field;
 import Player.Player;
 import Prototype.Test;
+import views.Controller;
 
 import java.util.HashMap;
 import java.util.List;
@@ -54,6 +55,7 @@ public final class PolarBear extends Entity implements OutputToString{
         Random rand = new Random();
         Field target = neighbours.get(rand.nextInt(neighbours.size()));
         Step(target);
+        Controller.UpdateRequired();
     }
 
     /**

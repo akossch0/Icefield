@@ -9,6 +9,7 @@ public class View {
     private ArrayList<IView> views = new ArrayList<IView>();
     public void Update(Graphics graphics){
         for (IView item: views) {
+            item.RefreshData();
             item.Draw(graphics);
         }
     }

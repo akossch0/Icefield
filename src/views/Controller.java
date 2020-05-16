@@ -11,8 +11,8 @@ public class Controller {
     // Ide Kéne egy MouseHandler? az nem tudom mi
     //Ide kéne egy ButtonListener? az nem tudom mi
     KeyListener keyListener;
-     static void UpdateRequired(){
+     public static void UpdateRequired(){
          View v = game.getView();
-         v.Update();
+         v.Update(null);
      }
 }
