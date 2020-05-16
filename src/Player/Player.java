@@ -6,6 +6,7 @@ import Item.*;
 import Field.*;
 import Prototype.Test;
 import views.Controller;
+import views.GameplayFrame;
 
 import java.util.*;
 
@@ -129,16 +130,16 @@ public abstract class Player extends Entity implements OutputToString{
     @Override
     public void Meet(Actor a) {
         a.InteractWith(this);
-
     }
 
     /**
      *  A menedzser kozli a playerrel, hogy az o kore kovetkezik
      */
     public void yourTurn() throws InterruptedException {
+        GameplayFrame.currentPlayer = this;
         while(!endTurn&&actualWorkUnit!=0){
-            Thread.currentThread().wait();
-            Controller.UpdateRequired();
+            //TODO: CSINÁLD MEG AZ ANYUKÁD
+            this.wait();
         }
         //Ez a resz majd tenyleges jatekmenetkor lesz lenyeges, tesztelesnel, amikor a prototipust hasznaljuk meg nincs ra szukseg
 

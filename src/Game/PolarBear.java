@@ -65,7 +65,6 @@ public final class PolarBear extends Entity implements OutputToString{
             target = neighbours.get(randomDir());
         }
         Step(target);
-        Controller.UpdateRequired();
     }
 
     /**
