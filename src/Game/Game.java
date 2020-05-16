@@ -192,8 +192,8 @@ public final class Game {
         view = new View();
         Random random = new Random(1);
 
-        for (int i = 0; i<WIDTH; i++){
-            for (int j = 0; j < HEIGHT; j++){
+        for (int i = 0; i<HEIGHT; i++){
+            for (int j = 0; j < WIDTH; j++){
                 double prob = random.nextDouble();
                 if (prob > P_ICEFIELD){
                     Hole hole = new Hole();
@@ -220,6 +220,20 @@ public final class Game {
             }
         }
 
+        for (int i = 0; i < HEIGHT; i++){
+            for (int j = 0; j < WIDTH; j++){
+                Field current = fields.get(j+i*WIDTH);
+                if (i-1 >= 0)
+                    current.AddNeighbour(Direction.UP, fields.get(j+(i-1)*WIDTH));
+                if (i+1 < HEIGHT)
+                    current.AddNeighbour(Direction.DOWN, fields.get(j+(i+1)*WIDTH));
+                if (j-1 >= 0)
+                    current.AddNeighbour(Direction.LEFT, fields.get(j-1+i*WIDTH));
+                if (j+1 < WIDTH)
+                    current.AddNeighbour(Direction.RIGHT, fields.get(j+1+i*WIDTH));
+            }
+        }
+
         ArrayList<Item> items = new ArrayList<Item>();
         int cnt = 0;
         while (cnt < 3){
@@ -236,6 +250,7 @@ public final class Game {
             if (field.getItem() == null && field instanceof IceBlock ){
                 Tent tent = new Tent();
                 field.setItem(tent);
+                tent.setField((IceBlock)field);
                 view.AddView(new TentView(tent));
             }
         }
@@ -247,6 +262,7 @@ public final class Game {
             if (field.getItem() == null && field instanceof IceBlock) {
                 Swimsuit swimsuit = new Swimsuit();
                 field.setItem(swimsuit);
+                swimsuit.setField((IceBlock)field);
                 view.AddView(new SwimsuitView(swimsuit));
             }
         }
@@ -257,6 +273,7 @@ public final class Game {
             if (field.getItem() == null && field instanceof IceBlock) {
                 Spade spade = new Spade(3);
                 field.setItem(spade);
+                spade.setField((IceBlock)field);
                 view.AddView(new SpadeView(spade));
             }
         }
@@ -267,6 +284,7 @@ public final class Game {
             if (field.getItem() == null && field instanceof IceBlock) {
                 Rope rope = new Rope();
                 field.setItem(rope);
+                rope.setField((IceBlock)field);
                 view.AddView(new RopeView(rope));
             }
         }
@@ -277,6 +295,7 @@ public final class Game {
             if (field.getItem() == null && field instanceof IceBlock) {
                 Food food = new Food();
                 field.setItem(food);
+                food.setField((IceBlock)field);
                 view.AddView(new FoodView(food));
             }
         }

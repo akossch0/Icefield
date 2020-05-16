@@ -28,7 +28,7 @@ public class TentView implements IView {
 
     @Override
     public void Draw(Graphics graphics) {
-        if (tent.getHolder() == null)   {
+        if (tent.getHolder() == null) {
             Field field = tent.getField();
             graphics.drawImage(image, field.X*64, field.Y*64, null );
         }
