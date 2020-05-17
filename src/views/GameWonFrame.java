@@ -71,7 +71,7 @@ public class GameWonFrame {
         lGameWon.setText("Game Won");
         jTextPanel.add(lGameWon, BorderLayout.CENTER);
         jButtonsPanel = new JPanel();
-        jButtonsPanel.setLayout(new BorderLayout(0, 0));
+        jButtonsPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
         jButtonsPanel.setBackground(new Color(-8541700));
         jButtonsPanel.setPreferredSize(new Dimension(600, 325));
         mainPanel.add(jButtonsPanel, BorderLayout.CENTER);
@@ -83,6 +83,7 @@ public class GameWonFrame {
         bExit.setHorizontalTextPosition(0);
         bExit.setPreferredSize(new Dimension(600, 175));
         bExit.setText("Exit");
+        jButtonsPanel.add(bExit);
     }
 
     /**
