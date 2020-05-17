@@ -17,8 +17,8 @@ public class FoodView implements IView {
     public FoodView(Food f){
         food = f;
         try {
-            image = (BufferedImage) ImageIO.read(new File("src/images/food.png"));
-            imageO = (BufferedImage) ImageIO.read(new File("src/images/food_fifty.png"));
+            image = ImageIO.read(new File("src/images/food.png"));
+            imageO = ImageIO.read(new File("src/images/food_fifty.png"));
         }
         catch(IOException e) {
             System.out.println("nem jo a food rajzolas");

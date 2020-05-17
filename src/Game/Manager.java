@@ -96,9 +96,6 @@ public final class Manager {
             }
         }
     }
-    public int GetNumberOfPlayers(){
-        return players.size();
-    }
 
     /**
      * hashmapbe berakas ha tent epult az adott mezon, illetve kiveves ha nem az epult

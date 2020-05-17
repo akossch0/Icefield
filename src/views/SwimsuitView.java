@@ -17,8 +17,8 @@ public class SwimsuitView implements IView {
     public SwimsuitView(Swimsuit s) {
         swimsuit = s;
         try {
-            image = (BufferedImage) ImageIO.read(new File("src/images/swimsuit.png"));
-            imageO = (BufferedImage) ImageIO.read(new File("src/images/swimsuit_fifty.png"));
+            image = ImageIO.read(new File("src/images/swimsuit.png"));
+            imageO = ImageIO.read(new File("src/images/swimsuit_fifty.png"));
         }
         catch(IOException e) {
             System.out.println("nem jo a swimsuit rajzolas");

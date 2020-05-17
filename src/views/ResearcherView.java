@@ -16,8 +16,8 @@ public class ResearcherView implements IView {
     BufferedImage blueimage;
     ResearcherView(Researcher r){
         try {
-            image = (BufferedImage) ImageIO.read(new File("src/images/researcher.png"));
-            blueimage = (BufferedImage) ImageIO.read(new File("src/images/researcher_blue.png"));
+            image = ImageIO.read(new File("src/images/researcher.png"));
+            blueimage = ImageIO.read(new File("src/images/researcher_blue.png"));
 
         }
         catch(IOException ex) {

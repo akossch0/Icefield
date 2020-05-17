@@ -18,7 +18,7 @@ public class TentCoverView implements IView{
     TentCoverView( Field f){
         field = f;
         try {
-            image = (BufferedImage) ImageIO.read(new File("src/images/tentCover.png"));
+            image = ImageIO.read(new File("src/images/tentCover.png"));
 
         }
         catch(IOException e) {

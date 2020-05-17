@@ -153,16 +153,12 @@ public abstract class Player extends Entity implements OutputToString{
         actualWorkUnit = 4;
         endTurn = false;
         while(!endTurn && actualWorkUnit > 0){
-            //TODO: CSINÁLD MEG AZ ANYUKÁD
-            // System.out.println("Itt");
-            //this.wait(1);
             synchronized (this){
                 this.wait(100);
             }
-
-            // System.out.println(actualWorkUnit);
         }
-        //Ez a resz majd tenyleges jatekmenetkor lesz lenyeges, tesztelesnel, amikor a prototipust hasznaljuk meg nincs ra szukseg
+        // "Ez a resz majd tenyleges jatekmenetkor lesz lenyeges, tesztelesnel, amikor a prototipust hasznaljuk meg nincs ra szukseg"
+        // Mondta a csapat majd szenvedett 3 orat 4 ember ennek a resznek a megirasaval
 
     }
     public synchronized void EndTurn(){

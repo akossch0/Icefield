@@ -1,10 +1,8 @@
 package views;
 
-import Coverable.IglooCover;
-import Coverable.TentCover;
+
 import Field.Field;
 import Field.IceBlock;
-import Game.Manager;
 
 import javax.imageio.ImageIO;
 import java.awt.*;

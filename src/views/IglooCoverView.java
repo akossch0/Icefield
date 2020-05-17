@@ -18,7 +18,7 @@ public class IglooCoverView implements IView {
     IglooCoverView(Field f){
         field = f;
         try {
-            image = (BufferedImage) ImageIO.read(new File("src/images/igloo.png"));
+            image = ImageIO.read(new File("src/images/igloo.png"));
 
         }
         catch(IOException e) {

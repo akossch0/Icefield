@@ -15,12 +15,12 @@ public class EskimoView implements IView {
     Eskimo eskimo;
     BufferedImage image;
     BufferedImage blueimage;
-    EskimoView(Eskimo e){
 
+    EskimoView(Eskimo e){
         eskimo = e;
         try {
-            image = (BufferedImage) ImageIO.read(new File("src/images/eskimo.png"));
-            blueimage = (BufferedImage) ImageIO.read(new File("src/images/eskimo_blue.png"));
+            image = ImageIO.read(new File("src/images/eskimo.png"));
+            blueimage = ImageIO.read(new File("src/images/eskimo_blue.png"));
 
         }
         catch(IOException ex) {
