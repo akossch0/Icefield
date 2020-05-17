@@ -82,7 +82,7 @@ public abstract class Player extends Entity implements OutputToString{
     }
     @Override
     public void Step(Field f){
-        if(f != null && !inWater){
+        if (f != null && !inWater){
             field.Remove(this);
             field = f;
             f.Accept(this);
@@ -96,7 +96,7 @@ public abstract class Player extends Entity implements OutputToString{
      */
     public void Dig(){
         field.DecrLayerOfSnow(1);
-        actualWorkUnit--;
+
     }
 
     /**
