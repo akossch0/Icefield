@@ -124,9 +124,11 @@ public class GameplayFrame {
         bUseAbility.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                int limit;
                 if (currentPlayer instanceof Researcher) {
                     if (chosenField != null)
-                        currentPlayer.UseAbility(chosenField);
+                       currentPlayer.UseAbility(chosenField);
+                        chosenField.isInspected = true;
 
                 } else {
                     currentPlayer.UseAbility(currentPlayer.getField());
