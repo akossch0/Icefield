@@ -91,9 +91,12 @@ public class IceBlock extends Field {
      */
     @Override
     public Item RemoveItem(){
-        Item i = item;
-        item = null;
-        return i;
+        if(isOpen) {
+            Item i = item;
+            item = null;
+            return i;
+        }
+        return null;
     }
 
     /**

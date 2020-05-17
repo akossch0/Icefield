@@ -1,5 +1,7 @@
 package views;
 
+import Coverable.IglooCover;
+import Coverable.TentCover;
 import Field.IceBlock;
 
 import javax.imageio.ImageIO;
@@ -16,11 +18,15 @@ public class IceBlockView implements IView {
 
     BufferedImage imagewithsnow;
     BufferedImage imagewithoutsnow;
+    BufferedImage tentcoverimage;
+    BufferedImage igloocoverimage;
     public IceBlockView(IceBlock i){
         iceBlock = i;
         try {
             imagewithoutsnow =  ImageIO.read(new File("src/images/iceblock.png"));
             imagewithsnow = ImageIO.read(new File("src/images/snow.png"));
+            tentcoverimage = ImageIO.read(new File("src/images/tentCover.png"));
+            igloocoverimage = ImageIO.read(new File("src/images/igloo.png"));
         } catch (IOException e) {
             System.out.println("Baj van - IceBlockView betoltese");
         }
