@@ -239,7 +239,6 @@ public final class Game {
                 field.setItem(winningItem);
                 winningItem.setField((IceBlock)field);
                 view.AddView(new WinningItemView(winningItem));
-                Manager.getInstance().register(winningItem);
                 cnt++;
             }
         }

@@ -73,7 +73,7 @@ public final class Manager {
         }
         boolean everythingOwned = true;
         for (WinningItem i : winningItems){
-            if (i.getHolder().equals(null))
+            if (i.getHolder() == null)
                 everythingOwned = false;
         }
         if(samePlace && everythingOwned && winningItems.size() == 3){
