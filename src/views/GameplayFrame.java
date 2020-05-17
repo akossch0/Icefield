@@ -201,6 +201,10 @@ public class GameplayFrame {
         chosenField = currentPlayer.getField().getNeighboursWithDir().get(dir);
     }
 
+    public static Player getCurrentPlayer() {
+        return currentPlayer;
+    }
+
     public static void setChosenPlayer(Player p) {
         chosenPlayer = p;
     }

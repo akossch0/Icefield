@@ -30,6 +30,8 @@ public class ResearcherView implements IView {
         float entities = field.getEntites().size();
         int tilt = (int)(-10+index/entities*10 )>20? 20:(int)(-10+index/entities*10);
         graphics.drawImage(image, (int) (field.X*64)+tilt, field.Y*64, null );
+        if (GameplayFrame.getCurrentPlayer().equals(researcher))
+            graphics.drawRect(field.X*64,field.Y*64, 64,64);
     }
 
     @Override
