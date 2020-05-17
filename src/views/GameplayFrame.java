@@ -21,10 +21,10 @@ public class GameplayFrame {
     private static HashMap<String, Player> players = new HashMap<String, Player>();
     private static ArrayList<Field> fields = new ArrayList<Field>();
     static Field chosenField;
-    public static Player currentPlayer;
-    static Player chosenPlayer;
+    public volatile static Player currentPlayer;
+    volatile static Player chosenPlayer;
     static String chosenPlayerName;
-    static Item chosenItem;
+    private Item chosenItem;
     private JPanel mainPanel;
     private JPanel drawPanel;
     private JPanel informationPanel;
@@ -74,7 +74,7 @@ public class GameplayFrame {
     }
 
     void InitListeners() {
-        timer = new Timer(40, new ActionListener() {
+        timer = new Timer(150, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 UpdateComponents();
@@ -114,6 +114,7 @@ public class GameplayFrame {
                     currentPlayer.Step(chosenField);
 
                 }
+                chosenField = null;
                 UpdateComponents();
             }
         });
@@ -163,6 +164,8 @@ public class GameplayFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 currentPlayer.setActualWorkUnit(0);
+                currentPlayer.EndTurn();
+                chosenField = null;
                 UpdateComponents();
             }
         });
@@ -193,7 +196,7 @@ public class GameplayFrame {
         chosenPlayer = p;
     }
 
-    public static void setChosenItem(Item i) {
+    public void setChosenItem(Item i) {
         chosenItem = i;
     }
 
@@ -221,7 +224,7 @@ public class GameplayFrame {
             }
 
             players.put(name, p);
-            Manager.getInstance().AddPlayer(p);
+            //Manager.getInstance().AddPlayer(p);
             if (i == 0) {
                 currentPlayer = p;
             }
@@ -303,6 +306,7 @@ public class GameplayFrame {
         bUp = new JButton();
         bLeft = new JButton();
         bRight = new JButton();
+        currentPlayerLabel = new JLabel();
     }
 
     /**

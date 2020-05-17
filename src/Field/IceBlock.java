@@ -64,14 +64,14 @@ public class IceBlock extends Field {
                 numberOfPlayers++;
             }
         }
-
+        if (getCapacity() != -1){
         if(numberOfPlayers > getCapacity()){
             for (Entity i: getEntites()) {
                 i.setInWater(true);
             }
             Coverable nogloo = new NoCover();
             Cover(nogloo);
-        }
+        }}
     }
 
     /**

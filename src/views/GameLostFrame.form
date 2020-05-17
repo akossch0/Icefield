@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="views.GameLostFrame">
+  <grid id="27dc6" binding="mainPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="20" y="20" width="1025" height="724"/>
+    </constraints>
+    <properties>
+      <background color="-58332"/>
+      <preferredSize width="600" height="600"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <grid id="c6e47" binding="jTextPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints border-constraint="North"/>
+        <properties>
+          <background color="-58332"/>
+          <preferredSize width="600" height="400"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="7422c" class="javax.swing.JLabel" binding="lGameLost">
+            <constraints border-constraint="Center"/>
+            <properties>
+              <font name="Consolas" size="90" style="1"/>
+              <foreground color="-16382458"/>
+              <horizontalAlignment value="0"/>
+              <horizontalTextPosition value="0"/>
+              <preferredSize width="300" height="100"/>
+              <text value="Game Lost"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="cc969" binding="jButtonsPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints border-constraint="South"/>
+        <properties>
+          <background color="-58332"/>
+          <preferredSize width="600" height="325"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <grid id="47c1" binding="jTryPanel" layout-manager="FlowLayout" hgap="0" vgap="0" flow-align="1">
+            <constraints border-constraint="North"/>
+            <properties>
+              <background color="-58332"/>
+              <preferredSize width="600" height="175"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="766c" class="javax.swing.JButton" binding="bTryAgain">
+                <constraints/>
+                <properties>
+                  <background color="-58332"/>
+                  <font name="Consolas" size="48" style="1"/>
+                  <foreground color="-16382458"/>
+                  <preferredSize width="600" height="175"/>
+                  <text value="Try Again"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="a1193" binding="jExitPanel" layout-manager="FlowLayout" hgap="0" vgap="0" flow-align="1">
+            <constraints border-constraint="South"/>
+            <properties>
+              <background color="-58332"/>
+              <preferredSize width="600" height="150"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="1742e" class="javax.swing.JButton" binding="bExit">
+                <constraints/>
+                <properties>
+                  <background color="-58332"/>
+                  <font name="Consolas" size="48" style="1"/>
+                  <foreground color="-16382458"/>
+                  <horizontalTextPosition value="0"/>
+                  <preferredSize width="600" height="150"/>
+                  <text value="Exit"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>

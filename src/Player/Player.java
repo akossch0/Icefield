@@ -16,8 +16,8 @@ import java.util.concurrent.CountDownLatch;
  */
 
 public abstract class Player extends Entity implements OutputToString{
-    private int actualHealth ;
-    private int actualWorkUnit ;
+    private volatile int actualHealth ;
+    private volatile int actualWorkUnit ;
     private int maxHealth ;
     private List<Item> items = new ArrayList<Item>();
     private boolean inWater = false;
@@ -47,7 +47,7 @@ public abstract class Player extends Entity implements OutputToString{
         return actualWorkUnit;
     }
 
-    public void setActualWorkUnit(int actualWorkUnit) {
+    public synchronized void  setActualWorkUnit(int actualWorkUnit) {
         this.actualWorkUnit = actualWorkUnit;
     }
 
@@ -71,23 +71,23 @@ public abstract class Player extends Entity implements OutputToString{
     /**
      * Noveli a player HP-jat 1 el
      */
-    public void IncrHp(){
+    public synchronized void IncrHp(){
         if(actualHealth+1<=maxHealth) actualHealth++;
     }
 
     /**
      * Csokkenti a player HP-jat  1 el
      */
-    public void DecrHp(){
+    public synchronized void DecrHp(){
         actualHealth--;
         if(actualHealth<=0){
             Manager.Lose();
         }
     }
     @Override
-    public void Step(Field f){
+    public synchronized void Step(Field f){
         if (actualWorkUnit > 0) {
-            if (f != null && !inWater) {
+            if (f != null && (!inWater || isWaterproof())) {
                 field.Remove(this);
                 field = f;
                 f.Accept(this);
@@ -103,7 +103,7 @@ public abstract class Player extends Entity implements OutputToString{
     public void Dig(){
         if (actualWorkUnit > 0)
             field.DecrLayerOfSnow(1);
-
+        actualWorkUnit--;
     }
 
     /**
@@ -150,20 +150,28 @@ public abstract class Player extends Entity implements OutputToString{
     /**
      *  A menedzser kozli a playerrel, hogy az o kore kovetkezik
      */
-    public void yourTurn() throws InterruptedException {
+    public synchronized void yourTurn() throws InterruptedException {
         GameplayFrame.currentPlayer = this;
         actualWorkUnit = 4;
+        endTurn = false;
         while(!endTurn && actualWorkUnit > 0){
             //TODO: CSINÁLD MEG AZ ANYUKÁD
-            //System.out.println("Itt");
-            // this.wait(1);
-            Thread.currentThread().sleep(100);
-            //System.out.println("Ott");
+            // System.out.println("Itt");
+            //this.wait(1);
+            synchronized (this){
+                this.wait(100);
+            }
+
+            // System.out.println(actualWorkUnit);
         }
+        System.out.println(actualWorkUnit);
         //Ez a resz majd tenyleges jatekmenetkor lesz lenyeges, tesztelesnel, amikor a prototipust hasznaljuk meg nincs ra szukseg
 
     }
-
+    public synchronized void EndTurn(){
+        endTurn = true;
+        this.notifyAll();
+    }
     @Override
     public void InteractWith(PolarBear p) {
 
@@ -251,7 +259,7 @@ public abstract class Player extends Entity implements OutputToString{
     /**
      * Csokkenti a jatekos munkaegysegeit eggyel
      */
-    public void decreaseWorkUnits(){
+    public synchronized void decreaseWorkUnits(){
         actualWorkUnit = actualWorkUnit - 1;
     }
 }

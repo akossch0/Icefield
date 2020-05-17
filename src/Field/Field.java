@@ -35,7 +35,7 @@ public abstract class Field implements OutputToString {
     /**
      * A horetegek szama a mezon
      */
-    private  int layerOfSnow = 0;
+    protected  int layerOfSnow = 0;
 
     /**
      * Ennyi jatekost bir el a mezo

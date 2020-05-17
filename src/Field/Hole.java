@@ -52,7 +52,7 @@ public class Hole extends Field {
         this.setLayerOfSnow(0);
         entities.add(e);
         e.setInWater(true);
-
+        layerOfSnow = 0;
         for (Entity i: entities) {
             i.Meet(e);
         }
