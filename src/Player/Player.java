@@ -85,7 +85,7 @@ public abstract class Player extends Entity implements OutputToString{
         }
     }
     @Override
-    public void Step(Field f){
+    public synchronized void Step(Field f){
         if (actualWorkUnit > 0) {
             if (f != null && !inWater) {
                 field.Remove(this);

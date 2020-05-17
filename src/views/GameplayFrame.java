@@ -114,6 +114,7 @@ public class GameplayFrame {
                     currentPlayer.Step(chosenField);
 
                 }
+                chosenField = null;
                 UpdateComponents();
             }
         });
@@ -164,6 +165,7 @@ public class GameplayFrame {
             public void actionPerformed(ActionEvent e) {
                 currentPlayer.setActualWorkUnit(0);
                 currentPlayer.EndTurn();
+                chosenField = null;
                 UpdateComponents();
             }
         });
@@ -305,6 +307,7 @@ public class GameplayFrame {
         bUp = new JButton();
         bLeft = new JButton();
         bRight = new JButton();
+        currentPlayerLabel = new JLabel();
     }
 
     /**
@@ -341,7 +344,6 @@ public class GameplayFrame {
         lCurrentPlayer.setRequestFocusEnabled(true);
         lCurrentPlayer.setText("Current player:");
         info1.add(lCurrentPlayer);
-        currentPlayerLabel = new JLabel();
         currentPlayerLabel.setPreferredSize(new Dimension(100, 30));
         currentPlayerLabel.setText("");
         info1.add(currentPlayerLabel);

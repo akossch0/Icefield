@@ -51,7 +51,7 @@ public class Hole extends Field {
     public void Accept(Entity e) {
         entities.add(e);
         e.setInWater(true);
-
+        layerOfSnow = 0;
         for (Entity i: entities) {
             i.Meet(e);
         }
