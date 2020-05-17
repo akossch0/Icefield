@@ -16,10 +16,10 @@ public class WinningItem extends Item {
     @Override
     public void Use(Player p){
 
-        Manager manager = Manager.getInstance();
-         if (manager.WinningItemUsed())
-            p.decreaseWorkUnits();
-
+         if (Manager.getInstance().WinningItemUsed()) {
+             p.EndTurn();
+             p.decreaseWorkUnits();
+         }
     }
     public int id;
     /**

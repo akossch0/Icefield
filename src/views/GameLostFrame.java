@@ -72,7 +72,7 @@ public class GameLostFrame {
         lGameLost.setText("Game Lost");
         jTextPanel.add(lGameLost, BorderLayout.CENTER);
         jButtonsPanel = new JPanel();
-        jButtonsPanel.setLayout(new BorderLayout(0, 0));
+        jButtonsPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
         jButtonsPanel.setBackground(new Color(-58332));
         jButtonsPanel.setPreferredSize(new Dimension(600, 325));
         mainPanel.add(jButtonsPanel, BorderLayout.SOUTH);
@@ -84,6 +84,7 @@ public class GameLostFrame {
         bExit.setHorizontalTextPosition(0);
         bExit.setPreferredSize(new Dimension(600, 150));
         bExit.setText("Exit");
+        jButtonsPanel.add(bExit);
     }
 
     /**

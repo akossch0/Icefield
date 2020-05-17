@@ -173,6 +173,7 @@ public abstract class Player extends Entity implements OutputToString{
     }
     @Override
     public void InteractWith(PolarBear p) {
+        this.EndTurn();
         Manager.Lose();
     }
 

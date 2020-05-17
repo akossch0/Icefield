@@ -134,22 +134,21 @@ public final class Manager {
      */
     public static void Start() throws InterruptedException {
         while(!Game.isGameWon() && !Game.isGameLost()){
-            for(Actor a : actors){
+            for(Actor a : actors) {
+                if (Game.isGameWon() || Game.isGameLost()) {
+                    break;
+                }
                 //Allt egy korig a tent
-                for (Field i:timeTent.keySet()) {
-                    if(timeTent.get(i)>actors.size())i.Cover(new NoCover());
+                for (Field i : timeTent.keySet()) {
+                    if (timeTent.get(i) > actors.size()) i.Cover(new NoCover());
                 }
                 //Player e a jelenlegi actor, ha igen akkor ha sok ideig volt vizben es nem vizallo, akkor vege a jateknak
                 //minden vizben levo ember szamlalojat noveli
                 TurnPassed();
 
-                /*int index = (actors.indexOf(a)>=players.size()?-1:actors.indexOf(a));
-                if(index!=-1){
-                    currentPlayer = players.get(index);
-                }*/
-
                 //Actor kore jon
                 a.yourTurn();
+
             }
         }
     }

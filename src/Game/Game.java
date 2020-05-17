@@ -174,7 +174,7 @@ public final class Game {
 */
 
     public List<Object> InitMap(){
-        double P_ICEFIELD = 0.90;
+        double P_ICEFIELD = 1.0;
         int WIDTH = 14;
         int HEIGHT = 14;
         int NUMBER_OF_FIELDS = WIDTH * HEIGHT;
@@ -198,11 +198,15 @@ public final class Game {
                 else {
                     IceBlock iceblock = new IceBlock();
                     int thickness = random.nextInt(MAX_SNOW_THICKNESS);
+
                     int capacity = random.nextInt(MAX_CAPACITY + 1);
                     if (capacity >= MAX_CAPACITY) {
                         iceblock.setCapacity(-1);
+
                     } else {
-                        iceblock.setCapacity(capacity + 1);
+                        // TODO: ezt is vissza csere
+                        //iceblock.setCapacity(capacity + 1);
+                        iceblock.setCapacity(-1);
                     }
                     // TODO: ezt vissza
                     //iceblock.setLayerOfSnow(thickness);
@@ -305,7 +309,7 @@ public final class Game {
         view.AddView(new PolarBearView(pb));
 
         //weather es jegesmedve actorkent besorolasa
-        Manager.getInstance().AddActor(Weather.getInstance());
+        //Manager.getInstance().AddActor(Weather.getInstance());
         Manager.getInstance().AddActor(pb);
 
         for (Field f:fields)
