@@ -210,7 +210,6 @@ public class GameplayFrame {
                     break;
                 }
             }
-
             players.put(name, p);
             Manager.getInstance().AddPlayer(p);
         }
