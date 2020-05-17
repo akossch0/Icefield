@@ -31,8 +31,7 @@ public class GameWonFrame {
         bExit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                gameWonFrame.setVisible(false);
-                gameWonFrame.dispose();
+                System.exit(0);
             }
         });
     }

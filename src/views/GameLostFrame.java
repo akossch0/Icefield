@@ -31,8 +31,7 @@ public class GameLostFrame {
         bExit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                gameLostFrame.setVisible(false);
-                gameLostFrame.dispose();
+                System.exit(0);
             }
         });
     }
