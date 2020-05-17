@@ -5,7 +5,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * A jatek megnyerese utan megjeleno ablakot reprezentalo osztaly
+ */
 public class GameWonFrame {
+    /**
+     * Frame es a paneljei
+     */
     private static JFrame gameWonFrame;
     private JPanel mainPanel;
     private JPanel jTextPanel;
@@ -13,11 +19,20 @@ public class GameWonFrame {
     private JPanel jButtonsPanel;
     private JButton bExit;
 
+    /**
+     * Kontruktor, mely meghivja a listereket vegzo metodust
+     */
     public GameWonFrame() {
         InitListeners();
     }
 
+    /**
+     * Beallitja a frame listenerjet
+     */
     void InitListeners() {
+        /**
+         * Exit gomb megnyomasara bezar a program
+         */
         bExit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -26,6 +41,9 @@ public class GameWonFrame {
         });
     }
 
+    /**
+     * Letrehozza es inicializalja a framet
+     */
     public static void Run() {
         JFrame frame = new JFrame("Game Won");
         frame.setContentPane(new GameWonFrame().mainPanel);

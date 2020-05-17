@@ -84,7 +84,6 @@ public class GameplayFrame {
         currentPlayerLabel.setText(Test.getKeyByValue(players, currentPlayer));
         numberofWorkUnitsLabel.setText(String.valueOf(currentPlayer.getActualWorkUnit()));
         numberofActualHealthLabel.setText(String.valueOf(currentPlayer.getActualHealth()));
-        System.out.println(currentPlayer.getField().getCapacity());
         refreshItemListModel();
     }
 

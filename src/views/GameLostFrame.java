@@ -5,7 +5,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * A jatek elvesztese utan megjeleno ablakot reprezentalo osztaly
+ */
 public class GameLostFrame {
+    /**
+     * Frame es a paneljei
+     */
     private static JFrame gameLostFrame;
     private JPanel mainPanel;
     private JLabel lGameLost;
@@ -13,11 +19,20 @@ public class GameLostFrame {
     private JPanel jButtonsPanel;
     private JButton bExit;
 
+    /**
+     * Kontruktor, mely meghivja a listereket vegzo metodustv
+     */
     public GameLostFrame() {
         InitListeners();
     }
 
+    /**
+     * Beallitja a frame listenerjet
+     */
     void InitListeners() {
+        /**
+         * Exit gomb megnyomasara bezar a program
+         */
         bExit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -26,6 +41,9 @@ public class GameLostFrame {
         });
     }
 
+    /**
+     * Letrehozza es inicializalja a framet
+     */
     public static void Run() {
         JFrame frame = new JFrame("Game Lost");
         frame.setContentPane(new GameLostFrame().mainPanel);
