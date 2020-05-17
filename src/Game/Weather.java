@@ -101,14 +101,21 @@ public final class Weather implements Actor{
     public void yourTurn() {
         //majd gui-ban meghatarozott mezokre tortenik ez a hivas
         List<Field> struck;
-        int recDepth = 5;
         Random rand = new Random();
+
+        int incr = rand.nextInt(2);
+        int recDepth = 3 + incr;
+
         Field randField = fields.get(rand.nextInt(fields.size()));
         HashSet<Field> targetSet = new HashSet<>();
         recStruckField(targetSet, randField, recDepth);
         struck = new ArrayList<Field>(targetSet);
-        Blizzard(struck);
-        //Controller.UpdateRequired();
+
+        double P_BLIZZARD = 0.6;
+        double prob = rand.nextDouble();
+
+        if(P_BLIZZARD > prob)
+            Blizzard(struck);
     }
 
     /**

@@ -286,15 +286,12 @@ public class GameplayFrame {
                                         GameWonFrame.Run();
                                     }
                                 }
-                                System.out.println("gamestate thread exited");
                             } catch (Exception e) {
 
                             }
                         }
                     };
                     gamestate.start();
-
-                    System.out.println("thread exited");
                 } catch (Exception e) {
 
                 }

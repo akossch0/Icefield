@@ -1,7 +1,9 @@
 package Game;
 
 import Field.Field;
+
 import java.util.*;
+
 import Item.*;
 import Field.*;
 import views.*;
@@ -58,12 +60,13 @@ public final class Game {
      * elinditja a jatekot
      */
     public List<Object> InitMap(){
+        double P_ICEFIELD = 0.9;
         int WIDTH = 14;
         int HEIGHT = 14;
         int NUMBER_OF_FIELDS = WIDTH * HEIGHT;
-        int MAX_SNOW_THICKNESS = 4;
+        int MAX_SNOW_THICKNESS = 3;
         int MAX_CAPACITY = 4;
-        double P_ICEFIELD = 0.9;
+        
         List<Object> newObjects = new ArrayList<>();
         fields = new ArrayList<Field>();
         Random random = new Random();
@@ -72,9 +75,13 @@ public final class Game {
             for (int j = 0; j < WIDTH; j++){
                 double prob = random.nextDouble();
                 if (prob > P_ICEFIELD){
+                    int thickness = random.nextInt(MAX_SNOW_THICKNESS);
                     Hole hole = new Hole();
                     hole.X = j;
                     hole.Y = i;
+                    double snowProb = random.nextDouble();
+                    if(snowProb > 0.5)
+                        hole.setLayerOfSnow(thickness);
                     fields.add(hole);
                     view.AddView(new HoleView(hole));
                 }
@@ -83,11 +90,15 @@ public final class Game {
                     int thickness = random.nextInt(MAX_SNOW_THICKNESS);
 
                     int capacity = random.nextInt(MAX_CAPACITY + 1);
-                    if (capacity >= MAX_CAPACITY)
+                    if (capacity >= MAX_CAPACITY) {
                         iceblock.setCapacity(-1);
-                    else
+                    } else {
                         iceblock.setCapacity(capacity + 1);
-                    iceblock.setLayerOfSnow(thickness);
+                    }
+                    double snowProb = random.nextDouble();
+                    if(snowProb > 0.5)
+                        iceblock.setLayerOfSnow(thickness);
+
                     iceblock.X = j;
                     iceblock.Y = i;
                     fields.add(iceblock);
