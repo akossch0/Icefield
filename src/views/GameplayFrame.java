@@ -71,6 +71,7 @@ public class GameplayFrame {
         numberofWorkUnitsLabel.setText(String.valueOf(currentPlayer.getActualWorkUnit()));
         numberofActualHealthLabel.setText(String.valueOf(currentPlayer.getActualHealth()));
         //setChosenField(randomDir());
+        System.out.println(currentPlayer.getField().getCapacity());
         refreshItemListModel();
     }
 
