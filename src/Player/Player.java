@@ -105,7 +105,8 @@ public abstract class Player extends Entity implements OutputToString{
      * @param target a player amin az item hasznalva lesz (pl rope)
      */
     public void UseItem(Item i, Player target){
-        i.Use(target);
+        if (i != null)
+            i.Use(target);
     }
 
     /**
@@ -137,9 +138,13 @@ public abstract class Player extends Entity implements OutputToString{
      */
     public void yourTurn() throws InterruptedException {
         GameplayFrame.currentPlayer = this;
-        while(!endTurn&&actualWorkUnit!=0){
+        actualWorkUnit = 4;
+        while(!endTurn&&actualWorkUnit > 0){
             //TODO: CSINÁLD MEG AZ ANYUKÁD
-            this.wait();
+            //System.out.println("Itt");
+            // this.wait(1);
+            Thread.currentThread().sleep(100);
+            //System.out.println("Ott");
         }
         //Ez a resz majd tenyleges jatekmenetkor lesz lenyeges, tesztelesnel, amikor a prototipust hasznaljuk meg nincs ra szukseg
 

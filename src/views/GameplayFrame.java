@@ -9,6 +9,7 @@ import Prototype.Test;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.beans.ExceptionListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
@@ -51,38 +52,22 @@ public class GameplayFrame {
     void UpdateComponents() {
         drawPanel.repaint();
         currentPlayerLabel.setText(Test.getKeyByValue(players, currentPlayer));
-        notifyAll();
+        numberofWorkUnitsLabel.setText(String.valueOf(currentPlayer.getActualWorkUnit()));
+        //synchronized (currentPlayer) {
+            //currentPlayer.notify();
+        //}
     }
 
     void InitListeners() {
-        mainPanel.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-                super.keyTyped(e);
-                switch (e.getKeyCode()) {
-                    case KeyEvent.VK_UP:
-                        setChosenField(Direction.UP);
-                        break;
-                    case KeyEvent.VK_DOWN:
-                        setChosenField(Direction.DOWN);
-                        break;
-                    case KeyEvent.VK_RIGHT:
-                        setChosenField(Direction.RIGHT);
-                        break;
-                    case KeyEvent.VK_LEFT:
-                        setChosenField(Direction.LEFT);
-                        break;
-                    default:
-                        System.out.println("Wrong key typed!");
-                        break;
-                }
-            }
-        });
+
 
         bStep.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                currentPlayer.Step(chosenField);
+                if (chosenField != null) {
+                    currentPlayer.Step(chosenField);
+
+                }
                 UpdateComponents();
             }
         });
@@ -90,7 +75,10 @@ public class GameplayFrame {
         bUseAbility.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                currentPlayer.UseAbility(chosenField);
+                if (chosenField != null) {
+                    currentPlayer.UseAbility(chosenField);
+
+                }
                 UpdateComponents();
             }
         });
@@ -128,8 +116,10 @@ public class GameplayFrame {
         bEndTurn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                currentPlayer.setActualWorkUnit(0);
-                UpdateComponents();
+                synchronized (currentPlayer) {
+                    currentPlayer.setActualWorkUnit(0);
+                    UpdateComponents();
+                }
             }
         });
 
@@ -170,7 +160,7 @@ public class GameplayFrame {
             while (true) {
                 int randField = (new Random()).nextInt(fields.size());
                 int polarIndex = fields.get(randField).getEntites().indexOf(PolarBear.getInstance());
-                if (fields.get(randField) instanceof IceBlock && polarIndex == -1 ) {
+                if (fields.get(randField) instanceof IceBlock && polarIndex == -1) {
                     p.setField(fields.get(randField));
                     break;
                 }
@@ -187,14 +177,44 @@ public class GameplayFrame {
         frame.setResizable(false);
         //opens in the center of the monitor
         frame.setLocationRelativeTo(null);
-
+        frame.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                // super.keyTyped(e);
+                switch (e.getKeyCode()) {
+                    case KeyEvent.VK_UP:
+                        setChosenField(Direction.UP);
+                        break;
+                    case KeyEvent.VK_DOWN:
+                        setChosenField(Direction.DOWN);
+                        break;
+                    case KeyEvent.VK_RIGHT:
+                        setChosenField(Direction.RIGHT);
+                        break;
+                    case KeyEvent.VK_LEFT:
+                        setChosenField(Direction.LEFT);
+                        break;
+                    default:
+                        System.out.println("Wrong key typed!");
+                        break;
+                }
+            }
+        });
         //vihar teszt
         //Weather.getInstance().yourTurn();
-        try {
-            Manager.Start();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        Thread thread = new Thread("My Thread") {
+            public void run() {
+                try {
+                    Manager.Start();
+                    System.out.println("thread exited");
+                } catch (Exception e) {
+
+                }
+            }
+        };
+        thread.start();
+        //UpdateComponents();
+
     }
 
     private void createUIComponents() {
@@ -220,6 +240,7 @@ public class GameplayFrame {
         mainPanel.setPreferredSize(new Dimension(1200, 900));
         drawPanel.setPreferredSize(new Dimension(900, 900));
         informationPanel.setPreferredSize(new Dimension(300, 900));
+        //UpdateComponents();
     }
 
     /**
