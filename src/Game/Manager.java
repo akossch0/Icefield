@@ -147,6 +147,7 @@ public final class Manager {
                 if(index!=-1){
                     currentPlayer = players.get(index);
                 }*/
+
                 //Actor kore jon
                 a.yourTurn();
             }

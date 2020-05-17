@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="views.GameplayFrame">
-  <grid id="f83c9" binding="mainPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+  <grid id="f83c9" binding="mainPanel" custom-create="true" layout-manager="BorderLayout" hgap="0" vgap="0">
     <constraints>
       <xy x="20" y="20" width="1336" height="917"/>
     </constraints>
     <properties>
+      <autoscrolls value="false"/>
       <background color="-8541700"/>
-      <enabled value="false"/>
+      <enabled value="true"/>
+      <focusCycleRoot value="false"/>
+      <focusTraversalPolicyProvider value="false"/>
+      <inheritsPopupMenu value="true"/>
+      <nextFocusableComponent value=""/>
       <focusCycleRoot value="true"/>
       <focusTraversalPolicyProvider value="true"/>
       <verifyInputWhenFocusTarget value="true"/>

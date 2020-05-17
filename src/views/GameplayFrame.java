@@ -14,6 +14,7 @@ import java.awt.event.*;
 import java.beans.ExceptionListener;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 public class GameplayFrame {
@@ -59,7 +60,6 @@ public class GameplayFrame {
         numberofWorkUnitsLabel.setText(String.valueOf(currentPlayer.getActualWorkUnit()));
         numberofActualHealthLabel.setText(String.valueOf(currentPlayer.getActualHealth()));
         refreshItemListModel();
-        notifyAll();
     }
 
     void InitListeners() {
@@ -69,10 +69,11 @@ public class GameplayFrame {
                 super.keyTyped(e);
                 switch (e.getKeyCode()) {
                     case KeyEvent.VK_UP:
-                        System.out.println("UP");
+                        System.out.println(KeyEvent.VK_UP);
                         setChosenField(Direction.UP);
                         break;
                     case KeyEvent.VK_DOWN:
+                        System.out.println(KeyEvent.VK_DOWN);
                         setChosenField(Direction.DOWN);
                         break;
                     case KeyEvent.VK_RIGHT:
@@ -203,8 +204,26 @@ public class GameplayFrame {
         //opens in the center of the monitor
         frame.setLocationRelativeTo(null);
 
+        //Current Player setup
+        Map.Entry<String, Player> entry = players.entrySet().iterator().next();
+        currentPlayer = entry.getValue();
+
         //vihar teszt
         //Weather.getInstance().yourTurn();
+        try {
+            Thread thread = new Thread() {
+                public void rnu() {
+                    try {
+                        Manager.Start();
+                    } catch (Exception e) {
+
+                    }
+                }
+            };
+            thread.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         Thread thread = new Thread("My Thread") {
             public void run() {
                 try {
@@ -219,12 +238,15 @@ public class GameplayFrame {
         //UpdateComponents();
 
     }
+
     public void refreshItemListModel() {
         itemListModel.removeAllElements();
         int i = 0;
-        for(Item item : currentPlayer.getItems()){
-            itemListModel.add(i,item);
-            i++;
+        if (currentPlayer != null) {
+            for (Item item : currentPlayer.getItems()) {
+                itemListModel.add(i, item);
+                i++;
+            }
         }
     }
 
@@ -251,9 +273,11 @@ public class GameplayFrame {
         jplayerList = new JList(playerListModel);
 
         itemListModel = new DefaultListModel();
-        for(Item item : currentPlayer.getItems()){
-            itemListModel.add(i,item);
-            i++;
+        if (currentPlayer != null) {
+            for (Item item : currentPlayer.getItems()) {
+                itemListModel.add(i, item);
+                i++;
+            }
         }
         jItemList = new JList(itemListModel);
 
@@ -272,12 +296,13 @@ public class GameplayFrame {
      */
     private void $$$setupUI$$$() {
         createUIComponents();
-        mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout(0, 0));
+        mainPanel.setAutoscrolls(false);
         mainPanel.setBackground(new Color(-8541700));
-        mainPanel.setEnabled(false);
+        mainPanel.setEnabled(true);
         mainPanel.setFocusCycleRoot(true);
         mainPanel.setFocusTraversalPolicyProvider(true);
+        mainPanel.setInheritsPopupMenu(true);
         mainPanel.setVerifyInputWhenFocusTarget(true);
         mainPanel.setVisible(true);
         informationPanel = new JPanel();
@@ -330,7 +355,6 @@ public class GameplayFrame {
         final JScrollPane scrollPane1 = new JScrollPane();
         scrollPane1.setPreferredSize(new Dimension(300, 200));
         info1.add(scrollPane1);
-        jItemList = new JList();
         jItemList.setPreferredSize(new Dimension(300, 200));
         scrollPane1.setViewportView(jItemList);
         buttons = new JPanel();

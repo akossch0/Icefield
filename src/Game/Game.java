@@ -205,8 +205,8 @@ public final class Game {
                         iceblock.setCapacity(capacity + 1);
                     }
                     // TODO: ezt vissza
-                    //iceblock.setLayerOfSnow(thickness);
-                    iceblock.setLayerOfSnow(0);
+                    iceblock.setLayerOfSnow(thickness);
+                    //iceblock.setLayerOfSnow(0);
                     iceblock.X = i;
                     iceblock.Y = j;
                     fields.add(iceblock);
@@ -230,6 +230,7 @@ public final class Game {
         }
 
         ArrayList<Item> items = new ArrayList<Item>();
+        //Winning Item
         int cnt = 0;
         while (cnt < 3){
             Field field = fields.get(random.nextInt(NUMBER_OF_FIELDS));
