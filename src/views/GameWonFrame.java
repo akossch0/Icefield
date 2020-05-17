@@ -24,8 +24,8 @@ public class GameWonFrame {
         bPlayAgain.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String[] args = new String[0];
-                GameStartFrame.Run(args);
+                gameWonFrame.dispose();
+                GameStartFrame.Run(null);
             }
         });
         bExit.addActionListener(new ActionListener() {

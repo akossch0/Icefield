@@ -84,7 +84,6 @@ public class GameplayFrame {
         bUp.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("UP");
                 setChosenField(Direction.UP);
             }
         });
@@ -229,7 +228,6 @@ public class GameplayFrame {
             }
 
             players.put(name, p);
-            //Manager.getInstance().AddPlayer(p);
             if (i == 0) {
                 currentPlayer = p;
             }

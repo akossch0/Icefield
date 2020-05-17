@@ -24,8 +24,8 @@ public class GameLostFrame {
         bTryAgain.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String[] args = new String[0];
-                GameStartFrame.Run(args);
+                gameLostFrame.dispose();
+                GameStartFrame.Run(null);
             }
         });
         bExit.addActionListener(new ActionListener() {

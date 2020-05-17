@@ -54,7 +54,7 @@ public class GameStartFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 GameplayFrame.Run(players);
-                gameFrame.setVisible(false);
+                gameFrame.dispose();
             }
         });
 
