@@ -49,6 +49,7 @@ public class Hole extends Field {
      */
     @Override
     public void Accept(Entity e) {
+        this.setLayerOfSnow(0);
         entities.add(e);
         e.setInWater(true);
 
