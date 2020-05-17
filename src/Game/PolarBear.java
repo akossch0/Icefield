@@ -50,7 +50,7 @@ public final class PolarBear extends Entity implements OutputToString{
     }
 
     private Direction randomDir(){
-        int pick = new Random(69420).nextInt(Direction.values().length);
+        int pick = new Random().nextInt(Direction.values().length);
         return Direction.values()[pick];
     }
 

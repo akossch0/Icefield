@@ -54,12 +54,17 @@ public class GameplayFrame {
         InitListeners();
     }
 
+    private Direction randomDir() {
+        int pick = new Random().nextInt(Direction.values().length);
+        return Direction.values()[pick];
+    }
+
     void UpdateComponents() {
         drawPanel.repaint();
         currentPlayerLabel.setText(Test.getKeyByValue(players, currentPlayer));
         numberofWorkUnitsLabel.setText(String.valueOf(currentPlayer.getActualWorkUnit()));
         numberofActualHealthLabel.setText(String.valueOf(currentPlayer.getActualHealth()));
-        //setChosenField(Direction.RIGHT);
+        setChosenField(randomDir());
         refreshItemListModel();
     }
 
@@ -157,6 +162,13 @@ public class GameplayFrame {
                 super.mouseClicked(e);
                 chosenPlayerName = ((String) jplayerList.getSelectedValue()).split("|")[0].trim();
                 chosenPlayer = players.get(chosenPlayerName);
+            }
+        });
+        jItemList.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                chosenItem = (Item) jItemList.getSelectedValue();
             }
         });
     }

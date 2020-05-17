@@ -28,7 +28,7 @@ public class RopeView implements IView {
     }
     @Override
     public void Draw(Graphics graphics) {
-        if(!rope.getField().IsOpen()) { /*opacity valtoztatasa*/}
+        //if(!rope.getField().IsOpen()) { /*opacity valtoztatasa*/}
         if (rope.getHolder() == null) {
             Field field = rope.getField();
             if(field.getLayerOfSnow()==0){
