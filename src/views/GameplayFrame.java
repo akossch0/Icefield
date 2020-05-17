@@ -59,10 +59,12 @@ public class GameplayFrame {
         currentPlayerLabel.setText(Test.getKeyByValue(players, currentPlayer));
         numberofWorkUnitsLabel.setText(String.valueOf(currentPlayer.getActualWorkUnit()));
         numberofActualHealthLabel.setText(String.valueOf(currentPlayer.getActualHealth()));
+        //setChosenField(Direction.RIGHT);
         refreshItemListModel();
     }
 
     void InitListeners() {
+
         mainPanel.addKeyListener(new KeyAdapter() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -209,21 +211,9 @@ public class GameplayFrame {
         currentPlayer = entry.getValue();
 
         //vihar teszt
-        //Weather.getInstance().yourTurn();
-        try {
-            Thread thread = new Thread() {
-                public void rnu() {
-                    try {
-                        Manager.Start();
-                    } catch (Exception e) {
-
-                    }
-                }
-            };
-            thread.start();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        Weather.getInstance().yourTurn();
+        Weather.getInstance().yourTurn();
+        Weather.getInstance().yourTurn();
         Thread thread = new Thread("My Thread") {
             public void run() {
                 try {
@@ -355,6 +345,7 @@ public class GameplayFrame {
         final JScrollPane scrollPane1 = new JScrollPane();
         scrollPane1.setPreferredSize(new Dimension(300, 200));
         info1.add(scrollPane1);
+        jItemList = new JList();
         jItemList.setPreferredSize(new Dimension(300, 200));
         scrollPane1.setViewportView(jItemList);
         buttons = new JPanel();
