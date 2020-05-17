@@ -102,11 +102,9 @@ public final class Game {
                     } else {
                         // TODO: ezt is vissza csere
                         iceblock.setCapacity(capacity + 1);
-                        //iceblock.setCapacity(-1);
                     }
                     // TODO: ezt vissza
-                    //iceblock.setLayerOfSnow(thickness);
-                    iceblock.setLayerOfSnow(0);
+                    iceblock.setLayerOfSnow(thickness);
                     iceblock.X = j;
                     iceblock.Y = i;
                     fields.add(iceblock);
@@ -205,7 +203,7 @@ public final class Game {
         view.AddView(new PolarBearView(pb));
 
         //weather es jegesmedve actorkent besorolasa
-        //Manager.getInstance().AddActor(Weather.getInstance());
+        Manager.getInstance().AddActor(Weather.getInstance());
         Manager.getInstance().AddActor(pb);
 
         for (Field f:fields)
