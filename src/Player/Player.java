@@ -164,7 +164,6 @@ public abstract class Player extends Entity implements OutputToString{
 
             // System.out.println(actualWorkUnit);
         }
-        System.out.println(actualWorkUnit);
         //Ez a resz majd tenyleges jatekmenetkor lesz lenyeges, tesztelesnel, amikor a prototipust hasznaljuk meg nincs ra szukseg
 
     }
