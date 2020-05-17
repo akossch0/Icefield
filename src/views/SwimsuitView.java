@@ -34,9 +34,4 @@ public class SwimsuitView implements IView {
             }
         }
     }
-
-    @Override
-    public void RefreshData() {
-
-    }
 }

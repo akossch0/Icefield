@@ -36,8 +36,4 @@ public class TentView implements IView {
         }
     }
 
-    @Override
-    public void RefreshData() {
-
-    }
 }

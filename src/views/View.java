@@ -16,7 +16,6 @@ public class View {
 
     public void Update(){
         for (IView item: views) {
-            item.RefreshData();
             item.Draw(graphics);
         }
     }

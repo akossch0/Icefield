@@ -16,12 +16,11 @@ import java.io.IOException;
 public class IceBlockView implements IView {
     IceBlock iceBlock;
 
-    BufferedImage image;
-
     BufferedImage imagewithsnow;
     BufferedImage imagewithoutsnow;
     BufferedImage tentcoverimage;
     BufferedImage igloocoverimage;
+
     public IceBlockView(IceBlock i){
         iceBlock = i;
         try {
@@ -52,10 +51,5 @@ public class IceBlockView implements IView {
             g2D.setColor(Color.black);
             graphics.drawString(string, iceBlock.X*64 + 50,iceBlock.Y*64+20 );
         }
-    }
-
-    @Override
-    public void RefreshData() {
-
     }
 }

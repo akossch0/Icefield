@@ -45,9 +45,4 @@ public class HoleView implements IView{
             graphics.drawString(string, hole.X*64 + 50,hole.Y*64+20 );
         }
     }
-
-    @Override
-    public void RefreshData() {
-
-    }
 }

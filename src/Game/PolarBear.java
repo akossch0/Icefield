@@ -3,11 +3,9 @@ package Game;
 import Field.Field;
 import Player.Player;
 import Prototype.Test;
-import views.Controller;
 import views.Direction;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Random;
 
 /**

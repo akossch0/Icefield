@@ -34,9 +34,4 @@ public class IglooCoverView implements IView {
         else graphics.drawImage(image, field.X*64, field.Y*64, null );
 
     }
-
-    @Override
-    public void RefreshData() {
-
-    }
 }

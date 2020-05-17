@@ -5,11 +5,9 @@ import Game.*;
 import Item.*;
 import Field.*;
 import Prototype.Test;
-import views.Controller;
 import views.GameplayFrame;
 
 import java.util.*;
-import java.util.concurrent.CountDownLatch;
 
 /**
  * Absztrakt alaposztaly, a konkret peldanyai az Eszkimo (Eskimo) vagy a Sarkkutato (Researcher).

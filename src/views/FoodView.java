@@ -34,9 +34,4 @@ public class FoodView implements IView {
             }
         }
     }
-
-    @Override
-    public void RefreshData() {
-
-    }
 }

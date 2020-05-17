@@ -11,9 +11,4 @@ public class SwimsuitEquippedView implements IView  {
     public void Draw(Graphics graphics) {
 
     }
-
-    @Override
-    public void RefreshData() {
-
-    }
 }

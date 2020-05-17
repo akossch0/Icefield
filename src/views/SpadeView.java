@@ -36,9 +36,4 @@ public class SpadeView implements IView {
             }
         }
     }
-
-    @Override
-    public void RefreshData() {
-
-    }
 }

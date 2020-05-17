@@ -25,9 +25,4 @@ public class PolarBearView implements IView {
     public void Draw(Graphics graphics) {
         graphics.drawImage(image, polarBear.getField().X * 64, polarBear.getField().Y * 64, null);
     }
-
-    @Override
-    public void RefreshData() {
-
-    }
 }

@@ -43,11 +43,5 @@ public class EskimoView implements IView {
             g2D.setStroke(new BasicStroke(4));
             g2D.drawRect(field.X*64,field.Y*64, 64,64);
         }
-        // graphics.drawImage(image, field.X*64, field.Y*64, null );
-    }
-
-    @Override
-    public void RefreshData() {
-
     }
 }

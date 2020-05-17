@@ -38,9 +38,4 @@ public class RopeView implements IView {
         }
 
     }
-
-    @Override
-    public void RefreshData() {
-
-    }
 }

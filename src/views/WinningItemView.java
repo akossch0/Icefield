@@ -50,8 +50,4 @@ public class WinningItemView implements IView{
         }
     }
 
-    @Override
-    public void RefreshData() {
-
-    }
 }

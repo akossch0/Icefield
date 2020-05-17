@@ -42,9 +42,4 @@ public class ResearcherView implements IView {
             g2D.drawRect(field.X*64,field.Y*64, 64,64);
         }
     }
-
-    @Override
-    public void RefreshData() {
-
-    }
 }

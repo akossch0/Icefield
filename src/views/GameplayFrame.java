@@ -8,15 +8,11 @@ import Prototype.Test;
 
 import javax.swing.*;
 import javax.swing.Timer;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.*;
-import java.beans.ExceptionListener;
 import java.util.*;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 
 public class GameplayFrame {
@@ -61,18 +57,11 @@ public class GameplayFrame {
         InitListeners();
     }
 
-    private Direction randomDir() {
-        int pick = new Random().nextInt(Direction.values().length);
-        return Direction.values()[pick];
-    }
-
-
     void UpdateComponents() {
         drawPanel.repaint();
         currentPlayerLabel.setText(Test.getKeyByValue(players, currentPlayer));
         numberofWorkUnitsLabel.setText(String.valueOf(currentPlayer.getActualWorkUnit()));
         numberofActualHealthLabel.setText(String.valueOf(currentPlayer.getActualHealth()));
-        //setChosenField(randomDir());
         System.out.println(currentPlayer.getField().getCapacity());
         refreshItemListModel();
     }
@@ -203,7 +192,6 @@ public class GameplayFrame {
         jItemList.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                // super.mouseClicked(e);
                 chosenItem = (Item) jItemList.getSelectedValue();
                 jItemList.setSelectedValue(chosenItem, false);
             }
@@ -220,14 +208,6 @@ public class GameplayFrame {
 
     public static Field getChosenField() {
         return chosenField;
-    }
-
-    public static void setChosenPlayer(Player p) {
-        chosenPlayer = p;
-    }
-
-    public void setChosenItem(Item i) {
-        chosenItem = i;
     }
 
     public static void Run(HashMap<String, String> ps) {
@@ -264,11 +244,8 @@ public class GameplayFrame {
         frame.pack();
         frame.setVisible(true);
         frame.setResizable(false);
-        //opens in the center of the monitor
         frame.setLocationRelativeTo(null);
 
-        //vihar teszt
-        //Weather.getInstance().yourTurn();
         Thread thread = new Thread("My Thread") {
             public void run() {
                 try {
@@ -299,9 +276,6 @@ public class GameplayFrame {
             }
         };
         thread.start();
-
-        //UpdateComponents();
-
     }
 
     public void refreshItemListModel() {
@@ -582,6 +556,4 @@ public class GameplayFrame {
     public JComponent $$$getRootComponent$$$() {
         return mainPanel;
     }
-
-
 }

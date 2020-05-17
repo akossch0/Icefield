@@ -3,7 +3,6 @@ package Game;
 import Coverable.*;
 import Field.Field;
 import Player.Player;
-import views.Controller;
 import views.Direction;
 
 import java.util.*;
