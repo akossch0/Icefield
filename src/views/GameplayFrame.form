@@ -91,7 +91,7 @@
                 </properties>
                 <border type="none"/>
                 <children>
-                  <component id="bc7d2" class="javax.swing.JList" binding="jItemList">
+                  <component id="bc7d2" class="javax.swing.JList" binding="jItemList" custom-create="true">
                     <constraints/>
                     <properties>
                       <preferredSize width="300" height="200"/>

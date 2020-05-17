@@ -32,6 +32,7 @@ public class GameplayFrame {
     private JButton bStep;
     private DefaultListModel playerListModel;
     private JList jplayerList;
+    private DefaultListModel itemListModel;
     private JList jItemList;
     private JButton bUseAbility;
     private JButton bDig;
@@ -56,6 +57,7 @@ public class GameplayFrame {
         currentPlayerLabel.setText(Test.getKeyByValue(players, currentPlayer));
         numberofWorkUnitsLabel.setText(String.valueOf(currentPlayer.getActualWorkUnit()));
         numberofActualHealthLabel.setText(String.valueOf(currentPlayer.getActualHealth()));
+        refreshItemListModel();
         notifyAll();
     }
 
@@ -203,6 +205,14 @@ public class GameplayFrame {
             e.printStackTrace();
         }
     }
+    public void refreshItemListModel() {
+        itemListModel.removeAllElements();
+        int i = 0;
+        for(Item item : currentPlayer.getItems()){
+            itemListModel.add(i,item);
+            i++;
+        }
+    }
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
@@ -222,7 +232,17 @@ public class GameplayFrame {
             playerListModel.add(i, str + " | " + players.get(str).toString());
             i++;
         }
+        i = 0;
         jplayerList = new JList(playerListModel);
+
+        itemListModel = new DefaultListModel();
+        for(Item item : currentPlayer.getItems()){
+            itemListModel.add(i,item);
+            i++;
+        }
+        jItemList = new JList(itemListModel);
+
+
         mainPanel.setPreferredSize(new Dimension(1200, 900));
         drawPanel.setPreferredSize(new Dimension(900, 900));
         informationPanel.setPreferredSize(new Dimension(300, 900));
