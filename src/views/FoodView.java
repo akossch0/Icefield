@@ -9,7 +9,9 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-
+/**
+ * etel nezete
+ */
 public class FoodView implements IView {
     Food food;
     BufferedImage image = null;
@@ -24,6 +26,11 @@ public class FoodView implements IView {
             System.out.println("nem jo a food rajzolas");
         }
     }
+
+    /**
+     * etel kirajzolasa
+     * @param graphics
+     */
     @Override
     public void Draw(Graphics graphics) {
         if (food.getHolder() == null) {

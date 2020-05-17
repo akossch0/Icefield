@@ -10,7 +10,9 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-
+/**
+ * jegtabla nezet
+ */
 public class IceBlockView implements IView {
     IceBlock iceBlock;
 
@@ -30,6 +32,11 @@ public class IceBlockView implements IView {
             System.out.println("Baj van - IceBlockView betoltese");
         }
     }
+
+    /**
+     * jegtabla kirajzolasa
+     * @param graphics
+     */
     @Override
     public void Draw(Graphics graphics) {
         if(iceBlock.getLayerOfSnow()==0)
