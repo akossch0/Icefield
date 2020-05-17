@@ -29,6 +29,7 @@ public abstract class Field implements OutputToString {
 
     private HashMap<Direction,Field> neighboursWithDir = new HashMap<Direction, Field>();
 
+    public Coverable getCover(){return cover;}
     /** A mezo strategyje, alapertelmezetten minden mezo fedettlen **/
     protected Coverable cover = new NoCover();
 
