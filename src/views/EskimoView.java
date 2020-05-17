@@ -9,7 +9,9 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-
+/**
+ * eskimo nezete
+ */
 public class EskimoView implements IView {
     Eskimo eskimo;
     BufferedImage image;
@@ -26,6 +28,11 @@ public class EskimoView implements IView {
             System.out.println("nem jo az Eskimo rajzolas");
         }
     };
+
+    /**
+     * eskimo kirajzolasaert felelos
+     * @param graphics
+     */
     @Override
     public void Draw(Graphics graphics) {
         Field field = eskimo.getField();

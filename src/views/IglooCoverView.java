@@ -10,7 +10,9 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-
+/**
+ * igloocover nezet
+ */
 public class IglooCoverView implements IView {
     Field field;
     BufferedImage image;
@@ -24,6 +26,11 @@ public class IglooCoverView implements IView {
             System.out.println("nem jo a igloo rajzolas");
         }
     }
+
+    /**
+     * igloo kirajzolas
+     * @param graphics
+     */
     @Override
     public void Draw(Graphics graphics) {
         if(!(field.getCover() instanceof IglooCover))

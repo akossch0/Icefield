@@ -9,7 +9,9 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-
+/**
+ * buvarruha nezet
+ */
 public class SwimsuitView implements IView {
     Swimsuit swimsuit;
     BufferedImage image = null;
@@ -24,6 +26,11 @@ public class SwimsuitView implements IView {
             System.out.println("nem jo a swimsuit rajzolas");
         }
     }
+
+    /**
+     * buvarruha kirajzolas
+     * @param graphics
+     */
     @Override
     public void Draw(Graphics graphics) {
         if (swimsuit.getHolder() == null) {
