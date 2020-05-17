@@ -142,6 +142,8 @@ public class GameplayFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (!(chosenItem instanceof Rope)) {
+                    if (chosenItem instanceof Tent)
+                        Game.getInstance().getView().AddView(new TentCoverView(currentPlayer.getField()));
                     currentPlayer.UseItem(chosenItem, currentPlayer);
                 } else if (chosenItem instanceof Rope) {
                     currentPlayer.UseItem(chosenItem, chosenPlayer);

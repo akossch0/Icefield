@@ -1,7 +1,7 @@
 package Field;
 
 
-import Coverable.Coverable;
+import Coverable.*;
 import Game.Entity;
 
 import Item.Item;
@@ -49,6 +49,7 @@ public class Hole extends Field {
      */
     @Override
     public void Accept(Entity e) {
+        this.setLayerOfSnow(0);
         entities.add(e);
         e.setInWater(true);
         layerOfSnow = 0;
@@ -71,7 +72,8 @@ public class Hole extends Field {
      *  Beallitja az fedettseg strategiat.
      * @param c a strategy
      */
-    public void Cover(Coverable c){ }
+    public void Cover(Coverable c){ cover = new NoCover();
+    }
 
     /**
      * hole kimeneti nyelvve valo atirasa
