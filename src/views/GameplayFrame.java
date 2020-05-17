@@ -228,9 +228,7 @@ public class GameplayFrame {
         currentPlayer = entry.getValue();
 
         //vihar teszt
-        Weather.getInstance().yourTurn();
-        Weather.getInstance().yourTurn();
-        Weather.getInstance().yourTurn();
+        //Weather.getInstance().yourTurn();
         Thread thread = new Thread("My Thread") {
             public void run() {
                 try {
