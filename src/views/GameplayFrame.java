@@ -64,6 +64,7 @@ public class GameplayFrame {
         return Direction.values()[pick];
     }
 
+
     void UpdateComponents() {
         drawPanel.repaint();
         currentPlayerLabel.setText(Test.getKeyByValue(players, currentPlayer));
@@ -81,6 +82,7 @@ public class GameplayFrame {
             }
         });
         timer.start();
+
         bUp.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -248,6 +250,25 @@ public class GameplayFrame {
             public void run() {
                 try {
                     Manager.Start();
+                    Thread gamestate = new Thread("gamestate") {
+                        public void run() {
+                            try {
+                                if (Game.getInstance().isGameWon() || Game.getInstance().isGameLost()) {
+                                    frame.dispose();
+                                    if (Game.getInstance().isGameLost()) {
+                                        GameLostFrame.Run();
+                                    } else if (Game.getInstance().isGameWon()) {
+                                        GameWonFrame.Run();
+                                    }
+                                }
+                                System.out.println("gamestate thread exited");
+                            } catch (Exception e) {
+
+                            }
+                        }
+                    };
+                    gamestate.start();
+
                     System.out.println("thread exited");
                 } catch (Exception e) {
 
@@ -255,6 +276,7 @@ public class GameplayFrame {
             }
         };
         thread.start();
+
         //UpdateComponents();
 
     }

@@ -174,7 +174,7 @@ public final class Game {
 */
 
     public List<Object> InitMap(){
-        double P_ICEFIELD = 0.80;
+        double P_ICEFIELD = 0.90;
         int WIDTH = 14;
         int HEIGHT = 14;
         int NUMBER_OF_FIELDS = WIDTH * HEIGHT;
