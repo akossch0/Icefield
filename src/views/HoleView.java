@@ -39,10 +39,10 @@ public class HoleView implements IView{
             g2D.drawRect(hole.X*64,hole.Y*64, 64,64);
         }
         if(hole.isInspected){
-            String string = hole.getCapacity()==-1? "inf" : Integer.toString(hole.getCapacity());
+            String string = hole.getCapacity()==-1? "i" : Integer.toString(hole.getCapacity());
             Graphics2D g2D = (Graphics2D) graphics;
             g2D.setColor(Color.black);
-            graphics.drawString(string, hole.X*64 + 40,hole.Y*64+20 );
+            graphics.drawString(string, hole.X*64 + 50,hole.Y*64+20 );
         }
     }
 
