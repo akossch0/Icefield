@@ -200,6 +200,7 @@ public class GameplayFrame {
 
     public static void Run(HashMap<String, String> ps) {
         Game.getInstance().InitMap();
+        int i = 0;
         for (String name : ps.keySet()) {
             Player p;
             if (ps.get(name).equals("Eskimo")) {
@@ -221,6 +222,10 @@ public class GameplayFrame {
 
             players.put(name, p);
             Manager.getInstance().AddPlayer(p);
+            if (i == 0) {
+                currentPlayer = p;
+            }
+            i++;
         }
         JFrame frame = new JFrame("Gameplay");
         frame.setContentPane(new GameplayFrame().mainPanel);
@@ -230,10 +235,6 @@ public class GameplayFrame {
         frame.setResizable(false);
         //opens in the center of the monitor
         frame.setLocationRelativeTo(null);
-
-        //Current Player setup
-        Map.Entry<String, Player> entry = players.entrySet().iterator().next();
-        currentPlayer = entry.getValue();
 
         //vihar teszt
         //Weather.getInstance().yourTurn();
@@ -323,7 +324,7 @@ public class GameplayFrame {
         mainPanel.setVerifyInputWhenFocusTarget(true);
         mainPanel.setVisible(true);
         informationPanel = new JPanel();
-        informationPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+        informationPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
         informationPanel.setPreferredSize(new Dimension(300, 900));
         mainPanel.add(informationPanel, BorderLayout.EAST);
         info1 = new JPanel();
@@ -370,52 +371,52 @@ public class GameplayFrame {
         lItems.setText("Items:");
         info1.add(lItems);
         final JScrollPane scrollPane1 = new JScrollPane();
-        scrollPane1.setPreferredSize(new Dimension(300, 150));
+        scrollPane1.setPreferredSize(new Dimension(300, 130));
         info1.add(scrollPane1);
-        jItemList.setPreferredSize(new Dimension(300, 100));
+        jItemList.setPreferredSize(new Dimension(300, 130));
         scrollPane1.setViewportView(jItemList);
         final JPanel panel1 = new JPanel();
         panel1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
         panel1.setBackground(new Color(-3941126));
-        panel1.setPreferredSize(new Dimension(300, 200));
+        panel1.setPreferredSize(new Dimension(300, 180));
         info1.add(panel1);
         final JPanel panel2 = new JPanel();
         panel2.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
         panel2.setBackground(new Color(-3941126));
-        panel2.setPreferredSize(new Dimension(300, 75));
+        panel2.setPreferredSize(new Dimension(300, 80));
         panel1.add(panel2);
         bUp.setBackground(new Color(-12828607));
         bUp.setFocusable(false);
         Font bUpFont = this.$$$getFont$$$("Consolas", Font.BOLD, 18, bUp.getFont());
         if (bUpFont != null) bUp.setFont(bUpFont);
         bUp.setForeground(new Color(-131077));
-        bUp.setPreferredSize(new Dimension(85, 75));
+        bUp.setPreferredSize(new Dimension(90, 80));
         bUp.setText("UP");
         panel2.add(bUp);
         final JPanel panel3 = new JPanel();
         panel3.setLayout(new FlowLayout(FlowLayout.CENTER, 3, 0));
         panel3.setBackground(new Color(-3941126));
-        panel3.setPreferredSize(new Dimension(300, 75));
+        panel3.setPreferredSize(new Dimension(300, 80));
         panel1.add(panel3);
         bLeft.setBackground(new Color(-12828607));
         Font bLeftFont = this.$$$getFont$$$("Consolas", Font.BOLD, 18, bLeft.getFont());
         if (bLeftFont != null) bLeft.setFont(bLeftFont);
         bLeft.setForeground(new Color(-131077));
-        bLeft.setPreferredSize(new Dimension(85, 75));
+        bLeft.setPreferredSize(new Dimension(90, 80));
         bLeft.setText("LEFT");
         panel3.add(bLeft);
         bDown.setBackground(new Color(-12828607));
         Font bDownFont = this.$$$getFont$$$("Consolas", Font.BOLD, 18, bDown.getFont());
         if (bDownFont != null) bDown.setFont(bDownFont);
         bDown.setForeground(new Color(-131077));
-        bDown.setPreferredSize(new Dimension(85, 75));
+        bDown.setPreferredSize(new Dimension(90, 80));
         bDown.setText("DOWN");
         panel3.add(bDown);
         bRight.setBackground(new Color(-12828607));
         Font bRightFont = this.$$$getFont$$$("Consolas", Font.BOLD, 18, bRight.getFont());
         if (bRightFont != null) bRight.setFont(bRightFont);
         bRight.setForeground(new Color(-131077));
-        bRight.setPreferredSize(new Dimension(85, 75));
+        bRight.setPreferredSize(new Dimension(90, 80));
         bRight.setText("RIGHT");
         panel3.add(bRight);
         buttons = new JPanel();
@@ -481,7 +482,7 @@ public class GameplayFrame {
         info2.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
         info2.setAutoscrolls(false);
         info2.setBackground(new Color(-3941126));
-        info2.setPreferredSize(new Dimension(300, 400));
+        info2.setPreferredSize(new Dimension(300, 190));
         informationPanel.add(info2);
         lPlayers = new JLabel();
         Font lPlayersFont = this.$$$getFont$$$("Consolas", -1, 14, lPlayers.getFont());
@@ -491,9 +492,9 @@ public class GameplayFrame {
         lPlayers.setText("Players:");
         info2.add(lPlayers);
         final JScrollPane scrollPane2 = new JScrollPane();
-        scrollPane2.setPreferredSize(new Dimension(300, 150));
+        scrollPane2.setPreferredSize(new Dimension(300, 140));
         info2.add(scrollPane2);
-        jplayerList.setPreferredSize(new Dimension(300, 150));
+        jplayerList.setPreferredSize(new Dimension(300, 140));
         scrollPane2.setViewportView(jplayerList);
         drawPanel.setBackground(new Color(-8541700));
         drawPanel.setPreferredSize(new Dimension(900, 900));

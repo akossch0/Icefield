@@ -17,7 +17,7 @@
     </properties>
     <border type="none"/>
     <children>
-      <grid id="b27b8" binding="informationPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+      <grid id="b27b8" binding="informationPanel" layout-manager="FlowLayout" hgap="0" vgap="0" flow-align="1">
         <constraints border-constraint="East"/>
         <properties>
           <preferredSize width="300" height="900"/>
@@ -90,14 +90,14 @@
               <scrollpane id="4842c">
                 <constraints/>
                 <properties>
-                  <preferredSize width="300" height="150"/>
+                  <preferredSize width="300" height="130"/>
                 </properties>
                 <border type="none"/>
                 <children>
                   <component id="bc7d2" class="javax.swing.JList" binding="jItemList" custom-create="true">
                     <constraints/>
                     <properties>
-                      <preferredSize width="300" height="100"/>
+                      <preferredSize width="300" height="130"/>
                     </properties>
                   </component>
                 </children>
@@ -106,7 +106,7 @@
                 <constraints/>
                 <properties>
                   <background color="-3941126"/>
-                  <preferredSize width="300" height="200"/>
+                  <preferredSize width="300" height="180"/>
                 </properties>
                 <border type="none"/>
                 <children>
@@ -114,7 +114,7 @@
                     <constraints/>
                     <properties>
                       <background color="-3941126"/>
-                      <preferredSize width="300" height="75"/>
+                      <preferredSize width="300" height="80"/>
                     </properties>
                     <border type="none"/>
                     <children>
@@ -125,7 +125,7 @@
                           <focusable value="false"/>
                           <font name="Consolas" size="18" style="1"/>
                           <foreground color="-131077"/>
-                          <preferredSize width="85" height="75"/>
+                          <preferredSize width="90" height="80"/>
                           <text value="UP"/>
                         </properties>
                       </component>
@@ -135,7 +135,7 @@
                     <constraints/>
                     <properties>
                       <background color="-3941126"/>
-                      <preferredSize width="300" height="75"/>
+                      <preferredSize width="300" height="80"/>
                     </properties>
                     <border type="none"/>
                     <children>
@@ -145,7 +145,7 @@
                           <background color="-12828607"/>
                           <font name="Consolas" size="18" style="1"/>
                           <foreground color="-131077"/>
-                          <preferredSize width="85" height="75"/>
+                          <preferredSize width="90" height="80"/>
                           <text value="LEFT"/>
                         </properties>
                       </component>
@@ -155,7 +155,7 @@
                           <background color="-12828607"/>
                           <font name="Consolas" size="18" style="1"/>
                           <foreground color="-131077"/>
-                          <preferredSize width="85" height="75"/>
+                          <preferredSize width="90" height="80"/>
                           <text value="DOWN"/>
                         </properties>
                       </component>
@@ -165,7 +165,7 @@
                           <background color="-12828607"/>
                           <font name="Consolas" size="18" style="1"/>
                           <foreground color="-131077"/>
-                          <preferredSize width="85" height="75"/>
+                          <preferredSize width="90" height="80"/>
                           <text value="RIGHT"/>
                         </properties>
                       </component>
@@ -256,7 +256,7 @@
             <properties>
               <autoscrolls value="false"/>
               <background color="-3941126"/>
-              <preferredSize width="300" height="400"/>
+              <preferredSize width="300" height="190"/>
             </properties>
             <border type="none"/>
             <children>
@@ -272,14 +272,14 @@
               <scrollpane id="7b093">
                 <constraints/>
                 <properties>
-                  <preferredSize width="300" height="150"/>
+                  <preferredSize width="300" height="140"/>
                 </properties>
                 <border type="none"/>
                 <children>
                   <component id="1725f" class="javax.swing.JList" binding="jplayerList" custom-create="true">
                     <constraints/>
                     <properties>
-                      <preferredSize width="300" height="150"/>
+                      <preferredSize width="300" height="140"/>
                     </properties>
                   </component>
                 </children>
