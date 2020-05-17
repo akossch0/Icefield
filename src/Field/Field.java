@@ -19,36 +19,26 @@ import java.util.*;
 public abstract class Field implements OutputToString {
     /** A mezon allo playerek listaja **/
     protected List<Entity> entities = new ArrayList<>();
-
     /** A szomszedos mezok listaja**/
     private List<Field> neighbours = new ArrayList<Field>();
-
     public HashMap<Direction, Field> getNeighboursWithDir() {
         return neighboursWithDir;
     }
-
     private HashMap<Direction,Field> neighboursWithDir = new HashMap<Direction, Field>();
-
     public Coverable getCover(){return cover;}
     /** A mezo strategyje, alapertelmezetten minden mezo fedettlen **/
     protected Coverable cover = new NoCover();
-
     public boolean isInspected = false;
-
-
     /**
      * A horetegek szama a mezon
      */
     protected int layerOfSnow = 0;
-
     /**
      * Ennyi jatekost bir el a mezo
      */
     private int capacity = 0;
-
     public int X;
     public int Y;
-
 
     /**
      * neighbours adattag gettere
@@ -63,19 +53,16 @@ public abstract class Field implements OutputToString {
     public void AddNeighbour(Direction dir, Field e){
         neighboursWithDir.put(dir, e);
         neighbours.add(e);}
-
     /**
      * kitorli a parameterkent kapott fieldet a szomszedok kozul
      * @param e a kitorlendo field
      */
     public void RemoveNeighbour(Field e){neighbours.remove(e);}
-
     /**
      * abstract, iceblockban van megvalositva
      * @return
      */
     public abstract boolean IsOpen();
-
     /**
      * Ezzel a setterrel lehet itemet adni a mezonek
      * @param item az item amit elfogad
@@ -87,14 +74,12 @@ public abstract class Field implements OutputToString {
      * @return a visszaadott item
      */
     public abstract Item RemoveItem();
-
     /**
      * Uj jatekos erkezik a mezore. Ha meg elbirja a mezo, akkor a jatekos ezentul ezen a mezon áll.
      * Ha nem birja el, akkor a jatekos a vizbe esik.
      * @param e az entity aki a mezore lep
      */
     public abstract void Accept(Entity e);
-
     /**
      *A parameterkent kapott jatekos elhagyja a mezot.
      * @param e az entity aki tavozik a mezorol
@@ -110,20 +95,17 @@ public abstract class Field implements OutputToString {
     public List<Entity> getEntites() {
         return entities;
     }
-
     /**
      * Megnoveli a mezon levo horetegek szamat.
      */
     public void IncrLayerOfSnow(){
         layerOfSnow++;
     }
-
     /**
      * Csokkenti a mezon levo horetegek szamat.
      * @param n
      */
     public abstract void DecrLayerOfSnow(int n);
-
     /**
      * Visszaadja, hogy a mezo hany jatekost bir el.
      * @return kapacitas
@@ -131,7 +113,6 @@ public abstract class Field implements OutputToString {
     public int getCapacity(){
        return capacity;
     }
-
     /**
      * Beallitja a capacity-t a megadott ertekre
      *
@@ -139,20 +120,17 @@ public abstract class Field implements OutputToString {
     public void setCapacity(int Capacity) {
         capacity = Capacity;
     }
-
     /**
      *  Beallitja az fedettseg strategiat.
      * @param c a strategy amit beallit
      */
     public abstract void Cover(Coverable c);
-
     /**
      * Meghivja a strategiajanak az IsCovered() fuggvenyet,
      * vagyis megmondja, hogy fedett-e a mezo vagy sem.
      * @return fedett-e
      */
     public boolean IsCovered(){ return cover.IsCovered(); }
-
     /**
      * Visszater azzal, hogy megveallo-e a mezo
      *
@@ -160,7 +138,6 @@ public abstract class Field implements OutputToString {
     public boolean IsBearProof(){
         return cover.IsBearProof();
     }
-
     /**
      * Visszater a horeteg szamaval, ami a mezon talalhato
      *
@@ -168,7 +145,6 @@ public abstract class Field implements OutputToString {
     public int getLayerOfSnow() {
         return layerOfSnow;
     }
-
     /**
      *
      * @param LayerOfSnow beallitja a mezon levo ho mennyiseget a kapott ertekre
@@ -176,7 +152,6 @@ public abstract class Field implements OutputToString {
     public void setLayerOfSnow(int LayerOfSnow) {
         layerOfSnow = LayerOfSnow;
     }
-
     /**
      * A kimeneti nyelv miatt szukseges fuggveny, egy field szomszedos fieldjeibol csinal egy string-et
      * ami a field-ek id-jet felsorolja egymas utan space-el elvalasztva
@@ -198,5 +173,4 @@ public abstract class Field implements OutputToString {
             result.deleteCharAt(result.lastIndexOf(" "));
         return result.toString();
     }
-
 }

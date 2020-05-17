@@ -58,7 +58,6 @@ public class GameplayFrame {
     private JButton bDown;
     private JButton bRight;
     private Timer timer;
-
     /**
      * konstruktor
      */
@@ -66,7 +65,6 @@ public class GameplayFrame {
         $$$setupUI$$$();
         InitListeners();
     }
-
     /**
      * random valaszt a directionok kozul
      * @return
@@ -75,7 +73,6 @@ public class GameplayFrame {
         int pick = new Random().nextInt(Direction.values().length);
         return Direction.values()[pick];
     }
-
     /**
      * frissiti a nezetet
      */
@@ -87,7 +84,6 @@ public class GameplayFrame {
         System.out.println(currentPlayer.getField().getCapacity());
         refreshItemListModel();
     }
-
     /**
      * a listenerek inicializalasaert felelos osztaly
      */
@@ -124,7 +120,6 @@ public class GameplayFrame {
                 setChosenField(Direction.RIGHT);
             }
         });
-
         bStep.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -136,7 +131,6 @@ public class GameplayFrame {
                 UpdateComponents();
             }
         });
-
         bUseAbility.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -152,7 +146,6 @@ public class GameplayFrame {
                 UpdateComponents();
             }
         });
-
         bDig.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -160,7 +153,6 @@ public class GameplayFrame {
                 UpdateComponents();
             }
         });
-
         bUseItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -185,7 +177,6 @@ public class GameplayFrame {
                 UpdateComponents();
             }
         });
-
         bPickUpItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -193,7 +184,6 @@ public class GameplayFrame {
                 UpdateComponents();
             }
         });
-
         bEndTurn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -203,7 +193,6 @@ public class GameplayFrame {
                 UpdateComponents();
             }
         });
-
         jplayerList.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -221,7 +210,6 @@ public class GameplayFrame {
             }
         });
     }
-
     /**
      * beallitja a kivalalasztott irany alapjon a kivalasztott fieldet
      * @param dir a kivalasztott irany
@@ -229,7 +217,6 @@ public class GameplayFrame {
     public static void setChosenField(Direction dir) {
         chosenField = currentPlayer.getField().getNeighboursWithDir().get(dir);
     }
-
     /**
      * visszaadja a soron levo jatekost
      * @return
@@ -237,7 +224,6 @@ public class GameplayFrame {
     public static Player getCurrentPlayer() {
         return currentPlayer;
     }
-
     /**
      * visszaadja a kivalasztott fieldet
      * @return
@@ -245,7 +231,6 @@ public class GameplayFrame {
     public static Field getChosenField() {
         return chosenField;
     }
-
     /**
      * futtatja a jatek frame-jet
      * @param ps
