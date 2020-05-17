@@ -8,13 +8,20 @@ import Prototype.Test;
 
 import javax.swing.*;
 import javax.swing.Timer;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.*;
+import java.beans.ExceptionListener;
 import java.util.*;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
+/**
+ * Az jatekmenet kozben megjeleno framert felelos osztaly
+ */
 public class GameplayFrame {
     private static HashMap<String, Player> players = new HashMap<String, Player>();
     private static ArrayList<Field> fields = new ArrayList<Field>();
@@ -52,11 +59,26 @@ public class GameplayFrame {
     private JButton bRight;
     private Timer timer;
 
+    /**
+     * konstruktor
+     */
     public GameplayFrame() {
         $$$setupUI$$$();
         InitListeners();
     }
 
+    /**
+     * random valaszt a directionok kozul
+     * @return
+     */
+    private Direction randomDir() {
+        int pick = new Random().nextInt(Direction.values().length);
+        return Direction.values()[pick];
+    }
+
+    /**
+     * frissiti a nezetet
+     */
     void UpdateComponents() {
         drawPanel.repaint();
         currentPlayerLabel.setText(Test.getKeyByValue(players, currentPlayer));
@@ -66,6 +88,9 @@ public class GameplayFrame {
         refreshItemListModel();
     }
 
+    /**
+     * a listenerek inicializalasaert felelos osztaly
+     */
     void InitListeners() {
         timer = new Timer(150, new ActionListener() {
             @Override
@@ -198,18 +223,34 @@ public class GameplayFrame {
         });
     }
 
+    /**
+     * beallitja a kivalalasztott irany alapjon a kivalasztott fieldet
+     * @param dir a kivalasztott irany
+     */
     public static void setChosenField(Direction dir) {
         chosenField = currentPlayer.getField().getNeighboursWithDir().get(dir);
     }
 
+    /**
+     * visszaadja a soron levo jatekost
+     * @return
+     */
     public static Player getCurrentPlayer() {
         return currentPlayer;
     }
 
+    /**
+     * visszaadja a kivalasztott fieldet
+     * @return
+     */
     public static Field getChosenField() {
         return chosenField;
     }
 
+    /**
+     * futtatja a jatek frame-jet
+     * @param ps
+     */
     public static void Run(HashMap<String, String> ps) {
         Game.getInstance().InitMap();
         int i = 0;
@@ -244,6 +285,7 @@ public class GameplayFrame {
         frame.pack();
         frame.setVisible(true);
         frame.setResizable(false);
+        //opens in the center of the monitor
         frame.setLocationRelativeTo(null);
 
         Thread thread = new Thread("My Thread") {
@@ -278,6 +320,9 @@ public class GameplayFrame {
         thread.start();
     }
 
+    /**
+     * item listmodel frissiteseert felelos
+     */
     public void refreshItemListModel() {
         itemListModel.removeAllElements();
         int i = 0;
@@ -293,6 +338,9 @@ public class GameplayFrame {
         }
     }
 
+    /**
+     * altalunk custom letrehozott komponensek
+     */
     private void createUIComponents() {
         // TODO: place custom component creation code here
         mainPanel = new JPanel();
