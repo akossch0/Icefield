@@ -48,7 +48,9 @@ public class IceBlockView implements IView {
         }
         if(iceBlock.isInspected){
             String string = iceBlock.getCapacity()==-1? "inf" : Integer.toString(iceBlock.getCapacity());
-            graphics.drawString(string, iceBlock.X*64 +48,iceBlock.Y*64+2 );
+            Graphics2D g2D = (Graphics2D) graphics;
+            g2D.setColor(Color.black);
+            graphics.drawString(string, iceBlock.X*64 + 40,iceBlock.Y*64+20 );
         }
     }
 

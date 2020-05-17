@@ -40,7 +40,9 @@ public class HoleView implements IView{
         }
         if(hole.isInspected){
             String string = hole.getCapacity()==-1? "inf" : Integer.toString(hole.getCapacity());
-            graphics.drawString(string, hole.X*64 +48,hole.Y*64+2 );
+            Graphics2D g2D = (Graphics2D) graphics;
+            g2D.setColor(Color.black);
+            graphics.drawString(string, hole.X*64 + 40,hole.Y*64+20 );
         }
     }
 
