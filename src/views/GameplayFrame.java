@@ -58,11 +58,12 @@ public class GameplayFrame {
         currentPlayerLabel.setText(Test.getKeyByValue(players, currentPlayer));
         numberofWorkUnitsLabel.setText(String.valueOf(currentPlayer.getActualWorkUnit()));
         numberofActualHealthLabel.setText(String.valueOf(currentPlayer.getActualHealth()));
+        //setChosenField(Direction.RIGHT);
         refreshItemListModel();
-        notifyAll();
     }
 
     void InitListeners() {
+
         mainPanel.addKeyListener(new KeyAdapter() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -204,7 +205,9 @@ public class GameplayFrame {
         frame.setLocationRelativeTo(null);
 
         //vihar teszt
-        //Weather.getInstance().yourTurn();
+        Weather.getInstance().yourTurn();
+        Weather.getInstance().yourTurn();
+        Weather.getInstance().yourTurn();
         Thread thread = new Thread("My Thread") {
             public void run() {
                 try {
@@ -219,11 +222,12 @@ public class GameplayFrame {
         //UpdateComponents();
 
     }
+
     public void refreshItemListModel() {
         itemListModel.removeAllElements();
         int i = 0;
-        for(Item item : currentPlayer.getItems()){
-            itemListModel.add(i,item);
+        for (Item item : currentPlayer.getItems()) {
+            itemListModel.add(i, item);
             i++;
         }
     }
@@ -251,10 +255,11 @@ public class GameplayFrame {
         jplayerList = new JList(playerListModel);
 
         itemListModel = new DefaultListModel();
-        for(Item item : currentPlayer.getItems()){
-            itemListModel.add(i,item);
+        /*
+        for (Item item : currentPlayer.getItems()) {
+            itemListModel.add(i, item);
             i++;
-        }
+        }*/
         jItemList = new JList(itemListModel);
 
 
@@ -330,7 +335,6 @@ public class GameplayFrame {
         final JScrollPane scrollPane1 = new JScrollPane();
         scrollPane1.setPreferredSize(new Dimension(300, 200));
         info1.add(scrollPane1);
-        jItemList = new JList();
         jItemList.setPreferredSize(new Dimension(300, 200));
         scrollPane1.setViewportView(jItemList);
         buttons = new JPanel();
