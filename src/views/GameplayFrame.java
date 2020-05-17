@@ -122,9 +122,13 @@ public class GameplayFrame {
         bUseAbility.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (chosenField != null) {
-                    currentPlayer.UseAbility(chosenField);
+                if (currentPlayer instanceof Researcher) {
+                    if (chosenField != null)
+                        currentPlayer.UseAbility(chosenField);
 
+                } else {
+                    currentPlayer.UseAbility(currentPlayer.getField());
+                    Game.getInstance().getView().AddView(new IglooCoverView(currentPlayer.getField()));
                 }
                 UpdateComponents();
             }
