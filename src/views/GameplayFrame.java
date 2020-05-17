@@ -11,6 +11,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.*;
+import java.beans.ExceptionListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
@@ -90,7 +91,10 @@ public class GameplayFrame {
         bStep.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                currentPlayer.Step(chosenField);
+                if (chosenField != null) {
+                    currentPlayer.Step(chosenField);
+
+                }
                 UpdateComponents();
             }
         });
@@ -98,7 +102,10 @@ public class GameplayFrame {
         bUseAbility.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                currentPlayer.UseAbility(chosenField);
+                if (chosenField != null) {
+                    currentPlayer.UseAbility(chosenField);
+
+                }
                 UpdateComponents();
             }
         });
@@ -193,17 +200,24 @@ public class GameplayFrame {
         frame.pack();
         frame.setVisible(true);
         frame.setResizable(false);
-        //frame.setResizable(true);
         //opens in the center of the monitor
         frame.setLocationRelativeTo(null);
 
         //vihar teszt
         //Weather.getInstance().yourTurn();
-        try {
-            //Manager.Start();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        Thread thread = new Thread("My Thread") {
+            public void run() {
+                try {
+                    Manager.Start();
+                    System.out.println("thread exited");
+                } catch (Exception e) {
+
+                }
+            }
+        };
+        thread.start();
+        //UpdateComponents();
+
     }
     public void refreshItemListModel() {
         itemListModel.removeAllElements();
@@ -217,6 +231,7 @@ public class GameplayFrame {
     private void createUIComponents() {
         // TODO: place custom component creation code here
         mainPanel = new JPanel();
+
         drawPanel = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
