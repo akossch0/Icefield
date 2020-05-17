@@ -7,13 +7,15 @@ import Player.*;
 import Prototype.Test;
 
 import javax.swing.*;
+import javax.swing.Timer;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.*;
 import java.beans.ExceptionListener;
-import java.util.ArrayList;
+import java.util.*;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
@@ -127,8 +129,8 @@ public class GameplayFrame {
                 int limit;
                 if (currentPlayer instanceof Researcher) {
                     if (chosenField != null)
-                       currentPlayer.UseAbility(chosenField);
-                        chosenField.isInspected = true;
+                        currentPlayer.UseAbility(chosenField);
+                    chosenField.isInspected = true;
 
                 } else {
                     currentPlayer.UseAbility(currentPlayer.getField());
@@ -154,7 +156,16 @@ public class GameplayFrame {
                         Game.getInstance().getView().AddView(new TentCoverView(currentPlayer.getField()));
                     currentPlayer.UseItem(chosenItem, currentPlayer);
                 } else if (chosenItem instanceof Rope) {
-                    currentPlayer.UseItem(chosenItem, chosenPlayer);
+                    List<Entity> entities = chosenField.getEntites();
+                    int index = 0;
+                    while (entities != null && index < entities.size()) {
+                        if (entities.get(index) instanceof Player) {
+                            chosenPlayer = (Player) entities.get(index);
+                            currentPlayer.UseItem(chosenItem, chosenPlayer);
+                            break;
+                        } else
+                            index++;
+                    }
                 } else {
                     System.out.println("Nem jó a Useitem kiválasztás!");
                 }
@@ -206,6 +217,7 @@ public class GameplayFrame {
     public static Player getCurrentPlayer() {
         return currentPlayer;
     }
+
     public static Field getChosenField() {
         return chosenField;
     }
