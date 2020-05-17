@@ -2,18 +2,16 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="views.GameplayFrame">
   <grid id="f83c9" binding="mainPanel" custom-create="true" layout-manager="BorderLayout" hgap="0" vgap="0">
     <constraints>
-      <xy x="20" y="20" width="1336" height="917"/>
+      <xy x="20" y="20" width="1668" height="917"/>
     </constraints>
     <properties>
       <autoscrolls value="false"/>
       <background color="-8541700"/>
       <enabled value="true"/>
-      <focusCycleRoot value="false"/>
-      <focusTraversalPolicyProvider value="false"/>
-      <inheritsPopupMenu value="true"/>
-      <nextFocusableComponent value=""/>
       <focusCycleRoot value="true"/>
       <focusTraversalPolicyProvider value="true"/>
+      <inheritsPopupMenu value="true"/>
+      <nextFocusableComponent value=""/>
       <verifyInputWhenFocusTarget value="true"/>
       <visible value="true"/>
     </properties>
@@ -30,7 +28,7 @@
             <constraints/>
             <properties>
               <background color="-3941126"/>
-              <preferredSize width="300" height="300"/>
+              <preferredSize width="300" height="450"/>
             </properties>
             <border type="none"/>
             <children>
@@ -92,18 +90,89 @@
               <scrollpane id="4842c">
                 <constraints/>
                 <properties>
-                  <preferredSize width="300" height="200"/>
+                  <preferredSize width="300" height="150"/>
                 </properties>
                 <border type="none"/>
                 <children>
                   <component id="bc7d2" class="javax.swing.JList" binding="jItemList" custom-create="true">
                     <constraints/>
                     <properties>
-                      <preferredSize width="300" height="200"/>
+                      <preferredSize width="300" height="100"/>
                     </properties>
                   </component>
                 </children>
               </scrollpane>
+              <grid id="1b1c7" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                <constraints/>
+                <properties>
+                  <background color="-3941126"/>
+                  <preferredSize width="300" height="200"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <grid id="852b3" layout-manager="FlowLayout" hgap="0" vgap="0" flow-align="1">
+                    <constraints/>
+                    <properties>
+                      <background color="-3941126"/>
+                      <preferredSize width="300" height="75"/>
+                    </properties>
+                    <border type="none"/>
+                    <children>
+                      <component id="b8949" class="javax.swing.JButton" binding="bUp" custom-create="true">
+                        <constraints/>
+                        <properties>
+                          <background color="-12828607"/>
+                          <focusable value="false"/>
+                          <font name="Consolas" size="18" style="1"/>
+                          <foreground color="-131077"/>
+                          <preferredSize width="85" height="75"/>
+                          <text value="UP"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                  <grid id="51559" layout-manager="FlowLayout" hgap="3" vgap="0" flow-align="1">
+                    <constraints/>
+                    <properties>
+                      <background color="-3941126"/>
+                      <preferredSize width="300" height="75"/>
+                    </properties>
+                    <border type="none"/>
+                    <children>
+                      <component id="14657" class="javax.swing.JButton" binding="bLeft" custom-create="true">
+                        <constraints/>
+                        <properties>
+                          <background color="-12828607"/>
+                          <font name="Consolas" size="18" style="1"/>
+                          <foreground color="-131077"/>
+                          <preferredSize width="85" height="75"/>
+                          <text value="LEFT"/>
+                        </properties>
+                      </component>
+                      <component id="a3b86" class="javax.swing.JButton" binding="bDown" custom-create="true">
+                        <constraints/>
+                        <properties>
+                          <background color="-12828607"/>
+                          <font name="Consolas" size="18" style="1"/>
+                          <foreground color="-131077"/>
+                          <preferredSize width="85" height="75"/>
+                          <text value="DOWN"/>
+                        </properties>
+                      </component>
+                      <component id="25de8" class="javax.swing.JButton" binding="bRight" custom-create="true">
+                        <constraints/>
+                        <properties>
+                          <background color="-12828607"/>
+                          <font name="Consolas" size="18" style="1"/>
+                          <foreground color="-131077"/>
+                          <preferredSize width="85" height="75"/>
+                          <text value="RIGHT"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                </children>
+              </grid>
             </children>
           </grid>
           <grid id="19860" binding="buttons" layout-manager="FlowLayout" hgap="15" vgap="5" flow-align="1">

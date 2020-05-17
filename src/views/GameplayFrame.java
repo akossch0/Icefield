@@ -48,6 +48,10 @@ public class GameplayFrame {
     private JLabel currentPlayerLabel;
     private JLabel numberofWorkUnitsLabel;
     private JLabel numberofActualHealthLabel;
+    private JButton bUp;
+    private JButton bLeft;
+    private JButton bDown;
+    private JButton bRight;
 
     public GameplayFrame() {
         $$$setupUI$$$();
@@ -64,35 +68,34 @@ public class GameplayFrame {
         currentPlayerLabel.setText(Test.getKeyByValue(players, currentPlayer));
         numberofWorkUnitsLabel.setText(String.valueOf(currentPlayer.getActualWorkUnit()));
         numberofActualHealthLabel.setText(String.valueOf(currentPlayer.getActualHealth()));
-        setChosenField(randomDir());
         refreshItemListModel();
     }
 
     void InitListeners() {
 
-        mainPanel.addKeyListener(new KeyAdapter() {
+        bUp.addActionListener(new ActionListener() {
             @Override
-            public void keyTyped(KeyEvent e) {
-                super.keyTyped(e);
-                switch (e.getKeyCode()) {
-                    case KeyEvent.VK_UP:
-                        System.out.println(KeyEvent.VK_UP);
-                        setChosenField(Direction.UP);
-                        break;
-                    case KeyEvent.VK_DOWN:
-                        System.out.println(KeyEvent.VK_DOWN);
-                        setChosenField(Direction.DOWN);
-                        break;
-                    case KeyEvent.VK_RIGHT:
-                        setChosenField(Direction.RIGHT);
-                        break;
-                    case KeyEvent.VK_LEFT:
-                        setChosenField(Direction.LEFT);
-                        break;
-                    default:
-                        System.out.println("Wrong key typed!");
-                        break;
-                }
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("UP");
+                setChosenField(Direction.UP);
+            }
+        });
+        bLeft.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setChosenField(Direction.LEFT);
+            }
+        });
+        bDown.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setChosenField(Direction.DOWN);
+            }
+        });
+        bRight.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setChosenField(Direction.RIGHT);
             }
         });
 
@@ -160,7 +163,8 @@ public class GameplayFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                chosenPlayerName = ((String) jplayerList.getSelectedValue()).split("|")[0].trim();
+                chosenPlayerName = ((String) jplayerList.getSelectedValue()).split(" | ")[0];
+                System.out.println(chosenPlayerName);
                 chosenPlayer = players.get(chosenPlayerName);
             }
         });
@@ -288,6 +292,10 @@ public class GameplayFrame {
         mainPanel.setPreferredSize(new Dimension(1200, 900));
         drawPanel.setPreferredSize(new Dimension(900, 900));
         informationPanel.setPreferredSize(new Dimension(300, 900));
+        bDown = new JButton();
+        bUp = new JButton();
+        bLeft = new JButton();
+        bRight = new JButton();
     }
 
     /**
@@ -315,7 +323,7 @@ public class GameplayFrame {
         info1 = new JPanel();
         info1.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
         info1.setBackground(new Color(-3941126));
-        info1.setPreferredSize(new Dimension(300, 300));
+        info1.setPreferredSize(new Dimension(300, 450));
         informationPanel.add(info1);
         lCurrentPlayer = new JLabel();
         Font lCurrentPlayerFont = this.$$$getFont$$$("Consolas", -1, 14, lCurrentPlayer.getFont());
@@ -356,11 +364,54 @@ public class GameplayFrame {
         lItems.setText("Items:");
         info1.add(lItems);
         final JScrollPane scrollPane1 = new JScrollPane();
-        scrollPane1.setPreferredSize(new Dimension(300, 200));
+        scrollPane1.setPreferredSize(new Dimension(300, 150));
         info1.add(scrollPane1);
-        jItemList = new JList();
-        jItemList.setPreferredSize(new Dimension(300, 200));
+        jItemList.setPreferredSize(new Dimension(300, 100));
         scrollPane1.setViewportView(jItemList);
+        final JPanel panel1 = new JPanel();
+        panel1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+        panel1.setBackground(new Color(-3941126));
+        panel1.setPreferredSize(new Dimension(300, 200));
+        info1.add(panel1);
+        final JPanel panel2 = new JPanel();
+        panel2.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
+        panel2.setBackground(new Color(-3941126));
+        panel2.setPreferredSize(new Dimension(300, 75));
+        panel1.add(panel2);
+        bUp.setBackground(new Color(-12828607));
+        bUp.setFocusable(false);
+        Font bUpFont = this.$$$getFont$$$("Consolas", Font.BOLD, 18, bUp.getFont());
+        if (bUpFont != null) bUp.setFont(bUpFont);
+        bUp.setForeground(new Color(-131077));
+        bUp.setPreferredSize(new Dimension(85, 75));
+        bUp.setText("UP");
+        panel2.add(bUp);
+        final JPanel panel3 = new JPanel();
+        panel3.setLayout(new FlowLayout(FlowLayout.CENTER, 3, 0));
+        panel3.setBackground(new Color(-3941126));
+        panel3.setPreferredSize(new Dimension(300, 75));
+        panel1.add(panel3);
+        bLeft.setBackground(new Color(-12828607));
+        Font bLeftFont = this.$$$getFont$$$("Consolas", Font.BOLD, 18, bLeft.getFont());
+        if (bLeftFont != null) bLeft.setFont(bLeftFont);
+        bLeft.setForeground(new Color(-131077));
+        bLeft.setPreferredSize(new Dimension(85, 75));
+        bLeft.setText("LEFT");
+        panel3.add(bLeft);
+        bDown.setBackground(new Color(-12828607));
+        Font bDownFont = this.$$$getFont$$$("Consolas", Font.BOLD, 18, bDown.getFont());
+        if (bDownFont != null) bDown.setFont(bDownFont);
+        bDown.setForeground(new Color(-131077));
+        bDown.setPreferredSize(new Dimension(85, 75));
+        bDown.setText("DOWN");
+        panel3.add(bDown);
+        bRight.setBackground(new Color(-12828607));
+        Font bRightFont = this.$$$getFont$$$("Consolas", Font.BOLD, 18, bRight.getFont());
+        if (bRightFont != null) bRight.setFont(bRightFont);
+        bRight.setForeground(new Color(-131077));
+        bRight.setPreferredSize(new Dimension(85, 75));
+        bRight.setText("RIGHT");
+        panel3.add(bRight);
         buttons = new JPanel();
         buttons.setLayout(new FlowLayout(FlowLayout.CENTER, 15, 5));
         buttons.setBackground(new Color(-3941126));

@@ -190,8 +190,8 @@ public final class Game {
                 double prob = random.nextDouble();
                 if (prob > P_ICEFIELD){
                     Hole hole = new Hole();
-                    hole.X = i;
-                    hole.Y = j;
+                    hole.X = j;
+                    hole.Y = i;
                     fields.add(hole);
                     view.AddView(new HoleView(hole));
                 }
@@ -207,8 +207,8 @@ public final class Game {
                     // TODO: ezt vissza
                     iceblock.setLayerOfSnow(thickness);
                     //iceblock.setLayerOfSnow(0);
-                    iceblock.X = i;
-                    iceblock.Y = j;
+                    iceblock.X = j;
+                    iceblock.Y = i;
                     fields.add(iceblock);
                     view.AddView(new IceBlockView(iceblock));
                 }
