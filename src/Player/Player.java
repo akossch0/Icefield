@@ -76,17 +76,19 @@ public abstract class Player extends Entity implements OutputToString{
      */
     public void DecrHp(){
         actualHealth--;
-        if(actualHealth==0){
+        if(actualHealth<=0){
             Manager.Lose();
         }
     }
     @Override
     public void Step(Field f){
-        if (f != null && !inWater){
-            field.Remove(this);
-            field = f;
-            f.Accept(this);
-            decreaseWorkUnits();
+        if (actualWorkUnit > 0) {
+            if (f != null && !inWater) {
+                field.Remove(this);
+                field = f;
+                f.Accept(this);
+                decreaseWorkUnits();
+            }
         }
     }
 
@@ -95,7 +97,8 @@ public abstract class Player extends Entity implements OutputToString{
      * Ezzel a metodussal a player ellapatol egy kevés havat a mezorol amin all
      */
     public void Dig(){
-        field.DecrLayerOfSnow(1);
+        if (actualWorkUnit > 0)
+            field.DecrLayerOfSnow(1);
 
     }
 
@@ -111,8 +114,9 @@ public abstract class Player extends Entity implements OutputToString{
      * @param target a player amin az item hasznalva lesz (pl rope)
      */
     public void UseItem(Item i, Player target){
-        if (i != null)
-            i.Use(target);
+        if (actualWorkUnit > 0)
+            if (i != null )
+                i.Use(target);
     }
 
     /**
@@ -120,7 +124,7 @@ public abstract class Player extends Entity implements OutputToString{
      */
     public void PickUpItem(){
         Item item = field.RemoveItem();
-        if (item != null){
+        if (item != null && actualWorkUnit > 0){
             items.add(item);
             item.setHolder(this);
             this.decreaseWorkUnits();

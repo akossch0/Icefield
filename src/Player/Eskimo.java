@@ -23,7 +23,8 @@ public class Eskimo extends Player {
      */
     @Override
     public int UseAbility(Field f){
-        getField().Cover(new IglooCover());
+        if (getActualWorkUnit()>0)
+            getField().Cover(new IglooCover());
         return -1;
     }
 
