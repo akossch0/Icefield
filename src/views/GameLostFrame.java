@@ -95,7 +95,7 @@ public class GameLostFrame {
         jButtonsPanel.setPreferredSize(new Dimension(600, 325));
         mainPanel.add(jButtonsPanel, BorderLayout.SOUTH);
         bExit = new JButton();
-        bExit.setBackground(new Color(-58332));
+        bExit.setBackground(new Color(-12828607));
         Font bExitFont = this.$$$getFont$$$("Consolas", Font.BOLD, 48, bExit.getFont());
         if (bExitFont != null) bExit.setFont(bExitFont);
         bExit.setForeground(new Color(-16382458));

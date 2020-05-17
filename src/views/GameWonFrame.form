@@ -41,7 +41,7 @@
           <component id="6d181" class="javax.swing.JButton" binding="bExit">
             <constraints/>
             <properties>
-              <background color="-8541700"/>
+              <background color="-12828607"/>
               <font name="Consolas" size="48" style="1"/>
               <foreground color="-5"/>
               <horizontalTextPosition value="0"/>
