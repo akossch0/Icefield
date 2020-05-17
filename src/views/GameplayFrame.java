@@ -7,6 +7,8 @@ import Player.*;
 import Prototype.Test;
 
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
@@ -30,6 +32,7 @@ public class GameplayFrame {
     private JButton bStep;
     private DefaultListModel playerListModel;
     private JList jplayerList;
+    private DefaultListModel itemListModel;
     private JList jItemList;
     private JButton bUseAbility;
     private JButton bDig;
@@ -42,6 +45,7 @@ public class GameplayFrame {
     private JLabel lPlayers;
     private JLabel currentPlayerLabel;
     private JLabel numberofWorkUnitsLabel;
+    private JLabel numberofActualHealthLabel;
 
     public GameplayFrame() {
         $$$setupUI$$$();
@@ -51,6 +55,9 @@ public class GameplayFrame {
     void UpdateComponents() {
         drawPanel.repaint();
         currentPlayerLabel.setText(Test.getKeyByValue(players, currentPlayer));
+        numberofWorkUnitsLabel.setText(String.valueOf(currentPlayer.getActualWorkUnit()));
+        numberofActualHealthLabel.setText(String.valueOf(currentPlayer.getActualHealth()));
+        refreshItemListModel();
         notifyAll();
     }
 
@@ -61,6 +68,7 @@ public class GameplayFrame {
                 super.keyTyped(e);
                 switch (e.getKeyCode()) {
                     case KeyEvent.VK_UP:
+                        System.out.println("UP");
                         setChosenField(Direction.UP);
                         break;
                     case KeyEvent.VK_DOWN:
@@ -170,7 +178,7 @@ public class GameplayFrame {
             while (true) {
                 int randField = (new Random()).nextInt(fields.size());
                 int polarIndex = fields.get(randField).getEntites().indexOf(PolarBear.getInstance());
-                if (fields.get(randField) instanceof IceBlock && polarIndex == -1 ) {
+                if (fields.get(randField) instanceof IceBlock && polarIndex == -1) {
                     p.setField(fields.get(randField));
                     break;
                 }
@@ -185,22 +193,30 @@ public class GameplayFrame {
         frame.pack();
         frame.setVisible(true);
         frame.setResizable(false);
+        //frame.setResizable(true);
         //opens in the center of the monitor
         frame.setLocationRelativeTo(null);
 
         //vihar teszt
         //Weather.getInstance().yourTurn();
         try {
-            Manager.Start();
+            //Manager.Start();
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+    public void refreshItemListModel() {
+        itemListModel.removeAllElements();
+        int i = 0;
+        for(Item item : currentPlayer.getItems()){
+            itemListModel.add(i,item);
+            i++;
         }
     }
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
         mainPanel = new JPanel();
-
         drawPanel = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
@@ -216,7 +232,17 @@ public class GameplayFrame {
             playerListModel.add(i, str + " | " + players.get(str).toString());
             i++;
         }
+        i = 0;
         jplayerList = new JList(playerListModel);
+
+        itemListModel = new DefaultListModel();
+        for(Item item : currentPlayer.getItems()){
+            itemListModel.add(i,item);
+            i++;
+        }
+        jItemList = new JList(itemListModel);
+
+
         mainPanel.setPreferredSize(new Dimension(1200, 900));
         drawPanel.setPreferredSize(new Dimension(900, 900));
         informationPanel.setPreferredSize(new Dimension(300, 900));
@@ -235,6 +261,9 @@ public class GameplayFrame {
         mainPanel.setLayout(new BorderLayout(0, 0));
         mainPanel.setBackground(new Color(-8541700));
         mainPanel.setEnabled(false);
+        mainPanel.setFocusCycleRoot(true);
+        mainPanel.setFocusTraversalPolicyProvider(true);
+        mainPanel.setVerifyInputWhenFocusTarget(true);
         mainPanel.setVisible(true);
         informationPanel = new JPanel();
         informationPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
@@ -266,6 +295,16 @@ public class GameplayFrame {
         numberofWorkUnitsLabel.setPreferredSize(new Dimension(100, 30));
         numberofWorkUnitsLabel.setText("");
         info1.add(numberofWorkUnitsLabel);
+        final JLabel label1 = new JLabel();
+        Font label1Font = this.$$$getFont$$$("Consolas", -1, 14, label1.getFont());
+        if (label1Font != null) label1.setFont(label1Font);
+        label1.setPreferredSize(new Dimension(150, 30));
+        label1.setText("Actual health:");
+        info1.add(label1);
+        numberofActualHealthLabel = new JLabel();
+        numberofActualHealthLabel.setPreferredSize(new Dimension(100, 30));
+        numberofActualHealthLabel.setText("");
+        info1.add(numberofActualHealthLabel);
         lItems = new JLabel();
         Font lItemsFont = this.$$$getFont$$$("Consolas", -1, 14, lItems.getFont());
         if (lItemsFont != null) lItems.setFont(lItemsFont);
@@ -280,9 +319,9 @@ public class GameplayFrame {
         jItemList.setPreferredSize(new Dimension(300, 200));
         scrollPane1.setViewportView(jItemList);
         buttons = new JPanel();
-        buttons.setLayout(new FlowLayout(FlowLayout.CENTER, 15, 15));
+        buttons.setLayout(new FlowLayout(FlowLayout.CENTER, 15, 5));
         buttons.setBackground(new Color(-3941126));
-        buttons.setPreferredSize(new Dimension(300, 400));
+        buttons.setPreferredSize(new Dimension(300, 280));
         informationPanel.add(buttons);
         bStep = new JButton();
         bStep.setAlignmentX(0.0f);
@@ -290,7 +329,7 @@ public class GameplayFrame {
         Font bStepFont = this.$$$getFont$$$("Consolas", Font.PLAIN, 20, bStep.getFont());
         if (bStepFont != null) bStep.setFont(bStepFont);
         bStep.setForeground(new Color(-1));
-        bStep.setPreferredSize(new Dimension(220, 50));
+        bStep.setPreferredSize(new Dimension(220, 40));
         bStep.setText("Step");
         buttons.add(bStep);
         bUseAbility = new JButton();
@@ -299,7 +338,7 @@ public class GameplayFrame {
         Font bUseAbilityFont = this.$$$getFont$$$("Consolas", Font.PLAIN, 20, bUseAbility.getFont());
         if (bUseAbilityFont != null) bUseAbility.setFont(bUseAbilityFont);
         bUseAbility.setForeground(new Color(-1));
-        bUseAbility.setPreferredSize(new Dimension(220, 50));
+        bUseAbility.setPreferredSize(new Dimension(220, 40));
         bUseAbility.setText("Use Ability");
         buttons.add(bUseAbility);
         bDig = new JButton();
@@ -308,7 +347,7 @@ public class GameplayFrame {
         Font bDigFont = this.$$$getFont$$$("Consolas", Font.PLAIN, 20, bDig.getFont());
         if (bDigFont != null) bDig.setFont(bDigFont);
         bDig.setForeground(new Color(-1));
-        bDig.setPreferredSize(new Dimension(220, 50));
+        bDig.setPreferredSize(new Dimension(220, 40));
         bDig.setText("Dig");
         buttons.add(bDig);
         bUseItem = new JButton();
@@ -317,7 +356,7 @@ public class GameplayFrame {
         Font bUseItemFont = this.$$$getFont$$$("Consolas", Font.PLAIN, 20, bUseItem.getFont());
         if (bUseItemFont != null) bUseItem.setFont(bUseItemFont);
         bUseItem.setForeground(new Color(-1));
-        bUseItem.setPreferredSize(new Dimension(220, 50));
+        bUseItem.setPreferredSize(new Dimension(220, 40));
         bUseItem.setText("Use Item");
         buttons.add(bUseItem);
         bPickUpItem = new JButton();
@@ -326,7 +365,7 @@ public class GameplayFrame {
         Font bPickUpItemFont = this.$$$getFont$$$("Consolas", Font.PLAIN, 20, bPickUpItem.getFont());
         if (bPickUpItemFont != null) bPickUpItem.setFont(bPickUpItemFont);
         bPickUpItem.setForeground(new Color(-1));
-        bPickUpItem.setPreferredSize(new Dimension(220, 50));
+        bPickUpItem.setPreferredSize(new Dimension(220, 40));
         bPickUpItem.setText("Pick Up Item");
         buttons.add(bPickUpItem);
         bEndTurn = new JButton();
@@ -335,14 +374,14 @@ public class GameplayFrame {
         Font bEndTurnFont = this.$$$getFont$$$("Consolas", Font.PLAIN, 20, bEndTurn.getFont());
         if (bEndTurnFont != null) bEndTurn.setFont(bEndTurnFont);
         bEndTurn.setForeground(new Color(-1));
-        bEndTurn.setPreferredSize(new Dimension(220, 50));
+        bEndTurn.setPreferredSize(new Dimension(220, 40));
         bEndTurn.setText("End Turn");
         buttons.add(bEndTurn);
         info2 = new JPanel();
         info2.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
         info2.setAutoscrolls(false);
         info2.setBackground(new Color(-3941126));
-        info2.setPreferredSize(new Dimension(300, 200));
+        info2.setPreferredSize(new Dimension(300, 400));
         informationPanel.add(info2);
         lPlayers = new JLabel();
         Font lPlayersFont = this.$$$getFont$$$("Consolas", -1, 14, lPlayers.getFont());
