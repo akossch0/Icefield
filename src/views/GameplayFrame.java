@@ -21,8 +21,8 @@ public class GameplayFrame {
     private static HashMap<String, Player> players = new HashMap<String, Player>();
     private static ArrayList<Field> fields = new ArrayList<Field>();
     static Field chosenField;
-    public static Player currentPlayer;
-    static Player chosenPlayer;
+    public volatile static Player currentPlayer;
+    volatile static Player chosenPlayer;
     static String chosenPlayerName;
     static Item chosenItem;
     private JPanel mainPanel;
@@ -162,6 +162,7 @@ public class GameplayFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 currentPlayer.setActualWorkUnit(0);
+                currentPlayer.EndTurn();
                 UpdateComponents();
             }
         });
@@ -218,7 +219,7 @@ public class GameplayFrame {
                 }
             }
             players.put(name, p);
-            Manager.getInstance().AddPlayer(p);
+            // Manager.getInstance().AddPlayer(p);
         }
         JFrame frame = new JFrame("Gameplay");
         frame.setContentPane(new GameplayFrame().mainPanel);
