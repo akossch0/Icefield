@@ -24,7 +24,7 @@ public class GameplayFrame {
     public volatile static Player currentPlayer;
     volatile static Player chosenPlayer;
     static String chosenPlayerName;
-    static Item chosenItem;
+    private Item chosenItem;
     private JPanel mainPanel;
     private JPanel drawPanel;
     private JPanel informationPanel;
@@ -74,7 +74,7 @@ public class GameplayFrame {
     }
 
     void InitListeners() {
-        timer = new Timer(40, new ActionListener() {
+        timer = new Timer(150, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 UpdateComponents();
@@ -196,7 +196,7 @@ public class GameplayFrame {
         chosenPlayer = p;
     }
 
-    public static void setChosenItem(Item i) {
+    public void setChosenItem(Item i) {
         chosenItem = i;
     }
 
