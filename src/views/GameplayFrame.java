@@ -173,6 +173,7 @@ public class GameplayFrame {
         chosenItem = i;
     }
 
+
     public static void Run(HashMap<String, String> ps) {
         Game.getInstance().InitMap();
         for (String name : ps.keySet()) {
