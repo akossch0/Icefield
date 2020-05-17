@@ -82,11 +82,12 @@ public abstract class Player extends Entity implements OutputToString{
     }
     @Override
     public void Step(Field f){
-
-        field.Remove(this);
-        field = f;
-        f.Accept(this);
-        decreaseWorkUnits();
+        if (f != null && !inWater){
+            field.Remove(this);
+            field = f;
+            f.Accept(this);
+            decreaseWorkUnits();
+        }
     }
 
 
@@ -95,6 +96,7 @@ public abstract class Player extends Entity implements OutputToString{
      */
     public void Dig(){
         field.DecrLayerOfSnow(1);
+
     }
 
     /**
@@ -143,7 +145,7 @@ public abstract class Player extends Entity implements OutputToString{
     public void yourTurn() throws InterruptedException {
         GameplayFrame.currentPlayer = this;
         actualWorkUnit = 4;
-        while(!endTurn&&actualWorkUnit > 0){
+        while(!endTurn && actualWorkUnit > 0){
             //TODO: CSINÁLD MEG AZ ANYUKÁD
             //System.out.println("Itt");
             // this.wait(1);
