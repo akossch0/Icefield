@@ -22,6 +22,7 @@
             <constraints border-constraint="Center"/>
             <properties>
               <font name="Consolas" size="90" style="1"/>
+              <foreground color="-16382458"/>
               <horizontalAlignment value="0"/>
               <horizontalTextPosition value="0"/>
               <preferredSize width="300" height="100"/>
@@ -38,13 +39,47 @@
         </properties>
         <border type="none"/>
         <children>
-          <component id="9a710" class="javax.swing.JButton" binding="bTryAgain">
-            <constraints border-constraint="Center"/>
+          <grid id="47c1" binding="jTryPanel" layout-manager="FlowLayout" hgap="0" vgap="0" flow-align="1">
+            <constraints border-constraint="North"/>
             <properties>
-              <font name="Consolas" size="48" style="1"/>
-              <text value="Try Again"/>
+              <background color="-58332"/>
+              <preferredSize width="600" height="175"/>
             </properties>
-          </component>
+            <border type="none"/>
+            <children>
+              <component id="766c" class="javax.swing.JButton" binding="bTryAgain">
+                <constraints/>
+                <properties>
+                  <background color="-58332"/>
+                  <font name="Consolas" size="48" style="1"/>
+                  <foreground color="-16382458"/>
+                  <preferredSize width="600" height="175"/>
+                  <text value="Try Again"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="a1193" binding="jExitPanel" layout-manager="FlowLayout" hgap="0" vgap="0" flow-align="1">
+            <constraints border-constraint="South"/>
+            <properties>
+              <background color="-58332"/>
+              <preferredSize width="600" height="150"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="1742e" class="javax.swing.JButton" binding="bExit">
+                <constraints/>
+                <properties>
+                  <background color="-58332"/>
+                  <font name="Consolas" size="48" style="1"/>
+                  <foreground color="-16382458"/>
+                  <horizontalTextPosition value="0"/>
+                  <preferredSize width="600" height="150"/>
+                  <text value="Exit"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
         </children>
       </grid>
     </children>

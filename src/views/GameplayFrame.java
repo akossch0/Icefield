@@ -343,6 +343,7 @@ public class GameplayFrame {
         lCurrentPlayer.setRequestFocusEnabled(true);
         lCurrentPlayer.setText("Current player:");
         info1.add(lCurrentPlayer);
+        currentPlayerLabel = new JLabel();
         currentPlayerLabel.setPreferredSize(new Dimension(100, 30));
         currentPlayerLabel.setText("");
         info1.add(currentPlayerLabel);
