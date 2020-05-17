@@ -130,14 +130,16 @@ public class GameplayFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (currentPlayer instanceof Researcher) {
-                    if (chosenField != null)
+                    if (chosenField != null){
                         currentPlayer.UseAbility(chosenField);
-                    chosenField.isInspected = true;
+                        chosenField.isInspected = true;
+                    }
 
                 } else {
                     currentPlayer.UseAbility(currentPlayer.getField());
 
                 }
+                chosenField = null;
                 UpdateComponents();
             }
         });
@@ -145,6 +147,7 @@ public class GameplayFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 currentPlayer.Dig();
+                chosenField = null;
                 UpdateComponents();
             }
         });
@@ -169,6 +172,7 @@ public class GameplayFrame {
                 } else {
                     System.out.println("Nem jó a Useitem kiválasztás!");
                 }
+                chosenField = null;
                 UpdateComponents();
             }
         });
@@ -176,6 +180,7 @@ public class GameplayFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 currentPlayer.PickUpItem();
+                chosenField = null;
                 UpdateComponents();
             }
         });
@@ -193,7 +198,6 @@ public class GameplayFrame {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 chosenPlayerName = ((String) jplayerList.getSelectedValue()).split(" | ")[0];
-                System.out.println(chosenPlayerName);
                 chosenPlayer = players.get(chosenPlayerName);
             }
         });
