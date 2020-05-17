@@ -103,7 +103,7 @@ public abstract class Player extends Entity implements OutputToString{
     public void Dig(){
         if (actualWorkUnit > 0)
             field.DecrLayerOfSnow(1);
-
+        actualWorkUnit--;
     }
 
     /**

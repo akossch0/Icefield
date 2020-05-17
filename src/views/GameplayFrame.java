@@ -224,8 +224,7 @@ public class GameplayFrame {
             }
 
             players.put(name, p);
-            // Manager.getInstance().AddPlayer(p);
-            // Manager.getInstance().AddPlayer(p);
+            //Manager.getInstance().AddPlayer(p);
             if (i == 0) {
                 currentPlayer = p;
             }
