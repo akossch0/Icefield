@@ -189,9 +189,10 @@ public class GameplayFrame {
         });
         jItemList.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
+            public void mousePressed(MouseEvent e) {
+                // super.mouseClicked(e);
                 chosenItem = (Item) jItemList.getSelectedValue();
+                jItemList.setSelectedValue(chosenItem, false);
             }
         });
     }
@@ -290,6 +291,10 @@ public class GameplayFrame {
                 itemListModel.add(i, item);
                 i++;
             }
+            if (chosenItem != null && currentPlayer.getItems().indexOf(chosenItem) == -1)
+                chosenItem = null;
+            else
+                jItemList.setSelectedValue(chosenItem, false);
         }
     }
 
