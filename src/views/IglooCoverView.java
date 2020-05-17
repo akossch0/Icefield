@@ -29,6 +29,7 @@ public class IglooCoverView implements IView {
     public void Draw(Graphics graphics) {
         if(!(field.getCover() instanceof IglooCover)) Game.getInstance().getView().RemoveView(this);
         else graphics.drawImage(image, field.X*64, field.Y*64, null );
+
     }
 
     @Override
