@@ -25,7 +25,7 @@ public class GameLostFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String[] args = new String[0];
-                GameFrame.Run(args);
+                GameStartFrame.Run(args);
             }
         });
         bExit.addActionListener(new ActionListener() {

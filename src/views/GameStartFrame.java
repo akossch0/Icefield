@@ -1,11 +1,5 @@
 package views;
 
-import Field.Field;
-import Game.Game;
-import Item.Item;
-import Player.*;
-
-
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
@@ -16,7 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
 
-public class GameFrame {
+public class GameStartFrame {
     private static JFrame gameFrame;
     private JPanel mainPanel;
     private JButton startButton;
@@ -31,14 +25,14 @@ public class GameFrame {
     private DefaultListModel playerListModel;
     private HashMap<String, String> players = new HashMap<>();
 
-    public GameFrame() {
+    public GameStartFrame() {
         $$$setupUI$$$();
         InitComponents();
     }
 
     public static void Run(String[] args) {
         JFrame frame = new JFrame("Icefield");
-        frame.setContentPane(new GameFrame().mainPanel);
+        frame.setContentPane(new GameStartFrame().mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);

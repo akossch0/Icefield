@@ -159,6 +159,7 @@ public class GameplayFrame {
             public void actionPerformed(ActionEvent e) {
                 currentPlayer.PickUpItem();
                 UpdateComponents();
+                GameWonFrame.Run();
             }
         });
 
