@@ -69,6 +69,7 @@ public class GameplayFrame {
         currentPlayerLabel.setText(Test.getKeyByValue(players, currentPlayer));
         numberofWorkUnitsLabel.setText(String.valueOf(currentPlayer.getActualWorkUnit()));
         numberofActualHealthLabel.setText(String.valueOf(currentPlayer.getActualHealth()));
+        //setChosenField(randomDir());
         refreshItemListModel();
     }
 
@@ -217,6 +218,7 @@ public class GameplayFrame {
                     break;
                 }
             }
+
             players.put(name, p);
             Manager.getInstance().AddPlayer(p);
         }

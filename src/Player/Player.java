@@ -36,6 +36,10 @@ public abstract class Player extends Entity implements OutputToString{
         Manager.AddPlayer(this);
     };
 
+    public boolean isInWater() {
+        return inWater;
+    }
+
     private boolean endTurn = false;
     public void setEndTurn(boolean _endturn){endTurn = _endturn;}
 
