@@ -1,7 +1,6 @@
 package views;
 
 import Field.Field;
-import Field.IceBlock;
 import Item.Rope;
 
 import javax.imageio.ImageIO;

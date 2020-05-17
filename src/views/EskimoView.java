@@ -1,7 +1,6 @@
 package views;
 
 import Field.Field;
-import Game.Actor;
 import Player.Eskimo;
 
 import javax.imageio.ImageIO;

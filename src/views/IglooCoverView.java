@@ -1,7 +1,6 @@
 package views;
 
 import Coverable.IglooCover;
-import Coverable.TentCover;
 import Field.Field;
 import Game.Game;
 
