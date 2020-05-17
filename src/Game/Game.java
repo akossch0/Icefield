@@ -36,7 +36,6 @@ public final class Game {
         // Ha meg egyszer sem keszitettunk el Game objektumot akkor most lesz elkeszitve
         if(INSTANCE == null)
             INSTANCE = new Game();
-
         return INSTANCE;
     }
     /**
@@ -95,7 +94,6 @@ public final class Game {
                 }
             }
         }
-
         for (int i = 0; i < HEIGHT; i++){
             for (int j = 0; j < WIDTH; j++){
                 Field current = fields.get(j+i*WIDTH);
