@@ -2,6 +2,7 @@ package views;
 
 import Coverable.IglooCover;
 import Coverable.TentCover;
+import Field.Field;
 import Field.IceBlock;
 
 import javax.imageio.ImageIO;
@@ -37,6 +38,13 @@ public class IceBlockView implements IView {
             graphics.drawImage(imagewithoutsnow,iceBlock.X*64,iceBlock.Y*64,null);
         else
             graphics.drawImage(imagewithsnow,iceBlock.X*64,iceBlock.Y*64,null);
+        Field chosenField = GameplayFrame.getChosenField();
+        if (chosenField != null && chosenField.equals(iceBlock)){
+            Graphics2D g2D = (Graphics2D) graphics;
+            g2D.setColor(Color.green);
+            g2D.setStroke(new BasicStroke(4));
+            g2D.drawRect(iceBlock.X*64,iceBlock.Y*64, 64,64);
+        }
     }
 
     @Override

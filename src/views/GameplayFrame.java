@@ -204,6 +204,9 @@ public class GameplayFrame {
     public static Player getCurrentPlayer() {
         return currentPlayer;
     }
+    public static Field getChosenField() {
+        return chosenField;
+    }
 
     public static void setChosenPlayer(Player p) {
         chosenPlayer = p;

@@ -1,5 +1,6 @@
 package views;
 
+import Field.Field;
 import Field.Hole;
 
 import javax.imageio.ImageIO;
@@ -30,6 +31,14 @@ public class HoleView implements IView{
             graphics.drawImage(imagewithoutsnow,hole.X*64,hole.Y*64,null);
         else
             graphics.drawImage(imagewithsnow,hole.X*64,hole.Y*64,null);
+        Field chosenField = GameplayFrame.getChosenField();
+        if (chosenField != null && chosenField.equals(hole)){
+            Graphics2D g2D = (Graphics2D) graphics;
+            g2D.setColor(Color.green);
+            g2D.setStroke(new BasicStroke(4));
+            g2D.drawRect(hole.X*64,hole.Y*64, 64,64);
+        }
+
     }
 
     @Override
