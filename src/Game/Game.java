@@ -125,8 +125,6 @@ public final class Game {
                     current.AddNeighbour(Direction.RIGHT, fields.get(j+1+i*WIDTH));
             }
         }
-
-        ArrayList<Item> items = new ArrayList<Item>();
         //Winning Item
         int cnt = 0;
         while (cnt < 3){
@@ -150,7 +148,6 @@ public final class Game {
                 view.AddView(new TentView(tent));
             }
         }
-
         // Swimsuit
         for (int i = 0; i < NUMBER_OF_FIELDS /15; i++ ) {
             int randomField = random.nextInt(fields.size());
@@ -205,27 +202,21 @@ public final class Game {
         Manager.getInstance().AddActor(Weather.getInstance());
         Manager.getInstance().AddActor(pb);
 
-        for (Field f:fields)
-        {
+        for (Field f:fields) {
             newObjects.add(f);
-            if (f.getItem() != null){
+            if (f.getItem() != null)
                 newObjects.add(f.getItem());
-            }
         }
         return newObjects;
-
     }
-
     /**
      * Jatek megnyerese
      */
     public void Win(){ gameWon = true; }
-
     /**
      * Jatek elvesztese
      */
     public void Lose(){ gameLost = true; }
-
     public View getView() {
         return view;
     }

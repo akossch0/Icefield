@@ -21,21 +21,17 @@ public class Researcher extends Player {
      */
     @Override
     public int UseAbility(Field f) {
-        if (getActualWorkUnit()>0){
+        if (getActualWorkUnit()>0)
             if(!isInWater()){
                 setActualWorkUnit(getActualWorkUnit() - 1);
                 return f.getCapacity();
             }
-        }
         return -1;
     }
-
     @Override
     public String getType() {return "researcher";}
-
     /**
      * toString hivasra az osztaly nevevel ter vissza
-     *
      */
     @Override
     public String toString(){
