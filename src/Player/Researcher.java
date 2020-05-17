@@ -22,7 +22,7 @@ public class Researcher extends Player {
     @Override
     public int UseAbility(Field f) {
         if (getActualWorkUnit()>0){
-            setActualWorkUnit(getActualHealth() - 1);
+            setActualWorkUnit(getActualWorkUnit() - 1);
             return f.getCapacity();
         } else{
             return -1;
