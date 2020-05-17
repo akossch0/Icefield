@@ -1,9 +1,7 @@
 package Game;
 
 import Field.Field;
-
 import java.util.*;
-
 import Item.*;
 import Field.*;
 import views.*;
@@ -13,17 +11,12 @@ import views.*;
  * Hoviharokat general a jatekosok lepesei kozott.
  */
 public final class Game {
-
     private View view = new View();
-
-
     private static boolean gameWon = false;
     private static boolean gameLost = false;
-
     public static ArrayList<Field> getFields() {
         return fields;
     }
-
     /**
      * A jatekteren talalhato osszes mezo
      */
@@ -46,19 +39,16 @@ public final class Game {
 
         return INSTANCE;
     }
-
     /**
      * Megnyert-e a jatek
      * @return
      */
     public static boolean isGameWon(){ return gameWon; }
-
     /**
      * Elvesztett-e a jatek
      * @return
      */
     public static boolean isGameLost(){ return gameLost; }
-
     /**
      * Ha privat a konstruktor senki sem tudja osszekeverni a dolgokat
      * es mindenki helyesen a getInstance fuggvenyt fogja hasznali
@@ -67,15 +57,13 @@ public final class Game {
     /**
      * elinditja a jatekot
      */
-
     public List<Object> InitMap(){
-        double P_ICEFIELD = 0.9;
         int WIDTH = 14;
         int HEIGHT = 14;
         int NUMBER_OF_FIELDS = WIDTH * HEIGHT;
         int MAX_SNOW_THICKNESS = 4;
         int MAX_CAPACITY = 4;
-        
+        double P_ICEFIELD = 0.9;
         List<Object> newObjects = new ArrayList<>();
         fields = new ArrayList<Field>();
         Random random = new Random();
@@ -95,14 +83,10 @@ public final class Game {
                     int thickness = random.nextInt(MAX_SNOW_THICKNESS);
 
                     int capacity = random.nextInt(MAX_CAPACITY + 1);
-                    if (capacity >= MAX_CAPACITY) {
+                    if (capacity >= MAX_CAPACITY)
                         iceblock.setCapacity(-1);
-
-                    } else {
-                        // TODO: ezt is vissza csere
+                    else
                         iceblock.setCapacity(capacity + 1);
-                    }
-                    // TODO: ezt vissza
                     iceblock.setLayerOfSnow(thickness);
                     iceblock.X = j;
                     iceblock.Y = i;
