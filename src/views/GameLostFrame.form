@@ -31,7 +31,7 @@
           </component>
         </children>
       </grid>
-      <grid id="cc969" binding="jButtonsPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+      <grid id="cc969" binding="jButtonsPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
         <constraints border-constraint="South"/>
         <properties>
           <background color="-58332"/>
@@ -39,47 +39,17 @@
         </properties>
         <border type="none"/>
         <children>
-          <grid id="47c1" binding="jTryPanel" layout-manager="FlowLayout" hgap="0" vgap="0" flow-align="1">
-            <constraints border-constraint="North"/>
+          <component id="548fc" class="javax.swing.JButton" binding="bExit">
+            <constraints/>
             <properties>
               <background color="-58332"/>
-              <preferredSize width="600" height="175"/>
-            </properties>
-            <border type="none"/>
-            <children>
-              <component id="766c" class="javax.swing.JButton" binding="bTryAgain">
-                <constraints/>
-                <properties>
-                  <background color="-58332"/>
-                  <font name="Consolas" size="48" style="1"/>
-                  <foreground color="-16382458"/>
-                  <preferredSize width="600" height="175"/>
-                  <text value="Try Again"/>
-                </properties>
-              </component>
-            </children>
-          </grid>
-          <grid id="a1193" binding="jExitPanel" layout-manager="FlowLayout" hgap="0" vgap="0" flow-align="1">
-            <constraints border-constraint="South"/>
-            <properties>
-              <background color="-58332"/>
+              <font name="Consolas" size="48" style="1"/>
+              <foreground color="-16382458"/>
+              <horizontalTextPosition value="0"/>
               <preferredSize width="600" height="150"/>
+              <text value="Exit"/>
             </properties>
-            <border type="none"/>
-            <children>
-              <component id="1742e" class="javax.swing.JButton" binding="bExit">
-                <constraints/>
-                <properties>
-                  <background color="-58332"/>
-                  <font name="Consolas" size="48" style="1"/>
-                  <foreground color="-16382458"/>
-                  <horizontalTextPosition value="0"/>
-                  <preferredSize width="600" height="150"/>
-                  <text value="Exit"/>
-                </properties>
-              </component>
-            </children>
-          </grid>
+          </component>
         </children>
       </grid>
     </children>

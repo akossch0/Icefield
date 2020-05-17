@@ -11,9 +11,6 @@ public class GameLostFrame {
     private JLabel lGameLost;
     private JPanel jTextPanel;
     private JPanel jButtonsPanel;
-    private JPanel jTryPanel;
-    private JButton bTryAgain;
-    private JPanel jExitPanel;
     private JButton bExit;
 
     public GameLostFrame() {
@@ -21,13 +18,6 @@ public class GameLostFrame {
     }
 
     void InitListeners() {
-        bTryAgain.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                gameLostFrame.dispose();
-                GameStartFrame.Run(null);
-            }
-        });
         bExit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -86,24 +76,6 @@ public class GameLostFrame {
         jButtonsPanel.setBackground(new Color(-58332));
         jButtonsPanel.setPreferredSize(new Dimension(600, 325));
         mainPanel.add(jButtonsPanel, BorderLayout.SOUTH);
-        jTryPanel = new JPanel();
-        jTryPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
-        jTryPanel.setBackground(new Color(-58332));
-        jTryPanel.setPreferredSize(new Dimension(600, 175));
-        jButtonsPanel.add(jTryPanel, BorderLayout.NORTH);
-        bTryAgain = new JButton();
-        bTryAgain.setBackground(new Color(-58332));
-        Font bTryAgainFont = this.$$$getFont$$$("Consolas", Font.BOLD, 48, bTryAgain.getFont());
-        if (bTryAgainFont != null) bTryAgain.setFont(bTryAgainFont);
-        bTryAgain.setForeground(new Color(-16382458));
-        bTryAgain.setPreferredSize(new Dimension(600, 175));
-        bTryAgain.setText("Try Again");
-        jTryPanel.add(bTryAgain);
-        jExitPanel = new JPanel();
-        jExitPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
-        jExitPanel.setBackground(new Color(-58332));
-        jExitPanel.setPreferredSize(new Dimension(600, 150));
-        jButtonsPanel.add(jExitPanel, BorderLayout.SOUTH);
         bExit = new JButton();
         bExit.setBackground(new Color(-58332));
         Font bExitFont = this.$$$getFont$$$("Consolas", Font.BOLD, 48, bExit.getFont());
@@ -112,7 +84,6 @@ public class GameLostFrame {
         bExit.setHorizontalTextPosition(0);
         bExit.setPreferredSize(new Dimension(600, 150));
         bExit.setText("Exit");
-        jExitPanel.add(bExit);
     }
 
     /**
