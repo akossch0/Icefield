@@ -25,6 +25,7 @@ public class Eskimo extends Player {
     public int UseAbility(Field f){
         if (getActualWorkUnit()>0)
             getField().Cover(new IglooCover());
+        setActualWorkUnit(getActualHealth() - 1);
         return -1;
     }
 
