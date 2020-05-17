@@ -10,7 +10,9 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-
+/**
+ * aso nezet
+ */
 public class SpadeView implements IView {
     Spade spade;
     BufferedImage image = null;
@@ -26,6 +28,11 @@ public class SpadeView implements IView {
             System.out.println("nem jo a spade rajzolas");
         }
     }
+
+    /**
+     * aso kirajzolas
+     * @param graphics
+     */
     @Override
     public void Draw(Graphics graphics) {
         if (spade.getHolder() == null) {

@@ -9,7 +9,9 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-
+/**
+ * lyuk nezet
+ */
 public class HoleView implements IView{
     Hole hole;
     BufferedImage imagewithsnow;
@@ -25,6 +27,11 @@ public class HoleView implements IView{
             System.out.println("Baj van - HoleView betoltese");
         }
     }
+
+    /**
+     * lyuk kirajzolasaert felelos
+     * @param graphics
+     */
     @Override
     public void Draw(Graphics graphics) {
         if(hole.getLayerOfSnow()==0)

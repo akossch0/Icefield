@@ -8,7 +8,9 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-
+/**
+ * jegesmedve nezet
+ */
 public class PolarBearView implements IView {
     PolarBear polarBear;
     BufferedImage image = null;
@@ -21,6 +23,11 @@ public class PolarBearView implements IView {
             System.out.println("nem jo a polarbear rajzolas");
         }
     }
+
+    /**
+     * jegesmedve kirajzolas
+     * @param graphics
+     */
     @Override
     public void Draw(Graphics graphics) {
         graphics.drawImage(image, polarBear.getField().X * 64, polarBear.getField().Y * 64, null);

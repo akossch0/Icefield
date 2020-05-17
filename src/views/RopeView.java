@@ -1,7 +1,6 @@
 package views;
 
 import Field.Field;
-import Field.IceBlock;
 import Item.Rope;
 
 import javax.imageio.ImageIO;
@@ -10,7 +9,9 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-
+/**
+ * kotel nezet
+ */
 public class RopeView implements IView {
     Rope rope;
     BufferedImage image = null;
@@ -26,6 +27,11 @@ public class RopeView implements IView {
             System.out.println("nem jo a kotel rajzolas");
         }
     }
+
+    /**
+     * kotel kirajzolas
+     * @param graphics
+     */
     @Override
     public void Draw(Graphics graphics) {
         //if(!rope.getField().IsOpen()) { /*opacity valtoztatasa*/}

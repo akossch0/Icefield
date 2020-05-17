@@ -10,7 +10,9 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-
+/**
+ * sator cover nezet
+ */
 public class TentCoverView implements IView{
 
     Field field;
@@ -25,6 +27,11 @@ public class TentCoverView implements IView{
             System.out.println("nem jo a tencover rajzolas");
         }
     }
+
+    /**
+     * sator nezet kirajzolas
+     * @param graphics
+     */
     @Override
     public void Draw(Graphics graphics) {
         if(!(field.getCover() instanceof TentCover))

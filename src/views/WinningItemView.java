@@ -9,7 +9,9 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-
+/**
+ * nyero item nezet
+ */
 public class WinningItemView implements IView{
 
     WinningItem winningItem;
@@ -39,6 +41,11 @@ public class WinningItemView implements IView{
             System.out.println("Valami baj van a winningitem i/o-val");
         }
     }
+
+    /**
+     * nyero item rajzolas
+     * @param graphics
+     */
     @Override
     public void Draw(Graphics graphics) {
         if (winningItem.getHolder() == null)   {

@@ -9,7 +9,9 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-
+/**
+ * sator item nezet
+ */
 public class TentView implements IView {
     Tent tent;
     BufferedImage image;
@@ -25,6 +27,10 @@ public class TentView implements IView {
         }
     }
 
+    /**
+     * sator item rajzolas
+     * @param graphics
+     */
     @Override
     public void Draw(Graphics graphics) {
         if (tent.getHolder() == null) {

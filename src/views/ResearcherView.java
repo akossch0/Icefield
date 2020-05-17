@@ -9,7 +9,9 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-
+/**
+ * kutato nezet
+ */
 public class ResearcherView implements IView {
     Researcher researcher;
     BufferedImage image;
@@ -24,6 +26,11 @@ public class ResearcherView implements IView {
             System.out.println("nem jo az Eskimo rajzolas");
         }
         researcher = r;}
+
+    /**
+     * kutato kirajzolas
+     * @param graphics
+     */
     @Override
     public void Draw(Graphics graphics) {
 
