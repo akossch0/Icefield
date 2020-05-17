@@ -25,14 +25,13 @@ public class GameLostFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String[] args = new String[0];
-                GameFrame.Run(args);
+                GameStartFrame.Run(args);
             }
         });
         bExit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                gameLostFrame.setVisible(false);
-                gameLostFrame.dispose();
+                System.exit(0);
             }
         });
     }
@@ -67,7 +66,7 @@ public class GameLostFrame {
         mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout(0, 0));
         mainPanel.setBackground(new Color(-58332));
-        mainPanel.setPreferredSize(new Dimension(600, 600));
+        mainPanel.setPreferredSize(new Dimension(800, 800));
         jTextPanel = new JPanel();
         jTextPanel.setLayout(new BorderLayout(0, 0));
         jTextPanel.setBackground(new Color(-58332));
@@ -141,4 +140,5 @@ public class GameLostFrame {
     public JComponent $$$getRootComponent$$$() {
         return mainPanel;
     }
+
 }
