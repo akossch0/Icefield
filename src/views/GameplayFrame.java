@@ -52,6 +52,7 @@ public class GameplayFrame {
     private JButton bLeft;
     private JButton bDown;
     private JButton bRight;
+    private Timer timer;
 
     public GameplayFrame() {
         $$$setupUI$$$();
@@ -72,7 +73,13 @@ public class GameplayFrame {
     }
 
     void InitListeners() {
-
+        timer = new Timer(40, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                UpdateComponents();
+            }
+        });
+        timer.start();
         bUp.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
