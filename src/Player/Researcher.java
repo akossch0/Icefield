@@ -22,11 +22,12 @@ public class Researcher extends Player {
     @Override
     public int UseAbility(Field f) {
         if (getActualWorkUnit()>0){
-            setActualWorkUnit(getActualWorkUnit() - 1);
-            return f.getCapacity();
-        } else{
-            return -1;
+            if(!isInWater()){
+                setActualWorkUnit(getActualWorkUnit() - 1);
+                return f.getCapacity();
+            }
         }
+        return -1;
     }
 
     @Override

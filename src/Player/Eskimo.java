@@ -24,8 +24,10 @@ public class Eskimo extends Player {
     @Override
     public int UseAbility(Field f){
         if (getActualWorkUnit()>0)
-            getField().Cover(new IglooCover());
-        setActualWorkUnit(getActualWorkUnit() - 1);
+            if (!isInWater()){
+                getField().Cover(new IglooCover());
+                setActualWorkUnit(getActualWorkUnit() - 1);
+            }
         return -1;
     }
 
