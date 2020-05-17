@@ -2,6 +2,8 @@ package Player;
 
 import Coverable.IglooCover;
 import Field.*;
+import Game.Game;
+import views.IglooCoverView;
 
 /**
  * Egy jatekos altal iranyitott karaktert reprezental, aki iglu epitesere kepes, annak
@@ -27,6 +29,7 @@ public class Eskimo extends Player {
             if (!isInWater()){
                 getField().Cover(new IglooCover());
                 setActualWorkUnit(getActualWorkUnit() - 1);
+                Game.getInstance().getView().AddView(new IglooCoverView(this.getField()));
             }
         return -1;
     }

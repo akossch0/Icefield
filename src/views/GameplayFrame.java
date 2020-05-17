@@ -136,7 +136,7 @@ public class GameplayFrame {
 
                 } else {
                     currentPlayer.UseAbility(currentPlayer.getField());
-                    Game.getInstance().getView().AddView(new IglooCoverView(currentPlayer.getField()));
+
                 }
                 UpdateComponents();
             }
