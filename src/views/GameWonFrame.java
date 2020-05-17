@@ -66,6 +66,7 @@ public class GameWonFrame {
     private void $$$setupUI$$$() {
         mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout(0, 0));
+        mainPanel.setPreferredSize(new Dimension(800, 800));
         jTextPanel = new JPanel();
         jTextPanel.setLayout(new BorderLayout(0, 0));
         jTextPanel.setBackground(new Color(-8541700));
@@ -139,4 +140,5 @@ public class GameWonFrame {
     public JComponent $$$getRootComponent$$$() {
         return mainPanel;
     }
+
 }

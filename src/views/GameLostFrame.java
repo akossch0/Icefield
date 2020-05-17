@@ -67,7 +67,7 @@ public class GameLostFrame {
         mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout(0, 0));
         mainPanel.setBackground(new Color(-58332));
-        mainPanel.setPreferredSize(new Dimension(600, 600));
+        mainPanel.setPreferredSize(new Dimension(800, 800));
         jTextPanel = new JPanel();
         jTextPanel.setLayout(new BorderLayout(0, 0));
         jTextPanel.setBackground(new Color(-58332));
@@ -141,4 +141,5 @@ public class GameLostFrame {
     public JComponent $$$getRootComponent$$$() {
         return mainPanel;
     }
+
 }
