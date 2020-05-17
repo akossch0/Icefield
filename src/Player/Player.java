@@ -9,6 +9,7 @@ import views.Controller;
 import views.GameplayFrame;
 
 import java.util.*;
+import java.util.concurrent.CountDownLatch;
 
 /**
  * Absztrakt alaposztaly, a konkret peldanyai az Eszkimo (Eskimo) vagy a Sarkkutato (Researcher).
@@ -46,6 +47,9 @@ public abstract class Player extends Entity implements OutputToString{
         this.actualWorkUnit = actualWorkUnit;
     }
 
+    public int getActualHealth() {
+        return actualHealth;
+    }
     /**
      * A jatek menedzsere
      */
