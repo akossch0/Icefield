@@ -13,10 +13,12 @@ public class Rope extends Item {
      */
     @Override
     public void Use(Player p){
-        this.getHolder().decreaseWorkUnits();
-        Field target = this.getHolder().getField();
-        p.setInWater(false);
-        p.setField(target);
+        if(p.isWaterproof() || !p.isInWater() || p.getField().getNeighboursWithDir().containsValue(this.getHolder().getField())) {
+            this.getHolder().decreaseWorkUnits();
+            Field target = this.getHolder().getField();
+            p.setInWater(false);
+            p.setField(target);
+        }
     }
 
     /**

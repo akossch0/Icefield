@@ -41,7 +41,7 @@
                   <text value="Current player:"/>
                 </properties>
               </component>
-              <component id="c578" class="javax.swing.JLabel" binding="currentPlayerLabel">
+              <component id="c578" class="javax.swing.JLabel" binding="currentPlayerLabel" custom-create="true">
                 <constraints/>
                 <properties>
                   <preferredSize width="100" height="30"/>
